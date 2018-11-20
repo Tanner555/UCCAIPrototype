@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<ArrayOfCharacterStatsSimple xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CharacterStatsSimple>
+    <name>Blue Silly Pants</name>
+    <CharacterType>BlueSillyPants</CharacterType>
+    <MaxHealth>1000</MaxHealth>
+    <Health>1000</Health>
+    <MaxStamina>100</MaxStamina>
+    <Stamina>100</Stamina>
+    <EquippedWeapon>Primary</EquippedWeapon>
+    <PrimaryWeapon>Katana</PrimaryWeapon>
+    <SecondaryWeapon>Pistol</SecondaryWeapon>
+  </CharacterStatsSimple>
+  <CharacterStatsSimple>
+    <name>Brown Silly Pants</name>
+    <CharacterType>BrownSillyPants</CharacterType>
+    <MaxHealth>1000</MaxHealth>
+    <Health>1000</Health>
+    <MaxStamina>100</MaxStamina>
+    <Stamina>100</Stamina>
+    <EquippedWeapon>Primary</EquippedWeapon>
+    <PrimaryWeapon>Katana</PrimaryWeapon>
+    <SecondaryWeapon>Pistol</SecondaryWeapon>
+  </CharacterStatsSimple>
+  <CharacterStatsSimple>
+    <name>Evil Assault Villain 1</name>
+    <CharacterType>EvilAssaultVillian1</CharacterType>
+    <MaxHealth>100</MaxHealth>
+    <Health>100</Health>
+    <MaxStamina>100</MaxStamina>
+    <Stamina>100</Stamina>
+    <EquippedWeapon>Primary</EquippedWeapon>
+    <PrimaryWeapon>Katana</PrimaryWeapon>
+    <SecondaryWeapon>Pistol</SecondaryWeapon>
+  </CharacterStatsSimple>
+  <CharacterStatsSimple>
+    <name>Silly Girl Medic</name>
+    <CharacterType>SillyGirlMedic</CharacterType>
+    <MaxHealth>1000</MaxHealth>
+    <Health>1000</Health>
+    <MaxStamina>100</MaxStamina>
+    <Stamina>100</Stamina>
+    <EquippedWeapon>Primary</EquippedWeapon>
+    <PrimaryWeapon>Katana</PrimaryWeapon>
+    <SecondaryWeapon>Pistol</SecondaryWeapon>
+  </CharacterStatsSimple>
+</ArrayOfCharacterStatsSimple>

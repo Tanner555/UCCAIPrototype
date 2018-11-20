@@ -1,0 +1,22 @@
+In Assets Folder
+In ModelsAndAssets Folder
+Environment Folder
+This is where environment assets are stored
+Environment Assets
+ - Concrete textures pack
+ - Ground textures pack
+ - Meshes (From Same arthur that made Concrete and Ground Packs)
+ - Metal textures pack
+ - Stylized foliages pack
+ - Yughues Free Palm Trees
+ - Yughues Free Sand Materials
+Models Folder
+This is where custom and asset store models are stored
+Model Assets
+ - Mixamo - Melee Axe and Magic Pack
+SoundsAndMusic Folder
+This is where Sound and Music Assets Are Stored.
+Sound Assets
+ - Universal Sound FX
+Music Assets
+ - Ultimate Game Music Collection

@@ -1,0 +1,18 @@
+Unity3d property drawer for automatically making enums flags into mask fields in the inspector.
+
+Usage: Put the .cs files somewhere in your project. When you have an enum field you want to turn into a mask field in the inspector, add the EnumFlag attribute over the field. Eg:
+
+[EnumFlag]
+MyCustomEnum thisEnum;
+// This lets you give the field a custom name in the inspector.
+[EnumFlag("Custom Inspector Name")]
+MyCustomEnum anotherEnum;
+
+My updates:
+-Added modification check to better support multi-object editing
+-Added support for the better Unity 2017.3 version of the flag property drawer: EditorGUI.EnumFlagsField()
+-Added Nicifier formatting on field name for parameter-less attribute
+-Removed "static T GetBaseProperty<T>(SerializedProperty prop)", and replaced it
+    with the cleaner "Enum targetEnum = (Enum)Enum.ToObject(fieldInfo.FieldType, property.intValue);" line from another fork
+
+The EnumFlagsAtrribute.cs is the same as other forks

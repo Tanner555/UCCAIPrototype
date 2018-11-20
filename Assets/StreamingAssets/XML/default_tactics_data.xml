@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<ArrayOfCharacterTactics xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CharacterTactics>
+    <CharacterName>Blue Silly Pants</CharacterName>
+    <CharacterType>BlueSillyPants</CharacterType>
+    <Tactics>
+      <IGBPIPanelValue>
+        <order>1</order>
+        <condition>Enemy: WithinSightRange</condition>
+        <action>Self: Attack Targetted Enemy</action>
+      </IGBPIPanelValue>
+      <IGBPIPanelValue>
+        <order>2</order>
+        <condition>Leader: Not Within Follow Distance</condition>
+        <action>Self: FollowLeader</action>
+      </IGBPIPanelValue>
+    </Tactics>
+  </CharacterTactics>
+  <CharacterTactics>
+    <CharacterName>Brown Silly Pants</CharacterName>
+    <CharacterType>BrownSillyPants</CharacterType>
+    <Tactics>
+      <IGBPIPanelValue>
+        <order>1</order>
+        <condition>Enemy: WithinSightRange</condition>
+        <action>Self: Attack Targetted Enemy</action>
+      </IGBPIPanelValue>
+      <IGBPIPanelValue>
+        <order>2</order>
+        <condition>Leader: Not Within Follow Distance</condition>
+        <action>Self: FollowLeader</action>
+      </IGBPIPanelValue>
+    </Tactics>
+  </CharacterTactics>
+  <CharacterTactics>
+    <CharacterName>Silly Girl Medic</CharacterName>
+    <CharacterType>SillyGirlMedic</CharacterType>
+    <Tactics>
+      <IGBPIPanelValue>
+        <order>1</order>
+        <condition>Self: Health &lt; 50</condition>
+        <action>Self: Heal</action>
+      </IGBPIPanelValue>
+      <IGBPIPanelValue>
+        <order>2</order>
+        <condition>Enemy: WithinSightRange</condition>
+        <action>Self: Attack Targetted Enemy</action>
+      </IGBPIPanelValue>
+      <IGBPIPanelValue>
+        <order>3</order>
+        <condition>Leader: Not Within Follow Distance</condition>
+        <action>Self: FollowLeader</action>
+      </IGBPIPanelValue>
+    </Tactics>
+  </CharacterTactics>
+  <CharacterTactics>
+    <CharacterName>Evil Assault Villian 1</CharacterName>
+    <CharacterType>EvilAssaultVillian1</CharacterType>
+    <Tactics>
+      <IGBPIPanelValue>
+        <order>1</order>
+        <condition>Self: Health &lt; 50</condition>
+        <action>Self: Heal</action>
+      </IGBPIPanelValue>
+      <IGBPIPanelValue>
+        <order>1</order>
+        <condition>Enemy: WithinSightRange</condition>
+        <action>Self: Attack Targetted Enemy</action>
+      </IGBPIPanelValue>
+    </Tactics>
+  </CharacterTactics>
+</ArrayOfCharacterTactics>
