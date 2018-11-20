@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96c3482c89a319f4a876f048c5a36cbc, type: 3}
+  m_Name: Lvl 1-1 ChStats
+  m_EditorClassIdentifier: 
+  CharacterStatList:
+  - name: Blue Silly Pants
+    CharacterType: 0
+    CharacterPrefab: {fileID: 1277472780355996, guid: a7e95efc1f54d9a4a8c66b3cb6fd83a3,
+      type: 2}
+    CharacterPortrait: {fileID: 21300000, guid: 88ef663a5771719428241072d1046111,
+      type: 3}
+  - name: Brown Silly Pants
+    CharacterType: 1
+    CharacterPrefab: {fileID: 1277472780355996, guid: a7e95efc1f54d9a4a8c66b3cb6fd83a3,
+      type: 2}
+    CharacterPortrait: {fileID: 21300000, guid: 88ef663a5771719428241072d1046111,
+      type: 3}
+  - name: Evil Assault Villain 1
+    CharacterType: 25
+    CharacterPrefab: {fileID: 1277472780355996, guid: a7e95efc1f54d9a4a8c66b3cb6fd83a3,
+      type: 2}
+    CharacterPortrait: {fileID: 21300000, guid: 88ef663a5771719428241072d1046111,
+      type: 3}
+  - name: Silly Girl Medic
+    CharacterType: 2
+    CharacterPrefab: {fileID: 1902654371094930, guid: 6db8aea98fd2d22498c40b6114402d06,
+      type: 2}
+    CharacterPortrait: {fileID: 21300000, guid: c1ee90923a530864cb7a6f70a5500b68,
+      type: 3}

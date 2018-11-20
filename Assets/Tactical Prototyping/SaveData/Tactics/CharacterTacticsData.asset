@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3843bf9e4efe314fbec23a688363c82, type: 3}
+  m_Name: CharacterTacticsData
+  m_EditorClassIdentifier: 
+  CharacterTacticsList:
+  - CharacterName: Blue Silly Pants
+    CharacterType: 0
+    Tactics: []
+  - CharacterName: Brown Silly Pants
+    CharacterType: 1
+    Tactics: []
+  - CharacterName: Silly Girl Medic
+    CharacterType: 2
+    Tactics:
+    - order: 1
+      condition: 'Self: Health < 90'
+      action: 'Self: Heal'
+    - order: 2
+      condition: 'Self: Any'
+      action: 'Self: FollowLeader'
+  - CharacterName: Evil Assault Villian 1
+    CharacterType: 25
+    Tactics:
+    - order: 1
+      condition: 'Enemy: WithinSightRange'
+      action: 'Self: Attack Targetted Enemy'

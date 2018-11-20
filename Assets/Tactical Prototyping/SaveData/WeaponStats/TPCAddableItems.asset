@@ -1,0 +1,405 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50f28dfbc03a7448bdb42b03ba53512, type: 3}
+  m_Name: TPCAddableItems
+  m_EditorClassIdentifier: 
+  AddableItems:
+  - AddableItemName: Pistol
+    m_ItemType: {fileID: 11400000, guid: b9892dc51f8bab84590e65c39cd82e88, type: 2}
+    m_Base: {fileID: 1270357123840990, guid: ffe44945821452a4e8d2deefc5a7e672, type: 2}
+    m_ItemName: Pistol
+    m_Type: 0
+    m_HandAssignment: 1
+    m_LocalPosition: {x: -0.14, y: 0.035, z: -0.019}
+    m_LocalRotation: {x: -6.085571, y: 98.81018, z: -11.33191}
+    WeaponVolume: 0.4
+    m_DefaultStatesIdle: []
+    m_DefaultStatesMovement: []
+    m_AimStatesIdle: []
+    m_AimStatesMovement: []
+    m_UseStatesIdle: []
+    m_UseStatesMovement: []
+    m_EquipStatesIdle: []
+    m_EquipStatesMovement: []
+    m_UnequipStatesIdle: []
+    m_UnequipStatesMovement: []
+    m_FireRate: 4
+    m_Spread: 0
+    m_FireCount: 1
+    m_RecoilAmount: 0.2
+    m_HitscanImpactLayers:
+      serializedVersion: 2
+      m_Bits: 2143291169
+    m_HitScanImpactForce: 0.1
+    m_DefaultHitscanDecal: {fileID: 100000, guid: 53c61aa86b1411843bb13a98966979ae,
+      type: 2}
+    m_DefaultHitscanDust: {fileID: 100000, guid: f4bffe2da23a26b4e8a73165126fd262,
+      type: 2}
+    m_DefaultHitscanSpark: {fileID: 100000, guid: 06392210ac61e8d4da100699b02c3cfd,
+      type: 2}
+    m_ClipSize: 30
+    m_FirePointPosition: {x: 0, y: 0, z: 0}
+    m_FirePointRotation: {x: 0, y: 180, z: 0}
+    m_MuzzleFlash: {fileID: 100000, guid: 1782d8345c4d62545bc70c7ef2cf3975, type: 2}
+    m_MuzzleFlashLocation: {fileID: 0}
+    m_MuzzleFlashPosition: {x: 0.003826801, y: 0.04862855, z: -0.2090768}
+    m_MuzzleFlashRotation: {x: 0, y: 0, z: 0}
+    m_Smoke: {fileID: 100000, guid: 7b0bce44cf6823d44b295d117771b98f, type: 2}
+    m_SmokeLocation: {fileID: 0}
+    m_SmokePosition: {x: 0.01008263, y: 0.09876281, z: -0.1945702}
+    m_SmokeRotation: {x: -90.00001, y: 0, z: 180}
+    m_FireSound:
+    - {fileID: 8300000, guid: 651ccc2084f4e874e8019e11c195b0ed, type: 3}
+    m_ReloadSound: []
+    m_EmptyFireSound:
+    - {fileID: 8300000, guid: 57e01c3aba014b14298b1796dbd2044b, type: 3}
+    m_RecoilStatesIdle: []
+    m_RecoilStatesMovement: []
+    m_AttackRate: 0
+    m_AttackLayer:
+      serializedVersion: 2
+      m_Bits: 0
+    m_AttackHitboxes: []
+    m_CanInterruptAttack: 0
+    m_SingleHitAttack: 0
+    m_WaitForEndUseEvent: 0
+    m_AttackSound: []
+    m_AttackSoundDelay: 0
+    m_DamageEvent: 
+    m_DamageAmount: 10
+    m_ImpactForce: 5
+    m_DefaultDust: {fileID: 0}
+    m_DefaultImpactSound: {fileID: 0}
+  - AddableItemName: Assault Rifle
+    m_ItemType: {fileID: 11400000, guid: f7a7ff59e6f44ed41b780028c7e443f3, type: 2}
+    m_Base: {fileID: 1034057198808970, guid: 9259094c2445f334eb7cc9fdf4643496, type: 2}
+    m_ItemName: Assault Rifle
+    m_Type: 0
+    m_HandAssignment: 1
+    m_LocalPosition: {x: -0.14, y: 0.035, z: -0.019}
+    m_LocalRotation: {x: -6.085571, y: 98.81018, z: -11.33191}
+    WeaponVolume: 1
+    m_DefaultStatesIdle: []
+    m_DefaultStatesMovement: []
+    m_AimStatesIdle: []
+    m_AimStatesMovement: []
+    m_UseStatesIdle: []
+    m_UseStatesMovement: []
+    m_EquipStatesIdle: []
+    m_EquipStatesMovement: []
+    m_UnequipStatesIdle: []
+    m_UnequipStatesMovement: []
+    m_FireRate: 10
+    m_Spread: 0.01
+    m_FireCount: 1
+    m_RecoilAmount: 0.2
+    m_HitscanImpactLayers:
+      serializedVersion: 2
+      m_Bits: 2143291169
+    m_HitScanImpactForce: 0.1
+    m_DefaultHitscanDecal: {fileID: 100000, guid: 9b7a72265f46eef41ab48a568d6502a9,
+      type: 2}
+    m_DefaultHitscanDust: {fileID: 100000, guid: f3ed2988ed047264e8ec6e6b585ea14a,
+      type: 2}
+    m_DefaultHitscanSpark: {fileID: 100000, guid: abb9cdac57d76d840badde8d36473ddc,
+      type: 2}
+    m_ClipSize: 50
+    m_FirePointPosition: {x: 0.01249867, y: 0.1209893, z: -0.8307922}
+    m_FirePointRotation: {x: 0, y: 0, z: 0}
+    m_MuzzleFlash: {fileID: 100000, guid: 2dd45cba069fb3340a0792f5eb7362c7, type: 2}
+    m_MuzzleFlashLocation: {fileID: 0}
+    m_MuzzleFlashPosition: {x: -0.0003805566, y: 0.1346788, z: -0.8340405}
+    m_MuzzleFlashRotation: {x: 0, y: 0, z: 0}
+    m_Smoke: {fileID: 100000, guid: 20e8c1c3975b5424988b8d3999108fe3, type: 2}
+    m_SmokeLocation: {fileID: 0}
+    m_SmokePosition: {x: -0.0000007170899, y: 0.1213431, z: -0.8140346}
+    m_SmokeRotation: {x: 0, y: 0, z: 0}
+    m_FireSound:
+    - {fileID: 8300000, guid: 27e93e472274f7e4aa82c54dfd05bd35, type: 3}
+    m_ReloadSound: []
+    m_EmptyFireSound:
+    - {fileID: 8300000, guid: 57e01c3aba014b14298b1796dbd2044b, type: 3}
+    m_RecoilStatesIdle: []
+    m_RecoilStatesMovement: []
+    m_AttackRate: 0
+    m_AttackLayer:
+      serializedVersion: 2
+      m_Bits: 0
+    m_AttackHitboxes: []
+    m_CanInterruptAttack: 0
+    m_SingleHitAttack: 0
+    m_WaitForEndUseEvent: 0
+    m_AttackSound: []
+    m_AttackSoundDelay: 0
+    m_DamageEvent: 
+    m_DamageAmount: 10
+    m_ImpactForce: 5
+    m_DefaultDust: {fileID: 0}
+    m_DefaultImpactSound: {fileID: 0}
+  - AddableItemName: Shotgun
+    m_ItemType: {fileID: 11400000, guid: 27999eff4c895eb479313c5106e23091, type: 2}
+    m_Base: {fileID: 1837266165974362, guid: 007c49f3f9ed8704d92c46c6c459f82e, type: 2}
+    m_ItemName: Shotgun
+    m_Type: 0
+    m_HandAssignment: 1
+    m_LocalPosition: {x: -0.14, y: 0.035, z: -0.019}
+    m_LocalRotation: {x: -6.085571, y: 98.81018, z: -11.33191}
+    WeaponVolume: 1
+    m_DefaultStatesIdle: []
+    m_DefaultStatesMovement: []
+    m_AimStatesIdle: []
+    m_AimStatesMovement: []
+    m_UseStatesIdle: []
+    m_UseStatesMovement: []
+    m_EquipStatesIdle: []
+    m_EquipStatesMovement: []
+    m_UnequipStatesIdle: []
+    m_UnequipStatesMovement: []
+    m_FireRate: 4
+    m_Spread: 0.02
+    m_FireCount: 8
+    m_RecoilAmount: 0.1
+    m_HitscanImpactLayers:
+      serializedVersion: 2
+      m_Bits: 2143291169
+    m_HitScanImpactForce: 0.07
+    m_DefaultHitscanDecal: {fileID: 100000, guid: e66c61a8e9f12fb408f831aca1ba06fd,
+      type: 2}
+    m_DefaultHitscanDust: {fileID: 100000, guid: f89b8a7080c8f5649ad76d5697a1770a,
+      type: 2}
+    m_DefaultHitscanSpark: {fileID: 100000, guid: 977ef2df42673e24fad008ebd0768fa1,
+      type: 2}
+    m_ClipSize: 8
+    m_FirePointPosition: {x: 0.008263841, y: 0.09460177, z: -0.7639316}
+    m_FirePointRotation: {x: 180, y: 0, z: 0}
+    m_MuzzleFlash: {fileID: 100000, guid: 8e7ab692fc0d0ec4ab4da263add5ba73, type: 2}
+    m_MuzzleFlashLocation: {fileID: 0}
+    m_MuzzleFlashPosition: {x: 0.008263122, y: 0.09460185, z: -0.7490245}
+    m_MuzzleFlashRotation: {x: 0, y: 0, z: 0}
+    m_Smoke: {fileID: 100000, guid: f0b154a1fe29ea44fa17f83e797c4d98, type: 2}
+    m_SmokeLocation: {fileID: 0}
+    m_SmokePosition: {x: 0.008263505, y: 0.09460215, z: -0.1952736}
+    m_SmokeRotation: {x: 0, y: 0, z: 0}
+    m_FireSound:
+    - {fileID: 8300000, guid: f5d7c2e02f58ff547942279867fbe753, type: 3}
+    m_ReloadSound: []
+    m_EmptyFireSound:
+    - {fileID: 8300000, guid: 57e01c3aba014b14298b1796dbd2044b, type: 3}
+    m_RecoilStatesIdle: []
+    m_RecoilStatesMovement: []
+    m_AttackRate: 0
+    m_AttackLayer:
+      serializedVersion: 2
+      m_Bits: 0
+    m_AttackHitboxes: []
+    m_CanInterruptAttack: 0
+    m_SingleHitAttack: 0
+    m_WaitForEndUseEvent: 0
+    m_AttackSound: []
+    m_AttackSoundDelay: 0
+    m_DamageEvent: 
+    m_DamageAmount: 10
+    m_ImpactForce: 5
+    m_DefaultDust: {fileID: 0}
+    m_DefaultImpactSound: {fileID: 0}
+  - AddableItemName: Sniper Rifle
+    m_ItemType: {fileID: 11400000, guid: b876b0067262c204eb9c350fe44ef7eb, type: 2}
+    m_Base: {fileID: 1395196983679636, guid: d34ad7055fba5dc4bbc18d6fda6860d2, type: 2}
+    m_ItemName: Sniper Rifle
+    m_Type: 0
+    m_HandAssignment: 1
+    m_LocalPosition: {x: -0.14, y: 0.035, z: -0.019}
+    m_LocalRotation: {x: -6.085571, y: 98.81018, z: -11.33191}
+    WeaponVolume: 1
+    m_DefaultStatesIdle: []
+    m_DefaultStatesMovement: []
+    m_AimStatesIdle: []
+    m_AimStatesMovement: []
+    m_UseStatesIdle: []
+    m_UseStatesMovement: []
+    m_EquipStatesIdle: []
+    m_EquipStatesMovement: []
+    m_UnequipStatesIdle: []
+    m_UnequipStatesMovement: []
+    m_FireRate: 1
+    m_Spread: 0
+    m_FireCount: 1
+    m_RecoilAmount: 0
+    m_HitscanImpactLayers:
+      serializedVersion: 2
+      m_Bits: 2143291169
+    m_HitScanImpactForce: 5
+    m_DefaultHitscanDecal: {fileID: 100000, guid: a350915d26374cc4b81f5cb2d2ec3e62,
+      type: 2}
+    m_DefaultHitscanDust: {fileID: 100000, guid: 01ce7bbeaaab5ec46b3e7b22e09c2e12,
+      type: 2}
+    m_DefaultHitscanSpark: {fileID: 100000, guid: fa6b93c32d015974d95dd2536ba56599,
+      type: 2}
+    m_ClipSize: 8
+    m_FirePointPosition: {x: -0.0023, y: -0.0162, z: -0.6397}
+    m_FirePointRotation: {x: 90.00001, y: 0, z: 0}
+    m_MuzzleFlash: {fileID: 0}
+    m_MuzzleFlashLocation: {fileID: 0}
+    m_MuzzleFlashPosition: {x: 0, y: 0, z: 0}
+    m_MuzzleFlashRotation: {x: 0, y: 0, z: 0}
+    m_Smoke: {fileID: 0}
+    m_SmokeLocation: {fileID: 0}
+    m_SmokePosition: {x: 0, y: 0, z: 0}
+    m_SmokeRotation: {x: 0, y: 0, z: 0}
+    m_FireSound:
+    - {fileID: 8300000, guid: 383b716bce9f15b49b8a245b8d3e2ce7, type: 3}
+    m_ReloadSound: []
+    m_EmptyFireSound:
+    - {fileID: 8300000, guid: 57e01c3aba014b14298b1796dbd2044b, type: 3}
+    m_RecoilStatesIdle: []
+    m_RecoilStatesMovement: []
+    m_AttackRate: 0
+    m_AttackLayer:
+      serializedVersion: 2
+      m_Bits: 0
+    m_AttackHitboxes: []
+    m_CanInterruptAttack: 0
+    m_SingleHitAttack: 0
+    m_WaitForEndUseEvent: 0
+    m_AttackSound: []
+    m_AttackSoundDelay: 0
+    m_DamageEvent: 
+    m_DamageAmount: 10
+    m_ImpactForce: 5
+    m_DefaultDust: {fileID: 0}
+    m_DefaultImpactSound: {fileID: 0}
+  - AddableItemName: Katana
+    m_ItemType: {fileID: 11400000, guid: 5844ff10e39393d4cb91374b86d271aa, type: 2}
+    m_Base: {fileID: 1754491096490172, guid: 83762184e021e7e4385aaee555bfbc1d, type: 2}
+    m_ItemName: Katana
+    m_Type: 1
+    m_HandAssignment: 1
+    m_LocalPosition: {x: -0.034, y: 0.335, z: -0.047}
+    m_LocalRotation: {x: -84.436, y: 134.202, z: -217.212}
+    WeaponVolume: 1
+    m_DefaultStatesIdle: []
+    m_DefaultStatesMovement: []
+    m_AimStatesIdle:
+    - stateName: Aim Left
+      transitionDuration: 0.2
+      ItemNamePrefix: 1
+      AnimLayers: 2
+      IgnoreLowerPriority: 1
+    - stateName: Aim Right
+      transitionDuration: 0.2
+      ItemNamePrefix: 1
+      AnimLayers: 2
+      IgnoreLowerPriority: 1
+    m_AimStatesMovement:
+    - stateName: Aim Left
+      transitionDuration: 0.2
+      ItemNamePrefix: 1
+      AnimLayers: 2
+      IgnoreLowerPriority: 1
+    - stateName: Aim Right
+      transitionDuration: 0.2
+      ItemNamePrefix: 1
+      AnimLayers: 2
+      IgnoreLowerPriority: 1
+    m_UseStatesIdle:
+    - stateName: Attack Left
+      transitionDuration: 0.2
+      ItemNamePrefix: 1
+      AnimLayers: 3
+      IgnoreLowerPriority: 1
+    - stateName: Attack Right
+      transitionDuration: 0.2
+      ItemNamePrefix: 1
+      AnimLayers: 3
+      IgnoreLowerPriority: 1
+    m_UseStatesMovement:
+    - stateName: Attack Left
+      transitionDuration: 0.2
+      ItemNamePrefix: 1
+      AnimLayers: 2
+      IgnoreLowerPriority: 1
+    - stateName: Attack Right
+      transitionDuration: 0.2
+      ItemNamePrefix: 1
+      AnimLayers: 2
+      IgnoreLowerPriority: 1
+    m_EquipStatesIdle: []
+    m_EquipStatesMovement: []
+    m_UnequipStatesIdle: []
+    m_UnequipStatesMovement: []
+    m_FireRate: 1
+    m_Spread: 0
+    m_FireCount: 1
+    m_RecoilAmount: 0
+    m_HitscanImpactLayers:
+      serializedVersion: 2
+      m_Bits: 2143291169
+    m_HitScanImpactForce: 5
+    m_DefaultHitscanDecal: {fileID: 100000, guid: a350915d26374cc4b81f5cb2d2ec3e62,
+      type: 2}
+    m_DefaultHitscanDust: {fileID: 100000, guid: 01ce7bbeaaab5ec46b3e7b22e09c2e12,
+      type: 2}
+    m_DefaultHitscanSpark: {fileID: 100000, guid: fa6b93c32d015974d95dd2536ba56599,
+      type: 2}
+    m_ClipSize: 8
+    m_FirePointPosition: {x: -0.0023, y: -0.0162, z: -0.6397}
+    m_FirePointRotation: {x: 90.00001, y: 0, z: 0}
+    m_MuzzleFlash: {fileID: 0}
+    m_MuzzleFlashLocation: {fileID: 0}
+    m_MuzzleFlashPosition: {x: 0, y: 0, z: 0}
+    m_MuzzleFlashRotation: {x: 0, y: 0, z: 0}
+    m_Smoke: {fileID: 0}
+    m_SmokeLocation: {fileID: 0}
+    m_SmokePosition: {x: 0, y: 0, z: 0}
+    m_SmokeRotation: {x: 0, y: 0, z: 0}
+    m_FireSound:
+    - {fileID: 8300000, guid: 383b716bce9f15b49b8a245b8d3e2ce7, type: 3}
+    m_ReloadSound: []
+    m_EmptyFireSound:
+    - {fileID: 8300000, guid: 57e01c3aba014b14298b1796dbd2044b, type: 3}
+    m_RecoilStatesIdle:
+    - stateName: Recoil Left
+      transitionDuration: 0.2
+      ItemNamePrefix: 1
+      AnimLayers: 3
+      IgnoreLowerPriority: 1
+    - stateName: Recoil Right
+      transitionDuration: 0.2
+      ItemNamePrefix: 1
+      AnimLayers: 3
+      IgnoreLowerPriority: 1
+    m_RecoilStatesMovement:
+    - stateName: Recoil Left
+      transitionDuration: 0.2
+      ItemNamePrefix: 1
+      AnimLayers: 3
+      IgnoreLowerPriority: 1
+    - stateName: Recoil Right
+      transitionDuration: 0.2
+      ItemNamePrefix: 1
+      AnimLayers: 3
+      IgnoreLowerPriority: 1
+    m_AttackRate: 2
+    m_AttackLayer:
+      serializedVersion: 2
+      m_Bits: 1073741824
+    m_AttackHitboxes: []
+    m_CanInterruptAttack: 0
+    m_SingleHitAttack: 0
+    m_WaitForEndUseEvent: 0
+    m_AttackSound:
+    - {fileID: 8300000, guid: cb2c4966a21816e4c93e4e8141c869ff, type: 3}
+    m_AttackSoundDelay: 0
+    m_DamageEvent: 
+    m_DamageAmount: 10
+    m_ImpactForce: 5
+    m_DefaultDust: {fileID: 0}
+    m_DefaultImpactSound: {fileID: 0}

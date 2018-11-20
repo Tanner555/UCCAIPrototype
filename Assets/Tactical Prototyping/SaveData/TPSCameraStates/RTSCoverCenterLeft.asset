@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7ae52d0520a4d14e85b16e838d0cdfd, type: 3}
+  m_Name: RTSCoverCenterLeft
+  m_EditorClassIdentifier: 
+  m_Exclusive: 0
+  m_ApplyViewMode: 0
+  m_ViewMode: 0
+  m_ApplyPitchLimit: 0
+  m_MinPitchLimit: -60
+  m_MaxPitchLimit: 70
+  m_ApplyYawLimit: 1
+  m_MinYawLimit: -130
+  m_MaxYawLimit: 0
+  m_ApplyIgnoreLayerMask: 0
+  m_IgnoreLayerMask:
+    serializedVersion: 2
+    m_Bits: 1744830441
+  m_ApplyMoveSmoothing: 0
+  m_MoveSmoothing: 0.1
+  m_ApplyCameraOffset: 0
+  m_CameraOffset: {x: 0.5, y: 0.9, z: -2}
+  m_ApplySmartPivot: 0
+  m_SmartPivot: 0
+  m_ApplyFieldOfView: 0
+  m_FieldOfView: 60
+  m_FieldOfViewSpeed: 5
+  m_ApplyTurn: 0
+  m_TurnSmoothing: 0.05
+  m_TurnSpeed: 1.5
+  m_ApplyRotationSpeed: 0
+  m_RotationSpeed: 1.5
+  m_ApplyView: 0
+  m_ViewDistance: 10
+  m_ViewStep: 5
+  m_LookDirection: {x: 0, y: 0, z: 1}
+  m_ApplyStepZoom: 0
+  m_StepZoomSensitivity: 0
+  m_MinStepZoom: 0
+  m_MaxStepZoom: 0
+  m_ApplyCollisionRadius: 0
+  m_CollisionRadius: 0.01
+  m_ApplyFadeCharacter: 0
+  m_FadeCharacter: 0
+  m_StartFadeDistance: 2
+  m_EndFadeDistance: 1
+  m_ApplyTargetLock: 0
+  m_UseTargetLock: 0
+  m_TargetLockSpeed: 0.95
+  m_BreakForce: 2
+  m_UseHumanoidTargetLock: 0
+  m_HumanoidTargetLockBone: 0
+  m_ApplyRecoil: 0
+  m_RecoilSpring: 0.01
+  m_RecoilDampening: 0.05
+  m_ApplyObstructionCheck: 0
+  m_ObstructionCheck: 0
+  m_ApplyStaticHeight: 0
+  m_StaticHeight: 0
+  m_ApplyVerticalOffset: 0
+  m_VerticalOffset: 0

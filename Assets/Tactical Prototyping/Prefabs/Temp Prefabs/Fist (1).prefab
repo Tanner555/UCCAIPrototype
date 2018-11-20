@@ -1,0 +1,445 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1312351950841426}
+  m_IsPrefabAsset: 1
+--- !u!1 &1312351950841426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4014036468215652}
+  - component: {fileID: 82354123238160534}
+  - component: {fileID: 114110605904896572}
+  - component: {fileID: 135882796227940732}
+  - component: {fileID: 54345486153363652}
+  m_Layer: 2
+  m_Name: Fist (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4014036468215652
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1312351950841426}
+  m_LocalRotation: {x: -0.30615488, y: -0.616111, z: -0.36321515, w: 0.6282923}
+  m_LocalPosition: {x: 4.590279, y: 8.0588665, z: 12.379999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 32.015003, y: 0.9250001, z: -6.6460004}
+--- !u!54 &54345486153363652
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1312351950841426}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!82 &82354123238160534
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1312351950841426}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &114110605904896572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1312351950841426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b191034229f34e84c985d546735a62b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ItemType: {fileID: 11400000, guid: fa6bc05a2ffe1a6498cf1ec9c13f5ce2, type: 2}
+  m_ItemName: Fist
+  m_DefaultStates:
+    m_Idle:
+      m_Groups:
+      - m_StateOrder: 0
+        m_ComboTimeout: 0
+        m_States:
+        - m_Name: Movement
+          m_TransitionDuration: 0.2
+          m_SpeedMultiplier: 1
+          m_CanReplay: 0
+          m_ItemNamePrefix: 0
+          m_Layer: 1
+          m_IgnoreLowerPriority: 0
+          m_ForceRootMotion: 0
+      m_GroupOrder: 0
+    m_Movement:
+      m_Groups:
+      - m_StateOrder: 0
+        m_ComboTimeout: 0
+        m_States:
+        - m_Name: Movement
+          m_TransitionDuration: 0.2
+          m_SpeedMultiplier: 1
+          m_CanReplay: 0
+          m_ItemNamePrefix: 0
+          m_Layer: 1
+          m_IgnoreLowerPriority: 0
+          m_ForceRootMotion: 0
+      m_GroupOrder: 0
+    m_Abilities: []
+  m_AimStates:
+    m_Idle:
+      m_Groups:
+      - m_StateOrder: 0
+        m_ComboTimeout: 0
+        m_States:
+        - m_Name: Aim
+          m_TransitionDuration: 0.2
+          m_SpeedMultiplier: 1
+          m_CanReplay: 0
+          m_ItemNamePrefix: 1
+          m_Layer: 3
+          m_IgnoreLowerPriority: 1
+          m_ForceRootMotion: 0
+      m_GroupOrder: 0
+    m_Movement:
+      m_Groups:
+      - m_StateOrder: 0
+        m_ComboTimeout: 0
+        m_States:
+        - m_Name: Aim
+          m_TransitionDuration: 0.2
+          m_SpeedMultiplier: 1
+          m_CanReplay: 0
+          m_ItemNamePrefix: 1
+          m_Layer: 2
+          m_IgnoreLowerPriority: 1
+          m_ForceRootMotion: 0
+      m_GroupOrder: 0
+    m_Abilities: []
+  m_EquipStates:
+    m_Idle:
+      m_Groups:
+      - m_StateOrder: 0
+        m_ComboTimeout: 0
+        m_States:
+        - m_Name: Equip
+          m_TransitionDuration: 0.2
+          m_SpeedMultiplier: 1
+          m_CanReplay: 0
+          m_ItemNamePrefix: 0
+          m_Layer: 2
+          m_IgnoreLowerPriority: 0
+          m_ForceRootMotion: 0
+      m_GroupOrder: 0
+    m_Movement:
+      m_Groups:
+      - m_StateOrder: 0
+        m_ComboTimeout: 0
+        m_States:
+        - m_Name: Equip
+          m_TransitionDuration: 0.2
+          m_SpeedMultiplier: 1
+          m_CanReplay: 0
+          m_ItemNamePrefix: 0
+          m_Layer: 2
+          m_IgnoreLowerPriority: 0
+          m_ForceRootMotion: 0
+      m_GroupOrder: 0
+    m_Abilities: []
+  m_UnequipStates:
+    m_Idle:
+      m_Groups:
+      - m_StateOrder: 0
+        m_ComboTimeout: 0
+        m_States:
+        - m_Name: Unequip
+          m_TransitionDuration: 0.2
+          m_SpeedMultiplier: 1
+          m_CanReplay: 0
+          m_ItemNamePrefix: 0
+          m_Layer: 2
+          m_IgnoreLowerPriority: 0
+          m_ForceRootMotion: 0
+      m_GroupOrder: 0
+    m_Movement:
+      m_Groups:
+      - m_StateOrder: 0
+        m_ComboTimeout: 0
+        m_States:
+        - m_Name: Unequip
+          m_TransitionDuration: 0.2
+          m_SpeedMultiplier: 1
+          m_CanReplay: 0
+          m_ItemNamePrefix: 0
+          m_Layer: 2
+          m_IgnoreLowerPriority: 0
+          m_ForceRootMotion: 0
+      m_GroupOrder: 0
+    m_Abilities: []
+  m_CanAim: 1
+  m_RequireAim: 0
+  m_ItemSprite: {fileID: 21300070, guid: 5fb67c614ba76ca45a811c8e1f7be476, type: 3}
+  m_RightItemSprite: 1
+  m_CrosshairsSprite:
+    m_Center: {fileID: 21300020, guid: 5fb67c614ba76ca45a811c8e1f7be476, type: 3}
+    m_Offset: 0
+    m_Left: {fileID: 0}
+    m_Top: {fileID: 0}
+    m_Right: {fileID: 0}
+    m_Bottom: {fileID: 0}
+    m_AccuracyLossPercent: 0.05
+  m_TwoHandedItem: 0
+  m_NonDominantHandPosition: {fileID: 0}
+  m_HolsterTarget: {fileID: 0}
+  m_ItemPickup: {fileID: 0}
+  m_AimCameraState: 
+  m_UseStates:
+    m_Idle:
+      m_Groups:
+      - m_StateOrder: 2
+        m_ComboTimeout: 1
+        m_States:
+        - m_Name: Attack Left
+          m_TransitionDuration: 0.1
+          m_SpeedMultiplier: 1
+          m_CanReplay: 0
+          m_ItemNamePrefix: 1
+          m_Layer: 3
+          m_IgnoreLowerPriority: 1
+          m_ForceRootMotion: 0
+        - m_Name: Attack Right
+          m_TransitionDuration: 0.1
+          m_SpeedMultiplier: 1
+          m_CanReplay: 0
+          m_ItemNamePrefix: 1
+          m_Layer: 3
+          m_IgnoreLowerPriority: 1
+          m_ForceRootMotion: 0
+        - m_Name: Attack Combo
+          m_TransitionDuration: 0.1
+          m_SpeedMultiplier: 1
+          m_CanReplay: 0
+          m_ItemNamePrefix: 1
+          m_Layer: 3
+          m_IgnoreLowerPriority: 1
+          m_ForceRootMotion: 0
+      m_GroupOrder: 0
+    m_Movement:
+      m_Groups:
+      - m_StateOrder: 2
+        m_ComboTimeout: 1
+        m_States:
+        - m_Name: Attack Left
+          m_TransitionDuration: 0.1
+          m_SpeedMultiplier: 1
+          m_CanReplay: 0
+          m_ItemNamePrefix: 1
+          m_Layer: 2
+          m_IgnoreLowerPriority: 1
+          m_ForceRootMotion: 0
+        - m_Name: Attack Right
+          m_TransitionDuration: 0.1
+          m_SpeedMultiplier: 1
+          m_CanReplay: 0
+          m_ItemNamePrefix: 1
+          m_Layer: 2
+          m_IgnoreLowerPriority: 1
+          m_ForceRootMotion: 0
+        - m_Name: Attack Combo
+          m_TransitionDuration: 0.1
+          m_SpeedMultiplier: 1
+          m_CanReplay: 0
+          m_ItemNamePrefix: 1
+          m_Layer: 2
+          m_IgnoreLowerPriority: 1
+          m_ForceRootMotion: 0
+      m_GroupOrder: 0
+    m_Abilities: []
+  m_UseInputName: Fire1
+  m_DualWieldUseInputName: Fire2
+  m_CanUseInAir: 1
+  m_RecoilStates:
+    m_Idle:
+      m_Groups:
+      - m_StateOrder: 2
+        m_ComboTimeout: 1
+        m_States:
+        - m_Name: Recoil Left
+          m_TransitionDuration: 0.1
+          m_SpeedMultiplier: 1
+          m_CanReplay: 0
+          m_ItemNamePrefix: 1
+          m_Layer: 3
+          m_IgnoreLowerPriority: 1
+          m_ForceRootMotion: 0
+        - m_Name: Recoil Right
+          m_TransitionDuration: 0.1
+          m_SpeedMultiplier: 1
+          m_CanReplay: 0
+          m_ItemNamePrefix: 1
+          m_Layer: 3
+          m_IgnoreLowerPriority: 1
+          m_ForceRootMotion: 0
+      m_GroupOrder: 0
+    m_Movement:
+      m_Groups:
+      - m_StateOrder: 2
+        m_ComboTimeout: 1
+        m_States:
+        - m_Name: Recoil Left
+          m_TransitionDuration: 0.1
+          m_SpeedMultiplier: 1
+          m_CanReplay: 0
+          m_ItemNamePrefix: 1
+          m_Layer: 3
+          m_IgnoreLowerPriority: 1
+          m_ForceRootMotion: 0
+        - m_Name: Recoil Right
+          m_TransitionDuration: 0.1
+          m_SpeedMultiplier: 1
+          m_CanReplay: 0
+          m_ItemNamePrefix: 1
+          m_Layer: 3
+          m_IgnoreLowerPriority: 1
+          m_ForceRootMotion: 0
+      m_GroupOrder: 0
+    m_Abilities: []
+  m_AttackRate: 2
+  m_AttackLayer:
+    serializedVersion: 2
+    m_Bits: 1073741824
+  m_AttackHitboxes:
+  - {fileID: 0}
+  m_CanInterruptAttack: 0
+  m_SingleHitAttack: 0
+  m_WaitForEndUseEvent: 0
+  m_AttackSound:
+  - {fileID: 0}
+  m_AttackSoundDelay: 0
+  m_DamageEvent: 
+  m_DamageAmount: 10
+  m_ImpactForce: 5
+  m_DefaultDust: {fileID: 0}
+  m_DefaultImpactSound: {fileID: 0}
+--- !u!135 &135882796227940732
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1312351950841426}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.05
+  m_Center: {x: 0, y: 0, z: 0}

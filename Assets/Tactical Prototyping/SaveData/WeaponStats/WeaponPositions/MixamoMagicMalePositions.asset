@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1893f097ef0215f4ab967ca35b9f29d1, type: 3}
+  m_Name: MixamoMagicMalePositions
+  m_EditorClassIdentifier: 
+  WeaponPositionsAndRotations:
+  - AddableItemName: Katana
+    m_ItemType: {fileID: 11400000, guid: 5844ff10e39393d4cb91374b86d271aa, type: 2}
+    m_LocalPosition: {x: 0.095, y: -0.033, z: 0.218}
+    m_LocalRotation: {x: -179.99, y: -173.579, z: -94.897}
+  - AddableItemName: Pistol
+    m_ItemType: {fileID: 11400000, guid: b9892dc51f8bab84590e65c39cd82e88, type: 2}
+    m_LocalPosition: {x: 0.14, y: -0.025, z: 0.037}
+    m_LocalRotation: {x: -3.38, y: -86.3, z: -95.98501}

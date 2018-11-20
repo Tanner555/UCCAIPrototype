@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882bf5c530484d64d9896e4259d39478, type: 3}
+  m_Name: AreaOfEffectTPC
+  m_EditorClassIdentifier: 
+  energyCost: 50
+  particlePrefab: {fileID: 1977060658541122, guid: 19e62b43a3dcdf340adbf95fc64a5a08,
+    type: 2}
+  abilityAnimation: {fileID: 0}
+  audioClips:
+  - {fileID: 8300000, guid: c4402350d3880b24ea82a9fd25bdc11b, type: 3}
+  radius: 5
+  damageToEachTarget: 50
