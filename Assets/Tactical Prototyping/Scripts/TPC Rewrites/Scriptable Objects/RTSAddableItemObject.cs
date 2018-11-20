@@ -1,7 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Opsive.ThirdPersonController;
+using Opsive.UltimateCharacterController;
+using Opsive.UltimateCharacterController.Character;
+using Opsive.UltimateCharacterController.Input;
+using Opsive.UltimateCharacterController.Camera;
+using Opsive.UltimateCharacterController.Inventory;
+using Opsive.UltimateCharacterController.Utility.Builders;
 
 namespace RTSPrototype
 {
