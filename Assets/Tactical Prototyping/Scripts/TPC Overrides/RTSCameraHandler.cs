@@ -5,6 +5,7 @@ using Opsive.UltimateCharacterController;
 using Opsive.UltimateCharacterController.Camera;
 using Opsive.UltimateCharacterController.Input;
 using RTSCoreFramework;
+using Opsive.UltimateCharacterController.Events;
 
 namespace RTSPrototype
 {
@@ -35,24 +36,33 @@ namespace RTSPrototype
         }
         #endregion
 
-        protected override void InitializeCharacter(GameObject character)
+        protected override void OnAttachCharacter(GameObject character)
         {
-            if (character == null)
+            enabled = character != null;
+
+            if (m_Character != null)
             {
-                if (m_Character != null)
-                {
-                    EventHandler.UnregisterEvent<bool>(m_Character, "OnAllowGameplayInput", AllowGameplayInput);
-                    EventHandler.UnregisterEvent<Item>(m_Character, "OnInventoryDualWieldItemChange", OnDualWieldItemChange);
-                    m_Character = null;
-                    m_PlayerInput = null;
-                }
-                return;
+                EventHandler.UnregisterEvent<Vector3, Vector3, GameObject>(m_Character, "OnDeath", OnDeath);
+                EventHandler.UnregisterEvent(m_Character, "OnRespawn", OnRespawn);
+                EventHandler.UnregisterEvent<bool>(m_Character, "OnEnableGameplayInput", OnEnableGameplayInput);
+                EventHandler.UnregisterEvent<bool>(m_Character, "OnCharacterActivate", OnActivate);
             }
 
             m_Character = character;
-            m_PlayerInput = RTSPlayerInput.thisInstance;
-            EventHandler.RegisterEvent<bool>(m_Character, "OnAllowGameplayInput", AllowGameplayInput);
-            EventHandler.RegisterEvent<Item>(m_Character, "OnInventoryDualWieldItemChange", OnDualWieldItemChange);
+
+            if (character != null)
+            {
+                EventHandler.RegisterEvent<Vector3, Vector3, GameObject>(character, "OnDeath", OnDeath);
+                EventHandler.RegisterEvent(character, "OnRespawn", OnRespawn);
+                EventHandler.RegisterEvent<bool>(character, "OnEnableGameplayInput", OnEnableGameplayInput);
+                EventHandler.RegisterEvent<bool>(character, "OnCharacterActivate", OnActivate);
+                m_AllowGameplayInput = true;
+                enabled = character.activeInHierarchy;
+                if (enabled)
+                {
+                    m_PlayerInput = RTSPlayerInput.thisInstance;
+                }
+            }
         }
 
         #region UnityMessages
@@ -80,14 +90,15 @@ namespace RTSPrototype
             {
                 base.Update();
             }
-            if (zoomCamera)
-            {
-                m_StepZoom = zoomAxisIsPositive ? 0.1f : -0.1f;
-            }
-            else
-            {
-                m_StepZoom = 0.0f;
-            }
+            //TODO: RTSPrototype Implement Zoom Functionality
+            //if (zoomCamera)
+            //{
+            //    m_StepZoom = zoomAxisIsPositive ? 0.1f : -0.1f;
+            //}
+            //else
+            //{
+            //    m_StepZoom = 0.0f;
+            //}
         }
         #endregion
 

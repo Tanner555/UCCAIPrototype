@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Opsive.ThirdPersonController.Input;
-using Opsive.ThirdPersonController;
 using RTSCoreFramework;
+using Opsive.UltimateCharacterController;
+using Opsive.UltimateCharacterController.Input;
 
 namespace RTSPrototype
 {
@@ -22,8 +22,10 @@ namespace RTSPrototype
         #endregion
 
         #region UnityMessages
-        private void OnEnable()
+        protected override void OnEnable()
         {
+            base.OnEnable();
+
             if (thisInstance != null)
                 Debug.Log("More than one instance of rtsplayer input exists");
             else
@@ -31,35 +33,33 @@ namespace RTSPrototype
 
         }
 
-        protected override void Start()
+        protected void Start()
         {
-            base.Start();
             gameMaster.EventHoldingRightMouseDown += DisableMouseCursor;
             gameMaster.OnAllySwitch += OnAllySwitchEnableHandler;
         }
 
-        protected override void OnDisable()
+        protected void OnDisable()
         {
-            base.OnDisable();
             gameMaster.EventHoldingRightMouseDown -= DisableMouseCursor;
             gameMaster.OnAllySwitch -= OnAllySwitchEnableHandler;
         }
 
-        protected override void LateUpdate()
-        {
+        //protected void LateUpdate()
+        //{
             
-        }
+        //}
 
-        protected override void OnMouseDown()
-        {
+        //protected void OnMouseDown()
+        //{
             
-        }
+        //}
         #endregion
 
         #region Overrides
-        protected override void AllowGameplayInput(bool allow)
+        protected override void EnableGameplayInput(bool allow)
         {
-            m_AllowGameplayInput = allow;
+            m_AllowInput = allow;
         }
 
         #endregion
