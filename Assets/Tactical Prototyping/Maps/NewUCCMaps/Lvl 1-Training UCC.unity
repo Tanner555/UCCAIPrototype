@@ -3376,6 +3376,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114416084807247614, guid: ed3aa56cbdc01524c90532685b6d7d7a,
+        type: 2}
+      propertyPath: m_EnableGamplayInputEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4807102168982228, guid: ed3aa56cbdc01524c90532685b6d7d7a, type: 2}
       propertyPath: m_LocalPosition.x
       value: -2.892903
@@ -3407,6 +3412,21 @@ Prefab:
     - target: {fileID: 4807102168982228, guid: ed3aa56cbdc01524c90532685b6d7d7a, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114416084807247614, guid: ed3aa56cbdc01524c90532685b6d7d7a,
+        type: 2}
+      propertyPath: m_ForceInput
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114416084807247614, guid: ed3aa56cbdc01524c90532685b6d7d7a,
+        type: 2}
+      propertyPath: m_EnableGamplayInputEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114416084807247614, guid: ed3aa56cbdc01524c90532685b6d7d7a,
+        type: 2}
+      propertyPath: m_EnableGamplayInputEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed3aa56cbdc01524c90532685b6d7d7a, type: 2}

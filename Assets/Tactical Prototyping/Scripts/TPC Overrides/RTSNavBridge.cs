@@ -5,15 +5,63 @@ using Opsive.UltimateCharacterController;
 using Opsive.UltimateCharacterController.Inventory;
 using Opsive.UltimateCharacterController.Character;
 using Opsive.UltimateCharacterController.Input;
+using UnityEngine.AI;
 
 namespace RTSPrototype
 {
-    /// <summary>
-    /// TODO: RTSPrototype Fix RTSNavBridge Script
-    /// </summary>
-    public class RTSNavBridge : MonoBehaviour/*NavMeshAgentBridge*/
+    public class RTSNavBridge : MonoBehaviour
     {
         #region FieldsandProps
+        protected string m_HorizontalInputName = "Horizontal";
+        protected string m_ForwardInputName = "Vertical";
+        //From NavMeshAgentBridge Script
+        [Tooltip("Specifies how quickly the agent should slow down when arriving at the destination")]
+        [SerializeField] protected AnimationCurve m_ArriveRampDownCurve = new AnimationCurve(new Keyframe[2] { new Keyframe(0, 1), new Keyframe(1, 0.25f) });
+
+        NavMeshAgent m_NavMeshAgent
+        {
+            get
+            {
+                if(_m_NavMeshAgent == null)
+                {
+                    _m_NavMeshAgent = GetComponent<NavMeshAgent>();
+                }
+                return _m_NavMeshAgent;
+            }
+        }
+        NavMeshAgent _m_NavMeshAgent = null;
+
+        Transform m_Transform
+        {
+            get { return transform; }
+        }
+
+        UltimateCharacterLocomotion m_Controller
+        {
+            get
+            {
+                if(_m_Controller == null)
+                {
+                    _m_Controller = GetComponent<UltimateCharacterLocomotion>();
+                }
+                return _m_Controller;
+            }
+        }
+        private UltimateCharacterLocomotion _m_Controller = null;
+
+        //UltimateCharacterLocomotionHandler m_Handler
+        //{
+        //    get
+        //    {
+        //        if (_m_Handler == null)
+        //        {
+        //            _m_Handler = GetComponent<UltimateCharacterLocomotionHandler>();
+        //        }
+        //        return _m_Handler;
+        //    }
+        //}
+        //private UltimateCharacterLocomotionHandler _m_Handler = null;
+
         AllyMember allyMember
         {
             get
@@ -49,15 +97,15 @@ namespace RTSPrototype
                 return targetTransform != null ? Quaternion.LookRotation(targetTransform.position - transform.position) : new Quaternion();
             }
         }
-        //protected Quaternion lookDestinationRotation
-        //{
-        //    get
-        //    {
-        //        return (isMoving && !ReachedDestination()) ?
-        //            Quaternion.LookRotation(m_NavMeshAgent.destination - transform.position) :
-        //            Quaternion.LookRotation(m_Transform.forward);
-        //    }
-        //}
+        protected Quaternion lookDestinationRotation
+        {
+            get
+            {
+                return (isMoving && !ReachedDestination()) ?
+                    Quaternion.LookRotation(m_NavMeshAgent.destination - transform.position) :
+                    Quaternion.LookRotation(m_Transform.forward);
+            }
+        }
         protected Quaternion mainCameraRotation
         {
             get
@@ -102,12 +150,12 @@ namespace RTSPrototype
         #endregion
 
         #region UnityMessages
-        //protected override void FixedUpdate()
-        //{
-        //    if (bIsTimelinePaused) return;
-        //    CheckForFreeMovement();
-        //    UpdateMovementOrRotate();
-        //}
+        protected void FixedUpdate()
+        {
+            if (bIsTimelinePaused) return;
+            CheckForFreeMovement();
+            UpdateMovementOrRotate();
+        }
 
         private void Start()
         {
@@ -160,23 +208,23 @@ namespace RTSPrototype
 
         void MoveToDestination(Vector3 _destination)
         {
-            //if (bIsTimelinePaused)
-            //{
-            //    bPauseCommandMoveCached = true;
-            //    pausedCommandMoveLocation = _destination;
-            //}
-            //if (allyMember.isSurfaceWalkable(_destination))
-            //{
-            //    m_NavMeshAgent.ResetPath();
-            //    m_NavMeshAgent.SetDestination(_destination);
-            //    float _distance = Vector3.Distance(m_NavMeshAgent.path.corners[0], m_Transform.position);
-            //    if (_distance >= 3.0f)
-            //    {
-            //        Debug.Log("Path is not accurate, updating position...");
-            //        m_NavMeshAgent.updatePosition = true;
-            //    }
-            //}
-            //Invoke("CheckWalkable", 0.2f);
+            if (bIsTimelinePaused)
+            {
+                bPauseCommandMoveCached = true;
+                pausedCommandMoveLocation = _destination;
+            }
+            if (allyMember.isSurfaceWalkable(_destination))
+            {
+                m_NavMeshAgent.ResetPath();
+                m_NavMeshAgent.SetDestination(_destination);
+                float _distance = Vector3.Distance(m_NavMeshAgent.path.corners[0], m_Transform.position);
+                if (_distance >= 3.0f)
+                {
+                    Debug.Log("Path is not accurate, updating position...");
+                    m_NavMeshAgent.updatePosition = true;
+                }
+            }
+            Invoke("CheckWalkable", 0.2f);
         }
 
         void OnCommandAttack(AllyMember _ally)
@@ -237,89 +285,88 @@ namespace RTSPrototype
 
         bool ReachedDestination()
         {
-            return true;
-            //return m_NavMeshAgent != null && m_NavMeshAgent.enabled && m_NavMeshAgent.remainingDistance != Mathf.Infinity &&
-            //    m_NavMeshAgent.remainingDistance <= 0.2f && !m_NavMeshAgent.pathPending && isMoving && m_NavMeshAgent.hasPath;
+            return m_NavMeshAgent != null && m_NavMeshAgent.enabled && m_NavMeshAgent.remainingDistance != Mathf.Infinity &&
+                m_NavMeshAgent.remainingDistance <= 0.2f && !m_NavMeshAgent.pathPending && isMoving && m_NavMeshAgent.hasPath;
         }
         #endregion
 
         #region MainMovementMethod
         void MoveCharacterMain()
         {
-            //var velocity = Vector3.zero;
-            //lookRotation = Quaternion.LookRotation(m_Transform.forward);
-            
-            //// Only move if a path exists.
-            //// Update only when needed by targeting or move command
-            //if (canUpdateMovement && m_NavMeshAgent.desiredVelocity.sqrMagnitude > 0.01f)
-            //{
-            //    if (m_NavMeshAgent.updateRotation)
-            //    {
-            //        lookRotation = Quaternion.LookRotation(m_NavMeshAgent.desiredVelocity);
-            //    }
-            //    else
-            //    {
-            //        lookRotation = Quaternion.LookRotation(m_Transform.forward);
-            //    }
-            //    // The normalized velocity should be relative to the look direction.
-            //    velocity = Quaternion.Inverse(lookRotation) * m_NavMeshAgent.desiredVelocity;
-            //    // Only normalize if the magnitude is greater than 1. This will allow the character to walk.
-            //    if (velocity.sqrMagnitude > 1)
-            //    {
-            //        velocity.Normalize();
-            //    }
-            //    // Smoothly come to a stop at the destination.
-            //    if (m_NavMeshAgent.remainingDistance < 1f)
-            //    {
-            //        velocity *= m_ArriveRampDownCurve.Evaluate(1 - m_NavMeshAgent.remainingDistance);
-            //    }
-            //    else
-            //    {
-            //        //Change Velocity to Speed Multiplier
-            //        velocity *= speedMultiplier;
-            //    }
-            //}
+            var velocity = Vector3.zero;
+            lookRotation = Quaternion.LookRotation(m_Transform.forward);
 
-            //// Don't let the NavMeshAgent move the character - the controller can move it.
-            //m_NavMeshAgent.updatePosition = false;
-            //m_NavMeshAgent.velocity = Vector3.zero;
-            //m_Controller.Move(velocity.x, velocity.z, lookRotation);
-            //m_NavMeshAgent.nextPosition = m_Transform.position;
-            ////Check for end of destination if moving
-            //if (isMoving && ReachedDestination()) FinishMovingNavMesh();
+            // Only move if a path exists.
+            // Update only when needed by targeting or move command
+            if (canUpdateMovement && m_NavMeshAgent.desiredVelocity.sqrMagnitude > 0.01f)
+            {
+                if (m_NavMeshAgent.updateRotation)
+                {
+                    lookRotation = Quaternion.LookRotation(m_NavMeshAgent.desiredVelocity);
+                }
+                else
+                {
+                    lookRotation = Quaternion.LookRotation(m_Transform.forward);
+                }
+                // The normalized velocity should be relative to the look direction.
+                velocity = Quaternion.Inverse(lookRotation) * m_NavMeshAgent.desiredVelocity;
+                // Only normalize if the magnitude is greater than 1. This will allow the character to walk.
+                if (velocity.sqrMagnitude > 1)
+                {
+                    velocity.Normalize();
+                }
+                // Smoothly come to a stop at the destination.
+                if (m_NavMeshAgent.remainingDistance < 1f)
+                {
+                    velocity *= m_ArriveRampDownCurve.Evaluate(1 - m_NavMeshAgent.remainingDistance);
+                }
+                else
+                {
+                    //Change Velocity to Speed Multiplier
+                    velocity *= speedMultiplier;
+                }
+            }
+
+            // Don't let the NavMeshAgent move the character - the controller can move it.
+            m_NavMeshAgent.updatePosition = false;
+            m_NavMeshAgent.velocity = Vector3.zero;
+            m_Controller.Move(velocity.x, velocity.z, GetDeltaYawRotation(velocity.x, velocity.z, lookRotation));
+            m_NavMeshAgent.nextPosition = m_Transform.position;
+            //Check for end of destination if moving
+            if (isMoving && ReachedDestination()) FinishMovingNavMesh();
         }
         #endregion
 
         #region MoveOrRotateMethod
         void UpdateMovementOrRotate()
         {
-            //bool _isFreeMoving = myEventHandler.bIsFreeMoving;
-            //m_NavMeshAgent.updateRotation = !_isFreeMoving && isMoving;
-            //if (!_isFreeMoving)
-            //{
-            //    //Change localRotation if targetting is active
-            //    if ((bIsShooting || bIsMeleeing) && isTargeting && targetTransform != null)
-            //    {
-            //        //Stand Still and Rotate towards Target
-            //        m_NavMeshAgent.updatePosition = false;
-            //        m_NavMeshAgent.velocity = Vector3.zero;
-            //        Vector3 velocity = Vector3.zero;
-            //        lookRotation = lookTargetRotation;
-            //        m_Controller.Move(velocity.x, velocity.z, lookRotation);
-            //    }
-            //    else
-            //    {
-            //        //Still targetting enemy but enemy transform is null
-            //        if (targetTransform == null && isTargeting)
-            //            myEventHandler.CallEventStopTargettingEnemy();
+            bool _isFreeMoving = myEventHandler.bIsFreeMoving;
+            m_NavMeshAgent.updateRotation = !_isFreeMoving && isMoving;
+            if (!_isFreeMoving)
+            {
+                //Change localRotation if targetting is active
+                if ((bIsShooting || bIsMeleeing) && isTargeting && targetTransform != null)
+                {
+                    //Stand Still and Rotate towards Target
+                    m_NavMeshAgent.updatePosition = false;
+                    m_NavMeshAgent.velocity = Vector3.zero;
+                    Vector3 velocity = Vector3.zero;
+                    lookRotation = lookTargetRotation;                   
+                    m_Controller.Move(velocity.x, velocity.z, GetDeltaYawRotation(velocity.x, velocity.z, lookRotation));
+                }
+                else
+                {
+                    //Still targetting enemy but enemy transform is null
+                    if (targetTransform == null && isTargeting)
+                        myEventHandler.CallEventStopTargettingEnemy();
 
-            //        MoveCharacterMain();
-            //    }
-            //}
-            //else if (allyMember.bIsCurrentPlayer)
-            //{
-            //    MoveFreely();
-            //}
+                    MoveCharacterMain();
+                }
+            }
+            else if (allyMember.bIsCurrentPlayer)
+            {
+                MoveFreely();
+            }
         }
         #endregion
 
@@ -327,17 +374,18 @@ namespace RTSPrototype
         void MoveFreely()
         {
             myDirection *= speedMultiplier;
-            //m_NavMeshAgent.updatePosition = false;
-            //m_NavMeshAgent.velocity = Vector3.zero;
-            //m_Controller.Move(myDirection.x, myDirection.z, mainCameraRotation);
+            m_NavMeshAgent.updatePosition = false;
+            m_NavMeshAgent.velocity = Vector3.zero;
+            m_Controller.Move(myDirection.x, myDirection.z, GetDeltaYawRotation(myDirection.x, myDirection.z, mainCameraRotation));
         }
 
         void CheckForFreeMovement()
         {
             if (allyMember.bIsCurrentPlayer == false) return;
+            
+            myHorizontalMovement = RTSPlayerInput.thisInstance.GetAxisRaw(m_HorizontalInputName);
+            myForwardMovement = RTSPlayerInput.thisInstance.GetAxisRaw(m_ForwardInputName);
 
-            //myHorizontalMovement = RTSPlayerInput.thisInstance.GetAxisRaw(Constants.HorizontalInputName);
-            //myForwardMovement = RTSPlayerInput.thisInstance.GetAxisRaw(Constants.ForwardInputName);
             myDirection = Vector3.zero;
             myDirection.x = myHorizontalMovement;
             myDirection.z = myForwardMovement;
@@ -348,12 +396,18 @@ namespace RTSPrototype
                 {
                     FinishMovingNavMesh();
                 }
-                myEventHandler.CallEventTogglebIsFreeMoving(true);
+                
+                if (myEventHandler.bIsFreeMoving == false)
+                {
+                    myEventHandler.CallEventTogglebIsFreeMoving(true);
+                }
             }
             else
             {
                 if (myEventHandler.bIsFreeMoving)
+                {
                     myEventHandler.CallEventTogglebIsFreeMoving(false);
+                }
             }
         }
         #endregion
@@ -378,6 +432,14 @@ namespace RTSPrototype
         void ToggleNavMeshAgent()
         {
             //m_NavMeshAgent.enabled = !m_NavMeshAgent.enabled;
+        }
+        #endregion
+
+        #region Getters
+        float GetDeltaYawRotation(float horizontal, float forward, Quaternion rotation)
+        {
+            //var lookVector = m_PlayerInput.GetLookVector(true);
+            return m_Controller.ActiveMovementType.GetDeltaYawRotation(horizontal, forward, rotation.x, rotation.y);
         }
         #endregion
 
