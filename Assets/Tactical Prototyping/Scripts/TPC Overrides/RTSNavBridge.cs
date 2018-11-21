@@ -6,6 +6,8 @@ using Opsive.UltimateCharacterController.Inventory;
 using Opsive.UltimateCharacterController.Character;
 using Opsive.UltimateCharacterController.Input;
 using UnityEngine.AI;
+using Opsive.UltimateCharacterController.Character.Abilities;
+using Opsive.UltimateCharacterController.Character.Abilities.AI;
 
 namespace RTSPrototype
 {
@@ -35,6 +37,20 @@ namespace RTSPrototype
         {
             get { return transform; }
         }
+
+        Ability NavAbility
+        {
+            get
+            {
+                if(_navAbility == null)
+                {
+                    _navAbility = m_Controller.GetAbility<NavMeshAgentMovement>();
+                }
+                return _navAbility;
+            }
+        }
+        Ability _navAbility = null;
+
 
         UltimateCharacterLocomotion m_Controller
         {
@@ -215,6 +231,7 @@ namespace RTSPrototype
             }
             if (allyMember.isSurfaceWalkable(_destination))
             {
+                m_NavMeshAgent.isStopped = false;
                 m_NavMeshAgent.ResetPath();
                 m_NavMeshAgent.SetDestination(_destination);
                 float _distance = Vector3.Distance(m_NavMeshAgent.path.corners[0], m_Transform.position);
@@ -280,6 +297,8 @@ namespace RTSPrototype
         #region NavMeshMovement
         void FinishMovingNavMesh()
         {
+            m_NavMeshAgent.SetDestination(transform.position);
+            m_NavMeshAgent.isStopped = true;
             myEventHandler.CallEventFinishedMoving();
         }
 
@@ -330,7 +349,7 @@ namespace RTSPrototype
             // Don't let the NavMeshAgent move the character - the controller can move it.
             m_NavMeshAgent.updatePosition = false;
             m_NavMeshAgent.velocity = Vector3.zero;
-            m_Controller.Move(velocity.x, velocity.z, GetDeltaYawRotation(velocity.x, velocity.z, lookRotation));
+            //m_Controller.Move(velocity.x, velocity.z, GetDeltaYawRotation(velocity.x, velocity.z, lookRotation));
             m_NavMeshAgent.nextPosition = m_Transform.position;
             //Check for end of destination if moving
             if (isMoving && ReachedDestination()) FinishMovingNavMesh();
@@ -399,6 +418,11 @@ namespace RTSPrototype
                 
                 if (myEventHandler.bIsFreeMoving == false)
                 {
+                    //if (NavAbility.CanStopAbility())
+                    //{
+                    //    NavAbility.StopAbility();
+                    //}
+                    NavAbility.Enabled = false;
                     myEventHandler.CallEventTogglebIsFreeMoving(true);
                 }
             }
@@ -406,6 +430,11 @@ namespace RTSPrototype
             {
                 if (myEventHandler.bIsFreeMoving)
                 {
+                    //if (NavAbility.CanStartAbility())
+                    //{
+                    //    NavAbility.StartAbility();
+                    //}
+                    NavAbility.Enabled = true;
                     myEventHandler.CallEventTogglebIsFreeMoving(false);
                 }
             }
@@ -415,11 +444,11 @@ namespace RTSPrototype
         #region NavMeshChecking/Reset
         void CheckWalkable()
         {
-            //if (!allyMember.isSurfaceWalkable(m_NavMeshAgent.destination))
-            //{
-            //    myEventHandler.CallEventFinishedMoving();
-            //    Invoke("ResetNavmeshAgent", 0.1f);
-            //}
+            if (!allyMember.isSurfaceWalkable(m_NavMeshAgent.destination))
+            {
+                myEventHandler.CallEventFinishedMoving();
+                Invoke("ResetNavmeshAgent", 0.1f);
+            }
         }
 
         void ResetNavmeshAgent()
@@ -431,7 +460,7 @@ namespace RTSPrototype
 
         void ToggleNavMeshAgent()
         {
-            //m_NavMeshAgent.enabled = !m_NavMeshAgent.enabled;
+            m_NavMeshAgent.enabled = !m_NavMeshAgent.enabled;
         }
         #endregion
 
