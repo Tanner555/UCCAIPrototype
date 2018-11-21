@@ -76,19 +76,19 @@ namespace RTSPrototype
         protected void OnDisable()
         {
             //Temp Fix For Party Man Delay Init Methods
-            //gamemaster.EventHoldingRightMouseDown -= ToggleMoveCamera;
+            gamemaster.EventHoldingRightMouseDown -= ToggleMoveCamera;
             gamemaster.EventEnableCameraZoom -= ToggleZoomCamera;
         }
 
         private void OnEnable()
         {
-            
+            gamemaster.EventHoldingRightMouseDown += ToggleMoveCamera;
+            gamemaster.EventEnableCameraZoom += ToggleZoomCamera;
         }
 
         protected void Start()
         {
-            gamemaster.EventHoldingRightMouseDown += ToggleMoveCamera;
-            gamemaster.EventEnableCameraZoom += ToggleZoomCamera;
+            
         }
 
         protected override void FixedUpdate()
@@ -104,15 +104,6 @@ namespace RTSPrototype
             {
                 DeterministicObjectManager.SetCameraLookVector(m_CameraController.DeterministicObjectIndex, Vector2.zero);
             }
-            //TODO: RTSPrototype Implement Zoom Functionality
-            //if (zoomCamera)
-            //{
-            //    m_StepZoom = zoomAxisIsPositive ? 0.1f : -0.1f;
-            //}
-            //else
-            //{
-            //    m_StepZoom = 0.0f;
-            //}
         }
         #endregion
 
