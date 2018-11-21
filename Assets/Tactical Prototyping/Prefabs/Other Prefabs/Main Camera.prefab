@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 114301875693343704}
   - component: {fileID: 114269664268726430}
   - component: {fileID: 114624794874455344}
+  - component: {fileID: 114810077119789320}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -42,13 +43,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1095465778626376}
-  m_LocalRotation: {x: 0.15638366, y: 0.6895971, z: -0.15638371, w: 0.6895971}
-  m_LocalPosition: {x: 0, y: 18.23, z: 14.17}
+  m_LocalRotation: {x: 0.14077163, y: 0.69699466, z: -0.14250204, w: 0.68853104}
+  m_LocalPosition: {x: 0, y: 20.4, z: 14.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 25.554, y: 90.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: 23.11, y: 90.7, z: 0}
 --- !u!20 &20966796609738634
 Camera:
   m_ObjectHideFlags: 1
@@ -107,8 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17783bbf98a9a7b499f06ac4bf22e60b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ZoomStateName: Zoom
-  m_AllowDualWieldZoom: 0
+  m_ZoomInputName: Fire2
 --- !u!114 &114269664268726430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -157,20 +157,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71141e42ab8703c49bc923531eb8ffaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CameraStates:
-  - {fileID: 11400000, guid: 7efb3f71f42cf3c488de230ecde955b6, type: 2}
-  m_InitCharacterOnStart: 0
+  m_States:
+  - m_Name: Default
+    m_Preset: {fileID: 0}
+    m_BlockList: []
+    m_Default: 1
+  m_InitCharacterOnAwake: 0
   m_Character: {fileID: 0}
   m_Anchor: {fileID: 0}
   m_AutoAnchor: 1
-  m_AutoAnchorBone: 10
-  m_FadeTransform: {fileID: 0}
-  m_DeathAnchor: {fileID: 0}
-  m_UseDeathOrbit: 1
-  m_DeathRotationSpeed: 5
-  m_DeathOrbitMoveSpeed: 5
-  m_DeathOrbitDistance: 5
-  m_SelectedCameraState: -1
+  m_AutoAnchorBone: 7
+  m_AnchorOffset: {x: 0, y: 1.8, z: 0}
+  m_ViewTypeFullName: Opsive.UltimateCharacterController.ThirdPersonController.Camera.ViewTypes.Combat
+  m_FirstPersonViewTypeFullName: 
+  m_ThirdPersonViewTypeFullName: Opsive.UltimateCharacterController.ThirdPersonController.Camera.ViewTypes.Combat
+  m_ViewTypeData:
+  - m_ObjectType: Opsive.UltimateCharacterController.ThirdPersonController.Camera.ViewTypes.Combat
+    m_ValueHashes: 65e77897b61df252c31ddd78760b38d8b345095a0edf2c3c25f75d6432f7488ae5e4a3e9221f756b7db8984d7c49fce19d993aec09db5f3f1ff18eed3d390dca65df27146bc57ea392d929c04463666914018d40a6d1eed3595adc3bdf11382962b1493a960263d8ab1c14912f0620c841d380f0634cdaca91e8b834eefc236074b47f4df753915e2ba5aafc40bf5bb5c4a867ecd675c814f8ee21ef268b00597b7620a4012e7c9184cd8da2b81ea740cd3858f95122643063efc45885681e33b304fd9c101968c896d0c3b51970d5c64dc1ee6462db9f1de6c4ab54f8910c7d1a0b665748a744c186548c3ae75f6e0db8c73562ca94968a
+    m_ValuePositions: 000000000400000004000000080000000c000000100000001100000011000000180000001c00000020000000210000002500000031000000350000004100000045000000490000004d0000005100000055000000590000005d0000005d0000006100000065000000690000006d0000007100000075000000810000008d0000008d0000009100000095000000990000009d000000a1000000a5000000b1000000bd000000bd000000c1000000c5000000c9000000cd000000d1000000d5000000e1000000ed000000ed000000f1000000f5000000f9000000fd0000000101000005010000110100001d0100002e0100003201000036010000
+    m_Values: 020000005a6f6f6d00000000000000000044656661756c74ffffffff00000000010000c8420000003f00000000000020c0cdcc4c3d00000000000000000000803f00008c420000803ecdcc4c3dcdcccc3d0ad7233d000090c200009042cdcc4c3e0000803e0000803f78000000acc5273700401c4600401cc600401cc600401cc600401c4600401c4600401c46cdcc4c3e0000803e0000803f78000000acc5273700401c4600401cc600401cc600401cc600401c4600401c4600401c46cdcc4c3e0000803e0000803f78000000acc5273700401c4600401cc600401cc600401cc600401c4600401c4600401c46cdcc4c3e0000803e0000803f78000000acc5273700401c4600401cc600401cc600401cc600401c4600401c4600401c464d6f757365205363726f6c6c576865656c00000000000000000000803f
+    m_UnityObjects:
+    - {fileID: 11400000, guid: edafe89541fb59d4dba60703f5b1574a, type: 2}
+    m_Version: 2.0.4
+  m_CanChangePerspectives: 1
+  m_CanZoom: 1
+  m_ZoomState: Zoom
+  m_StateAppendItemTypeName: 0
+  m_OnChangeViewTypesEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Opsive.UltimateCharacterController.Events.UnityViewTypeBoolEvent,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_OnChangePerspectivesEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Opsive.UltimateCharacterController.Events.UnityBoolEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &114624794874455344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -187,6 +209,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   stopNaNPropagation: 1
+  finalBlitToCameraTarget: 1
   antialiasingMode: 0
   temporalAntialiasing:
     jitterSpread: 0.75
@@ -217,6 +240,7 @@ MonoBehaviour:
       size: 256
       exposure: 0.12
     overlaySettings:
+      linearDepth: 0
       motionColorIntensity: 4
       motionGridSize: 64
       colorBlindnessType: 0
@@ -239,8 +263,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d092077bf0dc8498482f6d3a098b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DefaultLookDistance: 15
-  m_MinLookDistance: 4
+--- !u!114 &114810077119789320
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1095465778626376}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 721e59e8d6c5af944bc5ca4b238ac893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_States:
+  - m_Name: Death
+    m_Preset: {fileID: 11400000, guid: 2e0a695447b162e4f8f2ba5d934c9d78, type: 2}
+    m_BlockList: []
+    m_Default: 0
+  - m_Name: Default
+    m_Preset: {fileID: 0}
+    m_BlockList: []
+    m_Default: 1
+  m_CharacterFade: 1
+  m_CacheCharacterMaterials: 1
+  m_StartFadeDistance: 2
+  m_EndFadeDistance: 1
+  m_CharacterFadeStateChangeCooldown: 0.3
+  m_ObstructingObjectsFade: 0
+  m_CollisionRadius: 0.05
+  m_FadeSpeed: 0.02
+  m_AutoSetMode: 0
+  m_DisableCollider: 1
+  m_MaxObstructingColliderCount: 20
+  m_MaxObstructingMaterialCount: 30
+  m_TransformOffset: {x: 0, y: 0.9, z: 0}
 --- !u!124 &124465824470489448
 Behaviour:
   m_ObjectHideFlags: 1

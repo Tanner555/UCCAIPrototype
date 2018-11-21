@@ -60,17 +60,17 @@ namespace RTSPrototype
         }
         private Inventory _myInventory = null;
 
-        ItemHandler itemHandler
-        {
-            get
-            {
-                if (_itemHandler == null)
-                    _itemHandler = GetComponent<ItemHandler>();
+        //ItemHandler itemHandler
+        //{
+        //    get
+        //    {
+        //        if (_itemHandler == null)
+        //            _itemHandler = GetComponent<ItemHandler>();
 
-                return _itemHandler;
-            }
-        }
-        private ItemHandler _itemHandler = null;
+        //        return _itemHandler;
+        //    }
+        //}
+        //private ItemHandler _itemHandler = null;
 
         //RTSNavBridge myRTSNavBridge
         //{
@@ -88,7 +88,7 @@ namespace RTSPrototype
         {
             get
             {
-                return myRigidbodyTPC && myInventory && itemHandler
+                return myRigidbodyTPC && myInventory /*&& itemHandler*/
                     && myNavAgent /*&& myRTSNavBridge*/ && myEventHandler
                     && allyMember;
             }
