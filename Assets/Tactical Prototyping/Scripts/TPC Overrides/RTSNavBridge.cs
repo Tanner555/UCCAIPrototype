@@ -1,5 +1,4 @@
-﻿using Opsive.ThirdPersonController;
-using RTSCoreFramework;
+﻿using RTSCoreFramework;
 using UnityEngine;
 using Chronos;
 

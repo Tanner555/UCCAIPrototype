@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using Opsive.ThirdPersonController;
-using Opsive.ThirdPersonController.Wrappers.Abilities;
 using RTSCoreFramework;
+using Opsive.UltimateCharacterController;
+using Opsive.UltimateCharacterController.Inventory;
+using Opsive.UltimateCharacterController.Character;
 
 namespace RTSPrototype
 {
@@ -35,17 +36,17 @@ namespace RTSPrototype
         }
         private AllyEventHandlerWrapper __myEventHandler = null;
 
-        RigidbodyCharacterController myRigidbodyTPC
+        UltimateCharacterLocomotion myRigidbodyTPC
         {
             get
             {
                 if (_myRigidbodyTPC == null)
-                    _myRigidbodyTPC = GetComponent<RigidbodyCharacterController>();
+                    _myRigidbodyTPC = GetComponent<UltimateCharacterLocomotion>();
 
                 return _myRigidbodyTPC;
             }
         }
-        private RigidbodyCharacterController _myRigidbodyTPC = null;
+        private UltimateCharacterLocomotion _myRigidbodyTPC = null;
 
         Inventory myInventory
         {
@@ -71,24 +72,24 @@ namespace RTSPrototype
         }
         private ItemHandler _itemHandler = null;
 
-        RTSNavBridge myRTSNavBridge
-        {
-            get
-            {
-                if (_myRTSNavBridge == null)
-                    _myRTSNavBridge = GetComponent<RTSNavBridge>();
+        //RTSNavBridge myRTSNavBridge
+        //{
+        //    get
+        //    {
+        //        if (_myRTSNavBridge == null)
+        //            _myRTSNavBridge = GetComponent<RTSNavBridge>();
 
-                return _myRTSNavBridge;
-            }
-        }
-        private RTSNavBridge _myRTSNavBridge = null;
+        //        return _myRTSNavBridge;
+        //    }
+        //}
+        //private RTSNavBridge _myRTSNavBridge = null;
 
         protected override bool AllCompsAreValid
         {
             get
             {
                 return myRigidbodyTPC && myInventory && itemHandler
-                    && myNavAgent && myRTSNavBridge && myEventHandler
+                    && myNavAgent /*&& myRTSNavBridge*/ && myEventHandler
                     && allyMember;
             }
         }
@@ -115,16 +116,17 @@ namespace RTSPrototype
         #region Handlers
         void OnDeath()
         {
-            var _mHitbox = transform.GetComponentInChildren<MeleeWeaponHitbox>();
-            if (_mHitbox != null)
-            {
-                SphereCollider _sphereCol;
-                if ((_sphereCol = _mHitbox.GetComponent<SphereCollider>()) != null)
-                {
-                    _sphereCol.enabled = false;
-                }
-                _mHitbox.SetActive(false);
-            }
+            //TODO: RTSPrototype Check For Melee HitBox When Character Dies
+            //var _mHitbox = transform.GetComponentInChildren<MeleeWeaponHitbox>();
+            //if (_mHitbox != null)
+            //{
+            //    SphereCollider _sphereCol;
+            //    if ((_sphereCol = _mHitbox.GetComponent<SphereCollider>()) != null)
+            //    {
+            //        _sphereCol.enabled = false;
+            //    }
+            //    _mHitbox.SetActive(false);
+            //}
             this.enabled = false;
         }      
 
