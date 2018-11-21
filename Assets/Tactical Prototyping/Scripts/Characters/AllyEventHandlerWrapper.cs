@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Opsive.ThirdPersonController;
+using Opsive.UltimateCharacterController;
+using Opsive.UltimateCharacterController.Inventory;
 using RTSCoreFramework;
 using Chronos;
+using Opsive.UltimateCharacterController.Events;
+using Opsive.UltimateCharacterController.Items;
 
 namespace RTSPrototype
 {

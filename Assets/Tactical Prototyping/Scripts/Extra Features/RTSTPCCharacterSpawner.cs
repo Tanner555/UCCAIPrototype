@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using BaseFramework;
 using RTSCoreFramework;
-using Opsive.ThirdPersonController;
-using Abilities = Opsive.ThirdPersonController.Abilities;
-using Opsive.ThirdPersonController.Abilities;
+using Abilities = Opsive.UltimateCharacterController.Character.Abilities;
 using System;
 using System.Linq;
 using Chronos;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using Opsive.UltimateCharacterController.Items;
+using Opsive.UltimateCharacterController.Utility.Builders;
+using Opsive.UltimateCharacterController.Items.Actions;
+using Opsive.UltimateCharacterController.Character;
+using Opsive.UltimateCharacterController.Inventory;
 
 namespace RTSPrototype
 {
@@ -261,7 +264,7 @@ namespace RTSPrototype
         {
             yield return new WaitForSeconds(0f);
             // Stop the character from moving so it will reinitialize correctly.
-            spawnedGameObject.GetComponent<RigidbodyCharacterController>().StopMovement();
+            spawnedGameObject.GetComponent<UltimateCharacterLocomotion>().StopMovement();
 
             // After UMA updates it may not assign the correct animator controller - make sure it does.
             var characterAnimator = spawnedGameObject.GetComponent<Animator>();
