@@ -3408,15 +3408,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1909704301872178, guid: ed3aa56cbdc01524c90532685b6d7d7a, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114218957903503726, guid: ed3aa56cbdc01524c90532685b6d7d7a,
-        type: 2}
-      propertyPath: ignoreInvisibleLayersAndAllies.m_Bits
-      value: 666895361
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed3aa56cbdc01524c90532685b6d7d7a, type: 2}
   m_IsPrefabAsset: 0

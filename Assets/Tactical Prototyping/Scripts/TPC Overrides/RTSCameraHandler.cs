@@ -6,6 +6,7 @@ using Opsive.UltimateCharacterController.Camera;
 using Opsive.UltimateCharacterController.Input;
 using RTSCoreFramework;
 using Opsive.UltimateCharacterController.Events;
+using Opsive.UltimateCharacterController.Game;
 
 namespace RTSPrototype
 {
@@ -17,6 +18,9 @@ namespace RTSPrototype
             get { return RTSGameMaster.thisInstance; }
         }
 
+        //Used To Store Current Look Vector
+        Vector2 currentLookVector = Vector2.zero;
+        //Limits Mouse Movement
         private bool moveCamera = false;
         //Zooming
         private bool zoomCamera = false;
@@ -63,6 +67,9 @@ namespace RTSPrototype
                     m_PlayerInput = RTSPlayerInput.thisInstance;
                 }
             }
+
+            //Update Look Vector When Setting Player Ally In Command
+            currentLookVector = m_PlayerInput.GetLookVector(true);
         }
 
         #region UnityMessages
@@ -84,11 +91,18 @@ namespace RTSPrototype
             gamemaster.EventEnableCameraZoom += ToggleZoomCamera;
         }
 
-        protected override void Update()
+        protected override void FixedUpdate()
         {
             if (moveCamera)
             {
-                base.Update();
+                //Modify FixedUpdate Functionality To Stop Momentum 
+                //When Letting Go Of Right Mouse Button
+                currentLookVector = m_PlayerInput.GetLookVector(true);
+                DeterministicObjectManager.SetCameraLookVector(m_CameraController.DeterministicObjectIndex, currentLookVector);
+            }
+            else
+            {
+                DeterministicObjectManager.SetCameraLookVector(m_CameraController.DeterministicObjectIndex, Vector2.zero);
             }
             //TODO: RTSPrototype Implement Zoom Functionality
             //if (zoomCamera)

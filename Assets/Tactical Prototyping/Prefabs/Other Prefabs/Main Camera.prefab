@@ -179,7 +179,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: edafe89541fb59d4dba60703f5b1574a, type: 2}
     m_Version: 2.0.4
   m_CanChangePerspectives: 1
-  m_CanZoom: 1
+  m_CanZoom: 0
   m_ZoomState: Zoom
   m_StateAppendItemTypeName: 0
   m_OnChangeViewTypesEvent:

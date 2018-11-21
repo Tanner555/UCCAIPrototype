@@ -67,7 +67,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4058494446640414
 Transform:
   m_ObjectHideFlags: 1
@@ -165,7 +165,7 @@ MonoBehaviour:
     m_Bits: 3288334593
   ignoreInvisibleLayersAndAllies:
     serializedVersion: 2
-    m_Bits: 666894337
+    m_Bits: 666895361
   singleAllyLayerName: Ally
   singleCurrentPlayerLayerName: CurrentPlayerAlly
 --- !u!114 &114369450698923008
@@ -201,11 +201,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e5b49132d1e7f40a80c30a1de58792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ForceMobileInput: 0
-  m_ForceStandaloneInput: 0
-  m_DisableWithEscape: 1
+  m_States:
+  - m_Name: Default
+    m_Preset: {fileID: 0}
+    m_BlockList: []
+    m_Default: 1
+  m_HorizontalLookInputName: Mouse X
+  m_VerticalLookInputName: Mouse Y
+  m_LookVectorMode: 0
+  m_LookSensitivity: {x: 3, y: 3}
+  m_SmoothLookSteps: 20
+  m_SmoothLookWeight: 0.5
+  m_LookAccelerationThreshold: 0.4
+  m_ControllerConnectedCheckRate: 1
+  m_ConnectedControllerState: ConnectedController
+  m_EnableGamplayInputEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Opsive.UltimateCharacterController.Events.UnityBoolEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_ForceInput: 0
   m_DisableCursor: 0
-  m_DisableWhenButtonDown: 0
+  m_EnableCursorWithEscape: 1
 --- !u!114 &114433783553032088
 MonoBehaviour:
   m_ObjectHideFlags: 1
