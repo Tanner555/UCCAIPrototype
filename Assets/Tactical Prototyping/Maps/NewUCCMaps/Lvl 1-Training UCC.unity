@@ -61264,12 +61264,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1095465778626376, guid: b03dc26493b56644d948bff75db2d842,
     type: 2}
   m_PrefabInternal: {fileID: 791686235}
---- !u!114 &1852181752 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114810077119789320, guid: b03dc26493b56644d948bff75db2d842,
-    type: 2}
-  m_PrefabInternal: {fileID: 791686235}
-  m_Script: {fileID: 11500000, guid: 721e59e8d6c5af944bc5ca4b238ac893, type: 3}
 --- !u!43 &1864606928
 Mesh:
   m_ObjectHideFlags: 0
@@ -65827,7 +65821,6 @@ MonoBehaviour:
   - {fileID: 791686238}
   - {fileID: 791686237}
   - {fileID: 791686236}
-  - {fileID: 1852181752}
   Scenario_1_Spawners: {fileID: 1205845919}
   Scenario_2_Spawners: {fileID: 904586068}
   Scenario_3_Spawners: {fileID: 0}

@@ -29,7 +29,6 @@ GameObject:
   - component: {fileID: 114301875693343704}
   - component: {fileID: 114269664268726430}
   - component: {fileID: 114624794874455344}
-  - component: {fileID: 114810077119789320}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -263,39 +262,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d092077bf0dc8498482f6d3a098b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114810077119789320
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1095465778626376}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 721e59e8d6c5af944bc5ca4b238ac893, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_States:
-  - m_Name: Death
-    m_Preset: {fileID: 11400000, guid: 2e0a695447b162e4f8f2ba5d934c9d78, type: 2}
-    m_BlockList: []
-    m_Default: 0
-  - m_Name: Default
-    m_Preset: {fileID: 0}
-    m_BlockList: []
-    m_Default: 1
-  m_CharacterFade: 1
-  m_CacheCharacterMaterials: 1
-  m_StartFadeDistance: 2
-  m_EndFadeDistance: 1
-  m_CharacterFadeStateChangeCooldown: 0.3
-  m_ObstructingObjectsFade: 0
-  m_CollisionRadius: 0.05
-  m_FadeSpeed: 0.02
-  m_AutoSetMode: 0
-  m_DisableCollider: 1
-  m_MaxObstructingColliderCount: 20
-  m_MaxObstructingMaterialCount: 30
-  m_TransformOffset: {x: 0, y: 0.9, z: 0}
 --- !u!124 &124465824470489448
 Behaviour:
   m_ObjectHideFlags: 1
