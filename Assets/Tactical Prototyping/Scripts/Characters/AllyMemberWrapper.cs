@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using RTSCoreFramework;
-using Opsive.ThirdPersonController;
+using Opsive.UltimateCharacterController;
 using Chronos;
+using Opsive.UltimateCharacterController.Character;
+using Opsive.UltimateCharacterController.Traits;
+using Opsive.UltimateCharacterController.Inventory;
+using Opsive.UltimateCharacterController.Events;
 
 namespace RTSPrototype
 {
@@ -108,12 +112,16 @@ namespace RTSPrototype
             get { return allyStatController.Stat_MaxStamina; }
         }
 
+        /// <summary>
+        /// TODO: Fix CurrentEquipedAmmo Property To Use Inventory Methods
+        /// </summary>
         public override int CurrentEquipedAmmo
         {
             get
             {
-                return myInventory.GetCurrentItemCount(typeof(PrimaryItemType), false) +
-                    myInventory.GetCurrentItemCount(typeof(PrimaryItemType), true);
+                return 0;
+                //return myInventory.GetCurrentItemCount(typeof(PrimaryItemType), false) +
+                //    myInventory.GetCurrentItemCount(typeof(PrimaryItemType), true);
             }
         }
 
@@ -195,32 +203,40 @@ namespace RTSPrototype
         #endregion
 
         #region Handlers
+        /// <summary>
+        /// TODO: RTSPrototype Fix Damage And Death Events, Using OnHealthDamage Instead of OnHealthDamageDetails
+        /// </summary>
+        /// <param name="_amount"></param>
+        /// <param name="_position"></param>
+        /// <param name="_force"></param>
+        /// <param name="_instigator"></param>
+        /// <param name="_hitGameObject"></param>
         public override void AllyTakeDamage(int _amount, Vector3 _position, Vector3 _force, AllyMember _instigator, GameObject _hitGameObject)
         {
-            base.AllyTakeDamage(_amount, _position, _force, _instigator, _hitGameObject);
-            if (bIsCurrentPlayer)
-                EventHandler.ExecuteEvent<float, Vector3, Vector3, GameObject>(gameObject, "OnHealthDamageDetails", _amount, _position, _force, _instigator.gameObject);
+            //base.AllyTakeDamage(_amount, _position, _force, _instigator, _hitGameObject);
+            //if (bIsCurrentPlayer)
+            //    EventHandler.ExecuteEvent<float, Vector3, Vector3, GameObject>(gameObject, "OnHealthDamageDetails", _amount, _position, _force, _instigator.gameObject);
 
-            if (IsAlive == false)
-            {
-                EventHandler.ExecuteEvent<Vector3, Vector3, GameObject>(gameObject, "OnDeathDetails", _force, _position, _instigator.gameObject);
-            }
+            //if (IsAlive == false)
+            //{
+            //    EventHandler.ExecuteEvent<Vector3, Vector3, GameObject>(gameObject, "OnDeathDetails", _force, _position, _instigator.gameObject);
+            //}
         }
 
         public override void AllyTakeDamage(int amount, AllyMember _instigator)
         {
-            base.AllyTakeDamage(amount, _instigator);
-            Vector3 _position = ChestTransform.position;
-            Vector3 _force = Vector3.zero;
-            if (bIsCurrentPlayer)
-            {
-                EventHandler.ExecuteEvent<float, Vector3, Vector3, GameObject>(gameObject, "OnHealthDamageDetails", amount, _position, _force, _instigator.gameObject);
-            }
+            //base.AllyTakeDamage(amount, _instigator);
+            //Vector3 _position = ChestTransform.position;
+            //Vector3 _force = Vector3.zero;
+            //if (bIsCurrentPlayer)
+            //{
+            //    EventHandler.ExecuteEvent<float, Vector3, Vector3, GameObject>(gameObject, "OnHealthDamageDetails", amount, _position, _force, _instigator.gameObject);
+            //}
 
-            if (IsAlive == false)
-            {
-                EventHandler.ExecuteEvent<Vector3, Vector3, GameObject>(gameObject, "OnDeathDetails", _force, _position, _instigator.gameObject);
-            }
+            //if (IsAlive == false)
+            //{
+            //    EventHandler.ExecuteEvent<Vector3, Vector3, GameObject>(gameObject, "OnDeathDetails", _force, _position, _instigator.gameObject);
+            //}
         }
 
         public override void AllyOnDeath()
