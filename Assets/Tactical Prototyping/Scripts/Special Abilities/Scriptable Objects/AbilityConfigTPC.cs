@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Opsive.ThirdPersonController.Abilities;
+using Opsive.UltimateCharacterController.Character.Abilities;
 using RTSCoreFramework;
 
 namespace RTSPrototype

@@ -46,7 +46,7 @@ namespace RTSPrototype
             PlayAbilityAnimation();
         }
 
-        protected override Opsive.ThirdPersonController.Abilities.Ability GetTPCAbility()
+        protected override Opsive.UltimateCharacterController.Character.Abilities.Ability GetTPCAbility()
         {
             return GetComponent<RTSSelfHealAbility>();
         }

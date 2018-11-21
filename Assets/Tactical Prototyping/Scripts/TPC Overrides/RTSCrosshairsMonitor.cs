@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Opsive.ThirdPersonController.UI;
+using Opsive.UltimateCharacterController.UI;
 using RTSCoreFramework;
 
 namespace RTSPrototype
@@ -14,9 +14,8 @@ namespace RTSPrototype
             get { return RTSGameMaster.thisInstance; }
         }
 
-        protected override void Start()
+        protected void Start()
         {
-            base.Start();
             gameMaster.EventHoldingRightMouseDown += DisableCrosshairsHandler;
         }
 
@@ -32,11 +31,12 @@ namespace RTSPrototype
             //DisableCrosshairs(!enableCamera);
         }
 
-        protected override void AttachCharacter(GameObject character)
+        protected override void OnAttachCharacter(GameObject character)
         {
             //Complete Disable Crosshairs for now
             //base.AttachCharacter(character);
-            DisableCrosshairs(true);
+            //DisableCrosshairs(true);
+            ShowCrosshairs = false;
         }
     }
 }

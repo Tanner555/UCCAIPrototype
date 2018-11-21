@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Opsive.ThirdPersonController;
+using Opsive.UltimateCharacterController;
+using Opsive.UltimateCharacterController.Inventory;
 
 namespace RTSCoreFramework
 {

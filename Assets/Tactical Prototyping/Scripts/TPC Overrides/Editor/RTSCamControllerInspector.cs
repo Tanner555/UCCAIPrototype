@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using UnityEditorInternal;
-using Opsive.ThirdPersonController;
-using Opsive.ThirdPersonController.Editor;
+using Opsive.UltimateCharacterController;
+using Opsive.UltimateCharacterController.Editor;
+using Opsive.UltimateCharacterController.Editor.Inspectors.Camera;
 
 namespace RTSPrototype
 {

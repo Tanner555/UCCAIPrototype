@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using RTSCoreFramework;
-using Opsive.ThirdPersonController.Abilities;
+using Opsive.UltimateCharacterController.Character.Abilities;
 
 namespace RTSPrototype
 {
+    /// <summary>
+    /// TODO: RTSPrototype Fix RTSHeightChange Ability
+    /// </summary>
     public class RTSHeightChange : HeightChange
     {
         RTSGameMode gamemode
@@ -17,10 +20,10 @@ namespace RTSPrototype
         {
             //Used To Set Essential Properties
             //I can't change in CharacterSetup Script
-            m_StatePrefix = "Crouch";
-            m_IdleState = "Movement";
-            m_MovementState = "Movement";
-            m_ColliderHeightAdjustment = -0.4f;
+            //m_StatePrefix = "Crouch";
+            //m_IdleState = "Movement";
+            //m_MovementState = "Movement";
+            //m_ColliderHeightAdjustment = -0.4f;
         }
 
         public override bool CanStopAbility()

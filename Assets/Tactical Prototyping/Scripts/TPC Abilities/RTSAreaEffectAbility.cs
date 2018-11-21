@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using RTSCoreFramework;
-using Opsive.ThirdPersonController.Abilities;
+using Opsive.UltimateCharacterController.Character.Abilities;
 
 namespace RTSPrototype
 {
+    /// <summary>
+    /// TODO: RTSPrototype Fix RTSAreaEffectAbility
+    /// </summary>
     public class RTSAreaEffectAbility : Ability
     {
         RTSGameMode gamemode
@@ -13,16 +16,16 @@ namespace RTSPrototype
             get { return RTSGameMode.thisInstance; }
         }
 
-        public override string GetDestinationState(int layer)
-        {
-            if (layer != m_AnimatorMonitor.BaseLayerIndex && layer != m_AnimatorMonitor.UpperLayerIndex &&
-                !m_AnimatorMonitor.ItemUsesAbilityLayer(this, layer))
-            {
-                return string.Empty;
-            }
+        //public override string GetDestinationState(int layer)
+        //{
+        //    if (layer != m_AnimatorMonitor.BaseLayerIndex && layer != m_AnimatorMonitor.UpperLayerIndex &&
+        //        !m_AnimatorMonitor.ItemUsesAbilityLayer(this, layer))
+        //    {
+        //        return string.Empty;
+        //    }
 
-            return "AreaEffect.Movement";
-        }
+        //    return "AreaEffect.Movement";
+        //}
 
         public override bool CanStartAbility()
         {

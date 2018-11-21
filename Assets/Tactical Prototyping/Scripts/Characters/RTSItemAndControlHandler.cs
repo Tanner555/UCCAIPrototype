@@ -337,7 +337,7 @@ namespace RTSPrototype
 
         //Make sure to use wrapper ability namespace, 
         //otherwise the method won't find the ability
-        Opsive.ThirdPersonController.Abilities.Ability FindAbility(System.Type _type)
+        Opsive.UltimateCharacterController.Character.Abilities.Ability FindAbility(System.Type _type)
         {
             if (AllCompsAreValid)
             {
@@ -356,15 +356,15 @@ namespace RTSPrototype
         #region RPGInventoryToTPC
         void SetEquippedItem(ItemType _type)
         {
-            var _gun = myInventory.GetCurrentItem(typeof(PrimaryItemType));
-            if (_gun != null && _gun.ItemType != _type)
-            {
-                myInventory.EquipItem((PrimaryItemType)_type);
-            }
-            else if (_gun == null)
-            {
-                Debug.Log("Not Setting Equipped Weapon " + _type.ToString());
-            }
+            //var _gun = myInventory.GetCurrentItem(typeof(PrimaryItemType));
+            //if (_gun != null && _gun.ItemType != _type)
+            //{
+            //    myInventory.EquipItem((PrimaryItemType)_type);
+            //}
+            //else if (_gun == null)
+            //{
+            //    Debug.Log("Not Setting Equipped Weapon " + _type.ToString());
+            //}
         }
         #endregion
         

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Opsive.ThirdPersonController.Abilities;
+using Opsive.UltimateCharacterController.Character.Abilities;
 using RTSCoreFramework;
 
 namespace RTSPrototype
@@ -10,7 +10,7 @@ namespace RTSPrototype
     {
         public override abstract void Use(GameObject target = null);
 
-        public Opsive.ThirdPersonController.Abilities.Ability TPCAbility
+        public Opsive.UltimateCharacterController.Character.Abilities.Ability TPCAbility
         {
             get
             {
@@ -20,7 +20,7 @@ namespace RTSPrototype
                 return _TPCAbility;
             }
         }
-        private Opsive.ThirdPersonController.Abilities.Ability _TPCAbility = null;
+        private Opsive.UltimateCharacterController.Character.Abilities.Ability _TPCAbility = null;
 
         protected override void PlayAbilityAnimation()
         {
@@ -38,7 +38,7 @@ namespace RTSPrototype
             allyEventHandler.CallEventToggleIsUsingAbility(false);
         }
 
-        protected virtual Opsive.ThirdPersonController.Abilities.Ability GetTPCAbility()
+        protected virtual Opsive.UltimateCharacterController.Character.Abilities.Ability GetTPCAbility()
         {
             //Override To Get the Actual TPC Ability
             return null;

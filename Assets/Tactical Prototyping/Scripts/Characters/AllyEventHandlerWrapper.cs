@@ -30,14 +30,15 @@ namespace RTSPrototype
     public class AllyEventHandlerWrapper : AllyEventHandler
     {
         #region TPSSharedProperties
-        private SharedProperty<int> m_PrimaryLoadedCount = null;
-        private SharedProperty<int> m_DualWieldLoadedCount = null;
-        private SharedProperty<int> m_PrimaryUnloadedCount = null;
-        private SharedProperty<int> m_DualWieldUnloadedCount = null;
-        private SharedProperty<int> m_SecondaryItemCount = null;
-        private SharedProperty<int> m_FirstExtensionItemCount = null;
-        private SharedProperty<Item> m_CurrentPrimaryItem = null;
-        private SharedProperty<Item> m_CurrentDualWieldItem = null;
+        //TODO: RTSPrototype Fix SharedProperty Refs Inside AllyEventHandlerWrapper
+        //private SharedProperty<int> m_PrimaryLoadedCount = null;
+        //private SharedProperty<int> m_DualWieldLoadedCount = null;
+        //private SharedProperty<int> m_PrimaryUnloadedCount = null;
+        //private SharedProperty<int> m_DualWieldUnloadedCount = null;
+        //private SharedProperty<int> m_SecondaryItemCount = null;
+        //private SharedProperty<int> m_FirstExtensionItemCount = null;
+        //private SharedProperty<Item> m_CurrentPrimaryItem = null;
+        //private SharedProperty<Item> m_CurrentDualWieldItem = null;
         #endregion
 
         #region Properties
@@ -70,7 +71,7 @@ namespace RTSPrototype
         protected override void Start()
         {
             base.Start();
-            SharedManager.InitializeSharedFields(this.gameObject, this);
+            //SharedManager.InitializeSharedFields(this.gameObject, this);
         }
 
         protected override void OnDisable()
@@ -139,23 +140,23 @@ namespace RTSPrototype
         void OnConsumableItemCountChange(Item item, bool added, bool immediateChange)
         {
             //Only Call OnAmmoChanged If the Item is The Current Primary Item
-            if (item == m_CurrentPrimaryItem.Get())
-            {
-                RequestCallAmmoChangedEvent();
-            }
+            //if (item == m_CurrentPrimaryItem.Get())
+            //{
+            //    RequestCallAmmoChangedEvent();
+            //}
         }
         #endregion
 
         #region HelperMethods
         void RequestCallAmmoChangedEvent()
         {
-            int _loadedAmmo = m_PrimaryLoadedCount.Get();
-            int _unloadedAmmo = m_PrimaryUnloadedCount.Get();
-            if (_loadedAmmo < int.MaxValue && _loadedAmmo >= 0 &&
-                _unloadedAmmo < int.MaxValue && _unloadedAmmo >= 0)
-            {
-                CallOnAmmoChanged(_loadedAmmo, _unloadedAmmo);
-            }
+            //int _loadedAmmo = m_PrimaryLoadedCount.Get();
+            //int _unloadedAmmo = m_PrimaryUnloadedCount.Get();
+            //if (_loadedAmmo < int.MaxValue && _loadedAmmo >= 0 &&
+            //    _unloadedAmmo < int.MaxValue && _unloadedAmmo >= 0)
+            //{
+            //    CallOnAmmoChanged(_loadedAmmo, _unloadedAmmo);
+            //}
         }
         #endregion
     }

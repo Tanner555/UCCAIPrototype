@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Opsive.ThirdPersonController;
+using Opsive.UltimateCharacterController;
+using Opsive.UltimateCharacterController.Camera;
+using Opsive.UltimateCharacterController.Utility;
+using Opsive.UltimateCharacterController.Character;
 using RTSCoreFramework;
 
 namespace RTSPrototype
@@ -40,6 +43,10 @@ namespace RTSPrototype
         #endregion
 
         #region UIAndCameraProcessing
+        /// <summary>
+        /// TODO: RTSPrototype Fix SetCameraCharacter Method
+        /// </summary>
+        /// <param name="_targetCore"></param>
         protected override void SetCameraCharacter(AllyMember _targetCore)
         {
             AllyMemberWrapper _target = (AllyMemberWrapper)_targetCore;
@@ -50,14 +57,14 @@ namespace RTSPrototype
                 if (_thirdPersonCamera.Character != _target.gameObject)
                 {
                     _thirdPersonCamera.Character = _target.gameObject;
-                    if (_target.ChestTransform != null)
-                        _thirdPersonCamera.FadeTransform = _target.ChestTransform;
-                    else
-                        _thirdPersonCamera.FadeTransform = null;
-                    if (_target.HeadTransform != null)
-                        _thirdPersonCamera.DeathAnchor = _target.HeadTransform;
-                    else
-                        _thirdPersonCamera.DeathAnchor = null;
+                    //if (_target.ChestTransform != null)
+                    //    _thirdPersonCamera.FadeTransform = _target.ChestTransform;
+                    //else
+                    //    _thirdPersonCamera.FadeTransform = null;
+                    //if (_target.HeadTransform != null)
+                    //    _thirdPersonCamera.DeathAnchor = _target.HeadTransform;
+                    //else
+                    //    _thirdPersonCamera.DeathAnchor = null;
 
                     //Initialize Character on Modified Camera Controller
                     _thirdPersonCamera.InitializeAllyCharacter(_target);
