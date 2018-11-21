@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Opsive.UltimateCharacterController;
 using Opsive.UltimateCharacterController.Camera;
+using Opsive.UltimateCharacterController.Utility;
+using Opsive.UltimateCharacterController.Character;
 
 namespace RTSPrototype
 {
@@ -16,22 +18,23 @@ namespace RTSPrototype
             m_Character = ally.gameObject;
             if (m_Character == null)
             {
-                Debug.LogWarning("Error: Unable to find character with the Player tag. Disabling the Camera Controller.");
-                m_CameraHandler.enabled = enabled = false;
+                Debug.LogWarning("Error: Unable to find an Ally Character. Disabling the Camera Controller.");
+                //m_CameraHandler.enabled = enabled = false;
+                this.enabled = false;
                 return;
             }
             InitializeCharacter(m_Character);
         }
 
-        protected override void RegisterEvents()
-        {
+        //protected override void RegisterEvents()
+        //{
             
-        }
+        //}
 
-        protected override void Deactivate()
-        {
+        //protected override void Deactivate()
+        //{
             
-        }
+        //}
         #endregion
 
         #region Properties
@@ -44,31 +47,54 @@ namespace RTSPrototype
         #region UnityMessages
         protected override void Awake()
         {
+            base.Awake();
+
+            m_GameObject = gameObject;
             m_Transform = transform;
-            m_Camera = GetComponent<Camera>();
-            m_CameraHandler = GetComponent<CameraHandler>();
-            m_CameraMonitor = GetComponent<CameraMonitor>();
 
-            SharedManager.Register(this);
+            // Create the view types from the serialized data.
+            DeserializeViewTypes();
 
-            m_StartPitch = m_Pitch = m_Transform.eulerAngles.x;
+            // Initialize the first and third person view types if they haven't been initialized yet.
+            if (m_FirstPersonViewType == null && !string.IsNullOrEmpty(m_FirstPersonViewTypeFullName))
+            {
+                int index;
+                if (m_ViewTypeNameMap.TryGetValue(m_FirstPersonViewTypeFullName, out index))
+                {
+                    m_FirstPersonViewType = m_ViewTypes[index];
+                }
+            }
+            if (m_ThirdPersonViewType == null && !string.IsNullOrEmpty(m_ThirdPersonViewTypeFullName))
+            {
+                int index;
+                if (m_ViewTypeNameMap.TryGetValue(m_ThirdPersonViewTypeFullName, out index))
+                {
+                    m_ThirdPersonViewType = m_ViewTypes[index];
+                }
+            }
 
-            // The active state is a unique state which is layered by the additional states.
-            m_ActiveState = ScriptableObject.CreateInstance<CameraState>();
-            if (m_CameraStates == null || m_CameraStates.Length == 0)
+            // Call Awake on all of the deserialized view types after the camera controller's Awake method is complete.
+            if (m_ViewTypes != null)
             {
-                m_DefaultState = ScriptableObject.CreateInstance<CameraState>();
-                m_CameraStates = new CameraState[] { m_DefaultState };
+                for (int i = 0; i < m_ViewTypes.Length; ++i)
+                {
+                    m_ViewTypes[i].Awake();
+                }
             }
-            else
+
+            // The items need to know if they are in a first person perspective within Awake.
+            if (m_Character != null)
             {
-                m_DefaultState = m_CameraStates[0];
+                var characterLocomotion = m_Character.GetCachedComponent<UltimateCharacterLocomotion>();
+                characterLocomotion.FirstPersonPerspective = m_ViewType.FirstPersonPerspective;
             }
-            for (int i = 0; i < m_CameraStates.Length; ++i)
-            {
-                m_CameraStatesMap.Add(m_CameraStates[i].name, m_CameraStates[i]);
-            }
-            ChangeState(m_DefaultState, true);
+
+            //ChangeState(m_DefaultState, true);
+        }
+
+        protected override void Start()
+        {
+
         }
         #endregion
 

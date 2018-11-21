@@ -8,7 +8,7 @@ using RTSCoreFramework;
 
 namespace RTSPrototype
 {
-    public class RTSCameraHandler : CameraHandler
+    public class RTSCameraHandler : CameraControllerHandler
     {
         #region RTSFieldsAndProps
         RTSGameMaster gamemaster
