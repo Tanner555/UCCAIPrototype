@@ -6,6 +6,9 @@ using Opsive.UltimateCharacterController.Character.Abilities;
 
 namespace RTSPrototype
 {
+    /// <summary>
+    /// TODO: RTSPrototype Fix RTSDamageVisualization Ability
+    /// </summary>
     public class RTSDamageVisualization : Ability
     {
         #region Properties
@@ -60,35 +63,35 @@ namespace RTSPrototype
         /// </summary>
         /// <param name="layer">The Animator layer index.</param>
         /// <returns>The state that the Animator should be in for the given layer. An empty string indicates no change.</returns>
-        public override string GetDestinationState(int layer)
-        {
-            // Only the additive layer can play a damage animation.
-            if (layer != m_AnimatorMonitor.AdditiveLayerIndex)
-            {
-                return string.Empty;
-            }
+        //public override string GetDestinationState(int layer)
+        //{
+        //    // Only the additive layer can play a damage animation.
+        //    if (layer != m_AnimatorMonitor.AdditiveLayerIndex)
+        //    {
+        //        return string.Empty;
+        //    }
 
-            return GetAbilityStringFromDamageType();
-        }
+        //    return GetAbilityStringFromDamageType();
+        //}
 
         /// <summary>
         /// Can this ability run at the same time as another ability?
         /// </summary>
         /// <returns>True if this ability can run with another ability.</returns>
-        public override bool IsConcurrentAbility()
-        {
-            return true;
-        }
+        //public override bool IsConcurrentAbility()
+        //{
+        //    return true;
+        //}
 
         /// <summary>
         /// Should IK at the specified layer be used?
         /// </summary>
         /// <param name="layer">The IK layer in question.</param>
         /// <returns>True if the IK should be used.</returns>
-        public override bool CanUseIK(int layer)
-        {
-            return false;
-        }
+        //public override bool CanUseIK(int layer)
+        //{
+        //    return false;
+        //}
         #endregion
 
         #region Handlers
@@ -101,13 +104,13 @@ namespace RTSPrototype
         /// <param name="attacker">The GameObject that did the damage.</param>
         private void TookDamage(int amount, Vector3 position, Vector3 force, AllyMember _instigator, GameObject hitGameObject)
         {
-            if (amount >= largeDamageAmount)
-            {
-                m_DamageType = RTSDamageType.DamageReactGut;
-            }
+            //if (amount >= largeDamageAmount)
+            //{
+            //    m_DamageType = RTSDamageType.DamageReactGut;
+            //}
 
-            StartAbility();
-            Invoke("DamageVisualizationComplete", damageTime);
+            //StartAbility();
+            //Invoke("DamageVisualizationComplete", damageTime);
         }
 
         /// <summary>

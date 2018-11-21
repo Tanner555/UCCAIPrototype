@@ -27,10 +27,10 @@ namespace RTSPrototype
         [SerializeField] protected GameObject m_Base;
         [Tooltip("The name of the item")]
         [SerializeField] protected string m_ItemName;
-        [Tooltip("The type of item to create")]
-        [SerializeField] protected ItemBuilder.ItemTypes m_Type = ItemBuilder.ItemTypes.Shootable;
-        [Tooltip("Specifies which hadn the item should be assigned to")]
-        [SerializeField] protected ItemBuilder.HandAssignment m_HandAssignment = ItemBuilder.HandAssignment.Right;
+        //[Tooltip("The type of item to create")]
+        //[SerializeField] protected ItemBuilder.ItemTypes m_Type = ItemBuilder.ItemTypes.Shootable;
+        //[Tooltip("Specifies which hadn the item should be assigned to")]
+        //[SerializeField] protected ItemBuilder.HandAssignment m_HandAssignment = ItemBuilder.HandAssignment.Right;
         [Tooltip("The local position of the item")]
         [SerializeField] protected Vector3 m_LocalPosition;
         [Tooltip("The local rotation of the item")]
@@ -91,8 +91,8 @@ namespace RTSPrototype
         [SerializeField] public float m_AttackRate = 2;
         [Tooltip("The layers that the melee attack can hit")]
         [SerializeField] public LayerMask m_AttackLayer;
-        [Tooltip("Any other hitboxes that should be used when determining if the melee weapon hit a target")]
-        [SerializeField] public MeleeWeaponHitbox[] m_AttackHitboxes;
+        //[Tooltip("Any other hitboxes that should be used when determining if the melee weapon hit a target")]
+        //[SerializeField] public MeleeWeaponHitbox[] m_AttackHitboxes;
         [Tooltip("Can the attack be interrupted to move onto the next attack? The OnAnimatorItemAllowInterruption event must be added to the attack animation")]
         [SerializeField] public bool m_CanInterruptAttack;
         [Tooltip("When the weapon attacks should only one hit be registered per use?")]
@@ -120,8 +120,8 @@ namespace RTSPrototype
         public ItemType ItemType { get { return m_ItemType; } }
         public GameObject Base { get { return m_Base; } }
         public string ItemName { get { return m_ItemName; } }
-        public ItemBuilder.ItemTypes Type { get { return m_Type; } }
-        public ItemBuilder.HandAssignment HandAssignment { get { return m_HandAssignment; } }
+        //public ItemBuilder.ItemTypes Type { get { return m_Type; } }
+        //public ItemBuilder.HandAssignment HandAssignment { get { return m_HandAssignment; } }
         public Vector3 LocalPosition { get { return m_LocalPosition; } }
         public Vector3 LocalRotation { get { return m_LocalRotation; } }
 

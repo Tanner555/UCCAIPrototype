@@ -1,12 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Opsive.ThirdPersonController;
-using Opsive.ThirdPersonController.Wrappers.Abilities;
+using Opsive.UltimateCharacterController;
+using Opsive.UltimateCharacterController.Character.Abilities;
+using Opsive.UltimateCharacterController.Inventory;
+using Opsive.UltimateCharacterController.Items;
 using RTSCoreFramework;
+using Opsive.UltimateCharacterController.Character;
 
 namespace RTSPrototype
 {
+    /// <summary>
+    /// TODO: RTSPrototype Fix RTSItemAndControlHandler Script
+    /// </summary>
     public class RTSItemAndControlHandler : MonoBehaviour
     {
         #region PropsAndFields
@@ -20,17 +26,17 @@ namespace RTSPrototype
             get { return (RTSGameModeWrapper)RTSGameModeWrapper.thisInstance; }
         }
 
-        Opsive.ThirdPersonController.Abilities.HeightChange HeightChangeTPCAbility
+        Opsive.UltimateCharacterController.Character.Abilities.HeightChange HeightChangeTPCAbility
         {
             get
             {
                 if (_HeightChangeTPCAbility == null)
-                    _HeightChangeTPCAbility = GetComponent<Opsive.ThirdPersonController.Abilities.HeightChange>();
+                    _HeightChangeTPCAbility = GetComponent<Opsive.UltimateCharacterController.Character.Abilities.HeightChange>();
 
                 return _HeightChangeTPCAbility;
             }
         }
-        Opsive.ThirdPersonController.Abilities.HeightChange _HeightChangeTPCAbility = null;
+        Opsive.UltimateCharacterController.Character.Abilities.HeightChange _HeightChangeTPCAbility = null;
 
         bool isAiming = false;
         [Header("Gun Types")]
@@ -90,17 +96,17 @@ namespace RTSPrototype
         }
         Inventory _myInventory = null;
 
-        RigidbodyCharacterController myController
+        UltimateCharacterLocomotion myController
         {
             get
             {
                 if (_myController == null)
-                    _myController = GetComponent<RigidbodyCharacterController>();
+                    _myController = GetComponent<UltimateCharacterLocomotion>();
 
                 return _myController;
             }
         }
-        RigidbodyCharacterController _myController = null;
+        UltimateCharacterLocomotion _myController = null;
 
         RTSNavBridge myNavBidge
         {
@@ -203,53 +209,53 @@ namespace RTSPrototype
 
         void OnSetAimHandler(bool _isAiming)
         {
-            isAiming = _isAiming;
-            myController.Aim = _isAiming;
+            //isAiming = _isAiming;
+            //myController.Aim = _isAiming;
         }
 
         void OnSwitchPrevItem()
         {
-            myInventory.SwitchItem(true, true);
+            //myInventory.SwitchItem(true, true);
         }
 
         void OnSwitchNextItem()
         {
-            myInventory.SwitchItem(true, false);
+            //myInventory.SwitchItem(true, false);
         }
 
         void OnTryUseWeapon()
         {
-            if (!AllCompsAreValid) return;
-            if(allyMember.bIsCarryingMeleeWeapon == false &&
-                myInventory.GetCurrentItemCount(typeof(PrimaryItemType), true) <= 0)
-            {
-                if (bIsReloading == false)
-                {
-                    myEventHandler.CallOnTryReload();
-                }
-            }
-            else if (!itemHandler.TryUseItem(typeof(PrimaryItemType)))
-            {
-                Debug.Log("Couldn't fire primary weapon");
-            }
+            //if (!AllCompsAreValid) return;
+            //if(allyMember.bIsCarryingMeleeWeapon == false &&
+            //    myInventory.GetCurrentItemCount(typeof(PrimaryItemType), true) <= 0)
+            //{
+            //    if (bIsReloading == false)
+            //    {
+            //        myEventHandler.CallOnTryReload();
+            //    }
+            //}
+            //else if (!itemHandler.TryUseItem(typeof(PrimaryItemType)))
+            //{
+            //    Debug.Log("Couldn't fire primary weapon");
+            //}
         }
 
         void OnStopTargetingEnemy()
         {
-            if (!AllCompsAreValid) return;
-            itemHandler.TryStopUse(true);
+            //if (!AllCompsAreValid) return;
+            //itemHandler.TryStopUse(true);
         }
 
         void OnTryReload()
         {
-            Debug.Log("Try Reloading");
-            if (!AllCompsAreValid) return;
-            bIsReloading = true;
-            Invoke("ResetIsReloading", 5f);
-            if (!itemHandler.TryReload())
-            {
-                Debug.Log("Couldn't reload primary weapon");
-            }
+            //Debug.Log("Try Reloading");
+            //if (!AllCompsAreValid) return;
+            //bIsReloading = true;
+            //Invoke("ResetIsReloading", 5f);
+            //if (!itemHandler.TryReload())
+            //{
+            //    Debug.Log("Couldn't reload primary weapon");
+            //}
         }
 
         void ResetIsReloading()
@@ -296,8 +302,10 @@ namespace RTSPrototype
 
         void GetAmmoCountForItemType(ItemType _item, out int _loaded, out int _unloaded)
         {
-            _loaded = myInventory.GetItemCount(_item, true);
-            _unloaded = myInventory.GetItemCount(_item, false);
+            _loaded = 0;
+            _unloaded = 0;
+            //_loaded = myInventory.GetItemCount(_item, true);
+            //_unloaded = myInventory.GetItemCount(_item, false);
         }
 
         ItemType GetTPSItemFromWeaponType(EWeaponType _weaponType)
