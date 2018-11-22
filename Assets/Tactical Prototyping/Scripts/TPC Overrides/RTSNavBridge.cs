@@ -8,6 +8,7 @@ using Opsive.UltimateCharacterController.Input;
 using UnityEngine.AI;
 using Opsive.UltimateCharacterController.Character.Abilities;
 using Opsive.UltimateCharacterController.Character.Abilities.AI;
+using Opsive.UltimateCharacterController.Game;
 
 namespace RTSPrototype
 {
@@ -392,10 +393,11 @@ namespace RTSPrototype
         #region FreeMovement
         void MoveFreely()
         {
-            myDirection *= speedMultiplier;
+            //myDirection *= speedMultiplier;
             m_NavMeshAgent.updatePosition = false;
             m_NavMeshAgent.velocity = Vector3.zero;
-            m_Controller.Move(myDirection.x, myDirection.z, GetDeltaYawRotation(myDirection.x, myDirection.z, mainCameraRotation));
+            //m_Controller.Move(myDirection.x, myDirection.z, GetDeltaYawRotation(myDirection.x, myDirection.z, mainCameraRotation));
+            DeterministicObjectManager.SetCharacterMovementInput(m_Controller.DeterministicObjectIndex, myDirection.x, myDirection.z);
         }
 
         void CheckForFreeMovement()
@@ -404,7 +406,6 @@ namespace RTSPrototype
             
             myHorizontalMovement = RTSPlayerInput.thisInstance.GetAxisRaw(m_HorizontalInputName);
             myForwardMovement = RTSPlayerInput.thisInstance.GetAxisRaw(m_ForwardInputName);
-
             myDirection = Vector3.zero;
             myDirection.x = myHorizontalMovement;
             myDirection.z = myForwardMovement;
@@ -467,8 +468,8 @@ namespace RTSPrototype
         #region Getters
         float GetDeltaYawRotation(float horizontal, float forward, Quaternion rotation)
         {
-            //var lookVector = m_PlayerInput.GetLookVector(true);
-            return m_Controller.ActiveMovementType.GetDeltaYawRotation(horizontal, forward, rotation.x, rotation.y);
+            var lookVector = RTSPlayerInput.thisInstance.GetLookVector(true);
+            return m_Controller.ActiveMovementType.GetDeltaYawRotation(horizontal, forward, lookVector.x, lookVector.y);
         }
         #endregion
 
