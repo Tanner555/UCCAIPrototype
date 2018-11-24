@@ -23,7 +23,7 @@ MonoBehaviour:
   - name: Knife
     WeaponType: 1
     WeaponUsage: 0
-    WeaponIcon: {fileID: 21300014, guid: 5fb67c614ba76ca45a811c8e1f7be476, type: 3}
+    WeaponIcon: {fileID: 21300192, guid: 5fb67c614ba76ca45a811c8e1f7be476, type: 3}
     DamageRate: 20
     Accuracy: 35
     AttackRate: 1
@@ -31,7 +31,7 @@ MonoBehaviour:
   - name: Pistol
     WeaponType: 2
     WeaponUsage: 1
-    WeaponIcon: {fileID: 21300012, guid: 5fb67c614ba76ca45a811c8e1f7be476, type: 3}
+    WeaponIcon: {fileID: 21300172, guid: 5fb67c614ba76ca45a811c8e1f7be476, type: 3}
     DamageRate: 15
     Accuracy: 150
     AttackRate: 0.25
@@ -55,7 +55,7 @@ MonoBehaviour:
   - name: Sniper Rifle
     WeaponType: 5
     WeaponUsage: 1
-    WeaponIcon: {fileID: 21300132, guid: 5fb67c614ba76ca45a811c8e1f7be476, type: 3}
+    WeaponIcon: {fileID: 21300198, guid: 5fb67c614ba76ca45a811c8e1f7be476, type: 3}
     DamageRate: 100
     Accuracy: 100
     AttackRate: 1
@@ -71,7 +71,7 @@ MonoBehaviour:
   - name: Crossbow
     WeaponType: 7
     WeaponUsage: 1
-    WeaponIcon: {fileID: 21300124, guid: 5fb67c614ba76ca45a811c8e1f7be476, type: 3}
+    WeaponIcon: {fileID: 21300018, guid: 5fb67c614ba76ca45a811c8e1f7be476, type: 3}
     DamageRate: 100
     Accuracy: 100
     AttackRate: 1
@@ -79,7 +79,7 @@ MonoBehaviour:
   - name: Katana
     WeaponType: 8
     WeaponUsage: 0
-    WeaponIcon: {fileID: 21300116, guid: 5fb67c614ba76ca45a811c8e1f7be476, type: 3}
+    WeaponIcon: {fileID: 21300190, guid: 5fb67c614ba76ca45a811c8e1f7be476, type: 3}
     DamageRate: 20
     Accuracy: 35
     AttackRate: 1
