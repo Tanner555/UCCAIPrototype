@@ -113,7 +113,7 @@ namespace RTSPrototype
         }
 
         /// <summary>
-        /// TODO: Fix CurrentEquipedAmmo Property To Use Inventory Methods
+        /// TODO: RTSPrototype Fix CurrentEquipedAmmo Property To Use Inventory Methods
         /// </summary>
         public override int CurrentEquipedAmmo
         {
