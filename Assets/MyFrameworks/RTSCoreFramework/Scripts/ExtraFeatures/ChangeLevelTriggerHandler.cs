@@ -22,12 +22,12 @@ namespace RTSCoreFramework
         public LevelIndex loadLevel;
         [SerializeField]
         public ScenarioIndex scenario;
-
-        private void OnCollisionEnter(Collision collision)
+        
+        private void OnTriggerEnter(Collider other)
         {
-            if (collision.transform.root.tag == gamemode.AllyTag)
+            if (other.transform.root.tag == gamemode.AllyTag)
             {
-                var _ally = collision.transform.root.GetComponent<AllyMember>();
+                var _ally = other.transform.root.GetComponent<AllyMember>();
                 if (_ally != null && _ally.bIsCurrentPlayer)
                 {
                     gameInstance.LoadLevel(loadLevel, scenario);

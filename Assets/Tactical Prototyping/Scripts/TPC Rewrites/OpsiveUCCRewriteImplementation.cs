@@ -19,6 +19,11 @@ namespace RTSPrototype
         #endregion
 
         #region SimpleBugFixes
+        
+        #endregion
+
+        #region OldBugFixes
+        //Appears To Be Fixed In UCC Update
         /// <summary>
         /// RTSPrototype-OpsiveUCC-CameraController: After Loop, Where
         /// Each ViewType's Attach Character Method is Called, Call this
