@@ -361,18 +361,18 @@ namespace RTSPrototype
         #region RPGInventoryToTPC
         void SetEquippedItem(ItemType _type)
         {
-            //var _gun = myInventory.GetCurrentItem(typeof(PrimaryItemType));
-            //if (_gun != null && _gun.ItemType != _type)
-            //{
-            //    myInventory.EquipItem((PrimaryItemType)_type);
-            //}
-            //else if (_gun == null)
-            //{
-            //    Debug.Log("Not Setting Equipped Weapon " + _type.ToString());
-            //}
+            var _gun = myInventory.GetItem(0);
+            if (_gun == null || (_gun != null && _gun.ItemType != _type))
+            {
+                myInventory.EquipItem(_type, 0, false);
+            }
+            else if (_gun == null)
+            {
+                Debug.Log("Not Setting Equipped Weapon " + _type.ToString());
+            }
         }
         #endregion
-        
+
         #region Initialization
         void InitialSetup()
         {
