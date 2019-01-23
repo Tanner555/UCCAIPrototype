@@ -96,6 +96,12 @@ namespace RTSPrototype
             EventHandler.ExecuteEvent(this.gameObject, "OnDeath");
         }
 
+        public override void CallOnTryAim(bool _enable)
+        {
+            base.CallOnTryAim(_enable);
+            EventHandler.ExecuteEvent<bool>(this.gameObject, "OnAimAbilityAim", _enable);
+        }
+
         protected override void SubToEvents()
         {
             base.SubToEvents();

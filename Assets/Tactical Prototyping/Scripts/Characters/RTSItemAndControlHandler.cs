@@ -215,8 +215,7 @@ namespace RTSPrototype
 
         void OnSetAimHandler(bool _isAiming)
         {
-            //isAiming = _isAiming;
-            //myController.Aim = _isAiming;
+            isAiming = _isAiming;
         }
 
         void OnSwitchPrevItem()
