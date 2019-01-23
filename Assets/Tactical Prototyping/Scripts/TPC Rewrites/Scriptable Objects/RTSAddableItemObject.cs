@@ -10,6 +10,18 @@ using Opsive.UltimateCharacterController.Utility.Builders;
 
 namespace RTSPrototype
 {
+    #region Enums
+    public enum ERTSItemBuilderItemType
+    {
+        Melee = 0, Shootable = 1
+    }
+
+    public enum ERTSItemBuilderHandAssignment
+    {
+        Left = 0, Right = 1
+    }
+    #endregion
+
     #region AddableItemClass
     /// <summary>
     /// Specifies an item which can be added to the generated character.
@@ -27,10 +39,10 @@ namespace RTSPrototype
         [SerializeField] protected GameObject m_Base;
         [Tooltip("The name of the item")]
         [SerializeField] protected string m_ItemName;
-        //[Tooltip("The type of item to create")]
-        //[SerializeField] protected ItemBuilder.ItemTypes m_Type = ItemBuilder.ItemTypes.Shootable;
-        //[Tooltip("Specifies which hadn the item should be assigned to")]
-        //[SerializeField] protected ItemBuilder.HandAssignment m_HandAssignment = ItemBuilder.HandAssignment.Right;
+        [Tooltip("The type of item to create")]
+        [SerializeField] protected ERTSItemBuilderItemType m_Type = ERTSItemBuilderItemType.Shootable;
+        [Tooltip("Specifies which hadn the item should be assigned to")]
+        [SerializeField] protected ERTSItemBuilderHandAssignment m_HandAssignment = ERTSItemBuilderHandAssignment.Right;
         [Tooltip("The local position of the item")]
         [SerializeField] protected Vector3 m_LocalPosition;
         [Tooltip("The local rotation of the item")]
@@ -120,8 +132,8 @@ namespace RTSPrototype
         public ItemType ItemType { get { return m_ItemType; } }
         public GameObject Base { get { return m_Base; } }
         public string ItemName { get { return m_ItemName; } }
-        //public ItemBuilder.ItemTypes Type { get { return m_Type; } }
-        //public ItemBuilder.HandAssignment HandAssignment { get { return m_HandAssignment; } }
+        public ERTSItemBuilderItemType Type { get { return m_Type; } }
+        public ERTSItemBuilderHandAssignment HandAssignment { get { return m_HandAssignment; } }
         public Vector3 LocalPosition { get { return m_LocalPosition; } }
         public Vector3 LocalRotation { get { return m_LocalRotation; } }
 

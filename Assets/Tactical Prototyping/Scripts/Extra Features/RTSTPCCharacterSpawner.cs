@@ -202,7 +202,7 @@ namespace RTSPrototype
             //{
             //    var item = GameObject.Instantiate(AddableItemsList[i].Base) as GameObject;
             //    item.name = AddableItemsList[i].Base.name;
-            //    var handTransform = characterAnimator.GetBoneTransform(AddableItemsList[i].HandAssignment == ItemBuilder.HandAssignment.Left ? HumanBodyBones.LeftHand : HumanBodyBones.RightHand);
+            //    var handTransform = characterAnimator.GetBoneTransform(AddableItemsList[i].HandAssignment == ERTSItemBuilderHandAssignment.Left ? HumanBodyBones.LeftHand : HumanBodyBones.RightHand);
             //    item.transform.parent = handTransform.GetComponentInChildren<ItemPlacement>().transform;
             //    Vector3 _position = Vector3.zero;
             //    Vector3 _rotation = Vector3.zero;
@@ -218,7 +218,6 @@ namespace RTSPrototype
             //        item.transform.localPosition = AddableItemsList[i].LocalPosition;
             //        item.transform.localEulerAngles = AddableItemsList[i].LocalRotation;
             //    }
-
             //    ItemBuilder.BuildItem(item, AddableItemsList[i].ItemType, AddableItemsList[i].ItemName, AddableItemsList[i].Type, AddableItemsList[i].HandAssignment);
             //    //Additional Method Functionality
             //    Transform itemTransform = item.transform;
