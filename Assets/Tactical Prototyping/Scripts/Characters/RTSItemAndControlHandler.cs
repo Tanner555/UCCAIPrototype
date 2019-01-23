@@ -31,7 +31,13 @@ namespace RTSPrototype
             get
             {
                 if (_HeightChangeTPCAbility == null)
-                    _HeightChangeTPCAbility = GetComponent<Opsive.UltimateCharacterController.Character.Abilities.HeightChange>();
+                {
+                    var _heightAbilities = myController.GetAbilities<Opsive.UltimateCharacterController.Character.Abilities.HeightChange>();
+                    if(_heightAbilities != null && _heightAbilities.Length > 0 && _heightAbilities[0] != null)
+                    {
+                        _HeightChangeTPCAbility = _heightAbilities[0];
+                    }
+                }  
 
                 return _HeightChangeTPCAbility;
             }
@@ -72,17 +78,17 @@ namespace RTSPrototype
         }
         private AllyEventHandlerWrapper _myEventHandler = null;
 
-        ItemHandler itemHandler
-        {
-            get
-            {
-                if (_itemHandler == null)
-                    _itemHandler = GetComponent<ItemHandler>();
+        //ItemHandler itemHandler
+        //{
+        //    get
+        //    {
+        //        if (_itemHandler == null)
+        //            _itemHandler = GetComponent<ItemHandler>();
 
-                return _itemHandler;
-            }
-        }
-        ItemHandler _itemHandler = null;
+        //        return _itemHandler;
+        //    }
+        //}
+        //ItemHandler _itemHandler = null;
 
         Inventory myInventory
         {
@@ -134,7 +140,7 @@ namespace RTSPrototype
 
         bool AllCompsAreValid
         {
-            get { return myEventHandler && itemHandler && 
+            get { return myEventHandler /*&& itemHandler*/ && 
                     myInventory && myController && myNavBidge 
                     && allyMember; }
         }
@@ -264,7 +270,7 @@ namespace RTSPrototype
         }
 
         void OnTryCrouch()
-        {
+        {            
             var _ability = HeightChangeTPCAbility;
             if (_ability != null)
             {
