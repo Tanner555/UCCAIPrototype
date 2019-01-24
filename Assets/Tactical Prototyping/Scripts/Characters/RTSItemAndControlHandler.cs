@@ -7,6 +7,7 @@ using Opsive.UltimateCharacterController.Inventory;
 using Opsive.UltimateCharacterController.Items;
 using RTSCoreFramework;
 using Opsive.UltimateCharacterController.Character;
+using Opsive.UltimateCharacterController.Items.Actions;
 
 namespace RTSPrototype
 {
