@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponPositionsAndRotations:
   - AddableItemName: Katana
-    m_ItemType: {fileID: 11400000, guid: 5844ff10e39393d4cb91374b86d271aa, type: 2}
-    m_LocalPosition: {x: 0.095, y: -0.033, z: 0.218}
-    m_LocalRotation: {x: -179.99, y: -173.579, z: -94.897}
+    m_ItemType: {fileID: 114544757700045432, guid: 5481010ef14c32f4cb7b6661b0c59fb4,
+      type: 2}
+    m_LocalPosition: {x: 0.097, y: -0.024, z: -0.005}
+    m_LocalRotation: {x: 0, y: 0, z: 80.24}
   - AddableItemName: Pistol
-    m_ItemType: {fileID: 11400000, guid: b9892dc51f8bab84590e65c39cd82e88, type: 2}
-    m_LocalPosition: {x: 0.14, y: -0.025, z: 0.037}
-    m_LocalRotation: {x: -3.38, y: -86.3, z: -95.98501}
+    m_ItemType: {fileID: 114982450061250758, guid: 5481010ef14c32f4cb7b6661b0c59fb4,
+      type: 2}
+    m_LocalPosition: {x: 0.145, y: 0, z: 0.0257}
+    m_LocalRotation: {x: 0, y: 90, z: 90}

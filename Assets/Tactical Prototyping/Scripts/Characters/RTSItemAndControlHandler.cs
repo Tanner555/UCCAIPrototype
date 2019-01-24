@@ -32,11 +32,7 @@ namespace RTSPrototype
             {
                 if (_HeightChangeTPCAbility == null)
                 {
-                    var _heightAbilities = myController.GetAbilities<Opsive.UltimateCharacterController.Character.Abilities.HeightChange>();
-                    if(_heightAbilities != null && _heightAbilities.Length > 0 && _heightAbilities[0] != null)
-                    {
-                        _HeightChangeTPCAbility = _heightAbilities[0];
-                    }
+                    _HeightChangeTPCAbility = myController.GetAbility<Opsive.UltimateCharacterController.Character.Abilities.HeightChange>();
                 }  
 
                 return _HeightChangeTPCAbility;

@@ -424,6 +424,12 @@ namespace RTSPrototype
                     //    NavAbility.StopAbility();
                     //}
                     NavAbility.Enabled = false;
+                    //foreach (var _a in m_Controller.ActiveAbilities)
+                    //{
+                    //    Debug.Log("Positional: " + _a.AllowPositionalInput.ToString());
+                    //    Debug.Log("Rotational: " + _a.AllowRotationalInput.ToString());
+                    //    //Debug.Log("Ability: " + _a);
+                    //}
                     myEventHandler.CallEventTogglebIsFreeMoving(true);
                 }
             }
