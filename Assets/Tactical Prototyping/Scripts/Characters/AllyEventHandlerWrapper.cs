@@ -173,7 +173,7 @@ namespace RTSPrototype
         {
             int _loadedAmmo = (int)m_ClipRemaining;
             int _unloadedAmmo = (int)myInventory.GetItemTypeCount(m_ConsumableItemType);
-            Debug.Log("OnItemUseConsumableItemType: load = " + _loadedAmmo + " unload = " + _unloadedAmmo);
+            //Debug.Log("OnItemUseConsumableItemType: load = " + _loadedAmmo + " unload = " + _unloadedAmmo);
             RequestCallAmmoChangedEvent(_loadedAmmo, _unloadedAmmo);
         }
 

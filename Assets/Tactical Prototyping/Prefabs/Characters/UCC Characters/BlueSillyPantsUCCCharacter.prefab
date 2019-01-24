@@ -560,8 +560,7 @@ MonoBehaviour:
   m_ReloadAttachProjectileEvent:
     m_WaitForAnimationEvent: 1
     m_Duration: 0.4
-  m_ReloadDropClip: {fileID: 1354880577756302, guid: bf2b8484cdc3e4e4dacc95a47fe4c783,
-    type: 3}
+  m_ReloadDropClip: {fileID: 0}
   m_ReloadClipLayerChangeDelay: 0.1
   m_ReloadClipTargetLayer: 28
   m_ReloadDropClipEvent:
@@ -636,7 +635,7 @@ MonoBehaviour:
   m_ShellLocation: {fileID: 1960745846}
   m_SmokeLocation: {fileID: 0}
   m_TracerLocation: {fileID: 0}
-  m_ReloadableClip: {fileID: 0}
+  m_ReloadableClip: {fileID: 1478485949}
   m_ReloadableClipAttachment: {fileID: 0}
   m_ReloadableClipAttachmentID: -1
   m_ReloadProjectileAttachment: {fileID: 0}

@@ -251,13 +251,27 @@ namespace RTSPrototype
         void OnTryReload()
         {
             //Debug.Log("Try Reloading");
-            //if (!AllCompsAreValid) return;
-            //bIsReloading = true;
-            //Invoke("ResetIsReloading", 5f);
-            //if (!itemHandler.TryReload())
-            //{
-            //    Debug.Log("Couldn't reload primary weapon");
-            //}
+            if (!AllCompsAreValid) return;
+
+            Item _cItem = myInventory.GetItem(0);
+            if (_cItem == null) return;
+            ItemAction _cItemAction = _cItem.GetItemAction(0);
+            if (_cItemAction == null) return;
+
+            if(_cItemAction is ShootableWeapon)
+            {
+                ShootableWeapon _cShootable = (ShootableWeapon)_cItemAction;
+                //bIsReloading = true;
+                //Invoke("ResetIsReloading", 5f);
+                if (_cShootable.CanReloadItem(true))
+                {
+                    _cShootable.ReloadItem(false);
+                }
+                else
+                {
+                    Debug.Log("Couldn't reload primary weapon");
+                }
+            }
         }
 
         void ResetIsReloading()
