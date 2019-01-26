@@ -30,18 +30,6 @@ namespace RTSPrototype
 
     public class AllyEventHandlerWrapper : AllyEventHandler
     {
-        #region TPSSharedProperties
-        //TODO: RTSPrototype Fix SharedProperty Refs Inside AllyEventHandlerWrapper
-        //private SharedProperty<int> m_PrimaryLoadedCount = null;
-        //private SharedProperty<int> m_DualWieldLoadedCount = null;
-        //private SharedProperty<int> m_PrimaryUnloadedCount = null;
-        //private SharedProperty<int> m_DualWieldUnloadedCount = null;
-        //private SharedProperty<int> m_SecondaryItemCount = null;
-        //private SharedProperty<int> m_FirstExtensionItemCount = null;
-        //private SharedProperty<Item> m_CurrentPrimaryItem = null;
-        //private SharedProperty<Item> m_CurrentDualWieldItem = null;
-        #endregion
-
         #region Properties
         //UCC Properties
         Inventory myInventory

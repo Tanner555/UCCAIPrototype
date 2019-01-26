@@ -316,12 +316,28 @@ namespace RTSPrototype
             GetAmmoCountForItemType(_item, out _loaded, out _unloaded);
         }
 
-        void GetAmmoCountForItemType(ItemType _item, out int _loaded, out int _unloaded)
+        void GetAmmoCountForItemType(ItemType _itemType, out int _loaded, out int _unloaded)
         {
-            _loaded = 0;
-            _unloaded = 0;
-            //_loaded = myInventory.GetItemCount(_item, true);
-            //_unloaded = myInventory.GetItemCount(_item, false);
+            _loaded = 1;
+            _unloaded = 1;
+            Item _item = myInventory.GetItem(0, _itemType);
+            if (_item != null)
+            {
+                var _cItemAction = _item.GetItemAction(0);
+                if (_cItemAction != null)
+                {
+                    if (_cItemAction is ShootableWeapon)
+                    {
+                        var _shootableWeapon = (ShootableWeapon)_cItemAction;
+                        _loaded = (int)_shootableWeapon.ClipRemaining;
+                        _unloaded = (int)myInventory.GetItemTypeCount(_shootableWeapon.ConsumableItemType);
+                    }
+                }
+            }
+            else
+            {
+                Debug.Log("Item is null");
+            }
         }
 
         ItemType GetTPSItemFromWeaponType(EWeaponType _weaponType)
