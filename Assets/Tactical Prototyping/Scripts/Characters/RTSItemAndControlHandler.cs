@@ -12,9 +12,6 @@ using Opsive.UltimateCharacterController.Events;
 
 namespace RTSPrototype
 {
-    /// <summary>
-    /// TODO: RTSPrototype Fix RTSItemAndControlHandler Script
-    /// </summary>
     public class RTSItemAndControlHandler : MonoBehaviour
     {
         #region PropsAndFields

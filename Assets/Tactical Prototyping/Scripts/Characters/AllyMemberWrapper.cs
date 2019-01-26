@@ -8,6 +8,8 @@ using Opsive.UltimateCharacterController.Character;
 using Opsive.UltimateCharacterController.Traits;
 using Opsive.UltimateCharacterController.Inventory;
 using Opsive.UltimateCharacterController.Events;
+using Opsive.UltimateCharacterController.Items;
+using Opsive.UltimateCharacterController.Items.Actions;
 
 namespace RTSPrototype
 {
@@ -112,16 +114,16 @@ namespace RTSPrototype
             get { return allyStatController.Stat_MaxStamina; }
         }
 
-        /// <summary>
-        /// TODO: RTSPrototype Fix CurrentEquipedAmmo Property To Use Inventory Methods
-        /// </summary>
         public override int CurrentEquipedAmmo
         {
             get
             {
-                return 0;
-                //return myInventory.GetCurrentItemCount(typeof(PrimaryItemType), false) +
-                //    myInventory.GetCurrentItemCount(typeof(PrimaryItemType), true);
+                bool _isMelee = bIsCarryingMeleeWeapon;
+                if (_isMelee) return 1;
+
+                int _loaded, _unloaded;
+                GetAmmoCount(out _loaded, out _unloaded, _isMelee);
+                return _loaded + _unloaded;
             }
         }
 
@@ -247,6 +249,24 @@ namespace RTSPrototype
         #endregion
 
         #region Getters
+        void GetAmmoCount(out int _loaded, out int _unloaded, bool isMelee)
+        {
+            _loaded = 1;
+            _unloaded = 1;
+            //Don't Calculate Ammo If Using A Melee Weapon
+            if (isMelee) return;
+
+            Item _item = myInventory.GetItem(0);
+            ItemAction _cItemAction; ShootableWeapon _shootableWeapon;
+            if ((_cItemAction = _item.GetItemAction(0)) != null &&
+                _cItemAction is ShootableWeapon &&
+                (_shootableWeapon = (ShootableWeapon)_cItemAction) != null)
+            {
+                _loaded = (int)_shootableWeapon.ClipRemaining;
+                _unloaded = (int)myInventory.GetItemTypeCount(_shootableWeapon.ConsumableItemType);
+            }
+        }
+
         public override int GetDamageRate()
         {
             return allyStatController.CalculateDamageRate();
