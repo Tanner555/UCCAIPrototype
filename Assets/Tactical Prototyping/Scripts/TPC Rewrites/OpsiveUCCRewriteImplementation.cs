@@ -11,15 +11,46 @@ namespace RTSPrototype
     public class OpsiveUCCRewriteImplementation : MonoBehaviour
     {
         #region Common Properties
-
+        //Transform rootAllyTransform
+        //{
+        //    get
+        //    {
+        //        if (_rootAllyTransform == null)
+        //        {
+        //            _rootAllyTransform = transform.root;
+        //        }
+        //        return _rootAllyTransform;
+        //    }
+        //}
+        //Transform _rootAllyTransform = null;
         #endregion
 
         #region UsedCode
+        /// <summary>
+        /// RTSPrototype-OpsiveUCC-ShootableWeapon: Inside HitscanFire() method, 
+        /// after FireDirection has been created, add this code (also insert rootAllyTransform property).
+        /// </summary>
+        //void OnRTSHitscanFire()
+        //{
+        //    var fireDirection = FireDirection();
+        //    var _force = fireDirection * m_HitscanImpactForce;
+        //    rootAllyTransform.SendMessage("CallOnTryHitscanFire", _force, SendMessageOptions.RequireReceiver);
+        //}
 
+        /// <summary>
+        /// RTSPrototype-OpsiveUCC-MeleeWeapon: Inside UseItem() method, 
+        /// after rest of code, add this line (also insert rootAllyTransform property).
+        /// </summary>
+        //public override void UseItem()
+        //{
+        //    //...
+        //    //...
+        //    rootAllyTransform.SendMessage("CallOnTryMeleeAttack", SendMessageOptions.RequireReceiver);
+        //}
         #endregion
 
         #region SimpleBugFixes
-        
+
         #endregion
 
         #region OldBugFixes

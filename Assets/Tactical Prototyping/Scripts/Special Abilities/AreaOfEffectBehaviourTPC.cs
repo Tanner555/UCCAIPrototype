@@ -73,7 +73,7 @@ namespace RTSPrototype
                     float damageToDeal = (config as AreaOfEffectConfigTPC).GetDamageToEachTarget();
                     damageable.allyEventHandler.CallOnAllyTakeDamage(
                         (int)damageToDeal, hit.point, Vector3.zero,
-                        allymember, hit.transform.gameObject
+                        allymember, hit.transform.gameObject, hit.collider
                         );
                 }
             }

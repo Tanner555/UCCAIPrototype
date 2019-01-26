@@ -102,7 +102,7 @@ namespace RTSPrototype
         /// <param name="position">The position that the character took the damage.</param>
         /// <param name="force">The amount of force applied to the object while taking the damage.</param>
         /// <param name="attacker">The GameObject that did the damage.</param>
-        private void TookDamage(int amount, Vector3 position, Vector3 force, AllyMember _instigator, GameObject hitGameObject)
+        private void TookDamage(int amount, Vector3 position, Vector3 force, AllyMember _instigator, GameObject hitGameObject, Collider hitCollider)
         {
             //if (amount >= largeDamageAmount)
             //{

@@ -232,7 +232,7 @@ namespace RTSCoreFramework
         public event TwoIntArgsHandler OnStaminaChanged;
         public event TwoIntArgsHandler OnActiveTimeChanged;
 
-        public delegate void RTSTakeDamageHandler(int amount, Vector3 position, Vector3 force, AllyMember _instigator, GameObject hitGameObject);
+        public delegate void RTSTakeDamageHandler(int amount, Vector3 position, Vector3 force, AllyMember _instigator, GameObject hitGameObject, Collider hitCollider);
         public event RTSTakeDamageHandler OnAllyTakeDamage;
 
         public delegate void RTSAllyComponentInitializationHandler(RTSAllyComponentSpecificFields _specificComps, RTSAllyComponentsAllCharacterFields _allAllyComps);
@@ -632,10 +632,10 @@ namespace RTSCoreFramework
             if (OnActiveTimeChanged != null) OnActiveTimeChanged(_current, _max);
         }
 
-        public virtual void CallOnAllyTakeDamage(int amount, Vector3 position, Vector3 force, AllyMember _instigator, GameObject hitGameObject)
+        public virtual void CallOnAllyTakeDamage(int amount, Vector3 position, Vector3 force, AllyMember _instigator, GameObject hitGameObject, Collider hitCollider)
         {
             if (OnAllyTakeDamage != null)
-                OnAllyTakeDamage(amount, position, force, _instigator, hitGameObject);
+                OnAllyTakeDamage(amount, position, force, _instigator, hitGameObject, hitCollider);
         }
 
         public virtual void CallInitializeAllyComponents(RTSAllyComponentSpecificFields _specificComps, RTSAllyComponentsAllCharacterFields _allAllyComps)

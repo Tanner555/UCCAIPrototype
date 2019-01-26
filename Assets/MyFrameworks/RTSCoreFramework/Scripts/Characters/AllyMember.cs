@@ -431,7 +431,7 @@ namespace RTSCoreFramework
                 if (_isEnemy)
                 {
                     _target.allyEventHandler.CallOnAllyTakeDamage(
-                        GetDamageRate(), _hit.point, _force, this, _hit.transform.gameObject);
+                        GetDamageRate(), _hit.point, _force, this, _hit.transform.gameObject, _hit.collider);
                 }
             }
         }
@@ -461,7 +461,7 @@ namespace RTSCoreFramework
                 if (_isEnemy)
                 {
                     _target.allyEventHandler.CallOnAllyTakeDamage(
-                        GetDamageRate(), _hit.point, Vector3.zero, this, _hit.transform.gameObject);
+                        GetDamageRate(), _hit.point, Vector3.zero, this, _hit.transform.gameObject, _hit.collider);
                 }
             }
         }
@@ -480,7 +480,7 @@ namespace RTSCoreFramework
             }
         }
 
-        public virtual void AllyTakeDamage(int amount, Vector3 position, Vector3 force, AllyMember _instigator, GameObject hitGameObject)
+        public virtual void AllyTakeDamage(int amount, Vector3 position, Vector3 force, AllyMember _instigator, GameObject hitGameObject, Collider hitCollider)
         {
             SetDamageInstigator(_instigator);
             if (IsAlive == false) return;

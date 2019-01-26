@@ -196,7 +196,7 @@ namespace RTSCoreFramework
             }
         }
 
-        protected virtual void SpawnBloodParticles(int amount, Vector3 position, Vector3 force, AllyMember _instigator, GameObject hitGameObject)
+        protected virtual void SpawnBloodParticles(int amount, Vector3 position, Vector3 force, AllyMember _instigator, GameObject hitGameObject, Collider hitCollider)
         {
             if (BloodParticles == null) return;
             GameObject.Instantiate(BloodParticles, position, Quaternion.identity);
