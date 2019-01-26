@@ -8,6 +8,7 @@ using Opsive.UltimateCharacterController.Items;
 using RTSCoreFramework;
 using Opsive.UltimateCharacterController.Character;
 using Opsive.UltimateCharacterController.Items.Actions;
+using Opsive.UltimateCharacterController.Events;
 
 namespace RTSPrototype
 {
@@ -265,7 +266,7 @@ namespace RTSPrototype
                 //Invoke("ResetIsReloading", 5f);
                 if (_cShootable.CanReloadItem(true))
                 {
-                    _cShootable.ReloadItem(false);
+                    EventHandler.ExecuteEvent<int, ItemType, bool, bool>(this.gameObject, "OnItemTryReload", _cItem.SlotID, _cShootable.ConsumableItemType, false, false);
                 }
                 else
                 {
