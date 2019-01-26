@@ -42,6 +42,32 @@ namespace RTSPrototype
         }
         Opsive.UltimateCharacterController.Character.Abilities.HeightChange _HeightChangeTPCAbility = null;
 
+        Opsive.UltimateCharacterController.Character.Abilities.Items.Aim myAimAbility
+        {
+            get
+            {
+                if (_myAimAbility == null)
+                {
+                    _myAimAbility = myController.GetAbility<Opsive.UltimateCharacterController.Character.Abilities.Items.Aim>();
+                }
+                return _myAimAbility;
+            }
+        }
+        Opsive.UltimateCharacterController.Character.Abilities.Items.Aim _myAimAbility = null;
+
+        Opsive.UltimateCharacterController.Character.Abilities.Items.Use myUseAbility
+        {
+            get
+            {
+                if(_myUseAbility == null)
+                {
+                    _myUseAbility = myController.GetAbility<Opsive.UltimateCharacterController.Character.Abilities.Items.Use>();
+                }
+                return _myUseAbility;
+            }
+        }
+        Opsive.UltimateCharacterController.Character.Abilities.Items.Use _myUseAbility = null;
+
         bool isAiming = false;
         [Header("Gun Types")]
         public ItemType AssualtRifleType;
@@ -61,6 +87,8 @@ namespace RTSPrototype
         const string SniperRifleName = "Sniper Rifle";
 
         protected bool bIsReloading = false;
+
+        protected float reloadTimeLimit = 2f;
         #endregion
 
         #region Components
@@ -214,6 +242,17 @@ namespace RTSPrototype
         void OnSetAimHandler(bool _isAiming)
         {
             isAiming = _isAiming;
+            if(myAimAbility != null)
+            {
+                if(isAiming && myAimAbility.CanStartAbility())
+                {
+                    myAimAbility.StartAbility();
+                }
+                else if(isAiming == false && myAimAbility.CanStopAbility())
+                {
+                    myAimAbility.StopAbility();
+                }
+            }
         }
 
         void OnSwitchPrevItem()
@@ -228,19 +267,26 @@ namespace RTSPrototype
 
         void OnTryUseWeapon()
         {
-            //if (!AllCompsAreValid) return;
-            //if(allyMember.bIsCarryingMeleeWeapon == false &&
-            //    myInventory.GetCurrentItemCount(typeof(PrimaryItemType), true) <= 0)
-            //{
-            //    if (bIsReloading == false)
-            //    {
-            //        myEventHandler.CallOnTryReload();
-            //    }
-            //}
-            //else if (!itemHandler.TryUseItem(typeof(PrimaryItemType)))
-            //{
-            //    Debug.Log("Couldn't fire primary weapon");
-            //}
+            if (!AllCompsAreValid) return;
+            if (allyMember.bIsCarryingMeleeWeapon == false)
+            {
+                int _loaded, _unloaded;
+                GetAmmoCountForEquipType(out _loaded, out _unloaded, true);
+                if (_loaded <= 0 && bIsReloading == false)
+                {
+                    myEventHandler.CallOnTryReload();
+                    return;
+                }
+            }
+
+            if(myUseAbility != null && myUseAbility.CanStartAbility())
+            {
+                myUseAbility.StartAbility();
+            }
+            else
+            {
+                Debug.Log("Couldn't fire primary weapon");
+            }
         }
 
         void OnStopTargetingEnemy()
@@ -251,7 +297,6 @@ namespace RTSPrototype
 
         void OnTryReload()
         {
-            //Debug.Log("Try Reloading");
             if (!AllCompsAreValid) return;
 
             Item _cItem = myInventory.GetItem(0);
@@ -262,8 +307,8 @@ namespace RTSPrototype
             if(_cItemAction is ShootableWeapon)
             {
                 ShootableWeapon _cShootable = (ShootableWeapon)_cItemAction;
-                //bIsReloading = true;
-                //Invoke("ResetIsReloading", 5f);
+                bIsReloading = true;
+                Invoke("ResetIsReloading", reloadTimeLimit);
                 if (_cShootable.CanReloadItem(true))
                 {
                     EventHandler.ExecuteEvent<int, ItemType, bool, bool>(this.gameObject, "OnItemTryReload", _cItem.SlotID, _cShootable.ConsumableItemType, false, false);
@@ -310,9 +355,10 @@ namespace RTSPrototype
         #endregion
 
         #region Finders/Getters
-        void GetAmmoCountForEquipType(out int _loaded, out int _unloaded)
+        void GetAmmoCountForEquipType(out int _loaded, out int _unloaded, bool equippedType = false)
         {
-            ItemType _item = 
+            ItemType _item = equippedType ? 
+                GetTPSItemFromWeaponType(myEventHandler.MyEquippedWeaponType) :
                 GetTPSItemFromWeaponType(myEventHandler.MyUnequippedWeaponType);
             GetAmmoCountForItemType(_item, out _loaded, out _unloaded);
         }
