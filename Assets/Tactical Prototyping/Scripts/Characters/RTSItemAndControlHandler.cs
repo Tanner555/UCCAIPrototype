@@ -389,12 +389,18 @@ namespace RTSPrototype
         #region RPGInventoryToTPC
         void SetEquippedItem(ItemType _type)
         {
-            var _gun = myInventory.GetItem(0);
-            if (_gun == null || (_gun != null && _gun.ItemType != _type))
+            Item _itemToEquip = myInventory.GetItem(0, _type);
+            var _currentEquippedItem = myInventory.GetItem(0);
+
+            if (_currentEquippedItem == null || (_currentEquippedItem != null && _currentEquippedItem.ItemType != _type))
             {
+                if (_itemToEquip != null)
+                {
+                    EventHandler.ExecuteEvent<Item, int>(this.gameObject, "OnAbilityWillEquipItem", _itemToEquip, _itemToEquip.SlotID);
+                }
                 myInventory.EquipItem(_type, 0, false);
             }
-            else if (_gun == null)
+            else
             {
                 Debug.Log("Not Setting Equipped Weapon " + _type.ToString());
             }
