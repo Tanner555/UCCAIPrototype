@@ -292,6 +292,15 @@ namespace RTSPrototype
             //itemHandler.TryStopUse(true);
         }
 
+        void OnActiveTimeBarDepletion()
+        {
+            if(allyMember.bIsAttacking && myUseAbility != null && 
+                myUseAbility.IsActive)
+            {
+                myUseAbility.StopAbility();
+            }
+        }
+
         void OnTryReload()
         {
             if (!AllCompsAreValid) return;
@@ -477,6 +486,7 @@ namespace RTSPrototype
             myEventHandler.OnTryCrouch += OnTryCrouch;
             myEventHandler.OnWeaponChanged += OnWeaponTypeChanged;
             myEventHandler.EventStopTargettingEnemy += OnStopTargetingEnemy;
+            myEventHandler.OnActiveTimeBarDepletion += OnActiveTimeBarDepletion;
             myEventHandler.EventToggleIsUsingAbility += OnToggleSpecialAbility;
             myEventHandler.InitializeAllyComponents += InitializeAllyWeaponItems;
         }
@@ -491,6 +501,7 @@ namespace RTSPrototype
             myEventHandler.OnTryCrouch -= OnTryCrouch;
             myEventHandler.OnWeaponChanged -= OnWeaponTypeChanged;
             myEventHandler.EventStopTargettingEnemy -= OnStopTargetingEnemy;
+            myEventHandler.OnActiveTimeBarDepletion -= OnActiveTimeBarDepletion;
             myEventHandler.EventToggleIsUsingAbility -= OnToggleSpecialAbility;
             myEventHandler.InitializeAllyComponents -= InitializeAllyWeaponItems;
         }
