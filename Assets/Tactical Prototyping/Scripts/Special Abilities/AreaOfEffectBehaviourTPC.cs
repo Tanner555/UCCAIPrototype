@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using RTSCoreFramework;
+using Opsive.UltimateCharacterController.Character;
 
 namespace RTSPrototype
 {
@@ -40,6 +41,18 @@ namespace RTSPrototype
             }
         }
         AllyMember _allymember = null;
+
+        UltimateCharacterLocomotion myController
+        {
+            get
+            {
+                if (_myController == null)
+                    _myController = GetComponent<UltimateCharacterLocomotion>();
+
+                return _myController;
+            }
+        }
+        UltimateCharacterLocomotion _myController = null;
         #endregion
 
         public override void Use(GameObject target = null)
@@ -81,7 +94,7 @@ namespace RTSPrototype
 
         protected override Opsive.UltimateCharacterController.Character.Abilities.Ability GetTPCAbility()
         {
-            return GetComponent<RTSAreaEffectAbility>();
+            return myController.GetAbility<RTSAreaEffectAbility>();
         }
     }
 }
