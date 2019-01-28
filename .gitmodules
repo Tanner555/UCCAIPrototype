@@ -1,0 +1,3 @@
+[submodule "Assets/RTSCoreFramework"]
+	path = Assets/RTSCoreFramework
+	url = https://github.com/Tanner555/RTSCoreFramework.git
