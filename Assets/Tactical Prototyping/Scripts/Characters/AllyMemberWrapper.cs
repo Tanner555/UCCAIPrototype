@@ -236,9 +236,9 @@ namespace RTSPrototype
             }
         }
 
-        public override void AllyOnDeath()
+        public override void AllyOnDeath(Vector3 position, Vector3 force, GameObject attacker)
         {
-            base.AllyOnDeath();
+            base.AllyOnDeath(position, force, attacker);
 
         }
         #endregion

@@ -92,10 +92,10 @@ namespace RTSPrototype
             }
         }
 
-        public override void CallEventAllyDied()
+        public override void CallEventAllyDied(Vector3 position, Vector3 force, GameObject attacker)
         {
-            base.CallEventAllyDied();
-            EventHandler.ExecuteEvent(this.gameObject, "OnDeath");
+            base.CallEventAllyDied(position, force, attacker);
+            EventHandler.ExecuteEvent<Vector3, Vector3, GameObject>(this.gameObject, "OnDeath", position, force, attacker);
         }
 
         public override void CallOnTryAim(bool _enable)

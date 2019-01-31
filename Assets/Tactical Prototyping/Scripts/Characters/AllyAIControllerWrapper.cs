@@ -114,7 +114,7 @@ namespace RTSPrototype
         #endregion
 
         #region Handlers
-        void OnDeath()
+        void OnDeath(Vector3 position, Vector3 force, GameObject attacker)
         {
             //TODO: RTSPrototype Check For Melee HitBox When Character Dies
             //var _mHitbox = transform.GetComponentInChildren<MeleeWeaponHitbox>();

@@ -289,7 +289,7 @@ namespace RTSPrototype
             bIsMeleeing = _enable;
         }
 
-        void HandleAllyDeath()
+        void HandleAllyDeath(Vector3 position, Vector3 force, GameObject attacker)
         {
             Destroy(this);
         }
