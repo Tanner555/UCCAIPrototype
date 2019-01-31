@@ -18,7 +18,7 @@ namespace RTSPrototype
         {
             get
             {
-                if (_myEventHandler == null)
+                if (_myEventHandler == null && m_CharacterLocomotion != null)
                 {
                     _myEventHandler = m_CharacterLocomotion.GetComponent<AllyEventHandlerWrapper>();
                 }
@@ -52,7 +52,10 @@ namespace RTSPrototype
 
         protected override void AbilityStopped(bool force)
         {
-            myEventHandler.EventAllyDied -= OnAllyDeath;
+            if (m_CharacterLocomotion != null && myEventHandler != null)
+            {
+                myEventHandler.EventAllyDied -= OnAllyDeath;
+            }
             base.AbilityStopped(force);
         }
         #endregion

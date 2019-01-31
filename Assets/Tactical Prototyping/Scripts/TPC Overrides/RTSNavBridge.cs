@@ -9,6 +9,7 @@ using UnityEngine.AI;
 using Opsive.UltimateCharacterController.Character.Abilities;
 using Opsive.UltimateCharacterController.Character.Abilities.AI;
 using Opsive.UltimateCharacterController.Game;
+using Opsive.UltimateCharacterController.Events;
 
 namespace RTSPrototype
 {
@@ -103,6 +104,32 @@ namespace RTSPrototype
         }
         AllyEventHandlerWrapper _myEventHandler;
 
+        LocalLookSource myLocalLookSource
+        {
+            get
+            {
+                if(_myLocalLookSource == null)
+                {
+                    _myLocalLookSource = GetComponent<LocalLookSource>();
+                }
+                return _myLocalLookSource;
+            }
+        }
+        LocalLookSource _myLocalLookSource = null;
+
+        RTSCameraController myCameraController
+        {
+            get
+            {
+                if(_myCameraController == null)
+                {
+                    _myCameraController = Camera.main.GetComponent<RTSCameraController>();
+                }
+                return _myCameraController;
+            }
+        }
+        RTSCameraController _myCameraController = null;
+
         RTSGameMaster gamemaster { get { return RTSGameMaster.thisInstance; } }
         //Targeting
         public Transform targetTransform { get; protected set; }
@@ -163,6 +190,8 @@ namespace RTSPrototype
         {
             get { return myEventHandler.bAllyIsPaused; }
         }
+        //New Look Functionality
+        bool bIsLookingAtTarget = false;
 
         #endregion
 
@@ -187,6 +216,20 @@ namespace RTSPrototype
         #endregion
 
         #region Targetting
+        void TogglebIsLookingAtTarget(bool _enable)
+        {
+            bIsLookingAtTarget = _enable;
+            if (bIsLookingAtTarget)
+            {
+                EventHandler.ExecuteEvent<ILookSource>(this.gameObject, "OnCharacterAttachLookSource", myLocalLookSource);
+                myLocalLookSource.Target = targetTransform;
+            }
+            else
+            {
+                EventHandler.ExecuteEvent<ILookSource>(this.gameObject, "OnCharacterAttachLookSource", myCameraController);
+            }
+        }
+
         public void LookAtTarget(Transform _target)
         {
             if (_target != null)
@@ -232,6 +275,12 @@ namespace RTSPrototype
             }
             if (allyMember.isSurfaceWalkable(_destination))
             {
+                //If Command Moving and Looking at Target
+                //Stop looking at target, and use Camera LookSource
+                if (myEventHandler.bIsCommandMoving && bIsLookingAtTarget)
+                {
+                    TogglebIsLookingAtTarget(false);
+                }
                 m_NavMeshAgent.isStopped = false;
                 m_NavMeshAgent.ResetPath();
                 m_NavMeshAgent.SetDestination(_destination);
@@ -370,12 +419,22 @@ namespace RTSPrototype
                     //Stand Still and Rotate towards Target
                     m_NavMeshAgent.updatePosition = false;
                     m_NavMeshAgent.velocity = Vector3.zero;
-                    Vector3 velocity = Vector3.zero;
-                    lookRotation = lookTargetRotation;                   
-                    m_Controller.Move(velocity.x, velocity.z, GetDeltaYawRotation(velocity.x, velocity.z, lookRotation));
+                    //Needs to Toggle Look Source If Still Using Camera Controller
+                    if(bIsLookingAtTarget == false)
+                    {
+                        TogglebIsLookingAtTarget(true);
+                    }
+                    //Vector3 velocity = Vector3.zero;
+                    //lookRotation = lookTargetRotation;
+                    //m_Controller.Move(velocity.x, velocity.z, GetDeltaYawRotation(velocity.x, velocity.z, lookRotation));
                 }
                 else
                 {
+                    //Needs to Toggle Look Source If Still Using Local Look Source
+                    if (bIsLookingAtTarget)
+                    {
+                        TogglebIsLookingAtTarget(false);
+                    }
                     //Still targetting enemy but enemy transform is null
                     if (targetTransform == null && isTargeting)
                         myEventHandler.CallEventStopTargettingEnemy();
@@ -415,6 +474,11 @@ namespace RTSPrototype
                 if (isMoving == true)
                 {
                     FinishMovingNavMesh();
+                    //Stop Looking At Target, and Use Camera LookSource
+                    if (bIsLookingAtTarget)
+                    {
+                        TogglebIsLookingAtTarget(false);
+                    }
                 }
                 
                 if (myEventHandler.bIsFreeMoving == false)
