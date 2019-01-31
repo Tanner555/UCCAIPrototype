@@ -2978,6 +2978,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1909704301872178, guid: ed3aa56cbdc01524c90532685b6d7d7a, type: 3}
+      propertyPath: m_Name
+      value: RTS Managers
+      objectReference: {fileID: 0}
     - target: {fileID: 4807102168982228, guid: ed3aa56cbdc01524c90532685b6d7d7a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.892903
@@ -3010,24 +3014,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114416084807247614, guid: ed3aa56cbdc01524c90532685b6d7d7a,
-        type: 3}
-      propertyPath: m_EnableGamplayInputEvent.m_PersistentCalls.m_Calls.Array.size
+    - target: {fileID: 4807102168982228, guid: ed3aa56cbdc01524c90532685b6d7d7a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114416084807247614, guid: ed3aa56cbdc01524c90532685b6d7d7a,
-        type: 3}
-      propertyPath: m_ForceInput
+    - target: {fileID: 4807102168982228, guid: ed3aa56cbdc01524c90532685b6d7d7a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114416084807247614, guid: ed3aa56cbdc01524c90532685b6d7d7a,
-        type: 3}
-      propertyPath: m_EnableGamplayInputEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114416084807247614, guid: ed3aa56cbdc01524c90532685b6d7d7a,
-        type: 3}
-      propertyPath: m_EnableGamplayInputEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+    - target: {fileID: 4807102168982228, guid: ed3aa56cbdc01524c90532685b6d7d7a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

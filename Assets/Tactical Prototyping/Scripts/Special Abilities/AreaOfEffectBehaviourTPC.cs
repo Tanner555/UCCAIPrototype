@@ -71,24 +71,40 @@ namespace RTSPrototype
                 (config as AreaOfEffectConfigTPC).GetRadius(),
                 Vector3.up,
                 (config as AreaOfEffectConfigTPC).GetRadius(), 
-                gamemode.AllyLayers
+                gamemode.AllyAndCharacterLayers
             );
 
+            Dictionary<AllyMember, RaycastHit> _hitEnemies = new Dictionary<AllyMember, RaycastHit>();
+            string _allyTag = gamemode.AllyTag;
+            //Obtain All Enemies To Damage From Hits
             foreach (RaycastHit hit in hits)
             {
-                var damageable = hit.collider.gameObject.GetComponent<AllyMember>();
-                //Cannot Hurt Self Or Allies in Same Party (Friends)
-                if (damageable != null &&
-                    damageable != allymember &&
-                    damageable.bIsCurrentPlayer == false &&
-                    damageable.IsEnemyFor(allymember))
+                Transform _enemyRoot = hit.collider.transform.root;
+                AllyMember _enemyMember = null;
+                if(_enemyRoot.tag == _allyTag &&
+                    (_enemyMember = _enemyRoot.GetComponent<AllyMember>()) != null)
                 {
-                    float damageToDeal = (config as AreaOfEffectConfigTPC).GetDamageToEachTarget();
-                    damageable.allyEventHandler.CallOnAllyTakeDamage(
-                        (int)damageToDeal, hit.point, Vector3.zero,
-                        allymember, hit.transform.gameObject, hit.collider
-                        );
+                    //Cannot Hurt Self Or Allies in Same Party (Friends)
+                    if (_enemyMember != null &&
+                        _enemyMember != allymember &&
+                        _enemyMember.bIsCurrentPlayer == false &&
+                        _enemyMember.IsEnemyFor(allymember) &&
+                        _hitEnemies.ContainsKey(_enemyMember) == false)
+                    {
+                        _hitEnemies.Add(_enemyMember, hit);
+                    }
                 }
+            }
+            
+            foreach (var _hitEnemy in _hitEnemies)
+            {
+                AllyMember damageable = _hitEnemy.Key;
+                RaycastHit hit = _hitEnemy.Value;
+                float damageToDeal = (config as AreaOfEffectConfigTPC).GetDamageToEachTarget();
+                damageable.allyEventHandler.CallOnAllyTakeDamage(
+                    (int)damageToDeal, hit.point, Vector3.zero,
+                    allymember, hit.transform.gameObject, hit.collider
+                    );
             }
         }
 
