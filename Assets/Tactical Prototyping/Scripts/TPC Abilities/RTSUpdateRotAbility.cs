@@ -47,6 +47,7 @@ namespace RTSPrototype
         /// </summary>
         private ILookSource m_LookSource;
 
+        bool bAllyDied = false;
         bool bUpdateMyRotation = false;
         #endregion
 
@@ -54,7 +55,7 @@ namespace RTSPrototype
         public override void UpdateRotation()
         {
             //Only Update Character's Rotation If FreeMoving Is Enabled And Aim Ability Isn't Active
-            if (bUpdateMyRotation && myAimAbility != null && myAimAbility.IsActive == false)
+            if (bAllyDied == false && bUpdateMyRotation && myAimAbility != null && myAimAbility.IsActive == false)
             {
                 // If the character can look indepdently then the character does not need to rotate to face the look direction.
                 if (m_CharacterLocomotion.ActiveMovementType.UseIndependentLook(true))
@@ -89,7 +90,8 @@ namespace RTSPrototype
         {
             await System.Threading.Tasks.Task.Delay(500);
             myEventHandler.EventTogglebIsFreeMoving += OnFreeMoving;
-            if(myAimAbility == null)
+            myEventHandler.EventAllyDied += OnAllyDeath;
+            if (myAimAbility == null)
             {
                 Debug.LogError("Aim Ability is Not Found On RTSUpdateRotAbility");
             }
@@ -97,8 +99,9 @@ namespace RTSPrototype
 
         protected override void AbilityStopped(bool force)
         {
-            base.AbilityStopped(force);
+            myEventHandler.EventAllyDied -= OnAllyDeath;
             myEventHandler.EventTogglebIsFreeMoving -= OnFreeMoving;
+            base.AbilityStopped(force);
         }
 
         public override void OnDestroy()
@@ -121,6 +124,12 @@ namespace RTSPrototype
         void OnFreeMoving(bool _isFreeMoving)
         {
             bUpdateMyRotation = _isFreeMoving;
+        }
+
+        protected virtual void OnAllyDeath(Vector3 position, Vector3 force, GameObject attacker)
+        {
+            bAllyDied = true;
+            bUpdateMyRotation = false;
         }
         #endregion
     }

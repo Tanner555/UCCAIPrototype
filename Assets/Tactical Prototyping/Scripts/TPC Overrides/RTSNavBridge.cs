@@ -45,7 +45,7 @@ namespace RTSPrototype
             {
                 if(_navAbility == null)
                 {
-                    _navAbility = m_Controller.GetAbility<NavMeshAgentMovement>();
+                    _navAbility = m_Controller.GetAbility<RTSNavMeshAgentMovement>();
                 }
                 return _navAbility;
             }

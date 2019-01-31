@@ -48,5 +48,15 @@ namespace RTSPrototype
         {
             return TPCAbility != null && TPCAbility.CanStartAbility();
         }
+
+        protected override void OnAllyDeath(Vector3 position, Vector3 force, GameObject attacker)
+        {
+            base.OnAllyDeath(position, force, attacker);
+            //Stop The Ability When Ally Dies
+            if (TPCAbility != null && TPCAbility.IsActive)
+            {
+                StopAbilityAnimation();
+            }
+        }
     }
 }
