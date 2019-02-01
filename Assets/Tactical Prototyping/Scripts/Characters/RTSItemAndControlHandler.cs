@@ -279,6 +279,14 @@ namespace RTSPrototype
             if(myUseAbility != null && myUseAbility.CanStartAbility())
             {
                 myUseAbility.StartAbility();
+                if (allyMember.bIsCarryingMeleeWeapon)
+                {
+                    myEventHandler.CallOnTryMeleeAttack();
+                }
+                else
+                {
+                    myEventHandler.CallOnTryHitscanFire(Vector3.zero);
+                }
             }
             else
             {

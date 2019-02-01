@@ -26,12 +26,23 @@ namespace RTSPrototype
         #endregion
 
         #region UsedCode
+
+        #endregion
+
+        #region SimpleBugFixes
+
+        #endregion
+
+        #region ArchivedUsedCode
         /// <summary>
         /// RTSPrototype-OpsiveUCC-ShootableWeapon: Inside HitscanFire() method, 
         /// after FireDirection has been created, add this code (also insert rootAllyTransform property).
         /// </summary>
-        //void OnRTSHitscanFire()
+        //void HitscanFire(float strength)
         //{
+        //    //.....
+        //    //Setting firePoint and fireDirection
+        //    //.....
         //    var fireDirection = FireDirection();
         //    var _force = fireDirection * m_HitscanImpactForce;
         //    rootAllyTransform.SendMessage("CallOnTryHitscanFire", _force, SendMessageOptions.RequireReceiver);
@@ -47,10 +58,6 @@ namespace RTSPrototype
         //    //...
         //    rootAllyTransform.SendMessage("CallOnTryMeleeAttack", SendMessageOptions.RequireReceiver);
         //}
-        #endregion
-
-        #region SimpleBugFixes
-
         #endregion
 
         #region OldBugFixes
