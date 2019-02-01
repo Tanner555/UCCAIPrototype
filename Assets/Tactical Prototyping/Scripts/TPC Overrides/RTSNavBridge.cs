@@ -253,10 +253,10 @@ namespace RTSPrototype
         #region Handlers
         private void OnFinishMovingHandler()
         {
-            m_NavMeshAgent.SetDestination(transform.position);
-            m_NavMeshAgent.isStopped = true;
+            //m_NavMeshAgent.SetDestination(transform.position);
+            //m_NavMeshAgent.isStopped = true;
             m_NavMeshAgent.ResetPath();
-            m_NavMeshAgent.isStopped = false;
+            //m_NavMeshAgent.isStopped = false;
         }
 
         void OnTogglePauseCommandMode(bool _isPaused)
