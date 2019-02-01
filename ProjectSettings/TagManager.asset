@@ -20,7 +20,7 @@ TagManager:
   - Ally
   - CurrentPlayerAlly
   - Cover
-  - 
+  - IgnoreRaycastWithColliders
   - 
   - 
   - 
