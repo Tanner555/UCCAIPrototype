@@ -251,6 +251,14 @@ namespace RTSPrototype
         #endregion
 
         #region Handlers
+        private void OnFinishMovingHandler()
+        {
+            m_NavMeshAgent.SetDestination(transform.position);
+            m_NavMeshAgent.isStopped = true;
+            m_NavMeshAgent.ResetPath();
+            m_NavMeshAgent.isStopped = false;
+        }
+
         void OnTogglePauseCommandMode(bool _isPaused)
         {
             //UnPausing and Command Moving During Pause
@@ -347,8 +355,6 @@ namespace RTSPrototype
         #region NavMeshMovement
         void FinishMovingNavMesh()
         {
-            m_NavMeshAgent.SetDestination(transform.position);
-            m_NavMeshAgent.isStopped = true;
             myEventHandler.CallEventFinishedMoving();
         }
 
@@ -554,6 +560,7 @@ namespace RTSPrototype
             myEventHandler.EventToggleIsSprinting += OnToggleSprinting;
             myEventHandler.EventCommandMove += MoveToDestination;
             myEventHandler.EventAllyDied += HandleAllyDeath;
+            myEventHandler.EventFinishedMoving += OnFinishMovingHandler;
             gamemaster.EventHoldingRightMouseDown += ToggleMoveCamera;
             gamemaster.OnTogglebIsInPauseControlMode += OnTogglePauseCommandMode;
         }
@@ -568,6 +575,7 @@ namespace RTSPrototype
             myEventHandler.EventToggleIsSprinting -= OnToggleSprinting;
             myEventHandler.EventCommandMove -= MoveToDestination;
             myEventHandler.EventAllyDied -= HandleAllyDeath;
+            myEventHandler.EventFinishedMoving -= OnFinishMovingHandler;
             gamemaster.EventHoldingRightMouseDown -= ToggleMoveCamera;
             gamemaster.OnTogglebIsInPauseControlMode -= OnTogglePauseCommandMode;
         }
