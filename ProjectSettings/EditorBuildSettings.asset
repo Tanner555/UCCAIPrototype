@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Tactical Prototyping/Maps/NewUCCMaps/Lvl 1-Training UCC.unity
     guid: 30f6b20ce43be644fb6f0bfb17f8f1c3
+  - enabled: 1
+    path: Assets/Tactical Prototyping/Maps/NewUCCMaps/SandLevel1UCC.unity
+    guid: 9a82608b32d152c4781b5d2e414d6af4
   m_configObjects: {}
