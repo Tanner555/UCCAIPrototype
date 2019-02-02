@@ -63,7 +63,7 @@
         <action>Self: Heal</action>
       </IGBPIPanelValue>
       <IGBPIPanelValue>
-        <order>1</order>
+        <order>2</order>
         <condition>Enemy: WithinSightRange</condition>
         <action>Self: Attack Targetted Enemy</action>
       </IGBPIPanelValue>
