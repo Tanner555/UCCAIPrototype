@@ -218,7 +218,13 @@ namespace RTSPrototype
             //        item.transform.localPosition = AddableItemsList[i].LocalPosition;
             //        item.transform.localEulerAngles = AddableItemsList[i].LocalRotation;
             //    }
-            //    ItemBuilder.BuildItem(item, AddableItemsList[i].ItemType, AddableItemsList[i].ItemName, AddableItemsList[i].Type, AddableItemsList[i].HandAssignment);
+            //    ItemBuilder.BuildItem(AddableItemsList[i].ItemName, AddableItemsList[i].ItemType, 122 /*Add Anim ID in item*/, spawnedGameObject, 123/*Add Slot ID in item*/,
+            //        true, false, null, characterAnimator.runtimeAnimatorController, null, null, null,
+            //        true, item, null/*ItemSlot*/, characterAnimator.runtimeAnimatorController, null /*Invisible ShadowCast Material*/,
+            //        AddableItemsList[i].Type == ERTSItemBuilderItemType.Melee ? ItemBuilder.ActionType.MeleeWeapon : ItemBuilder.ActionType.ShootableWeapon, AddableItemsList[i].ItemType /*Action Item Type*/);
+
+            //    //ItemBuilder.BuildItem(item, AddableItemsList[i].ItemType, AddableItemsList[i].ItemName, AddableItemsList[i].Type, AddableItemsList[i].HandAssignment);
+
             //    //Additional Method Functionality
             //    Transform itemTransform = item.transform;
             //    //Set Weapon Volume
