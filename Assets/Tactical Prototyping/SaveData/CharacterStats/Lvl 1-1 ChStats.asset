@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -15,24 +16,24 @@ MonoBehaviour:
   - name: Blue Silly Pants
     CharacterType: 0
     CharacterPrefab: {fileID: 1786980873933320, guid: 9ecc689f6dceb0c438db90eb1692ad63,
-      type: 2}
+      type: 3}
     CharacterPortrait: {fileID: 21300000, guid: 88ef663a5771719428241072d1046111,
       type: 3}
   - name: Brown Silly Pants
     CharacterType: 1
     CharacterPrefab: {fileID: 1786980873933320, guid: 9ecc689f6dceb0c438db90eb1692ad63,
-      type: 2}
+      type: 3}
     CharacterPortrait: {fileID: 21300000, guid: 88ef663a5771719428241072d1046111,
       type: 3}
   - name: Evil Assault Villain 1
     CharacterType: 25
     CharacterPrefab: {fileID: 1786980873933320, guid: 9ecc689f6dceb0c438db90eb1692ad63,
-      type: 2}
+      type: 3}
     CharacterPortrait: {fileID: 21300000, guid: 88ef663a5771719428241072d1046111,
       type: 3}
   - name: Silly Girl Medic
     CharacterType: 2
-    CharacterPrefab: {fileID: 1786980873933320, guid: 9ecc689f6dceb0c438db90eb1692ad63,
-      type: 2}
+    CharacterPrefab: {fileID: 5081253704090528030, guid: 8d089b02fb0f38f4cb5328dcf30b2b9f,
+      type: 3}
     CharacterPortrait: {fileID: 21300000, guid: c1ee90923a530864cb7a6f70a5500b68,
       type: 3}

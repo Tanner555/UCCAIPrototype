@@ -14,6 +14,7 @@ using Opsive.UltimateCharacterController.Utility.Builders;
 using Opsive.UltimateCharacterController.Items.Actions;
 using Opsive.UltimateCharacterController.Character;
 using Opsive.UltimateCharacterController.Inventory;
+using Opsive.UltimateCharacterController.Character.Abilities.AI;
 
 namespace RTSPrototype
 {
@@ -138,7 +139,56 @@ namespace RTSPrototype
         #region CharacterBuilder_BuildCharacter
         protected override IEnumerator CharacterBuilder_BuildCharacter()
         {
-            yield return new WaitForSeconds(0f);
+            yield return new WaitForSeconds(0.05f);
+            var _characterLocomotion = spawnedGameObject.GetComponent<UltimateCharacterLocomotion>();
+            //If Character Already Has Needed Components, Don't Bother Trying to Set Them Up
+            if (_characterLocomotion != null && 
+                _characterLocomotion.GetAbility<RTSNavMeshAgentMovement>() == null &&
+                _characterLocomotion.GetAbility<RTSUpdateRotAbility>() == null &&
+                _characterLocomotion.GetAbility<RTSAreaEffectAbility>() == null &&
+                _characterLocomotion.GetAbility<RTSSelfHealAbility>() == null)
+            {
+                var _oldNavMeshMovement = _characterLocomotion.GetAbility<NavMeshAgentMovement>();
+                if(_oldNavMeshMovement != null && (_oldNavMeshMovement is RTSNavMeshAgentMovement) == false)
+                {
+                    AbilityBuilder.RemoveAbility<NavMeshAgentMovement>(_characterLocomotion);
+                }
+                var _itemEquipAbility = _characterLocomotion.GetAbility<Opsive.UltimateCharacterController.Character.Abilities.ItemEquipVerifier>();
+                var _ragdollAbility = _characterLocomotion.GetAbility<Opsive.UltimateCharacterController.Character.Abilities.Ragdoll>();
+                if (_itemEquipAbility != null)
+                {
+                    AbilityBuilder.AddAbility(_characterLocomotion, typeof(RTSNavMeshAgentMovement), _itemEquipAbility.Index + 1);
+                    AbilityBuilder.AddAbility(_characterLocomotion, typeof(RTSUpdateRotAbility), _itemEquipAbility.Index + 1);
+                }
+                else
+                {
+                    AbilityBuilder.AddAbility(_characterLocomotion, typeof(RTSNavMeshAgentMovement));
+                    AbilityBuilder.AddAbility(_characterLocomotion, typeof(RTSUpdateRotAbility));
+                }
+                //AbilityBuilder.SerializeAbilities(_characterLocomotion);
+                if(_ragdollAbility != null)
+                {
+                    AbilityBuilder.AddAbility(_characterLocomotion, typeof(RTSAreaEffectAbility), _ragdollAbility.Index + 1);
+                    AbilityBuilder.AddAbility(_characterLocomotion, typeof(RTSSelfHealAbility), _ragdollAbility.Index + 1);
+                }
+                else
+                {
+                    AbilityBuilder.AddAbility(_characterLocomotion, typeof(Opsive.UltimateCharacterController.Character.Abilities.Ragdoll), 0);
+                    AbilityBuilder.AddAbility(_characterLocomotion, typeof(RTSAreaEffectAbility), 1);
+                    AbilityBuilder.AddAbility(_characterLocomotion, typeof(RTSSelfHealAbility), 2);
+                }
+                //AbilityBuilder.SerializeAbilities(_characterLocomotion);
+                _characterLocomotion.GetAbility<RTSNavMeshAgentMovement>().StartType = Abilities.Ability.AbilityStartType.Automatic;
+                _characterLocomotion.GetAbility<RTSUpdateRotAbility>().StartType = Abilities.Ability.AbilityStartType.Automatic;
+                var _rTSAreaEffectAbility = _characterLocomotion.GetAbility<RTSAreaEffectAbility>();
+                var _rTSSelfHealAbility = _characterLocomotion.GetAbility<RTSSelfHealAbility>();
+                _rTSAreaEffectAbility.StartType = Abilities.Ability.AbilityStartType.Manual;
+                _rTSAreaEffectAbility.StopType = Abilities.Ability.AbilityStopType.Manual;
+                _rTSAreaEffectAbility.AbilityIndexParameter = 201;
+                _rTSSelfHealAbility.StartType = Abilities.Ability.AbilityStartType.Manual;
+                _rTSSelfHealAbility.StopType = Abilities.Ability.AbilityStopType.Manual;
+                _rTSSelfHealAbility.AbilityIndexParameter = 202;
+            }
 //            var isNetworked = false;
 //#if !(UNITY_4_6 || UNITY_5_0)
 //            isNetworked = m_IsNetworked;
