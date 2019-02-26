@@ -462,7 +462,7 @@ namespace RTSPrototype
             m_NavMeshAgent.updatePosition = false;
             m_NavMeshAgent.velocity = Vector3.zero;
             //m_Controller.Move(myDirection.x, myDirection.z, GetDeltaYawRotation(myDirection.x, myDirection.z, mainCameraRotation));
-            DeterministicObjectManager.SetCharacterMovementInput(m_Controller.DeterministicObjectIndex, myDirection.x, myDirection.z);
+            KinematicObjectManager.SetCharacterMovementInput(m_Controller.KinematicObjectIndex, myDirection.x, myDirection.z);
         }
 
         void CheckForFreeMovement()

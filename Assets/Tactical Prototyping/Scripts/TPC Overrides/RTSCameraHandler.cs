@@ -98,11 +98,11 @@ namespace RTSPrototype
                 //Modify FixedUpdate Functionality To Stop Momentum 
                 //When Letting Go Of Right Mouse Button
                 currentLookVector = m_PlayerInput.GetLookVector(true);
-                DeterministicObjectManager.SetCameraLookVector(m_CameraController.DeterministicObjectIndex, currentLookVector);
+                KinematicObjectManager.SetCameraLookVector(m_CameraController.KinematicObjectIndex, currentLookVector);
             }
             else
             {
-                DeterministicObjectManager.SetCameraLookVector(m_CameraController.DeterministicObjectIndex, Vector2.zero);
+                KinematicObjectManager.SetCameraLookVector(m_CameraController.KinematicObjectIndex, Vector2.zero);
             }
         }
         #endregion

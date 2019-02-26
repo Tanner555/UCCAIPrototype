@@ -289,6 +289,7 @@ MonoBehaviour:
   m_AnimatorItemID: 2
   m_AnimatorMovementSetID: 0
   m_DominantItem: 1
+  m_AllowCameraZoom: 1
   m_DropPrefab: {fileID: 0}
   m_EquipEvent:
     m_WaitForAnimationEvent: 1
@@ -313,6 +314,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 0
       m_AudioClipSet:
         m_Delay: 0
@@ -341,6 +343,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 0
       m_AudioClipSet:
         m_Delay: 0
@@ -444,14 +447,11 @@ MonoBehaviour:
     m_Duration: 0.05
   m_ForceRootMotionPosition: 0
   m_ForceRootMotionRotation: 0
-  m_AttributeModifier:
-    m_AttributeName: 
-    m_ValueChange: 0
-    m_ChangeUpdateValue: 0
-    m_AutoUpdateValueType: 0
-    m_AutoUpdateStartDelay: 1
-    m_AutoUpdateInterval: 0.1
-    m_AutoUpdateAmount: 0.2
+  m_UseAttributeName: 
+  m_UseAttributeAmount: 0
+  m_DropWhenUseDepleted: 0
+  m_CharacterUseAttributeName: 
+  m_CharacterUseAttributeAmount: 0
   m_PlayAudioOnStartUse: 0
   m_UseAnimatorAudioStateSet:
     m_AnimatorAudioStateSelectorData:
@@ -470,6 +470,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 2
       m_AudioClipSet:
         m_Delay: 0
@@ -536,6 +537,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 0
       m_AudioClipSet:
         m_Delay: 0
@@ -602,13 +604,14 @@ MonoBehaviour:
   m_Smoke: {fileID: 0}
   m_SmokeSpawnDelay: 0
   m_Tracer: {fileID: 0}
+  m_TracerDefaultLength: 100
   m_TracerSpawnDelay: 0
   m_DisableScopeCameraOnNoAim: 0
   m_OnHitscanImpactEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Opsive.UltimateCharacterController.Events.UnityFloatVector3Vector3GameObjectEvent,
-      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Opsive.UltimateCharacterController, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &67077940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1551,6 +1554,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edead2b42b914a84faf341ae0d10c805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_States:
+  - m_Name: Default
+    m_Preset: {fileID: 0}
+    m_BlockList: []
+    m_Default: 1
+  m_ForceVisible: 0
   m_FirstPersonVisibleOnDeath: 0
 --- !u!82 &557915977
 AudioSource:
@@ -1734,6 +1743,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edead2b42b914a84faf341ae0d10c805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_States:
+  - m_Name: Default
+    m_Preset: {fileID: 0}
+    m_BlockList: []
+    m_Default: 1
+  m_ForceVisible: 0
   m_FirstPersonVisibleOnDeath: 0
 --- !u!82 &696772382
 AudioSource:
@@ -2265,6 +2280,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edead2b42b914a84faf341ae0d10c805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_States:
+  - m_Name: Default
+    m_Preset: {fileID: 0}
+    m_BlockList: []
+    m_Default: 1
+  m_ForceVisible: 0
   m_FirstPersonVisibleOnDeath: 0
 --- !u!82 &919635219
 AudioSource:
@@ -2995,6 +3016,7 @@ MonoBehaviour:
   m_AnimatorItemID: 5
   m_AnimatorMovementSetID: 0
   m_DominantItem: 1
+  m_AllowCameraZoom: 1
   m_DropPrefab: {fileID: 0}
   m_EquipEvent:
     m_WaitForAnimationEvent: 1
@@ -3019,6 +3041,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 0
       m_AudioClipSet:
         m_Delay: 0
@@ -3047,6 +3070,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 0
       m_AudioClipSet:
         m_Delay: 0
@@ -3145,14 +3169,11 @@ MonoBehaviour:
     m_Duration: 0.05
   m_ForceRootMotionPosition: 0
   m_ForceRootMotionRotation: 0
-  m_AttributeModifier:
-    m_AttributeName: 
-    m_ValueChange: 0
-    m_ChangeUpdateValue: 0
-    m_AutoUpdateValueType: 0
-    m_AutoUpdateStartDelay: 1
-    m_AutoUpdateInterval: 0.1
-    m_AutoUpdateAmount: 0.2
+  m_UseAttributeName: 
+  m_UseAttributeAmount: 0
+  m_DropWhenUseDepleted: 0
+  m_CharacterUseAttributeName: 
+  m_CharacterUseAttributeAmount: 0
   m_PlayAudioOnStartUse: 0
   m_UseAnimatorAudioStateSet:
     m_AnimatorAudioStateSelectorData:
@@ -3171,6 +3192,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 2
       m_AudioClipSet:
         m_Delay: 0
@@ -3237,6 +3259,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 0
       m_AudioClipSet:
         m_Delay: 0
@@ -3303,13 +3326,14 @@ MonoBehaviour:
   m_Smoke: {fileID: 0}
   m_SmokeSpawnDelay: 0
   m_Tracer: {fileID: 0}
+  m_TracerDefaultLength: 100
   m_TracerSpawnDelay: 0
   m_DisableScopeCameraOnNoAim: 0
   m_OnHitscanImpactEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Opsive.UltimateCharacterController.Events.UnityFloatVector3Vector3GameObjectEvent,
-      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Opsive.UltimateCharacterController, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &1379561612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3429,6 +3453,7 @@ MonoBehaviour:
   m_AnimatorItemID: 3
   m_AnimatorMovementSetID: 0
   m_DominantItem: 1
+  m_AllowCameraZoom: 1
   m_DropPrefab: {fileID: 0}
   m_EquipEvent:
     m_WaitForAnimationEvent: 1
@@ -3453,6 +3478,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 0
       m_AudioClipSet:
         m_Delay: 0.1
@@ -3484,6 +3510,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 0
       m_AudioClipSet:
         m_Delay: 0
@@ -3582,14 +3609,11 @@ MonoBehaviour:
     m_Duration: 0.5
   m_ForceRootMotionPosition: 0
   m_ForceRootMotionRotation: 0
-  m_AttributeModifier:
-    m_AttributeName: 
-    m_ValueChange: 0
-    m_ChangeUpdateValue: 0
-    m_AutoUpdateValueType: 0
-    m_AutoUpdateStartDelay: 1
-    m_AutoUpdateInterval: 0.1
-    m_AutoUpdateAmount: 0.2
+  m_UseAttributeName: 
+  m_UseAttributeAmount: 0
+  m_DropWhenUseDepleted: 0
+  m_CharacterUseAttributeName: 
+  m_CharacterUseAttributeAmount: 0
   m_PlayAudioOnStartUse: 0
   m_UseAnimatorAudioStateSet:
     m_AnimatorAudioStateSelectorData:
@@ -3608,6 +3632,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 2
       m_AudioClipSet:
         m_Delay: 0
@@ -3674,6 +3699,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 3
       m_AudioClipSet:
         m_Delay: 0
@@ -3751,13 +3777,14 @@ MonoBehaviour:
   m_Smoke: {fileID: 0}
   m_SmokeSpawnDelay: 0
   m_Tracer: {fileID: 0}
+  m_TracerDefaultLength: 100
   m_TracerSpawnDelay: 0
   m_DisableScopeCameraOnNoAim: 0
   m_OnHitscanImpactEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Opsive.UltimateCharacterController.Events.UnityFloatVector3Vector3GameObjectEvent,
-      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Opsive.UltimateCharacterController, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &1386552299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3881,6 +3908,7 @@ MonoBehaviour:
   m_AnimatorItemID: 1
   m_AnimatorMovementSetID: 0
   m_DominantItem: 1
+  m_AllowCameraZoom: 1
   m_DropPrefab: {fileID: 0}
   m_EquipEvent:
     m_WaitForAnimationEvent: 1
@@ -3905,6 +3933,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 0
       m_AudioClipSet:
         m_Delay: 0
@@ -3933,6 +3962,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 0
       m_AudioClipSet:
         m_Delay: 0
@@ -4036,14 +4066,11 @@ MonoBehaviour:
     m_Duration: 0.05
   m_ForceRootMotionPosition: 0
   m_ForceRootMotionRotation: 0
-  m_AttributeModifier:
-    m_AttributeName: 
-    m_ValueChange: 0
-    m_ChangeUpdateValue: 0
-    m_AutoUpdateValueType: 0
-    m_AutoUpdateStartDelay: 1
-    m_AutoUpdateInterval: 0.1
-    m_AutoUpdateAmount: 0.2
+  m_UseAttributeName: 
+  m_UseAttributeAmount: 0
+  m_DropWhenUseDepleted: 0
+  m_CharacterUseAttributeName: 
+  m_CharacterUseAttributeAmount: 0
   m_PlayAudioOnStartUse: 0
   m_UseAnimatorAudioStateSet:
     m_AnimatorAudioStateSelectorData:
@@ -4062,6 +4089,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 2
       m_AudioClipSet:
         m_Delay: 0
@@ -4128,6 +4156,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 0
       m_AudioClipSet:
         m_Delay: 0
@@ -4194,13 +4223,14 @@ MonoBehaviour:
   m_Smoke: {fileID: 0}
   m_SmokeSpawnDelay: 0
   m_Tracer: {fileID: 0}
+  m_TracerDefaultLength: 100
   m_TracerSpawnDelay: 0
   m_DisableScopeCameraOnNoAim: 0
   m_OnHitscanImpactEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Opsive.UltimateCharacterController.Events.UnityFloatVector3Vector3GameObjectEvent,
-      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Opsive.UltimateCharacterController, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &1441360221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4420,6 +4450,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edead2b42b914a84faf341ae0d10c805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_States:
+  - m_Name: Default
+    m_Preset: {fileID: 0}
+    m_BlockList: []
+    m_Default: 1
+  m_ForceVisible: 0
   m_FirstPersonVisibleOnDeath: 0
 --- !u!82 &1527064275
 AudioSource:
@@ -8349,8 +8385,8 @@ MonoBehaviour:
   m_MaxStepHeight: 0.4
   m_MotorAcceleration: {x: 0.18, y: 0, z: 0.18}
   m_MotorDamping: 0.27
-  m_MotorAirAcceleration: {x: 0.18, y: 0, z: 0.18}
-  m_MotorAirDamping: 0.27
+  m_MotorAirborneAcceleration: {x: 0.18, y: 0, z: 0.18}
+  m_MotorAirborneDamping: 0.27
   m_MotorBackwardsMultiplier: 0.7
   m_AdjustMotorForceOnSlope: 1
   m_MotorSlopeForceUp: 1
@@ -8406,17 +8442,15 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_WallBounceModifier: 1
-  m_AlignToGround: 0
-  m_AlignToGroundDistance: 2
-  m_AlignToGroundDepthOffset: 0.05
-  m_AlignToGroundNormalizeDirection: 0
-  m_AlignToGroundRotationSpeed: 10
   m_StickToMovingPlatform: 1
   m_MovingPlatformSeperationVelocity: 5
   m_MinHorizontalMovingPlatformStickSpeed: 2
   m_MovingPlatformForceDamping: 0
+  m_SmoothedBones: []
   m_FirstPersonStateName: FirstPerson
   m_ThirdPersonStateName: ThirdPerson
+  m_MovingStateName: Moving
+  m_AirborneStateName: Airborne
   m_MovementTypeFullName: Opsive.UltimateCharacterController.ThirdPersonController.Character.MovementTypes.Combat
   m_FirstPersonMovementTypeFullName: 
   m_ThirdPersonMovementTypeFullName: Opsive.UltimateCharacterController.ThirdPersonController.Character.MovementTypes.Combat
@@ -8503,88 +8537,88 @@ MonoBehaviour:
     m_Version: 2.0.7
   m_ItemAbilityData:
   - m_ObjectType: Opsive.UltimateCharacterController.Character.Abilities.Items.Reload
-    m_ValueHashes: 65e77897b61df252c31ddd78760b38d8b345095a0edf2c3c5876362d3ce85fa374b19fd18249d95b217d9091222fcbce2ba74b255f036c3636e7590d67d2cf810e32f02c9527e5d2d13e8476957d98fc68c565c421440228daf4a3f9fe652832545bd2889eb85dafa45b4fe5e6d9d16130375d8836da4ebe5677262c6127d390990c81fa08c374965d397b67dae18591ac51537cb0f1b9d14859b6072128f2420c74df7a727037b3233ef30188804acf80b86517
-    m_ValuePositions: 0000000004000000040000000b0000000f000000130000001400000015000000190000001d00000021000000270000002b0000002c0000002c0000002c000000300000003100000035000000390000003d00000041000000410000004200000046000000460000004a0000004e0000004e000000520000005600000057000000580000005c0000006000000064000000680000006c00000070000000740000007500000075000000790000007d00000081000000
-    m_Values: 0100000044656661756c74ffffffff00000000010101000000010000000100000052656c6f61640000003f000000000000000000000000803fcdcccc3dcdcc4c3e00ffffffff0000000000000000000000000000000001010000000000000000000000000000000000000000ffffffffffffffff01ffffffff03000000ffffffff00000000
+    m_ValueHashes: 65e77897b61df252c31ddd78760b38d8b345095a0edf2c3c5876362d3ce85fa374b19fd18249d95b217d9091222fcbce2ba74b251359ac83ee4238d5ffb9632cddf8a6ead0a78dd32aefcce8bbeb01425f036c3636e7590d67d2cf810e32f02c9527e5d2d13e8476957d98fc68c565c421440228daf4a3f9fe652832545bd2889eb85dafa45b4fe5e6d9d16130375d8836da4ebe5677262c6127d390990c81fa08c374965d397b67dae18591ac51537cb0f1b9d18e3485f8ae514f0f4859b6078f8d069f2128f2420c74df7a727037b30794aa33233ef30188804acf80b86517
+    m_ValuePositions: 0000000004000000040000000b0000000f000000130000001400000015000000190000001d00000021000000270000002b0000002c0000002c0000002c0000003000000034000000380000003c0000003c0000003c0000003c000000400000004100000045000000490000004d00000051000000510000005200000056000000560000005a0000005e0000005e000000620000006600000067000000680000006c0000007000000074000000780000007c00000080000000800000008400000088000000890000008a0000008a0000008e0000008e0000009200000096000000
+    m_Values: 0100000044656661756c74ffffffff00000000010101000000010000000100000052656c6f61640000003f00000000000000000000000000000000000000000000000000000000803fcdcccc3dcdcc4c3e00ffffffff0000000000000000000000000000000001010000000000000000000000000000000000000000ffffffffffffffffffffffff0000ffffffff03000000ffffffff00000000
     m_UnityObjects: []
-    m_Version: 2.0.7
+    m_Version: 2.1.1
   - m_ObjectType: Opsive.UltimateCharacterController.Character.Abilities.Items.Use
-    m_ValueHashes: 65e77897b61df252c31ddd78760b38d8b345095a0edf2c3c5876362d3ce85fa374b19fd18249d95b217d9091222fcbce2ba74b255f036c3636e7590d67d2cf810e32f02c9527e5d2d13e8476957d98fc68c565c421440228daf4a3f9fe652832545bd2889eb85dafa45b4fe5e6d9d16130375d8836da4ebe5677262c6127d390990c81fa08c374965d397b67dae18591ac51537cb0f1b9d14859b6072128f2420c74df7a727037b3233ef30188804acf80b86517
-    m_ValuePositions: 0000000004000000040000000b0000000f000000130000001400000015000000190000001d00000021000000260000002a0000002b0000002b0000002b0000002f0000003000000034000000380000003c00000040000000430000004400000048000000480000004c00000050000000500000005400000058000000590000005a0000005e00000062000000660000006a0000006e000000720000007600000077000000770000007b0000007f00000083000000
-    m_Values: 0100000044656661756c74ffffffff00000000010101000000010000000100000046697265310000003f000000000000000000000000803fcdcccc3dcdcc4c3e55736500ffffffff0000000000000000000000000000000001010000000000000000000000000000000000000000ffffffffffffffff00ffffffff02000000ffffffff00000000
+    m_ValueHashes: 65e77897b61df252c31ddd78760b38d8b345095a0edf2c3c5876362d3ce85fa374b19fd18249d95b217d9091222fcbce2ba74b251359ac83ee4238d5ffb9632cddf8a6ead0a78dd32aefcce8bbeb01425f036c3636e7590d67d2cf810e32f02c9527e5d2d13e8476957d98fc68c565c421440228daf4a3f9fe652832545bd2889eb85dafa45b4fe5e6d9d16130375d8836da4ebe5677262c6127d390990c81fa08c374965d397b67dae18591ac51537cb0f1b9d18e3485f8ae514f0f4859b6078f8d069f2128f2420c74df7a727037b30794aa33233ef30188804acf80b86517
+    m_ValuePositions: 0000000004000000040000000b0000000f000000130000001400000015000000190000001d00000021000000260000002a0000002b0000002b0000002b0000002f00000033000000370000003b0000003b0000003b0000003b0000003f0000004000000044000000480000004c00000050000000530000005400000058000000580000005c00000060000000600000006400000068000000690000006a0000006e00000072000000760000007a0000007e0000008200000082000000860000008a0000008b0000008c0000008c00000090000000900000009400000098000000
+    m_Values: 0100000044656661756c74ffffffff00000000010101000000010000000100000046697265310000003f00000000000000000000000000000000000000000000000000000000803fcdcccc3dcdcc4c3e55736500ffffffff0000000000000000000000000000000001010000000000000000000000000000000000000000ffffffffffffffffffffffff0000ffffffff02000000ffffffff00000000
     m_UnityObjects: []
-    m_Version: 2.0.7
+    m_Version: 2.1.1
   - m_ObjectType: Opsive.UltimateCharacterController.Character.Abilities.Items.EquipUnequip
-    m_ValueHashes: 65e77897b61df252c31ddd78760b38d8b345095a0edf2c3c5876362d3ce85fa374b19fd18249d95b217d90918b9b4182c02a9a7aad800276f5b9f272e0e2c27090011f6fc36ed86d862cd36cb16afd6b222fcbce2ba74b255f036c3636e7590d67d2cf810e32f02c9527e5d2d13e8476957d98fc68c565c421440228daf4a3f9fe652832545bd2889eb85dafa45b4fe5e6d9d16130375d8836da4ebe5677262c6127d390990c81fa08c374965d397b67dae18591ac51537cb0f1b9d14859b6072128f2420c74df7a727037b3233ef301053319cf13ca7179815b21ad88b270d734284757
-    m_ValuePositions: 0000000004000000040000000b0000000f000000130000001400000015000000190000001d0000002100000031000000420000005200000063000000730000008300000095000000a6000000b6000000c6000000ca000000cb000000cb000000cb000000cf000000d0000000d4000000d8000000dc000000e0000000e0000000e1000000e5000000e5000000e9000000ed000000ed000000f1000000f5000000f6000000f7000000fb000000ff00000003010000070100000b0100000f010000130100001401000014010000180100001c0100002001000024010000280100002c010000
-    m_Values: 0100000044656661756c74ffffffff00000000010101000000010000000a0000004571756970204669727374204974656d4571756970205365636f6e64204974656d4571756970205468697264204974656d457175697020466f75727468204974656d4571756970204669667468204974656d4571756970205369787468204974656d457175697020536576656e7468204974656d457175697020456967687468204974656d4571756970204e696e7468204974656d45717569702054656e7468204974656d0000003f000000000000000000000000803fcdcccc3dcdcc4c3e00ffffffff0000000000000000000000000000000001010000000000000000000000000000000000000000ffffffffffffffff01ffffffffffffffff000000001e000000040000000500000064000000
+    m_ValueHashes: 65e77897b61df252c31ddd78760b38d8b345095a0edf2c3c5876362d3ce85fa374b19fd18249d95b217d90918b9b4182c02a9a7aad800276f5b9f272e0e2c27090011f6fc36ed86d862cd36cb16afd6b222fcbce2ba74b251359ac83ee4238d5ffb9632cddf8a6ead0a78dd32aefcce8bbeb01425f036c3636e7590d67d2cf810e32f02c9527e5d2d13e8476957d98fc68c565c421440228daf4a3f9fe652832545bd2889eb85dafa45b4fe5e6d9d16130375d8836da4ebe5677262c6127d390990c81fa08c374965d397b67dae18591ac51537cb0f1b9d18e3485f8ae514f0f4859b6078f8d069f2128f2420c74df7a727037b30794aa33233ef301053319cf13ca7179815b21ad88b270d734284757
+    m_ValuePositions: 0000000004000000040000000b0000000f000000130000001400000015000000190000001d0000002100000031000000420000005200000063000000730000008300000095000000a6000000b6000000c6000000ca000000cb000000cb000000cb000000cf000000d3000000d7000000db000000db000000db000000db000000df000000e0000000e4000000e8000000ec000000f0000000f0000000f1000000f5000000f5000000f9000000fd000000fd000000010100000501000006010000070100000b0100000f01000013010000170100001b0100001f0100001f01000023010000270100002801000029010000290100002d0100002d0100003101000035010000390100003d01000041010000
+    m_Values: 0100000044656661756c74ffffffff00000000010101000000010000000a0000004571756970204669727374204974656d4571756970205365636f6e64204974656d4571756970205468697264204974656d457175697020466f75727468204974656d4571756970204669667468204974656d4571756970205369787468204974656d457175697020536576656e7468204974656d457175697020456967687468204974656d4571756970204e696e7468204974656d45717569702054656e7468204974656d0000003f00000000000000000000000000000000000000000000000000000000803fcdcccc3dcdcc4c3e00ffffffff0000000000000000000000000000000001010000000000000000000000000000000000000000ffffffffffffffffffffffff0001ffffffffffffffff000000001e000000040000000500000064000000
     m_UnityObjects: []
-    m_Version: 2.0.7
+    m_Version: 2.1.1
   - m_ObjectType: Opsive.UltimateCharacterController.Character.Abilities.Items.ToggleEquip
-    m_ValueHashes: 65e77897b61df252c31ddd78760b38d8b345095a0edf2c3c5876362d3ce85fa374b19fd18249d95b217d9091222fcbce2ba74b255f036c3636e7590d67d2cf810e32f02c9527e5d2d13e8476957d98fc68c565c421440228daf4a3f9fe652832545bd2889eb85dafa45b4fe5e6d9d16130375d8836da4ebe5677262c6127d390990c81fa08c374965d397b67dae18591ac51537cb0f1b9d14859b6072128f2420c74df7a727037b3233ef301053319cfb86500c7
-    m_ValuePositions: 0000000004000000040000000b0000000f000000130000001400000015000000190000001d0000002100000032000000360000003700000037000000370000003b0000003c0000004000000044000000480000004c0000004c0000004d00000051000000510000005500000059000000590000005d000000610000006200000063000000670000006b0000006f00000073000000770000007b0000007f000000800000008000000084000000880000008c000000
-    m_Values: 0100000044656661756c74ffffffff000000000101010000000100000001000000546f67676c65204974656d2045717569700000003f000000000000000000000000803fcdcccc3dcdcc4c3e00ffffffff0000000000000000000000000000000001010000000000000000000000000000000000000000ffffffffffffffff01ffffffffffffffff0000000000
+    m_ValueHashes: 65e77897b61df252c31ddd78760b38d8b345095a0edf2c3c5876362d3ce85fa374b19fd18249d95b217d9091222fcbce2ba74b251359ac83ee4238d5ffb9632cddf8a6ead0a78dd32aefcce8bbeb01425f036c3636e7590d67d2cf810e32f02c9527e5d2d13e8476957d98fc68c565c421440228daf4a3f9fe652832545bd2889eb85dafa45b4fe5e6d9d16130375d8836da4ebe5677262c6127d390990c81fa08c374965d397b67dae18591ac51537cb0f1b9d18e3485f8ae514f0f4859b6078f8d069f2128f2420c74df7a727037b30794aa33233ef301053319cfb86500c7
+    m_ValuePositions: 0000000004000000040000000b0000000f000000130000001400000015000000190000001d0000002100000032000000360000003700000037000000370000003b0000003f00000043000000470000004700000047000000470000004b0000004c0000005000000054000000580000005c0000005c0000005d00000061000000610000006500000069000000690000006d000000710000007200000073000000770000007b0000007f00000083000000870000008b0000008b0000008f0000009300000094000000950000009500000099000000990000009d000000a1000000
+    m_Values: 0100000044656661756c74ffffffff000000000101010000000100000001000000546f67676c65204974656d2045717569700000003f00000000000000000000000000000000000000000000000000000000803fcdcccc3dcdcc4c3e00ffffffff0000000000000000000000000000000001010000000000000000000000000000000000000000ffffffffffffffffffffffff0001ffffffffffffffff0000000000
     m_UnityObjects: []
-    m_Version: 2.0.7
+    m_Version: 2.1.1
   - m_ObjectType: Opsive.UltimateCharacterController.Character.Abilities.Items.EquipNext
-    m_ValueHashes: 65e77897b61df252c31ddd78760b38d8b345095a0edf2c3c5876362d3ce85fa374b19fd18249d95b217d9091222fcbce2ba74b255f036c3636e7590d67d2cf810e32f02c9527e5d2d13e8476957d98fc68c565c421440228daf4a3f9fe652832545bd2889eb85dafa45b4fe5e6d9d16130375d8836da4ebe5677262c6127d390990c81fa08c374965d397b67dae18591ac51537cb0f1b9d14859b6072128f2420c74df7a727037b3233ef301053319cf
-    m_ValuePositions: 0000000004000000040000000b0000000f000000130000001400000015000000190000001d000000210000003000000034000000350000003500000035000000390000003a0000003e00000042000000460000004a0000004a0000004b0000004f0000004f0000005300000057000000570000005b0000005f000000600000006100000065000000690000006d0000007100000075000000790000007d0000007e0000007e0000008200000086000000
-    m_Values: 0100000044656661756c74ffffffff0000000001010100000001000000010000004571756970204e657874204974656d0000003f000000000000000000000000803fcdcccc3dcdcc4c3e00ffffffff0000000000000000000000000000000001010000000000000000000000000000000000000000ffffffffffffffff01ffffffffffffffff00000000
+    m_ValueHashes: 65e77897b61df252c31ddd78760b38d8b345095a0edf2c3c5876362d3ce85fa374b19fd18249d95b217d9091222fcbce2ba74b251359ac83ee4238d5ffb9632cddf8a6ead0a78dd32aefcce8bbeb01425f036c3636e7590d67d2cf810e32f02c9527e5d2d13e8476957d98fc68c565c421440228daf4a3f9fe652832545bd2889eb85dafa45b4fe5e6d9d16130375d8836da4ebe5677262c6127d390990c81fa08c374965d397b67dae18591ac51537cb0f1b9d18e3485f8ae514f0f4859b6078f8d069f2128f2420c74df7a727037b30794aa33233ef301053319cf
+    m_ValuePositions: 0000000004000000040000000b0000000f000000130000001400000015000000190000001d000000210000003000000034000000350000003500000035000000390000003d0000004100000045000000450000004500000045000000490000004a0000004e00000052000000560000005a0000005a0000005b0000005f0000005f0000006300000067000000670000006b0000006f000000700000007100000075000000790000007d000000810000008500000089000000890000008d0000009100000092000000930000009300000097000000970000009b000000
+    m_Values: 0100000044656661756c74ffffffff0000000001010100000001000000010000004571756970204e657874204974656d0000003f00000000000000000000000000000000000000000000000000000000803fcdcccc3dcdcc4c3e00ffffffff0000000000000000000000000000000001010000000000000000000000000000000000000000ffffffffffffffffffffffff0001ffffffffffffffff00000000
     m_UnityObjects: []
-    m_Version: 2.0.7
+    m_Version: 2.1.1
   - m_ObjectType: Opsive.UltimateCharacterController.Character.Abilities.Items.EquipPrevious
-    m_ValueHashes: 65e77897b61df252c31ddd78760b38d8b345095a0edf2c3c5876362d3ce85fa374b19fd18249d95b217d9091222fcbce2ba74b255f036c3636e7590d67d2cf810e32f02c9527e5d2d13e8476957d98fc68c565c421440228daf4a3f9fe652832545bd2889eb85dafa45b4fe5e6d9d16130375d8836da4ebe5677262c6127d390990c81fa08c374965d397b67dae18591ac51537cb0f1b9d14859b6072128f2420c74df7a727037b3233ef301053319cf
-    m_ValuePositions: 0000000004000000040000000b0000000f000000130000001400000015000000190000001d0000002100000034000000380000003900000039000000390000003d0000003e00000042000000460000004a0000004e0000004e0000004f0000005300000053000000570000005b0000005b0000005f000000630000006400000065000000690000006d0000007100000075000000790000007d000000810000008200000082000000860000008a000000
-    m_Values: 0100000044656661756c74ffffffff00000000010101000000010000000100000045717569702050726576696f7573204974656d0000003f000000000000000000000000803fcdcccc3dcdcc4c3e00ffffffff0000000000000000000000000000000001010000000000000000000000000000000000000000ffffffffffffffff01ffffffffffffffff00000000
+    m_ValueHashes: 65e77897b61df252c31ddd78760b38d8b345095a0edf2c3c5876362d3ce85fa374b19fd18249d95b217d9091222fcbce2ba74b251359ac83ee4238d5ffb9632cddf8a6ead0a78dd32aefcce8bbeb01425f036c3636e7590d67d2cf810e32f02c9527e5d2d13e8476957d98fc68c565c421440228daf4a3f9fe652832545bd2889eb85dafa45b4fe5e6d9d16130375d8836da4ebe5677262c6127d390990c81fa08c374965d397b67dae18591ac51537cb0f1b9d18e3485f8ae514f0f4859b6078f8d069f2128f2420c74df7a727037b30794aa33233ef301053319cf
+    m_ValuePositions: 0000000004000000040000000b0000000f000000130000001400000015000000190000001d0000002100000034000000380000003900000039000000390000003d0000004100000045000000490000004900000049000000490000004d0000004e00000052000000560000005a0000005e0000005e0000005f0000006300000063000000670000006b0000006b0000006f000000730000007400000075000000790000007d0000008100000085000000890000008d0000008d00000091000000950000009600000097000000970000009b0000009b0000009f000000
+    m_Values: 0100000044656661756c74ffffffff00000000010101000000010000000100000045717569702050726576696f7573204974656d0000003f00000000000000000000000000000000000000000000000000000000803fcdcccc3dcdcc4c3e00ffffffff0000000000000000000000000000000001010000000000000000000000000000000000000000ffffffffffffffffffffffff0001ffffffffffffffff00000000
     m_UnityObjects: []
-    m_Version: 2.0.7
+    m_Version: 2.1.1
   - m_ObjectType: Opsive.UltimateCharacterController.Character.Abilities.Items.EquipScroll
-    m_ValueHashes: 65e77897b61df252c31ddd78760b38d8b345095a0edf2c3c5876362d3ce85fa374b19fd18249d95b217d9091222fcbce2ba74b255f036c3636e7590d67d2cf810e32f02c9527e5d2d13e8476957d98fc68c565c421440228daf4a3f9fe652832545bd2889eb85dafa45b4fe5e6d9d16130375d8836da4ebe5677262c6127d390990c81fa08c374965d397b67dae18591ac51537cb0f1b9d14859b6072128f2420c74df7a727037b3233ef301053319cfd98619b1
-    m_ValuePositions: 0000000004000000040000000b0000000f000000130000001400000015000000190000001d0000002100000032000000360000003700000037000000370000003b0000003c0000004000000044000000480000004c0000004c0000004d00000051000000510000005500000059000000590000005d000000610000006200000063000000670000006b0000006f00000073000000770000007b0000007f000000800000008000000084000000880000008c000000
-    m_Values: 0100000044656661756c74ffffffff0000000001010100000001000000010000004d6f757365205363726f6c6c576865656c0000003f000000000000000000000000803fcdcccc3dcdcc4c3e00ffffffff0000000000000000000000000000000001010000000000000000000000000000000000000000ffffffffffffffff01ffffffffffffffff00000000cdcccc3d
+    m_ValueHashes: 65e77897b61df252c31ddd78760b38d8b345095a0edf2c3c5876362d3ce85fa374b19fd18249d95b217d9091222fcbce2ba74b251359ac83ee4238d5ffb9632cddf8a6ead0a78dd32aefcce8bbeb01425f036c3636e7590d67d2cf810e32f02c9527e5d2d13e8476957d98fc68c565c421440228daf4a3f9fe652832545bd2889eb85dafa45b4fe5e6d9d16130375d8836da4ebe5677262c6127d390990c81fa08c374965d397b67dae18591ac51537cb0f1b9d18e3485f8ae514f0f4859b6078f8d069f2128f2420c74df7a727037b30794aa33233ef301053319cfd98619b1
+    m_ValuePositions: 0000000004000000040000000b0000000f000000130000001400000015000000190000001d0000002100000032000000360000003700000037000000370000003b0000003f00000043000000470000004700000047000000470000004b0000004c0000005000000054000000580000005c0000005c0000005d00000061000000610000006500000069000000690000006d000000710000007200000073000000770000007b0000007f00000083000000870000008b0000008b0000008f0000009300000094000000950000009500000099000000990000009d000000a1000000
+    m_Values: 0100000044656661756c74ffffffff0000000001010100000001000000010000004d6f757365205363726f6c6c576865656c0000003f00000000000000000000000000000000000000000000000000000000803fcdcccc3dcdcc4c3e00ffffffff0000000000000000000000000000000001010000000000000000000000000000000000000000ffffffffffffffffffffffff0001ffffffffffffffff00000000cdcccc3d
     m_UnityObjects: []
-    m_Version: 2.0.7
+    m_Version: 2.1.1
   - m_ObjectType: Opsive.UltimateCharacterController.Character.Abilities.Items.Aim
-    m_ValueHashes: 65e77897b61df252c31ddd78760b38d8b345095a0edf2c3c5876362d3ce85fa374b19fd18249d95b217d9091222fcbce2ba74b255f036c3636e7590d67d2cf810e32f02c9527e5d2d13e8476957d98fc68c565c421440228daf4a3f9fe652832545bd2889eb85dafa45b4fe5e6d9d16130375d8836da4ebe5677262c6127d390990c81fa08c374965d397b67dae18591ac51537cb0f1b9d14859b6072128f2420c74df7a727037b3233ef3018c7da646641c0f34
-    m_ValuePositions: 0000000004000000040000000b0000000f000000130000001400000015000000190000001d00000021000000260000002a0000002b0000002b0000002b0000002f0000003000000034000000380000003c00000040000000430000004400000048000000480000004c00000050000000500000005400000058000000590000005a0000005e00000062000000660000006a0000006e000000720000007600000077000000770000007b0000007f00000080000000
-    m_Values: 0100000044656661756c74ffffffff00000000010101000000010000000100000046697265320000003f000000000000000000000000803fcdcccc3dcdcc4c3e41696d00ffffffff0000000000000000000000000000000001010000000000000000000000000000000000000000ffffffffffffffff00ffffffff010000000101
+    m_ValueHashes: 65e77897b61df252c31ddd78760b38d8b345095a0edf2c3c5876362d3ce85fa374b19fd18249d95b217d9091222fcbce2ba74b251359ac83ee4238d5ffb9632cddf8a6ead0a78dd32aefcce8bbeb01425f036c3636e7590d67d2cf810e32f02c9527e5d2d13e8476957d98fc68c565c421440228daf4a3f9fe652832545bd2889eb85dafa45b4fe5e6d9d16130375d8836da4ebe5677262c6127d390990c81fa08c374965d397b67dae18591ac51537cb0f1b9d18e3485f8ae514f0f4859b6078f8d069f2128f2420c74df7a727037b30794aa33233ef3018c7da646641c0f34
+    m_ValuePositions: 0000000004000000040000000b0000000f000000130000001400000015000000190000001d00000021000000260000002a0000002b0000002b0000002b0000002f00000033000000370000003b0000003b0000003b0000003b0000003f0000004000000044000000480000004c00000050000000530000005400000058000000580000005c00000060000000600000006400000068000000690000006a0000006e00000072000000760000007a0000007e0000008200000082000000860000008a0000008b0000008c0000008c00000090000000900000009400000095000000
+    m_Values: 0100000044656661756c74ffffffff00000000010101000000010000000100000046697265320000003f00000000000000000000000000000000000000000000000000000000803fcdcccc3dcdcc4c3e41696d00ffffffff0000000000000000000000000000000001010000000000000000000000000000000000000000ffffffffffffffffffffffff0000ffffffff010000000101
     m_UnityObjects: []
-    m_Version: 2.0.7
+    m_Version: 2.1.1
   m_EffectData: []
   m_OnMovementTypeActiveEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Opsive.UltimateCharacterController.Events.UnityMovementTypeBoolEvent,
-      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Opsive.UltimateCharacterController, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnAbilityActiveEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Opsive.UltimateCharacterController.Events.UnityAbilityBoolEvent, Assembly-CSharp,
+    m_TypeName: Opsive.UltimateCharacterController.Events.UnityAbilityBoolEvent, Opsive.UltimateCharacterController,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnItemAbilityActiveEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Opsive.UltimateCharacterController.Events.UnityItemAbilityBoolEvent,
-      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Opsive.UltimateCharacterController, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnGroundedEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Opsive.UltimateCharacterController.Events.UnityBoolEvent, Assembly-CSharp,
+    m_TypeName: Opsive.UltimateCharacterController.Events.UnityBoolEvent, Opsive.UltimateCharacterController,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Opsive.UltimateCharacterController.Events.UnityFloatEvent, Assembly-CSharp,
+    m_TypeName: Opsive.UltimateCharacterController.Events.UnityFloatEvent, Opsive.UltimateCharacterController,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnChangeTimeScaleEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Opsive.UltimateCharacterController.Events.UnityFloatEvent, Assembly-CSharp,
+    m_TypeName: Opsive.UltimateCharacterController.Events.UnityFloatEvent, Opsive.UltimateCharacterController,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnChangeMovingPlatformsEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Opsive.UltimateCharacterController.Events.UnityTransformEvent, Assembly-CSharp,
+    m_TypeName: Opsive.UltimateCharacterController.Events.UnityTransformEvent, Opsive.UltimateCharacterController,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &114554348403434434
 MonoBehaviour:
@@ -8638,6 +8672,7 @@ MonoBehaviour:
     m_Preset: {fileID: 0}
     m_BlockList: []
     m_Default: 1
+  m_UpdateLocation: 0
   m_DebugAnimatorController: 0
   m_LogAbilityParameterChanges: 0
   m_LogItemParameterChanges: 0
@@ -8694,37 +8729,37 @@ MonoBehaviour:
   m_OnAddItemEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Opsive.UltimateCharacterController.Events.UnityItemEvent, Assembly-CSharp,
+    m_TypeName: Opsive.UltimateCharacterController.Events.UnityItemEvent, Opsive.UltimateCharacterController,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnPickupItemTypeEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Opsive.UltimateCharacterController.Events.UnityItemTypeFloatBoolBoolEvent,
-      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Opsive.UltimateCharacterController, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnPickupItemEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Opsive.UltimateCharacterController.Events.UnityItemFloatBoolBoolEvent,
-      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Opsive.UltimateCharacterController, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnEquipItemEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Opsive.UltimateCharacterController.Events.UnityItemIntEvent, Assembly-CSharp,
+    m_TypeName: Opsive.UltimateCharacterController.Events.UnityItemIntEvent, Opsive.UltimateCharacterController,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnUseItemTypeEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Opsive.UltimateCharacterController.Events.UnityItemTypeFloatEvent,
-      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Opsive.UltimateCharacterController, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnUnequipItemEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Opsive.UltimateCharacterController.Events.UnityItemIntEvent, Assembly-CSharp,
+    m_TypeName: Opsive.UltimateCharacterController.Events.UnityItemIntEvent, Opsive.UltimateCharacterController,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnRemoveItemEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Opsive.UltimateCharacterController.Events.UnityItemIntEvent, Assembly-CSharp,
+    m_TypeName: Opsive.UltimateCharacterController.Events.UnityItemIntEvent, Opsive.UltimateCharacterController,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &114279535943734386
 MonoBehaviour:
@@ -9392,6 +9427,7 @@ MonoBehaviour:
   m_AnimatorItemID: 24
   m_AnimatorMovementSetID: 0
   m_DominantItem: 1
+  m_AllowCameraZoom: 1
   m_DropPrefab: {fileID: 0}
   m_EquipEvent:
     m_WaitForAnimationEvent: 1
@@ -9416,6 +9452,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 0
       m_AudioClipSet:
         m_Delay: 0
@@ -9444,6 +9481,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 0
       m_AudioClipSet:
         m_Delay: 0
@@ -9521,10 +9559,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_States:
-  - m_Name: FirstPerson
-    m_Preset: {fileID: 11400000, guid: 9e08a9dde2df5dd40ab426b7cd5e1421, type: 2}
-    m_BlockList: []
-    m_Default: 0
   - m_Name: Default
     m_Preset: {fileID: 0}
     m_BlockList: []
@@ -9542,14 +9576,11 @@ MonoBehaviour:
     m_Duration: 0.05
   m_ForceRootMotionPosition: 1
   m_ForceRootMotionRotation: 0
-  m_AttributeModifier:
-    m_AttributeName: 
-    m_ValueChange: 0
-    m_ChangeUpdateValue: 0
-    m_AutoUpdateValueType: 0
-    m_AutoUpdateStartDelay: 1
-    m_AutoUpdateInterval: 0.1
-    m_AutoUpdateAmount: 0.2
+  m_UseAttributeName: 
+  m_UseAttributeAmount: 0
+  m_DropWhenUseDepleted: 0
+  m_CharacterUseAttributeName: 
+  m_CharacterUseAttributeAmount: 0
   m_PlayAudioOnStartUse: 1
   m_UseAnimatorAudioStateSet:
     m_AnimatorAudioStateSelectorData:
@@ -9568,6 +9599,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 2
       m_AudioClipSet:
         m_Delay: 0
@@ -9583,6 +9615,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 3
       m_AudioClipSet:
         m_Delay: 0
@@ -9591,10 +9624,13 @@ MonoBehaviour:
         - {fileID: 8300000, guid: 3a87b6104e3e0e2438d2750034807556, type: 3}
         - {fileID: 8300000, guid: d8dbc8a2525570f42adb5ce38a21fe74, type: 3}
   m_RequireInAirMeleeAbilityInAir: 1
+  m_RequireCounterAttackAbility: 0
   m_ConsumableItemType: {fileID: 0}
   m_AimItemSubstateIndexAddition: 100
   m_MaxCollisionCount: 20
+  m_ForwardShieldSensitivity: -0.8
   m_SingleHit: 0
+  m_MultiHitFrameCount: 3
   m_CanHitDelay: 0.1
   m_AllowAttackCombos: 1
   m_ImpactLayers:
@@ -9624,6 +9660,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 0
       m_AudioClipSet:
         m_Delay: 0
@@ -9638,7 +9675,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Opsive.UltimateCharacterController.Events.UnityFloatVector3Vector3GameObjectEvent,
-      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Opsive.UltimateCharacterController, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &561635759779089478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9660,8 +9697,10 @@ MonoBehaviour:
   m_Hitboxes:
   - m_Collider: {fileID: 7309651188492267078}
     m_DamageMultiplier: 1
+    m_ColliderObjectID: -1
     m_MinimumYOffset: 0
     m_MinimumZOffset: 0
+    m_SingleHit: 0
     m_SurfaceImpact: {fileID: 0}
   m_TrailLocation: {fileID: 239347121830886915}
 --- !u!1 &4556631601492881280
@@ -9787,6 +9826,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edead2b42b914a84faf341ae0d10c805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_States:
+  - m_Name: Default
+    m_Preset: {fileID: 0}
+    m_BlockList: []
+    m_Default: 1
+  m_ForceVisible: 0
   m_FirstPersonVisibleOnDeath: 0
 --- !u!82 &4457798225133159255
 AudioSource:
@@ -9990,6 +10035,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edead2b42b914a84faf341ae0d10c805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_States:
+  - m_Name: Default
+    m_Preset: {fileID: 0}
+    m_BlockList: []
+    m_Default: 1
+  m_ForceVisible: 0
   m_FirstPersonVisibleOnDeath: 0
 --- !u!82 &4557229694886476412
 AudioSource:
@@ -10187,6 +10238,7 @@ MonoBehaviour:
   m_AnimatorItemID: 23
   m_AnimatorMovementSetID: 0
   m_DominantItem: 1
+  m_AllowCameraZoom: 1
   m_DropPrefab: {fileID: 0}
   m_EquipEvent:
     m_WaitForAnimationEvent: 1
@@ -10211,6 +10263,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 0
       m_AudioClipSet:
         m_Delay: 0
@@ -10239,6 +10292,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 0
       m_AudioClipSet:
         m_Delay: 0
@@ -10320,10 +10374,6 @@ MonoBehaviour:
     m_Preset: {fileID: 11400000, guid: 93b840e77b0f9574fa704bd7a82ec4ca, type: 2}
     m_BlockList: []
     m_Default: 0
-  - m_Name: FirstPerson
-    m_Preset: {fileID: 11400000, guid: 9e08a9dde2df5dd40ab426b7cd5e1421, type: 2}
-    m_BlockList: []
-    m_Default: 0
   - m_Name: Default
     m_Preset: {fileID: 0}
     m_BlockList: []
@@ -10341,14 +10391,11 @@ MonoBehaviour:
     m_Duration: 0.05
   m_ForceRootMotionPosition: 1
   m_ForceRootMotionRotation: 0
-  m_AttributeModifier:
-    m_AttributeName: 
-    m_ValueChange: 0
-    m_ChangeUpdateValue: 0
-    m_AutoUpdateValueType: 0
-    m_AutoUpdateStartDelay: 1
-    m_AutoUpdateInterval: 0.1
-    m_AutoUpdateAmount: 0.2
+  m_UseAttributeName: 
+  m_UseAttributeAmount: 0
+  m_DropWhenUseDepleted: 0
+  m_CharacterUseAttributeName: 
+  m_CharacterUseAttributeAmount: 0
   m_PlayAudioOnStartUse: 1
   m_UseAnimatorAudioStateSet:
     m_AnimatorAudioStateSelectorData:
@@ -10367,6 +10414,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 2
       m_AudioClipSet:
         m_Delay: 0
@@ -10382,6 +10430,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 3
       m_AudioClipSet:
         m_Delay: 0
@@ -10390,10 +10439,13 @@ MonoBehaviour:
         - {fileID: 8300000, guid: 3a87b6104e3e0e2438d2750034807556, type: 3}
         - {fileID: 8300000, guid: d8dbc8a2525570f42adb5ce38a21fe74, type: 3}
   m_RequireInAirMeleeAbilityInAir: 1
+  m_RequireCounterAttackAbility: 0
   m_ConsumableItemType: {fileID: 0}
   m_AimItemSubstateIndexAddition: 100
   m_MaxCollisionCount: 20
+  m_ForwardShieldSensitivity: -0.8
   m_SingleHit: 0
+  m_MultiHitFrameCount: 3
   m_CanHitDelay: 0.1
   m_AllowAttackCombos: 1
   m_ImpactLayers:
@@ -10423,6 +10475,7 @@ MonoBehaviour:
       m_Enabled: 1
       m_AllowDuringMovement: 1
       m_RequireGrounded: 0
+      m_StateName: 
       m_ItemSubstateIndex: 0
       m_AudioClipSet:
         m_Delay: 0
@@ -10437,7 +10490,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Opsive.UltimateCharacterController.Events.UnityFloatVector3Vector3GameObjectEvent,
-      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Opsive.UltimateCharacterController, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &582576835381249278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10459,7 +10512,9 @@ MonoBehaviour:
   m_Hitboxes:
   - m_Collider: {fileID: 3620165589595609279}
     m_DamageMultiplier: 1
+    m_ColliderObjectID: -1
     m_MinimumYOffset: 0
     m_MinimumZOffset: 0
+    m_SingleHit: 0
     m_SurfaceImpact: {fileID: 0}
   m_TrailLocation: {fileID: 2923759537188054315}
