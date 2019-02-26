@@ -64,7 +64,7 @@ namespace RTSPrototype
                 }
 
                 // Determine the direction that the character should be facing.
-                var lookDirection = m_LookSource.LookDirection(m_LookSource.LookPosition(), true, m_LayerManager.IgnoreInvisibleCharacterLayers, false);
+                var lookDirection = m_LookSource.LookDirection(m_LookSource.LookPosition(), true, m_CharacterLayerManager.IgnoreInvisibleCharacterLayers, false);
                 var localLookDirection = m_Transform.InverseTransformDirection(lookDirection);
                 localLookDirection.y = 0;
                 m_CharacterLocomotion.DeltaYawRotation = MathUtility.ClampInnerAngle(Quaternion.LookRotation(localLookDirection.normalized, m_CharacterLocomotion.Up).eulerAngles.y);
