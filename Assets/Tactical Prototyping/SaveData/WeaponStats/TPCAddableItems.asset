@@ -82,7 +82,7 @@ MonoBehaviour:
   - AddableItemName: Assault Rifle
     m_ItemType: {fileID: 114334400771614146, guid: 5481010ef14c32f4cb7b6661b0c59fb4,
       type: 2}
-    m_Base: {fileID: 1034057198808970, guid: 9259094c2445f334eb7cc9fdf4643496, type: 3}
+    m_Base: {fileID: 100000, guid: 8802e309e5a1a9149ac174d60c52b7a2, type: 3}
     m_ItemName: Assault Rifle
     m_Type: 1
     m_HandAssignment: 1
