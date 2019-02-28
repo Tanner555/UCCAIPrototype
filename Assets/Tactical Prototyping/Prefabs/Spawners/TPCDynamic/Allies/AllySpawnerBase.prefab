@@ -1,27 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1752753769121216}
-  m_IsPrefabAsset: 1
 --- !u!1 &1752753769121216
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4811216883333322}
   - component: {fileID: 114049519169023850}
   m_Layer: 0
-  m_Name: Blue Silly Pants Spawner TPC
+  m_Name: AllySpawnerBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,9 +19,10 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4811216883333322
 Transform:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1752753769121216}
   m_LocalRotation: {x: -0, y: 0.6764072, z: -0, w: 0.7365279}
   m_LocalPosition: {x: 5.1166162, y: 7, z: 14.898265}
@@ -42,9 +33,10 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 85.12701, z: 0}
 --- !u!114 &114049519169023850
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1752753769121216}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -59,37 +51,33 @@ MonoBehaviour:
   spawnedGameObject: {fileID: 0}
   m_AnimatorController: {fileID: 9100000, guid: 8755ad7b4e5eacc41ae6a8e27560decb,
     type: 2}
-  m_MovementType: 0
-  m_AIAgent: 1
-  m_IsNetworked: 0
-  m_MaxFrictionMaterial: {fileID: 13400000, guid: 198796242f6646e40a1d017f5aac148c,
-    type: 2}
-  m_FrictionlessMaterial: {fileID: 13400000, guid: 6e1f114d7edaac3429f0739865834c8b,
-    type: 2}
+  m_AddItems: 1
+  m_ItemCollection: {fileID: 11400000, guid: 5481010ef14c32f4cb7b6661b0c59fb4, type: 2}
   FirearmsToAdd:
   - TheItemName: Pistol
-    m_ItemType: {fileID: 11400000, guid: b9892dc51f8bab84590e65c39cd82e88, type: 2}
-    m_BulletItemType: {fileID: 11400000, guid: 19d3b19da9d7fb2478e1de05b9fe2959, type: 2}
+    m_ItemType: {fileID: 0}
+    m_BulletItemType: {fileID: 0}
     m_BulletCount: 100
   - TheItemName: Assault Rifle
-    m_ItemType: {fileID: 11400000, guid: f7a7ff59e6f44ed41b780028c7e443f3, type: 2}
-    m_BulletItemType: {fileID: 11400000, guid: dd688f9c8dd63f44391f3ddfdff3d339, type: 2}
+    m_ItemType: {fileID: 0}
+    m_BulletItemType: {fileID: 0}
     m_BulletCount: 100
   - TheItemName: Shotgun
-    m_ItemType: {fileID: 11400000, guid: 27999eff4c895eb479313c5106e23091, type: 2}
-    m_BulletItemType: {fileID: 11400000, guid: c605b85263b092e41aef91cf7ca069f1, type: 2}
+    m_ItemType: {fileID: 0}
+    m_BulletItemType: {fileID: 0}
     m_BulletCount: 30
   - TheItemName: Sniper Rifle
-    m_ItemType: {fileID: 11400000, guid: b876b0067262c204eb9c350fe44ef7eb, type: 2}
-    m_BulletItemType: {fileID: 11400000, guid: b509de00943e02049a847fb7f546658a, type: 2}
+    m_ItemType: {fileID: 0}
+    m_BulletItemType: {fileID: 0}
     m_BulletCount: 30
   MeleeWeaponsToAdd:
   - TheItemName: Katana
-    m_ItemType: {fileID: 11400000, guid: 5844ff10e39393d4cb91374b86d271aa, type: 2}
+    m_ItemType: {fileID: 0}
   AllySpecificComponentsToSetUp:
     CharacterType: 0
     AllyFaction: 0
     GeneralCommander: 0
+    bBuildCharacterCompletely: 0
     bBuildEnemyHealthBar: 0
     LOSChildObjectTransform: {fileID: 0}
     EnemyHealthBarImage: {fileID: 0}
@@ -99,10 +87,5 @@ MonoBehaviour:
     type: 2}
   WeaponPositionsObject: {fileID: 11400000, guid: 1a0d46880a649d94992f42dbf75ff4a6,
     type: 2}
-  WeaponPositionsAndRotations:
-  - AddableItemName: Katana
-    m_ItemType: {fileID: 11400000, guid: 5844ff10e39393d4cb91374b86d271aa, type: 2}
-    m_LocalPosition: {x: 0.095, y: -0.033, z: 0.218}
-    m_LocalRotation: {x: -179.99, y: -173.579, z: -94.897}
   SerializedAddableItem: {fileID: 11400000, guid: af896a51d40ce5146865b3e7c7ce457f,
     type: 2}
