@@ -15,6 +15,7 @@ using Opsive.UltimateCharacterController.Items.Actions;
 using Opsive.UltimateCharacterController.Character;
 using Opsive.UltimateCharacterController.Inventory;
 using Opsive.UltimateCharacterController.Character.Abilities.AI;
+using Opsive.UltimateCharacterController.Objects.CharacterAssist;
 
 namespace RTSPrototype
 {
@@ -46,6 +47,7 @@ namespace RTSPrototype
         [SerializeField] protected ItemCollection m_ItemCollection;
 
         string thirdPersonMovementType = "Opsive.UltimateCharacterController.ThirdPersonController.Character.MovementTypes.Combat";
+        private UltimateCharacterLocomotion characterLocomotion;
         #endregion
 
         #region CharacterSetupFields
@@ -144,7 +146,7 @@ namespace RTSPrototype
                 CharacterBuilder.BuildCharacterComponents(spawnedGameObject, /*AiAgent*/true, m_AddItems, m_ItemCollection, /*FirstPersonItems*/false,
                     /*AddHealth*/false, /*AddIK*/true, /*AddFootsteps*/true, /*AddStandardAbilities*/true, /*AddNavMeshAgent*/true);
                 // Ensure the smoothed bones have been added to the character.
-                var characterLocomotion = spawnedGameObject.GetComponent<UltimateCharacterLocomotion>();
+                characterLocomotion = spawnedGameObject.GetComponent<UltimateCharacterLocomotion>();
                 characterLocomotion.AddDefaultSmoothedBones();
 
                 // The Animator Monitor is one of the first components added and the item system hasn't been added to the character yet. Initialize the Item Parameters after the item system has been setup.
@@ -156,7 +158,19 @@ namespace RTSPrototype
                         animatorMonitor.InitializeItemParameters();
                     }
                 }
+            }
+        }
+        #endregion
 
+        #region CharacterSetup_SetupCharacter
+        protected override IEnumerator CharacterSetup_SetupCharacter()
+        {
+            yield return new WaitForSeconds(0f);
+            //Immediately Add Event Handler For Easy Access
+            spawnedGameObject.AddComponent<AllyEventHandlerWrapper>();
+
+            if (AllySpecificComponentsToSetUp.bBuildCharacterCompletely)
+            {
                 var _oldNavMeshMovement = characterLocomotion.GetAbility<NavMeshAgentMovement>();
                 if (_oldNavMeshMovement != null && (_oldNavMeshMovement is RTSNavMeshAgentMovement) == false)
                 {
@@ -201,54 +215,43 @@ namespace RTSPrototype
         }
         #endregion
 
-        #region CharacterSetup_SetupCharacter
-        protected override IEnumerator CharacterSetup_SetupCharacter()
-        {
-            yield return new WaitForSeconds(0f);
-            //Immediately Add Event Handler For Easy Access
-            spawnedGameObject.AddComponent<AllyEventHandlerWrapper>();
-            //// Add the Speed Change ability.
-            //var controller = spawnedGameObject.GetComponent<RigidbodyCharacterController>();
-            //AddAllAbilities(controller);
-            //// Add the weapons from array to the default loadout.
-            //var inventory = spawnedGameObject.GetComponent<Inventory>();
-            //var defaultLoadout = inventory.DefaultLoadout;
-            //if (defaultLoadout == null)
-            //{
-            //    defaultLoadout = new Inventory.ItemAmount[0];
-            //}
-
-            //var newLoadout = new List<Inventory.ItemAmount>();
-            //newLoadout.AddRange(defaultLoadout.ToList());
-
-            ////Add Firearms To New Loadout
-            //foreach (var _firearm in FirearmsToAdd)
-            //{
-            //    //Add The Firearm
-            //    newLoadout.Add(new Inventory.ItemAmount(_firearm.m_ItemType, 1));
-            //    //Add Ammunition
-            //    newLoadout.Add(new Inventory.ItemAmount(_firearm.m_BulletItemType, _firearm.m_BulletCount));
-            //}
-            ////Add Melee Weapons To New Loadout
-            //foreach (var _melee in MeleeWeaponsToAdd)
-            //{
-            //    //Add The Melee Weapon
-            //    newLoadout.Add(new Inventory.ItemAmount(_melee.m_ItemType, 1));
-            //}
-
-            //inventory.DefaultLoadout = newLoadout.ToArray();
-        }
-        #endregion
-
         #region ItemBuilder_BuildItem
         protected override IEnumerator ItemBuilder_BuildItem()
         {
             yield return new WaitForSeconds(0f);
-            //if (SerializedAddableItem == null)
-            //{
-            //    Debug.LogError("No SerializedAddableItem on character");
-            //    yield return new WaitForSeconds(0f);
-            //}
+
+            if (AllySpecificComponentsToSetUp.bBuildCharacterCompletely)
+            {
+                if (SerializedAddableItem == null) Debug.LogError("No SerializedAddableItem on character");
+
+                InventoryBase inventoryBase;
+                Animator _animatorOnCharacter;
+                if (SerializedAddableItem != null && AddableItemsList != null && AddableItemsList.Count > 0 &&
+                    (inventoryBase = spawnedGameObject.GetComponent<InventoryBase>()) != null &&
+                    (_animatorOnCharacter = spawnedGameObject.GetComponent<Animator>()) != null)
+                {
+                    foreach (var _addableItem in AddableItemsList)
+                    {
+                        //Build Items
+                        Transform _handAssignmentTransform = _addableItem.HandAssignment == ERTSItemBuilderHandAssignment.Left ?
+                            _animatorOnCharacter.GetBoneTransform(HumanBodyBones.LeftHand) :
+                            _animatorOnCharacter.GetBoneTransform(HumanBodyBones.RightHand);
+                        ItemSlot _handAssignmentItemSlot = _handAssignmentTransform.GetComponentInChildren<ItemSlot>();
+                        int _handAssignmentSlotID = _handAssignmentItemSlot.ID;
+                        //ItemBuilder.BuildItem(_addableItem.ItemName, _addableItem.ItemType, _addableItem.AnimatorItemID, spawnedGameObject,
+                        //    _handAssignmentSlotID, /*AddToDefaultLoadout*/true, /*AddFPPerspective*/false, /*FPObject*/null,/*FPObjectAnim*/null,
+                        //    /*FPVisibleItem*/null, /*FPItemSlot*/null, /*FPVisibleItemAnim*/null,/*AddTPPerspective*/true,
+                        //    /*TPObject*/_addableItem.Base, /*TPItemSlot*/_handAssignmentItemSlot, _animatorOnCharacter.runtimeAnimatorController, /*ShadowCastMat*/null,
+                        //    _addableItem.Type == ERTSItemBuilderItemType.Melee ? ItemBuilder.ActionType.MeleeWeapon : ItemBuilder.ActionType.ShootableWeapon, _addableItem.ItemType);
+                        //PickUp Items
+                        //if (_addableItem.MyItemPickup != null)
+                        //{
+                        //    _addableItem.MyItemPickup.DoItemPickup(spawnedGameObject.gameObject, inventoryBase, 0, true, true);
+                        //}
+                    }
+                }
+            }
+
             ////Base Method Functionality
             //var characterAnimator = spawnedGameObject.GetComponent<Animator>();
             //for (int i = 0; i < AddableItemsList.Count; ++i)

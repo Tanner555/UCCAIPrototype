@@ -7,6 +7,7 @@ using Opsive.UltimateCharacterController.Input;
 using Opsive.UltimateCharacterController.Camera;
 using Opsive.UltimateCharacterController.Inventory;
 using Opsive.UltimateCharacterController.Utility.Builders;
+using Opsive.UltimateCharacterController.Objects.CharacterAssist;
 
 namespace RTSPrototype
 {
@@ -37,6 +38,10 @@ namespace RTSPrototype
         [SerializeField] protected ItemType m_ItemType;
         [Tooltip("A reference to the base object to use")]
         [SerializeField] protected GameObject m_Base;
+        [Tooltip("A reference to the Item To Pickup")]
+        [SerializeField] protected ItemPickup m_ItemPickup;
+        [Tooltip("The ID of the Item within the Animator")]
+        [SerializeField] protected int m_AnimatorItemID;
         [Tooltip("The name of the item")]
         [SerializeField] protected string m_ItemName;
         [Tooltip("The type of item to create")]
@@ -131,6 +136,8 @@ namespace RTSPrototype
         // Exposed properties
         public ItemType ItemType { get { return m_ItemType; } }
         public GameObject Base { get { return m_Base; } }
+        public ItemPickup MyItemPickup { get { return m_ItemPickup; } }
+        public int AnimatorItemID { get { return m_AnimatorItemID; } }
         public string ItemName { get { return m_ItemName; } }
         public ERTSItemBuilderItemType Type { get { return m_Type; } }
         public ERTSItemBuilderHandAssignment HandAssignment { get { return m_HandAssignment; } }

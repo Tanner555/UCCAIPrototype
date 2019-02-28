@@ -16,7 +16,8 @@ MonoBehaviour:
   - AddableItemName: Pistol
     m_ItemType: {fileID: 114982450061250758, guid: 5481010ef14c32f4cb7b6661b0c59fb4,
       type: 2}
-    m_Base: {fileID: 1270357123840990, guid: ffe44945821452a4e8d2deefc5a7e672, type: 3}
+    m_ItemPickup: {fileID: 114280896883260900, guid: c4124e194703f5c459a43452f5e94a15,
+      type: 3}
     m_ItemName: Pistol
     m_Type: 1
     m_HandAssignment: 1
@@ -82,7 +83,8 @@ MonoBehaviour:
   - AddableItemName: Assault Rifle
     m_ItemType: {fileID: 114334400771614146, guid: 5481010ef14c32f4cb7b6661b0c59fb4,
       type: 2}
-    m_Base: {fileID: 100000, guid: 8802e309e5a1a9149ac174d60c52b7a2, type: 3}
+    m_ItemPickup: {fileID: 114305294959721250, guid: 84f9261868f62d9498bbdfc93d01ed51,
+      type: 3}
     m_ItemName: Assault Rifle
     m_Type: 1
     m_HandAssignment: 1
@@ -148,7 +150,8 @@ MonoBehaviour:
   - AddableItemName: Shotgun
     m_ItemType: {fileID: 114735020259635174, guid: 5481010ef14c32f4cb7b6661b0c59fb4,
       type: 2}
-    m_Base: {fileID: 1837266165974362, guid: 007c49f3f9ed8704d92c46c6c459f82e, type: 3}
+    m_ItemPickup: {fileID: 114326680588724088, guid: 3f0dc288c1582bb4d8b23fc9fd1081e2,
+      type: 3}
     m_ItemName: Shotgun
     m_Type: 1
     m_HandAssignment: 1
@@ -214,7 +217,8 @@ MonoBehaviour:
   - AddableItemName: Sniper Rifle
     m_ItemType: {fileID: 114628928406164210, guid: 5481010ef14c32f4cb7b6661b0c59fb4,
       type: 2}
-    m_Base: {fileID: 1395196983679636, guid: d34ad7055fba5dc4bbc18d6fda6860d2, type: 3}
+    m_ItemPickup: {fileID: 114188378186384406, guid: 6516179ff7fd01b4596058831bd3ded6,
+      type: 3}
     m_ItemName: Sniper Rifle
     m_Type: 1
     m_HandAssignment: 1
@@ -280,7 +284,8 @@ MonoBehaviour:
   - AddableItemName: Katana
     m_ItemType: {fileID: 114544757700045432, guid: 5481010ef14c32f4cb7b6661b0c59fb4,
       type: 2}
-    m_Base: {fileID: 1754491096490172, guid: 83762184e021e7e4385aaee555bfbc1d, type: 3}
+    m_ItemPickup: {fileID: 114489451916959440, guid: 1e5b82ced29049d4097ac14e01c8d961,
+      type: 3}
     m_ItemName: Katana
     m_Type: 0
     m_HandAssignment: 1
