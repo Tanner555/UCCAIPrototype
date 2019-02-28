@@ -137,10 +137,12 @@ namespace RTSPrototype
             if (AllySpecificComponentsToSetUp.bBuildCharacterCompletely)
             {
                 // Use the Character Builder to add the Ultimate Character Controller components.
-                CharacterBuilder.BuildCharacter(spawnedGameObject, true, m_AnimatorController, string.Empty,
-                                                thirdPersonMovementType, false,
-                                                null, null, true);
-                CharacterBuilder.BuildCharacterComponents(spawnedGameObject, true, m_AddItems, m_ItemCollection, false, false, true, true, false, true);
+                CharacterBuilder.BuildCharacter(spawnedGameObject, /*AddAnimator*/true, m_AnimatorController, /*FPMovementType*/string.Empty,
+                                                thirdPersonMovementType, /*startFPPerspective*/false,
+                                                /*FPHiddenItems*/null, /*ShadowCastMat*/null, /*AiAgent*/true);
+                spawnedGameObject.AddComponent<NavMeshAgent>();
+                CharacterBuilder.BuildCharacterComponents(spawnedGameObject, /*AiAgent*/true, m_AddItems, m_ItemCollection, /*FirstPersonItems*/false,
+                    /*AddHealth*/false, /*AddIK*/true, /*AddFootsteps*/true, /*AddStandardAbilities*/true, /*AddNavMeshAgent*/true);
                 // Ensure the smoothed bones have been added to the character.
                 var characterLocomotion = spawnedGameObject.GetComponent<UltimateCharacterLocomotion>();
                 characterLocomotion.AddDefaultSmoothedBones();
@@ -154,58 +156,47 @@ namespace RTSPrototype
                         animatorMonitor.InitializeItemParameters();
                     }
                 }
-            }
-            else
-            {
-                var _characterLocomotionOLD2 = spawnedGameObject.GetComponent<UltimateCharacterLocomotion>();
-                //If Character Already Has Needed Components, Don't Bother Trying to Set Them Up
-                if (_characterLocomotionOLD2 != null &&
-                    _characterLocomotionOLD2.GetAbility<RTSNavMeshAgentMovement>() == null &&
-                    _characterLocomotionOLD2.GetAbility<RTSUpdateRotAbility>() == null &&
-                    _characterLocomotionOLD2.GetAbility<RTSAreaEffectAbility>() == null &&
-                    _characterLocomotionOLD2.GetAbility<RTSSelfHealAbility>() == null)
+
+                var _oldNavMeshMovement = characterLocomotion.GetAbility<NavMeshAgentMovement>();
+                if (_oldNavMeshMovement != null && (_oldNavMeshMovement is RTSNavMeshAgentMovement) == false)
                 {
-                    var _oldNavMeshMovement = _characterLocomotionOLD2.GetAbility<NavMeshAgentMovement>();
-                    if (_oldNavMeshMovement != null && (_oldNavMeshMovement is RTSNavMeshAgentMovement) == false)
-                    {
-                        AbilityBuilder.RemoveAbility<NavMeshAgentMovement>(_characterLocomotionOLD2);
-                    }
-                    var _itemEquipAbility = _characterLocomotionOLD2.GetAbility<Opsive.UltimateCharacterController.Character.Abilities.ItemEquipVerifier>();
-                    var _ragdollAbility = _characterLocomotionOLD2.GetAbility<Opsive.UltimateCharacterController.Character.Abilities.Ragdoll>();
-                    if (_itemEquipAbility != null)
-                    {
-                        AbilityBuilder.AddAbility(_characterLocomotionOLD2, typeof(RTSNavMeshAgentMovement), _itemEquipAbility.Index + 1);
-                        AbilityBuilder.AddAbility(_characterLocomotionOLD2, typeof(RTSUpdateRotAbility), _itemEquipAbility.Index + 1);
-                    }
-                    else
-                    {
-                        AbilityBuilder.AddAbility(_characterLocomotionOLD2, typeof(RTSNavMeshAgentMovement));
-                        AbilityBuilder.AddAbility(_characterLocomotionOLD2, typeof(RTSUpdateRotAbility));
-                    }
-                    //AbilityBuilder.SerializeAbilities(_characterLocomotion);
-                    if (_ragdollAbility != null)
-                    {
-                        AbilityBuilder.AddAbility(_characterLocomotionOLD2, typeof(RTSAreaEffectAbility), _ragdollAbility.Index + 1);
-                        AbilityBuilder.AddAbility(_characterLocomotionOLD2, typeof(RTSSelfHealAbility), _ragdollAbility.Index + 1);
-                    }
-                    else
-                    {
-                        AbilityBuilder.AddAbility(_characterLocomotionOLD2, typeof(Opsive.UltimateCharacterController.Character.Abilities.Ragdoll), 0);
-                        AbilityBuilder.AddAbility(_characterLocomotionOLD2, typeof(RTSAreaEffectAbility), 1);
-                        AbilityBuilder.AddAbility(_characterLocomotionOLD2, typeof(RTSSelfHealAbility), 2);
-                    }
-                    //AbilityBuilder.SerializeAbilities(_characterLocomotion);
-                    _characterLocomotionOLD2.GetAbility<RTSNavMeshAgentMovement>().StartType = Abilities.Ability.AbilityStartType.Automatic;
-                    _characterLocomotionOLD2.GetAbility<RTSUpdateRotAbility>().StartType = Abilities.Ability.AbilityStartType.Automatic;
-                    var _rTSAreaEffectAbility = _characterLocomotionOLD2.GetAbility<RTSAreaEffectAbility>();
-                    var _rTSSelfHealAbility = _characterLocomotionOLD2.GetAbility<RTSSelfHealAbility>();
-                    _rTSAreaEffectAbility.StartType = Abilities.Ability.AbilityStartType.Manual;
-                    _rTSAreaEffectAbility.StopType = Abilities.Ability.AbilityStopType.Manual;
-                    _rTSAreaEffectAbility.AbilityIndexParameter = 201;
-                    _rTSSelfHealAbility.StartType = Abilities.Ability.AbilityStartType.Manual;
-                    _rTSSelfHealAbility.StopType = Abilities.Ability.AbilityStopType.Manual;
-                    _rTSSelfHealAbility.AbilityIndexParameter = 202;
+                    AbilityBuilder.RemoveAbility<NavMeshAgentMovement>(characterLocomotion);
                 }
+                var _itemEquipAbility = characterLocomotion.GetAbility<Opsive.UltimateCharacterController.Character.Abilities.ItemEquipVerifier>();
+                var _ragdollAbility = characterLocomotion.GetAbility<Opsive.UltimateCharacterController.Character.Abilities.Ragdoll>();
+                if (_itemEquipAbility != null)
+                {
+                    AbilityBuilder.AddAbility(characterLocomotion, typeof(RTSNavMeshAgentMovement), _itemEquipAbility.Index + 1);
+                    AbilityBuilder.AddAbility(characterLocomotion, typeof(RTSUpdateRotAbility), _itemEquipAbility.Index + 1);
+                }
+                else
+                {
+                    AbilityBuilder.AddAbility(characterLocomotion, typeof(RTSNavMeshAgentMovement));
+                    AbilityBuilder.AddAbility(characterLocomotion, typeof(RTSUpdateRotAbility));
+                }
+                //AbilityBuilder.SerializeAbilities(_characterLocomotion);
+                if (_ragdollAbility != null)
+                {
+                    AbilityBuilder.AddAbility(characterLocomotion, typeof(RTSAreaEffectAbility), _ragdollAbility.Index + 1);
+                    AbilityBuilder.AddAbility(characterLocomotion, typeof(RTSSelfHealAbility), _ragdollAbility.Index + 1);
+                }
+                else
+                {
+                    AbilityBuilder.AddAbility(characterLocomotion, typeof(Opsive.UltimateCharacterController.Character.Abilities.Ragdoll), 0);
+                    AbilityBuilder.AddAbility(characterLocomotion, typeof(RTSAreaEffectAbility), 1);
+                    AbilityBuilder.AddAbility(characterLocomotion, typeof(RTSSelfHealAbility), 2);
+                }
+                //AbilityBuilder.SerializeAbilities(_characterLocomotion);
+                characterLocomotion.GetAbility<RTSNavMeshAgentMovement>().StartType = Abilities.Ability.AbilityStartType.Automatic;
+                characterLocomotion.GetAbility<RTSUpdateRotAbility>().StartType = Abilities.Ability.AbilityStartType.Automatic;
+                var _rTSAreaEffectAbility = characterLocomotion.GetAbility<RTSAreaEffectAbility>();
+                var _rTSSelfHealAbility = characterLocomotion.GetAbility<RTSSelfHealAbility>();
+                _rTSAreaEffectAbility.StartType = Abilities.Ability.AbilityStartType.Manual;
+                _rTSAreaEffectAbility.StopType = Abilities.Ability.AbilityStopType.Manual;
+                _rTSAreaEffectAbility.AbilityIndexParameter = 201;
+                _rTSSelfHealAbility.StartType = Abilities.Ability.AbilityStartType.Manual;
+                _rTSSelfHealAbility.StopType = Abilities.Ability.AbilityStopType.Manual;
+                _rTSSelfHealAbility.AbilityIndexParameter = 202;
             }
         }
         #endregion
@@ -358,86 +349,93 @@ namespace RTSPrototype
         #region CharacterSetup_UpdateCharacterSetup
         protected override IEnumerator CharacterSetup_UpdateCharacterSetup()
         {
-            spawnedGameObject.layer = gamemode.SingleAllyLayer;
-            spawnedGameObject.tag = gamemode.AllyTag;
-
-            //Add Ally Components
-            if (spawnedGameObject.GetComponent<NavMeshAgent>() == false)
+            if (AllySpecificComponentsToSetUp.bBuildCharacterCompletely == false)
             {
-                spawnedGameObject.AddComponent<NavMeshAgent>();
-            }
+                spawnedGameObject.layer = gamemode.SingleAllyLayer;
+                spawnedGameObject.tag = gamemode.AllyTag;
 
-            spawnedGameObject.AddComponent<AllyStatController>();
-            spawnedGameObject.AddComponent<AllyActionQueueController>();
-            var _timeline = spawnedGameObject.AddComponent<Timeline>();
-            _timeline.mode = TimelineMode.Global;
-            _timeline.globalClockKey = gamemaster.allyClocksName;
-            _timeline.rewindable = false;
-
-            //Spawn Child Objects
-            if (AllAllyComponentFields.bBuildLOSChildObject)
-            {
-                var _losObject = new GameObject("LOSObject");
-                _losObject.transform.parent = spawnedGameObject.transform;
-                _losObject.transform.localPosition = AllAllyComponentFields.LOSChildObjectPosition;
-                _losObject.transform.localEulerAngles = AllAllyComponentFields.LOSChildObjectRotation;
-                AllySpecificComponentsToSetUp.LOSChildObjectTransform = _losObject.transform;
-            }
-
-            if (AllySpecificComponentsToSetUp.bBuildEnemyHealthBar &&
-                AllAllyComponentFields.EnemyHealthBarPrefab != null)
-            {
-                var _enemyHealthBar = GameObject.Instantiate(AllAllyComponentFields.EnemyHealthBarPrefab,
-                    spawnedGameObject.transform, false);
-                var _rect = _enemyHealthBar.GetComponent<RectTransform>();
-                _rect.localPosition = AllAllyComponentFields.EnemyHealthBarPosition;
-                _rect.localEulerAngles = AllAllyComponentFields.EnemyHealthBarRotation;
-                _rect.sizeDelta = AllAllyComponentFields.EnemyHealthSizeDelta;
-                _rect.anchorMin = new Vector2(0.5f, 0.5f);
-                _rect.anchorMax = new Vector2(0.5f, 0.5f);
-                _rect.pivot = new Vector2(0.5f, 0.5f);
-                _rect.localScale = AllAllyComponentFields.EnemyHealthLocalScale;
-
-                //Attempt To Set Health and ActiveBar Images By Looking For Them in Code
-                foreach (var _image in _enemyHealthBar.transform.GetComponentsInChildren<Image>(true))
+                //Add Ally Components
+                if (spawnedGameObject.GetComponent<NavMeshAgent>() == false)
                 {
-                    if (_image.name.ToLower().Contains("health"))
+                    spawnedGameObject.AddComponent<NavMeshAgent>();
+                }
+
+                spawnedGameObject.AddComponent<AllyStatController>();
+                spawnedGameObject.AddComponent<AllyActionQueueController>();
+                var _timeline = spawnedGameObject.AddComponent<Timeline>();
+                _timeline.mode = TimelineMode.Global;
+                _timeline.globalClockKey = gamemaster.allyClocksName;
+                _timeline.rewindable = false;
+
+                //Spawn Child Objects
+                if (AllAllyComponentFields.bBuildLOSChildObject)
+                {
+                    var _losObject = new GameObject("LOSObject");
+                    _losObject.transform.parent = spawnedGameObject.transform;
+                    _losObject.transform.localPosition = AllAllyComponentFields.LOSChildObjectPosition;
+                    _losObject.transform.localEulerAngles = AllAllyComponentFields.LOSChildObjectRotation;
+                    AllySpecificComponentsToSetUp.LOSChildObjectTransform = _losObject.transform;
+                }
+
+                if (AllySpecificComponentsToSetUp.bBuildEnemyHealthBar &&
+                    AllAllyComponentFields.EnemyHealthBarPrefab != null)
+                {
+                    var _enemyHealthBar = GameObject.Instantiate(AllAllyComponentFields.EnemyHealthBarPrefab,
+                        spawnedGameObject.transform, false);
+                    var _rect = _enemyHealthBar.GetComponent<RectTransform>();
+                    _rect.localPosition = AllAllyComponentFields.EnemyHealthBarPosition;
+                    _rect.localEulerAngles = AllAllyComponentFields.EnemyHealthBarRotation;
+                    _rect.sizeDelta = AllAllyComponentFields.EnemyHealthSizeDelta;
+                    _rect.anchorMin = new Vector2(0.5f, 0.5f);
+                    _rect.anchorMax = new Vector2(0.5f, 0.5f);
+                    _rect.pivot = new Vector2(0.5f, 0.5f);
+                    _rect.localScale = AllAllyComponentFields.EnemyHealthLocalScale;
+
+                    //Attempt To Set Health and ActiveBar Images By Looking For Them in Code
+                    foreach (var _image in _enemyHealthBar.transform.GetComponentsInChildren<Image>(true))
                     {
-                        AllySpecificComponentsToSetUp.EnemyHealthBarImage = _image;
-                    }
-                    else if (_image.name.ToLower().Contains("active"))
-                    {
-                        AllySpecificComponentsToSetUp.EnemyActiveBarImage = _image;
+                        if (_image.name.ToLower().Contains("health"))
+                        {
+                            AllySpecificComponentsToSetUp.EnemyHealthBarImage = _image;
+                        }
+                        else if (_image.name.ToLower().Contains("active"))
+                        {
+                            AllySpecificComponentsToSetUp.EnemyActiveBarImage = _image;
+                        }
                     }
                 }
-            }
 
-            if (AllAllyComponentFields.bBuildAllyIndicatorSpotlight &&
-                AllAllyComponentFields.AllyIndicatorSpotlightPrefab != null)
+                if (AllAllyComponentFields.bBuildAllyIndicatorSpotlight &&
+                    AllAllyComponentFields.AllyIndicatorSpotlightPrefab != null)
+                {
+                    var _spotlight = GameObject.Instantiate(AllAllyComponentFields.AllyIndicatorSpotlightPrefab,
+                        spawnedGameObject.transform, false);
+                    _spotlight.transform.localPosition = AllAllyComponentFields.AllyIndicatorSpotlightPosition;
+                    _spotlight.transform.localEulerAngles = AllAllyComponentFields.AllyIndicatorSpotlightRotation;
+                    AllySpecificComponentsToSetUp.AllyIndicatorSpotlightInstance = _spotlight;
+                    _spotlight.GetComponent<Light>().enabled = false;
+                }
+
+                // Wait For 0.05 Seconds
+                yield return new WaitForSeconds(0.05f);
+
+                //Delay Adding These Components
+                spawnedGameObject.AddComponent<AllyMemberWrapper>();
+                spawnedGameObject.AddComponent<AllyAIControllerWrapper>();
+                spawnedGameObject.AddComponent<AllySpecialAbilitiesWrapper>();
+                spawnedGameObject.AddComponent<RTSNavBridge>();
+                spawnedGameObject.AddComponent<RTSItemAndControlHandler>();
+                spawnedGameObject.AddComponent<AllyTacticsController>();
+                spawnedGameObject.AddComponent<AllyVisuals>();
+
+                //Call Ally Init Comps Event
+                var _eventHandler = spawnedGameObject.GetComponent<AllyEventHandler>();
+                _eventHandler.CallInitializeAllyComponents(AllySpecificComponentsToSetUp, AllAllyComponentFields);
+            }
+            else
             {
-                var _spotlight = GameObject.Instantiate(AllAllyComponentFields.AllyIndicatorSpotlightPrefab,
-                    spawnedGameObject.transform, false);
-                _spotlight.transform.localPosition = AllAllyComponentFields.AllyIndicatorSpotlightPosition;
-                _spotlight.transform.localEulerAngles = AllAllyComponentFields.AllyIndicatorSpotlightRotation;
-                AllySpecificComponentsToSetUp.AllyIndicatorSpotlightInstance = _spotlight;
-                _spotlight.GetComponent<Light>().enabled = false;
+                Debug.Log("Finish Building Character For Now........");
             }
-
-            // Wait For 0.05 Seconds
-            yield return new WaitForSeconds(0.05f);
-
-            //Delay Adding These Components
-            spawnedGameObject.AddComponent<AllyMemberWrapper>();
-            spawnedGameObject.AddComponent<AllyAIControllerWrapper>();
-            spawnedGameObject.AddComponent<AllySpecialAbilitiesWrapper>();
-            spawnedGameObject.AddComponent<RTSNavBridge>();
-            spawnedGameObject.AddComponent<RTSItemAndControlHandler>();
-            spawnedGameObject.AddComponent<AllyTacticsController>();
-            spawnedGameObject.AddComponent<AllyVisuals>();
-
-            //Call Ally Init Comps Event
-            var _eventHandler = spawnedGameObject.GetComponent<AllyEventHandler>();
-            _eventHandler.CallInitializeAllyComponents(AllySpecificComponentsToSetUp, AllAllyComponentFields);
         }
         #endregion
 

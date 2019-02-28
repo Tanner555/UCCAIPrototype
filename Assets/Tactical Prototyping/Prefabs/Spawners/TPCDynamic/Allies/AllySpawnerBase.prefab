@@ -49,7 +49,7 @@ MonoBehaviour:
   EnemyColor: {r: 1, g: 0, b: 0, a: 1}
   GizmosRadius: 1.5
   spawnedGameObject: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 8755ad7b4e5eacc41ae6a8e27560decb,
+  m_AnimatorController: {fileID: 9100000, guid: 3f0c5b904ee19c0469cc842e48724b73,
     type: 2}
   m_AddItems: 1
   m_ItemCollection: {fileID: 11400000, guid: 5481010ef14c32f4cb7b6661b0c59fb4, type: 2}

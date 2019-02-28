@@ -83,12 +83,12 @@ namespace RTSPrototype
         protected override void AbilityStarted()
         {
             base.AbilityStarted();
-            AbilityStartedDelay();
+            m_CharacterLocomotion.StartCoroutine(AbilityStartedDelayCoroutine());
         }
 
-        async void AbilityStartedDelay()
+        IEnumerator AbilityStartedDelayCoroutine()
         {
-            await System.Threading.Tasks.Task.Delay(500);
+            yield return new WaitForSeconds(0.5f);
             myEventHandler.EventTogglebIsFreeMoving += OnFreeMoving;
             myEventHandler.EventAllyDied += OnAllyDeath;
             if (myAimAbility == null)

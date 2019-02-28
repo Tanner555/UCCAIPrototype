@@ -32,15 +32,15 @@ namespace RTSPrototype
         protected override void AbilityStarted()
         {
             base.AbilityStarted();
-            AbilityStartedDelay();
+            m_CharacterLocomotion.StartCoroutine(AbilityStartedDelayCoroutine());
         }
 
-        async void AbilityStartedDelay()
+        IEnumerator AbilityStartedDelayCoroutine()
         {
-            await System.Threading.Tasks.Task.Delay(500);
+            yield return new WaitForSeconds(0.5f);
             myEventHandler.EventAllyDied += OnAllyDeath;
         }
-
+        
         public override void Update()
         {
             //Only Update NavMesh If Ally Hasn't Died
