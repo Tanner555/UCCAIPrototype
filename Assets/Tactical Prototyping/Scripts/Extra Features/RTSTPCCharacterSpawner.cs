@@ -238,87 +238,35 @@ namespace RTSPrototype
                             _animatorOnCharacter.GetBoneTransform(HumanBodyBones.RightHand);
                         ItemSlot _handAssignmentItemSlot = _handAssignmentTransform.GetComponentInChildren<ItemSlot>();
                         int _handAssignmentSlotID = _handAssignmentItemSlot.ID;
-                        //ItemBuilder.BuildItem(_addableItem.ItemName, _addableItem.ItemType, _addableItem.AnimatorItemID, spawnedGameObject,
-                        //    _handAssignmentSlotID, /*AddToDefaultLoadout*/true, /*AddFPPerspective*/false, /*FPObject*/null,/*FPObjectAnim*/null,
-                        //    /*FPVisibleItem*/null, /*FPItemSlot*/null, /*FPVisibleItemAnim*/null,/*AddTPPerspective*/true,
-                        //    /*TPObject*/_addableItem.Base, /*TPItemSlot*/_handAssignmentItemSlot, _animatorOnCharacter.runtimeAnimatorController, /*ShadowCastMat*/null,
-                        //    _addableItem.Type == ERTSItemBuilderItemType.Melee ? ItemBuilder.ActionType.MeleeWeapon : ItemBuilder.ActionType.ShootableWeapon, _addableItem.ItemType);
+                        GameObject _builtItem = ItemBuilder.BuildItem(_addableItem.ItemName, _addableItem.ItemType, _addableItem.AnimatorItemID, spawnedGameObject,
+                            _handAssignmentSlotID, /*AddToDefaultLoadout*/true, /*AddFPPerspective*/false, /*FPObject*/null,/*FPObjectAnim*/null,
+                            /*FPVisibleItem*/null, /*FPItemSlot*/null, /*FPVisibleItemAnim*/null,/*AddTPPerspective*/true,
+                            /*TPObject*/_addableItem.Base, /*TPItemSlot*/_handAssignmentItemSlot, _animatorOnCharacter.runtimeAnimatorController, /*ShadowCastMat*/null,
+                            _addableItem.Type == ERTSItemBuilderItemType.Melee ? ItemBuilder.ActionType.MeleeWeapon : ItemBuilder.ActionType.ShootableWeapon, _addableItem.ItemType);
+
                         //PickUp Items
-                        //if (_addableItem.MyItemPickup != null)
+                        if (_addableItem.MyItemPickup != null)
+                        {
+                            _addableItem.MyItemPickup.DoItemPickup(spawnedGameObject, inventoryBase, _handAssignmentSlotID, true, true);
+                        }
+
+                        Vector3 _position = Vector3.zero;
+                        Vector3 _rotation = Vector3.zero;
+                        //Set Specific Position and Rotation Only If ItemType Has
+                        //Been Assigned in the Inspector
+                        if (AddableItemHasSpecificPosition(_addableItem.ItemType, out _position, out _rotation))
+                        {
+                            _builtItem.transform.localPosition = _position;
+                            _builtItem.transform.localEulerAngles = _rotation;
+                        }
+                        //else
                         //{
-                        //    _addableItem.MyItemPickup.DoItemPickup(spawnedGameObject.gameObject, inventoryBase, 0, true, true);
+                        //    _builtItem.transform.localPosition = _addableItem.LocalPosition;
+                        //    _builtItem.transform.localEulerAngles = _addableItem.LocalRotation;
                         //}
                     }
                 }
             }
-
-            ////Base Method Functionality
-            //var characterAnimator = spawnedGameObject.GetComponent<Animator>();
-            //for (int i = 0; i < AddableItemsList.Count; ++i)
-            //{
-            //    var item = GameObject.Instantiate(AddableItemsList[i].Base) as GameObject;
-            //    item.name = AddableItemsList[i].Base.name;
-            //    var handTransform = characterAnimator.GetBoneTransform(AddableItemsList[i].HandAssignment == ERTSItemBuilderHandAssignment.Left ? HumanBodyBones.LeftHand : HumanBodyBones.RightHand);
-            //    item.transform.parent = handTransform.GetComponentInChildren<ItemPlacement>().transform;
-            //    Vector3 _position = Vector3.zero;
-            //    Vector3 _rotation = Vector3.zero;
-            //    //Set Specific Position and Rotation Only If ItemType Has
-            //    //Been Assigned in the Inspector
-            //    if (AddableItemHasSpecificPosition(AddableItemsList[i].ItemType, out _position, out _rotation))
-            //    {
-            //        item.transform.localPosition = _position;
-            //        item.transform.localEulerAngles = _rotation;
-            //    }
-            //    else
-            //    {
-            //        item.transform.localPosition = AddableItemsList[i].LocalPosition;
-            //        item.transform.localEulerAngles = AddableItemsList[i].LocalRotation;
-            //    }
-            //    ItemBuilder.BuildItem(AddableItemsList[i].ItemName, AddableItemsList[i].ItemType, 122 /*Add Anim ID in item*/, spawnedGameObject, 123/*Add Slot ID in item*/,
-            //        true, false, null, characterAnimator.runtimeAnimatorController, null, null, null,
-            //        true, item, null/*ItemSlot*/, characterAnimator.runtimeAnimatorController, null /*Invisible ShadowCast Material*/,
-            //        AddableItemsList[i].Type == ERTSItemBuilderItemType.Melee ? ItemBuilder.ActionType.MeleeWeapon : ItemBuilder.ActionType.ShootableWeapon, AddableItemsList[i].ItemType /*Action Item Type*/);
-
-            //    //ItemBuilder.BuildItem(item, AddableItemsList[i].ItemType, AddableItemsList[i].ItemName, AddableItemsList[i].Type, AddableItemsList[i].HandAssignment);
-
-            //    //Additional Method Functionality
-            //    Transform itemTransform = item.transform;
-            //    //Set Weapon Volume
-            //    var _audioSource = item.GetComponent<AudioSource>();
-            //    if (_audioSource != null)
-            //    {
-            //        _audioSource.volume = AddableItemsList[i].WeaponVolume;
-            //    }
-            //    //Set Up Shootable Weapon
-            //    var _shootable = item.GetComponent<ShootableWeapon>();
-            //    if (_shootable != null)
-            //    {
-            //        //Set up Muzzle Location
-            //        if (AddableItemsList[i].m_MuzzleFlash != null)
-            //        {
-            //            AddableItemsList[i].m_MuzzleFlashLocation = CreateChildObject(itemTransform, "Muzzle Flash Location",
-            //                AddableItemsList[i].m_MuzzleFlashPosition,
-            //                AddableItemsList[i].m_MuzzleFlashRotation);
-            //        }
-            //        //Set up Smoke Location
-            //        if (AddableItemsList[i].m_Smoke != null)
-            //        {
-            //            AddableItemsList[i].m_SmokeLocation = CreateChildObject(itemTransform, "Smoke Location",
-            //                AddableItemsList[i].m_SmokePosition,
-            //                AddableItemsList[i].m_SmokeRotation);
-            //            _shootable.ModifyRTSShooterProperties(AddableItemsList[i]);
-            //        }
-            //    }
-            //    else
-            //    {
-            //        //Set up Melee Weapon
-            //        var _melee = item.GetComponent<MeleeWeapon>();
-            //        if (_melee != null)
-            //        {
-            //            _melee.ModifyRTSMeleeProperties(AddableItemsList[i]);
-            //        }
-            //    }
-            //}
         }
         #endregion
 

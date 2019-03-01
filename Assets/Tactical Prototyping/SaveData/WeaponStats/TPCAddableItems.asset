@@ -16,8 +16,11 @@ MonoBehaviour:
   - AddableItemName: Pistol
     m_ItemType: {fileID: 114982450061250758, guid: 5481010ef14c32f4cb7b6661b0c59fb4,
       type: 2}
+    m_Base: {fileID: 3282116305329763598, guid: 385b38c783161e947a40f5b81ddff85e,
+      type: 3}
     m_ItemPickup: {fileID: 114280896883260900, guid: c4124e194703f5c459a43452f5e94a15,
       type: 3}
+    m_AnimatorItemID: 2
     m_ItemName: Pistol
     m_Type: 1
     m_HandAssignment: 1
@@ -83,8 +86,11 @@ MonoBehaviour:
   - AddableItemName: Assault Rifle
     m_ItemType: {fileID: 114334400771614146, guid: 5481010ef14c32f4cb7b6661b0c59fb4,
       type: 2}
+    m_Base: {fileID: 1287605228955917371, guid: 5ac6c13afabf1144f8173f733250088b,
+      type: 3}
     m_ItemPickup: {fileID: 114305294959721250, guid: 84f9261868f62d9498bbdfc93d01ed51,
       type: 3}
+    m_AnimatorItemID: 1
     m_ItemName: Assault Rifle
     m_Type: 1
     m_HandAssignment: 1
@@ -150,8 +156,11 @@ MonoBehaviour:
   - AddableItemName: Shotgun
     m_ItemType: {fileID: 114735020259635174, guid: 5481010ef14c32f4cb7b6661b0c59fb4,
       type: 2}
+    m_Base: {fileID: 7836159387610654091, guid: ad7598e872c75c449b0d1e08704159b0,
+      type: 3}
     m_ItemPickup: {fileID: 114326680588724088, guid: 3f0dc288c1582bb4d8b23fc9fd1081e2,
       type: 3}
+    m_AnimatorItemID: 3
     m_ItemName: Shotgun
     m_Type: 1
     m_HandAssignment: 1
@@ -217,8 +226,11 @@ MonoBehaviour:
   - AddableItemName: Sniper Rifle
     m_ItemType: {fileID: 114628928406164210, guid: 5481010ef14c32f4cb7b6661b0c59fb4,
       type: 2}
+    m_Base: {fileID: 8374996666565125631, guid: 8ed9046485a6a394f97e0ddc400da5f8,
+      type: 3}
     m_ItemPickup: {fileID: 114188378186384406, guid: 6516179ff7fd01b4596058831bd3ded6,
       type: 3}
+    m_AnimatorItemID: 5
     m_ItemName: Sniper Rifle
     m_Type: 1
     m_HandAssignment: 1
@@ -284,8 +296,11 @@ MonoBehaviour:
   - AddableItemName: Katana
     m_ItemType: {fileID: 114544757700045432, guid: 5481010ef14c32f4cb7b6661b0c59fb4,
       type: 2}
+    m_Base: {fileID: 1303595700989450013, guid: bc20594264a412344b9aff0dedbc52c6,
+      type: 3}
     m_ItemPickup: {fileID: 114489451916959440, guid: 1e5b82ced29049d4097ac14e01c8d961,
       type: 3}
+    m_AnimatorItemID: 24
     m_ItemName: Katana
     m_Type: 0
     m_HandAssignment: 1
