@@ -42,6 +42,10 @@ namespace RTSPrototype
         [SerializeField] protected ItemPickup m_ItemPickup;
         [Tooltip("The ID of the Item within the Animator")]
         [SerializeField] protected int m_AnimatorItemID;
+        [Tooltip("Animator Used To Build Third Person Item")]
+        [SerializeField] protected RuntimeAnimatorController m_ThirdPersonItemAnimator;
+        [Tooltip("Avatar For Animator Used To Build Third Person Item")]
+        [SerializeField] protected Avatar m_ThirdPersonItemAnimAvatar;
         [Tooltip("The name of the item")]
         [SerializeField] protected string m_ItemName;
         [Tooltip("The type of item to create")]
@@ -138,6 +142,8 @@ namespace RTSPrototype
         public GameObject Base { get { return m_Base; } }
         public ItemPickup MyItemPickup { get { return m_ItemPickup; } }
         public int AnimatorItemID { get { return m_AnimatorItemID; } }
+        public RuntimeAnimatorController ThirdPersonItemAnimator { get { return m_ThirdPersonItemAnimator; } }
+        public Avatar ThirdPersonItemAnimAvatar { get { return m_ThirdPersonItemAnimAvatar; } }
         public string ItemName { get { return m_ItemName; } }
         public ERTSItemBuilderItemType Type { get { return m_Type; } }
         public ERTSItemBuilderHandAssignment HandAssignment { get { return m_HandAssignment; } }

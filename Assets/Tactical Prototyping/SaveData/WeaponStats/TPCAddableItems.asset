@@ -21,6 +21,10 @@ MonoBehaviour:
     m_ItemPickup: {fileID: 114280896883260900, guid: c4124e194703f5c459a43452f5e94a15,
       type: 3}
     m_AnimatorItemID: 2
+    m_ThirdPersonItemAnimator: {fileID: 9100000, guid: 966584bde31cdf4498b3f57364005a92,
+      type: 2}
+    m_ThirdPersonItemAnimAvatar: {fileID: 9000000, guid: f06c3bd71fbe5be4b958e1c6a7825657,
+      type: 3}
     m_ItemName: Pistol
     m_Type: 1
     m_HandAssignment: 1
@@ -91,6 +95,10 @@ MonoBehaviour:
     m_ItemPickup: {fileID: 114305294959721250, guid: 84f9261868f62d9498bbdfc93d01ed51,
       type: 3}
     m_AnimatorItemID: 1
+    m_ThirdPersonItemAnimator: {fileID: 9100000, guid: ca5369d9c20a80448a3ef540bff0f573,
+      type: 2}
+    m_ThirdPersonItemAnimAvatar: {fileID: 9000000, guid: 8802e309e5a1a9149ac174d60c52b7a2,
+      type: 3}
     m_ItemName: Assault Rifle
     m_Type: 1
     m_HandAssignment: 1
@@ -161,6 +169,10 @@ MonoBehaviour:
     m_ItemPickup: {fileID: 114326680588724088, guid: 3f0dc288c1582bb4d8b23fc9fd1081e2,
       type: 3}
     m_AnimatorItemID: 3
+    m_ThirdPersonItemAnimator: {fileID: 9100000, guid: e7b6d646345c63a449934edf4c8daaad,
+      type: 2}
+    m_ThirdPersonItemAnimAvatar: {fileID: 9000000, guid: 9043c1894b9c72b4684d63d3fd679c18,
+      type: 3}
     m_ItemName: Shotgun
     m_Type: 1
     m_HandAssignment: 1
@@ -231,6 +243,10 @@ MonoBehaviour:
     m_ItemPickup: {fileID: 114188378186384406, guid: 6516179ff7fd01b4596058831bd3ded6,
       type: 3}
     m_AnimatorItemID: 5
+    m_ThirdPersonItemAnimator: {fileID: 9100000, guid: a10fe03f2026e80479a20e003354cc3f,
+      type: 2}
+    m_ThirdPersonItemAnimAvatar: {fileID: 9000000, guid: 09036fd227441e2478facac29773117f,
+      type: 3}
     m_ItemName: Sniper Rifle
     m_Type: 1
     m_HandAssignment: 1
@@ -301,6 +317,8 @@ MonoBehaviour:
     m_ItemPickup: {fileID: 114489451916959440, guid: 1e5b82ced29049d4097ac14e01c8d961,
       type: 3}
     m_AnimatorItemID: 24
+    m_ThirdPersonItemAnimator: {fileID: 0}
+    m_ThirdPersonItemAnimAvatar: {fileID: 0}
     m_ItemName: Katana
     m_Type: 0
     m_HandAssignment: 1

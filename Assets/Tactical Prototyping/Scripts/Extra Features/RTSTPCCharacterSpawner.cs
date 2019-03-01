@@ -16,6 +16,7 @@ using Opsive.UltimateCharacterController.Character;
 using Opsive.UltimateCharacterController.Inventory;
 using Opsive.UltimateCharacterController.Character.Abilities.AI;
 using Opsive.UltimateCharacterController.Objects.CharacterAssist;
+using Opsive.UltimateCharacterController.Editor.Managers;
 
 namespace RTSPrototype
 {
@@ -241,8 +242,19 @@ namespace RTSPrototype
                         GameObject _builtItem = ItemBuilder.BuildItem(_addableItem.ItemName, _addableItem.ItemType, _addableItem.AnimatorItemID, spawnedGameObject,
                             _handAssignmentSlotID, /*AddToDefaultLoadout*/true, /*AddFPPerspective*/false, /*FPObject*/null,/*FPObjectAnim*/null,
                             /*FPVisibleItem*/null, /*FPItemSlot*/null, /*FPVisibleItemAnim*/null,/*AddTPPerspective*/true,
-                            /*TPObject*/_addableItem.Base, /*TPItemSlot*/_handAssignmentItemSlot, _animatorOnCharacter.runtimeAnimatorController, /*ShadowCastMat*/null,
+                            /*TPObject*/_addableItem.Base, /*TPItemSlot*/_handAssignmentItemSlot, 
+                            _addableItem.ThirdPersonItemAnimator != null ? _addableItem.ThirdPersonItemAnimator : null, /*ShadowCastMat*/null,
                             _addableItem.Type == ERTSItemBuilderItemType.Melee ? ItemBuilder.ActionType.MeleeWeapon : ItemBuilder.ActionType.ShootableWeapon, _addableItem.ItemType);
+
+                        //Assign The Animator Avatar If It Exists
+                        Transform _childBuildItemReference = _handAssignmentItemSlot.transform.Find(_builtItem.name);
+                        Animator _TPCObjectAnimator;
+                        if(_childBuildItemReference != null &&
+                            _addableItem.ThirdPersonItemAnimator != null && _addableItem.ThirdPersonItemAnimAvatar &&
+                            (_TPCObjectAnimator = _childBuildItemReference.GetComponent<Animator>()) != null)
+                        {
+                            _TPCObjectAnimator.avatar = _addableItem.ThirdPersonItemAnimAvatar;
+                        }
 
                         //PickUp Items
                         if (_addableItem.MyItemPickup != null)
