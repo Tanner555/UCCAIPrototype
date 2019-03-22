@@ -9,6 +9,8 @@ using RTSCoreFramework;
 using Opsive.UltimateCharacterController.Character;
 using Opsive.UltimateCharacterController.Items.Actions;
 using Opsive.UltimateCharacterController.Events;
+using UtilitiesAndHelpersForUCC;
+using uccEventHelper = UtilitiesAndHelpersForUCC.UCCEventsControllerUtility;
 
 namespace RTSPrototype
 {
@@ -325,7 +327,7 @@ namespace RTSPrototype
                 Invoke("ResetIsReloading", reloadTimeLimit);
                 if (_cShootable.CanReloadItem(true))
                 {
-                    EventHandler.ExecuteEvent<int, ItemType, bool, bool>(this.gameObject, "OnItemTryReload", _cItem.SlotID, _cShootable.ConsumableItemType, false, false);
+                    uccEventHelper.CallOnItemTryReload(this.gameObject, _cItem.SlotID, _cShootable.ConsumableItemType, false, false);
                 }
                 else
                 {
@@ -456,7 +458,7 @@ namespace RTSPrototype
             {
                 if (_itemToEquip != null)
                 {
-                    EventHandler.ExecuteEvent<Item, int>(this.gameObject, "OnAbilityWillEquipItem", _itemToEquip, _itemToEquip.SlotID);
+                    uccEventHelper.CallOnAbilityWillEquipItem(this.gameObject, _itemToEquip, _itemToEquip.SlotID);
                 }
                 myInventory.EquipItem(_type, 0, false);
             }

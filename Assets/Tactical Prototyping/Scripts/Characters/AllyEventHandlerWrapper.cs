@@ -8,6 +8,8 @@ using Chronos;
 using Opsive.UltimateCharacterController.Events;
 using Opsive.UltimateCharacterController.Items;
 using Opsive.UltimateCharacterController.Items.Actions;
+using UtilitiesAndHelpersForUCC;
+using uccEventHelper = UtilitiesAndHelpersForUCC.UCCEventsControllerUtility;
 
 namespace RTSPrototype
 {
@@ -95,13 +97,13 @@ namespace RTSPrototype
         public override void CallEventAllyDied(Vector3 position, Vector3 force, GameObject attacker)
         {
             base.CallEventAllyDied(position, force, attacker);
-            EventHandler.ExecuteEvent<Vector3, Vector3, GameObject>(this.gameObject, "OnDeath", position, force, attacker);
+            uccEventHelper.CallOnDeath(this.gameObject, position, force, attacker);
         }
 
         public override void CallOnTryAim(bool _enable)
         {
             base.CallOnTryAim(_enable);
-            EventHandler.ExecuteEvent<bool>(this.gameObject, "OnAimAbilityAim", _enable);
+            uccEventHelper.CallOnAimAbilityAim(this.gameObject, _enable);
         }
 
         protected override void SubToEvents()
