@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7c9113eb56e9d34ead60d648fe37fd5, type: 3}
+  m_Name: TestLocalWPositions
+  m_EditorClassIdentifier: 
+  WeaponPositionsAndRotations:
+  - AddableItemName: Katana
+    m_ItemType: {fileID: 114544757700045432, guid: 5481010ef14c32f4cb7b6661b0c59fb4,
+      type: 2}
+    m_LocalPosition: {x: 0.097, y: -0.024, z: -0.005}
+    m_LocalRotation: {x: 0, y: 0, z: 80.24}
+  - AddableItemName: Pistol
+    m_ItemType: {fileID: 114982450061250758, guid: 5481010ef14c32f4cb7b6661b0c59fb4,
+      type: 2}
+    m_LocalPosition: {x: 0.145, y: 0, z: 0.0257}
+    m_LocalRotation: {x: 0, y: 90, z: 90}

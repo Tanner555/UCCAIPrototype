@@ -111,7 +111,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: fc02622cb9308714ba90779903eb89ab, type: 2}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,6 +408,68 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Opsive.UltimateCharacterController.Events.UnityBoolEvent, Opsive.UltimateCharacterController,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!1 &608218918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 608218920}
+  - component: {fileID: 608218919}
+  m_Layer: 0
+  m_Name: Simple Character Spawner 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &608218919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608218918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52d0d440f8231624da5733f6150b6111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterPrefabToSpawn: {fileID: 1902654371094930, guid: 6db8aea98fd2d22498c40b6114402d06,
+    type: 3}
+  CharacterName: Pink Robot Girl
+  TimeBeforeSpawnerIsDestroyed: 0.5
+  bBuildCharacterCompletely: 1
+  bAttemptToBuildItems: 0
+  isFriendlyCharacter: 1
+  FriendlyColor: {r: 0, g: 1, b: 0, a: 1}
+  EnemyColor: {r: 1, g: 0, b: 0, a: 1}
+  GizmosRadius: 1.5
+  m_AnimatorController: {fileID: 9100000, guid: 3f0c5b904ee19c0469cc842e48724b73,
+    type: 2}
+  m_AddItems: 1
+  m_ItemCollection: {fileID: 11400000, guid: 5481010ef14c32f4cb7b6661b0c59fb4, type: 2}
+  m_ThirdPersonMovementType: 1
+  WeaponPositionsObject: {fileID: 11400000, guid: 0dbfc552694ae0445b16580ccf7029e6,
+    type: 2}
+  SerializedAddableItem: {fileID: 11400000, guid: 6dcd76f80d1ecef41816cd514b8c25c4,
+    type: 2}
+--- !u!4 &608218920
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608218918}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
+  m_LocalPosition: {x: -4.4090805, y: 0.5, z: -27.411488}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!1 &626683511
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,7 +490,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &626683512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -952,7 +1014,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1459795709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1287,11 +1349,11 @@ GameObject:
   - component: {fileID: 1952177705}
   - component: {fileID: 1952177704}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &1952177704
 BoxCollider:
