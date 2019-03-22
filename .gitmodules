@@ -1,3 +1,6 @@
 [submodule "Assets/RTSCoreFramework"]
 	path = Assets/RTSCoreFramework
 	url = https://github.com/Tanner555/RTSCoreFramework.git
+[submodule "Assets/UtilitiesAndHelpersForUCC"]
+	path = Assets/UtilitiesAndHelpersForUCC
+	url = https://github.com/Tanner555/UtilitiesAndHelpersForUCC.git
