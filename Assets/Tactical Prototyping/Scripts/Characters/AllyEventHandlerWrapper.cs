@@ -124,9 +124,9 @@ namespace RTSPrototype
             ////OnInventoryConsumableItemCountChange Takes Three Params
             //EventHandler.RegisterEvent<Item, bool, bool>(this.gameObject, "OnInventoryConsumableItemCountChange", OnConsumableItemCountChange);
             //New UCC Events
-            EventHandler.RegisterEvent<Item, ItemType, float>(this.gameObject, "OnItemUseConsumableItemType", OnItemUseConsumableItemType);
-            EventHandler.RegisterEvent<Item, int>(this.gameObject, "OnInventoryEquipItem", OnInventoryEquipItem);
-            EventHandler.RegisterEvent<Item>(this.gameObject, "OnInventoryAddItem", OnInventoryAddItem);
+            uccEventHelper.RegisterOnItemUseConsumableItemType(this.gameObject, OnItemUseConsumableItemType);
+            uccEventHelper.RegisterOnInventoryEquipItem(this.gameObject, OnInventoryEquipItem);
+            uccEventHelper.RegisterOnInventoryAddItem(this.gameObject, OnInventoryAddItem);
         }
 
         protected override void UnsubFromEvents()
@@ -141,9 +141,9 @@ namespace RTSPrototype
             ////OnInventoryConsumableItemCountChange Takes Three Params
             //EventHandler.UnregisterEvent<Item, bool, bool>(this.gameObject, "OnInventoryConsumableItemCountChange", OnConsumableItemCountChange);
             //New UCC Events
-            EventHandler.UnregisterEvent<Item, ItemType, float>(this.gameObject, "OnItemUseConsumableItemType", OnItemUseConsumableItemType);
-            EventHandler.UnregisterEvent<Item, int>(this.gameObject, "OnInventoryEquipItem", OnInventoryEquipItem);
-            EventHandler.UnregisterEvent<Item>(this.gameObject, "OnInventoryAddItem", OnInventoryAddItem);
+            uccEventHelper.UnregisterOnItemUseConsumableItemType(this.gameObject, OnItemUseConsumableItemType);
+            uccEventHelper.UnregisterOnInventoryEquipItem(this.gameObject, OnInventoryEquipItem);
+            uccEventHelper.UnregisterOnInventoryAddItem(this.gameObject, OnInventoryAddItem);
         }
         #endregion
 
