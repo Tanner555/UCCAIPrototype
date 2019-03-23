@@ -5,10 +5,8 @@ using Opsive.UltimateCharacterController;
 using Opsive.UltimateCharacterController.Inventory;
 using RTSCoreFramework;
 using Chronos;
-using Opsive.UltimateCharacterController.Events;
 using Opsive.UltimateCharacterController.Items;
 using Opsive.UltimateCharacterController.Items.Actions;
-using UtilitiesAndHelpersForUCC;
 using uccEventHelper = UtilitiesAndHelpersForUCC.UCCEventsControllerUtility;
 
 namespace RTSPrototype

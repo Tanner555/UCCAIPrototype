@@ -7,9 +7,9 @@ using Chronos;
 using Opsive.UltimateCharacterController.Character;
 using Opsive.UltimateCharacterController.Traits;
 using Opsive.UltimateCharacterController.Inventory;
-using Opsive.UltimateCharacterController.Events;
 using Opsive.UltimateCharacterController.Items;
 using Opsive.UltimateCharacterController.Items.Actions;
+using uccEventHelper = UtilitiesAndHelpersForUCC.UCCEventsControllerUtility;
 
 namespace RTSPrototype
 {
@@ -210,12 +210,12 @@ namespace RTSPrototype
             base.AllyTakeDamage(_amount, _position, _force, _instigator, _hitGameObject, _hitCollider);
             if (bIsCurrentPlayer)
             {
-                EventHandler.ExecuteEvent<float, Vector3, Vector3, GameObject, Collider>(gameObject, "OnHealthDamage", _amount, _position, _force, _instigator.gameObject, _hitCollider);
+                uccEventHelper.CallOnHealthDamage(gameObject, _amount, _position, _force, _instigator.gameObject, _hitCollider);
             }
 
             if (IsAlive == false)
             {
-                EventHandler.ExecuteEvent<Vector3, Vector3, GameObject>(gameObject, "OnDeath", _position, _force, _instigator.gameObject);
+                uccEventHelper.CallOnDeath(gameObject, _position, _force, _instigator.gameObject);
             }
         }
 
@@ -227,12 +227,12 @@ namespace RTSPrototype
             Collider _hitCollider = gameObject.GetComponentInChildren<Collider>();
             if (bIsCurrentPlayer)
             {
-                EventHandler.ExecuteEvent<float, Vector3, Vector3, GameObject, Collider>(gameObject, "OnHealthDamage", amount, _position, _force, _instigator.gameObject, _hitCollider);
+                uccEventHelper.CallOnHealthDamage(gameObject, amount, _position, _force, _instigator.gameObject, _hitCollider);
             }
 
             if (IsAlive == false)
             {
-                EventHandler.ExecuteEvent<Vector3, Vector3, GameObject>(gameObject, "OnDeath", _position, _force, _instigator.gameObject);
+                uccEventHelper.CallOnDeath(gameObject, _position, _force, _instigator.gameObject);
             }
         }
 
