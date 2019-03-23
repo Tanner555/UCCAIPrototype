@@ -5,8 +5,8 @@ using Opsive.UltimateCharacterController;
 using Opsive.UltimateCharacterController.Camera;
 using Opsive.UltimateCharacterController.Input;
 using RTSCoreFramework;
-using Opsive.UltimateCharacterController.Events;
 using Opsive.UltimateCharacterController.Game;
+using uccEventHelper = UtilitiesAndHelpersForUCC.UCCEventsControllerUtility;
 
 namespace RTSPrototype
 {
@@ -46,20 +46,21 @@ namespace RTSPrototype
 
             if (m_Character != null)
             {
-                EventHandler.UnregisterEvent<Vector3, Vector3, GameObject>(m_Character, "OnDeath", OnDeath);
-                EventHandler.UnregisterEvent(m_Character, "OnRespawn", OnRespawn);
-                EventHandler.UnregisterEvent<bool>(m_Character, "OnEnableGameplayInput", OnEnableGameplayInput);
-                EventHandler.UnregisterEvent<bool>(m_Character, "OnCharacterActivate", OnActivate);
+                uccEventHelper.UnregisterOnDeath(m_Character, OnDeath);
+                uccEventHelper.UnregisterOnRespawn(m_Character, OnRespawn);
+                uccEventHelper.UnregisterOnEnableGameplayInput(m_Character, OnEnableGameplayInput);
+                uccEventHelper.UnregisterOnCharacterActivate(m_Character, OnActivate);
             }
 
             m_Character = character;
 
             if (character != null)
             {
-                EventHandler.RegisterEvent<Vector3, Vector3, GameObject>(character, "OnDeath", OnDeath);
-                EventHandler.RegisterEvent(character, "OnRespawn", OnRespawn);
-                EventHandler.RegisterEvent<bool>(character, "OnEnableGameplayInput", OnEnableGameplayInput);
-                EventHandler.RegisterEvent<bool>(character, "OnCharacterActivate", OnActivate);
+                uccEventHelper.RegisterOnDeath(character, OnDeath);
+                uccEventHelper.RegisterOnRespawn(character, OnRespawn);
+                uccEventHelper.RegisterOnEnableGameplayInput(character, OnEnableGameplayInput);
+                uccEventHelper.RegisterOnCharacterActivate(character, OnActivate);
+
                 m_AllowGameplayInput = true;
                 enabled = character.activeInHierarchy;
                 if (enabled)

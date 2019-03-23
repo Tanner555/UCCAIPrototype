@@ -5,9 +5,9 @@ using BaseFramework;
 using RTSCoreFramework;
 using Opsive.UltimateCharacterController.Utility;
 using Opsive.UltimateCharacterController.Character;
-using Opsive.UltimateCharacterController.Events;
 using Opsive.UltimateCharacterController.Character.Abilities;
 using Opsive.UltimateCharacterController.Character.Abilities.Items;
+using uccEventHelper = UtilitiesAndHelpersForUCC.UCCEventsControllerUtility;
 
 namespace RTSPrototype
 {
@@ -77,7 +77,8 @@ namespace RTSPrototype
             base.Awake();
             // The look source may have already been assigned if the ability was added to the character after the look source was assigned.
             m_LookSource = m_CharacterLocomotion.LookSource;
-            EventHandler.RegisterEvent<ILookSource>(m_GameObject, "OnCharacterAttachLookSource", OnAttachLookSource);
+
+            uccEventHelper.RegisterOnCharacterAttachLookSource(m_GameObject, OnAttachLookSource);
         }
 
         protected override void AbilityStarted()
@@ -107,7 +108,7 @@ namespace RTSPrototype
         public override void OnDestroy()
         {
             base.OnDestroy();
-            EventHandler.UnregisterEvent<ILookSource>(m_GameObject, "OnCharacterAttachLookSource", OnAttachLookSource);
+            uccEventHelper.UnregisterOnCharacterAttachLookSource(m_GameObject, OnAttachLookSource);
         }
         #endregion
 
