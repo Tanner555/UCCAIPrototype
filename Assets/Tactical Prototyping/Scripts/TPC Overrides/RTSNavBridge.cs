@@ -9,7 +9,7 @@ using UnityEngine.AI;
 using Opsive.UltimateCharacterController.Character.Abilities;
 using Opsive.UltimateCharacterController.Character.Abilities.AI;
 using Opsive.UltimateCharacterController.Game;
-using Opsive.UltimateCharacterController.Events;
+using uccEventHelper = UtilitiesAndHelpersForUCC.UCCEventsControllerUtility;
 
 namespace RTSPrototype
 {
@@ -221,12 +221,12 @@ namespace RTSPrototype
             bIsLookingAtTarget = _enable;
             if (bIsLookingAtTarget)
             {
-                EventHandler.ExecuteEvent<ILookSource>(this.gameObject, "OnCharacterAttachLookSource", myLocalLookSource);
+                uccEventHelper.CallOnCharacterAttachLookSource(this.gameObject, myLocalLookSource);
                 myLocalLookSource.Target = targetTransform;
             }
             else
             {
-                EventHandler.ExecuteEvent<ILookSource>(this.gameObject, "OnCharacterAttachLookSource", myCameraController);
+                uccEventHelper.CallOnCharacterAttachLookSource(this.gameObject, myCameraController);
             }
         }
 
