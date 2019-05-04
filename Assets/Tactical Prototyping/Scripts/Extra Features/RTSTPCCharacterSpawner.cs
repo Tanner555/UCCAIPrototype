@@ -148,7 +148,7 @@ namespace RTSPrototype
                     /*AddHealth*/false, /*AddIK*/true, /*AddFootsteps*/true, /*AddStandardAbilities*/true, /*AddNavMeshAgent*/true);
                 // Ensure the smoothed bones have been added to the character.
                 characterLocomotion = spawnedGameObject.GetComponent<UltimateCharacterLocomotion>();
-                characterLocomotion.AddDefaultSmoothedBones();
+                //characterLocomotion.AddDefaultSmoothedBones();
 
                 // The Animator Monitor is one of the first components added and the item system hasn't been added to the character yet. Initialize the Item Parameters after the item system has been setup.
                 if (m_AddItems)
