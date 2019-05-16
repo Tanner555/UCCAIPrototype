@@ -73,6 +73,11 @@
 # Ultimate Character Controller
 /Assets/Opsive
 /Assets/Opsive.meta
+# Bolt
+/Assets/Ludiq
+/Assets/Ludiq.meta
+/Assets/Ludiq.Generated
+/Assets/Ludiq.Generated.meta
 # Models Used For Testing
 /Assets/ModelsAndAssets
 /Assets/ModelsAndAssets.meta
