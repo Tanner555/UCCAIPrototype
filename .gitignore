@@ -103,6 +103,8 @@
 /Assets/_TerrainAutoUpgrade.meta
 /Logs/
 UpgradeLog.htm
+.idea/
+.idea/.idea.UCCAIProto/
 
 # Map Data Used Inside My RTS Framework
 /Assets/Tactical Prototyping/Maps/RTSMainMenu

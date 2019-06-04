@@ -47,7 +47,7 @@ MonoBehaviour:
     m_RecoilAmount: 0.2
     m_HitscanImpactLayers:
       serializedVersion: 2
-      m_Bits: 2143291169
+      m_Bits: 2080376609
     m_HitScanImpactForce: 0.1
     m_DefaultHitscanDecal: {fileID: 100000, guid: 53c61aa86b1411843bb13a98966979ae,
       type: 2}
@@ -121,7 +121,7 @@ MonoBehaviour:
     m_RecoilAmount: 0.2
     m_HitscanImpactLayers:
       serializedVersion: 2
-      m_Bits: 2143291169
+      m_Bits: 2080376609
     m_HitScanImpactForce: 0.1
     m_DefaultHitscanDecal: {fileID: 100000, guid: 9b7a72265f46eef41ab48a568d6502a9,
       type: 2}
@@ -195,7 +195,7 @@ MonoBehaviour:
     m_RecoilAmount: 0.1
     m_HitscanImpactLayers:
       serializedVersion: 2
-      m_Bits: 2143291169
+      m_Bits: 2080376609
     m_HitScanImpactForce: 0.07
     m_DefaultHitscanDecal: {fileID: 100000, guid: e66c61a8e9f12fb408f831aca1ba06fd,
       type: 2}
@@ -269,7 +269,7 @@ MonoBehaviour:
     m_RecoilAmount: 0
     m_HitscanImpactLayers:
       serializedVersion: 2
-      m_Bits: 2143291169
+      m_Bits: 2080376609
     m_HitScanImpactForce: 5
     m_DefaultHitscanDecal: {fileID: 100000, guid: a350915d26374cc4b81f5cb2d2ec3e62,
       type: 2}
@@ -373,7 +373,7 @@ MonoBehaviour:
     m_RecoilAmount: 0
     m_HitscanImpactLayers:
       serializedVersion: 2
-      m_Bits: 2143291169
+      m_Bits: 2080376609
     m_HitScanImpactForce: 5
     m_DefaultHitscanDecal: {fileID: 100000, guid: a350915d26374cc4b81f5cb2d2ec3e62,
       type: 2}
