@@ -49,6 +49,11 @@ namespace RTSPrototype
 
         bool bAllyDied = false;
         bool bUpdateMyRotation = false;
+
+        //local stored vars
+        private Vector3 myLookDirection;
+        private Vector3 myLocalLookDirection;
+        private Vector3 myDeltaRotation;
         #endregion
 
         #region Overrides
@@ -64,10 +69,12 @@ namespace RTSPrototype
                 }
 
                 // Determine the direction that the character should be facing.
-                var lookDirection = m_LookSource.LookDirection(m_LookSource.LookPosition(), true, m_CharacterLayerManager.IgnoreInvisibleCharacterLayers, false);
-                var localLookDirection = m_Transform.InverseTransformDirection(lookDirection);
-                localLookDirection.y = 0;
-                m_CharacterLocomotion.DeltaYawRotation = MathUtility.ClampInnerAngle(Quaternion.LookRotation(localLookDirection.normalized, m_CharacterLocomotion.Up).eulerAngles.y);
+                myLookDirection = m_LookSource.LookDirection(m_LookSource.LookPosition(), true, m_CharacterLayerManager.IgnoreInvisibleCharacterLayers, false);
+                myLocalLookDirection = m_Transform.InverseTransformDirection(myLookDirection);
+                myLocalLookDirection.y = 0;
+                myDeltaRotation = m_CharacterLocomotion.DeltaRotation;
+                myDeltaRotation.y = MathUtility.ClampInnerAngle(Quaternion.LookRotation(myLocalLookDirection.normalized, m_CharacterLocomotion.Up).eulerAngles.y);
+                m_CharacterLocomotion.DeltaRotation = myDeltaRotation;
             }
             base.UpdateRotation();
         }
