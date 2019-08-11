@@ -1,4 +1,5 @@
-﻿using RTSCoreFramework;
+﻿using BaseFramework;
+using RTSCoreFramework;
 using UnityEngine;
 using Chronos;
 using Opsive.UltimateCharacterController;
@@ -131,6 +132,7 @@ namespace RTSPrototype
         RTSCameraController _myCameraController = null;
 
         RTSGameMaster gamemaster { get { return RTSGameMaster.thisInstance; } }
+        UnityMsgManager myUnityMsgManager { get { return UnityMsgManager.thisInstance;} }
         //Targeting
         public Transform targetTransform { get; protected set; }
         public bool isTargeting { get; protected set; }
@@ -196,13 +198,6 @@ namespace RTSPrototype
         #endregion
 
         #region UnityMessages
-        protected void FixedUpdate()
-        {
-            if (bIsTimelinePaused) return;
-            CheckForFreeMovement();
-            UpdateMovementOrRotate();
-        }
-
         private void Start()
         {
             OnToggleSprinting();
@@ -251,6 +246,13 @@ namespace RTSPrototype
         #endregion
 
         #region Handlers
+        private void OnFixedUpdateHandler()
+        {
+            if (bIsTimelinePaused) return;
+            CheckForFreeMovement();
+            UpdateMovementOrRotate();
+        }
+
         private void OnFinishMovingHandler()
         {
             //m_NavMeshAgent.SetDestination(transform.position);
@@ -563,6 +565,7 @@ namespace RTSPrototype
             myEventHandler.EventFinishedMoving += OnFinishMovingHandler;
             gamemaster.EventHoldingRightMouseDown += ToggleMoveCamera;
             gamemaster.OnTogglebIsInPauseControlMode += OnTogglePauseCommandMode;
+            myUnityMsgManager.RegisterOnFixedUpdate(OnFixedUpdateHandler);
         }
 
         void UnsubFromEvents()
@@ -578,6 +581,7 @@ namespace RTSPrototype
             myEventHandler.EventFinishedMoving -= OnFinishMovingHandler;
             gamemaster.EventHoldingRightMouseDown -= ToggleMoveCamera;
             gamemaster.OnTogglebIsInPauseControlMode -= OnTogglePauseCommandMode;
+            myUnityMsgManager.DeregisterOnFixedUpdate(OnFixedUpdateHandler);
         }
         #endregion
     }
