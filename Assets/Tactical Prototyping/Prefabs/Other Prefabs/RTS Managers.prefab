@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 114925828901233208}
   - component: {fileID: 114369450698923008}
   - component: {fileID: 114413437611418186}
+  - component: {fileID: 3311115140658233007}
   m_Layer: 0
   m_Name: RTS Managers
   m_TagString: Untagged
@@ -267,17 +268,19 @@ MonoBehaviour:
   m_LookSensitivity: {x: 3, y: 3}
   m_SmoothLookSteps: 20
   m_SmoothLookWeight: 0.5
+  m_SmoothExponent: 1.05
   m_LookAccelerationThreshold: 0.4
   m_ControllerConnectedCheckRate: 1
   m_ConnectedControllerState: ConnectedController
   m_EnableGamplayInputEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Opsive.UltimateCharacterController.Events.UnityBoolEvent, Assembly-CSharp,
+    m_TypeName: Opsive.UltimateCharacterController.Events.UnityBoolEvent, Opsive.UltimateCharacterController,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_ForceInput: 0
   m_DisableCursor: 0
   m_EnableCursorWithEscape: 1
+  m_PreventLookVectorChanges: 1
 --- !u!114 &114925828901233208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,5 +318,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54153e122588e7e40a6bfe2cc0b71561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3311115140658233007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909704301872178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68f4cd0af3c6401429350684fa4c8c42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
