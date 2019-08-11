@@ -22,11 +22,6 @@ namespace RTSPrototype
         {
             base.Start();
         }
-
-        protected override void Update()
-        {
-            base.Update();
-        }
         #endregion
 
     }
