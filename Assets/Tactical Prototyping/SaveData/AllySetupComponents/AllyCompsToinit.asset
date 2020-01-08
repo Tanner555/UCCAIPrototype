@@ -40,6 +40,9 @@ MonoBehaviour:
     WaypointRendererMaterial: {fileID: 2100000, guid: 6d824634677c23d40b27f91a5aef6ce7,
       type: 2}
     BloodParticles: {fileID: 100002, guid: 5f838a7bcf706ac4eb5b5cf801119898, type: 2}
+    bUseBehaviourTrees: 1
+    allAlliesDefaultBehaviourTree: {fileID: 11400000, guid: c6ee4667eac7b1b40b071f21cf5eb693,
+      type: 2}
     AssualtRifleType: {fileID: 114334400771614146, guid: 5481010ef14c32f4cb7b6661b0c59fb4,
       type: 2}
     PistolType: {fileID: 114982450061250758, guid: 5481010ef14c32f4cb7b6661b0c59fb4,

@@ -8,6 +8,7 @@ using Chronos;
 using Opsive.UltimateCharacterController.Items;
 using Opsive.UltimateCharacterController.Items.Actions;
 using uccEventHelper = UtilitiesAndHelpersForUCC.UCCEventsControllerUtility;
+using BehaviorDesigner.Runtime;
 
 namespace RTSPrototype
 {
@@ -15,6 +16,9 @@ namespace RTSPrototype
     [System.Serializable]
     public class RTSAllyComponentsAllCharacterFieldsWrapper : RTSAllyComponentsAllCharacterFields
     {
+        [Header("Behaviour Designer Settings")]
+        public bool bUseBehaviourTrees = true;
+        public ExternalBehaviorTree allAlliesDefaultBehaviourTree;
         [Header("GunTypes")]
         public ItemType AssualtRifleType;
         public ItemType PistolType;
