@@ -94,10 +94,10 @@ namespace RTSPrototype
             }
         }
 
-        public AllyMemberWrapper currentTargettedEnemyWrapper
-        {
-            get { return (AllyMemberWrapper)currentTargettedEnemy; }
-        }
+        //public AllyMemberWrapper currentTargettedEnemyWrapper
+        //{
+        //    get { return (AllyMemberWrapper)currentTargettedEnemy; }
+        //}
         #endregion
 
         #region UnityMessages

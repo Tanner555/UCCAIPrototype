@@ -324,7 +324,7 @@ namespace RTSPrototype
                 }
 
                 spawnedGameObject.AddComponent<AllyStatController>();
-                spawnedGameObject.AddComponent<AllyActionQueueController>();
+                //spawnedGameObject.AddComponent<AllyActionQueueController>();
                 var _timeline = spawnedGameObject.AddComponent<Timeline>();
                 _timeline.mode = TimelineMode.Global;
                 _timeline.globalClockKey = gamemaster.allyClocksName;
@@ -386,9 +386,9 @@ namespace RTSPrototype
                 spawnedGameObject.AddComponent<AllyMemberWrapper>();
                 spawnedGameObject.AddComponent<AllyAIControllerWrapper>();
                 spawnedGameObject.AddComponent<AllySpecialAbilitiesWrapper>();
-                spawnedGameObject.AddComponent<RTSNavBridge>();
+                //spawnedGameObject.AddComponent<RTSNavBridge>();
                 spawnedGameObject.AddComponent<RTSItemAndControlHandler>();
-                spawnedGameObject.AddComponent<AllyTacticsController>();
+                //spawnedGameObject.AddComponent<AllyTacticsController>();
                 spawnedGameObject.AddComponent<AllyVisuals>();
 
                 //Call Ally Init Comps Event

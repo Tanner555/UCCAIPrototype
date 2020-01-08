@@ -27,15 +27,15 @@ namespace RTSPrototype
             if(CanUseAbility())
             {
                 TPCAbility.StartAbility();
-                allyEventHandler.CallEventToggleIsUsingAbility(true);
-                Invoke("StopAbilityAnimation", config.GetAbilityAnimationTime());
+                //allyEventHandler.CallEventToggleIsUsingAbility(true);
+                //Invoke("StopAbilityAnimation", config.GetAbilityAnimationTime());
             }
         }
 
-        protected override void StopAbilityAnimation()
+        public override void StopAbilityAnimation()
         {
             TPCAbility.StopAbility();
-            allyEventHandler.CallEventToggleIsUsingAbility(false);
+            //allyEventHandler.CallEventToggleIsUsingAbility(false);
         }
 
         protected virtual Opsive.UltimateCharacterController.Character.Abilities.Ability GetTPCAbility()

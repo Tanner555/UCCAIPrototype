@@ -172,10 +172,10 @@ namespace RTSPrototype
             }
         }
 
-        public AllyMemberWrapper enemyTargetWrapper
-        {
-            get { return aiControllerWrapper.currentTargettedEnemyWrapper; }
-        }
+        //public AllyMemberWrapper enemyTargetWrapper
+        //{
+        //    get { return aiControllerWrapper.currentTargettedEnemyWrapper; }
+        //}
 
         #endregion
 

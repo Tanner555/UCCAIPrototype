@@ -38,14 +38,14 @@ namespace RTSPrototype
                 {
                     _appendedActionDictionary = base.IGBPI_Actions.AddRange(new Dictionary<string, RTSActionItem>
                     {
-                        { "Self: Area of Effect", new RTSActionItem((_ally) =>
-                        { _ally.allyEventHandler.CallOnTrySpecialAbility(typeof(AreaOfEffectConfigTPC)); },
-                        (_ally) => _ally.CanUseAbility(typeof(AreaOfEffectConfigTPC)),
-                        ActionFilters.Abilities, false, true, true, false, _ally => true, _ally => _ally.bIsUsingAbility, _ally => { })},
-                        { "Self: Heal", new RTSActionItem((_ally) => 
-                        { _ally.allyEventHandler.CallOnTrySpecialAbility(typeof(SelfHealConfigTPC)); },
-                        (_ally) => _ally.CanUseAbility(typeof(SelfHealConfigTPC)),
-                        ActionFilters.Abilities, false, true, true, false, _ally => true, _ally => _ally.bIsUsingAbility, _ally => { })}
+                        { "Self: Area of Effect", new RTSActionItem((_self, _ai, _target) =>
+                        { _self.allyEventHandler.CallOnTrySpecialAbility(typeof(AreaOfEffectConfigTPC)); },
+                        (_self, _ai, _target) => _self.CanUseAbility(typeof(AreaOfEffectConfigTPC)),
+                        ActionFilters.Abilities, (_self, _ai, _target) => { })},
+                        { "Self: Heal", new RTSActionItem((_self, _ai, _target) => 
+                        { _self.allyEventHandler.CallOnTrySpecialAbility(typeof(SelfHealConfigTPC)); },
+                        (_self, _ai, _target) => _self.CanUseAbility(typeof(SelfHealConfigTPC)),
+                        ActionFilters.Abilities, (_self, _ai, _target) => { })}
                     });
                 }
                 return _appendedActionDictionary;

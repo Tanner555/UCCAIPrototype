@@ -139,17 +139,17 @@ namespace RTSPrototype
         }
         UltimateCharacterLocomotion _myController = null;
 
-        RTSNavBridge myNavBidge
-        {
-            get
-            {
-                if (_myNavBidge == null)
-                    _myNavBidge = GetComponent<RTSNavBridge>();
+        //RTSNavBridge myNavBidge
+        //{
+        //    get
+        //    {
+        //        if (_myNavBidge == null)
+        //            _myNavBidge = GetComponent<RTSNavBridge>();
 
-                return _myNavBidge;
-            }
-        }
-        RTSNavBridge _myNavBidge = null;
+        //        return _myNavBidge;
+        //    }
+        //}
+        //RTSNavBridge _myNavBidge = null;
 
         AllyMember allyMember
         {
@@ -166,7 +166,7 @@ namespace RTSPrototype
         bool AllCompsAreValid
         {
             get { return myEventHandler /*&& itemHandler*/ && 
-                    myInventory && myController && myNavBidge 
+                    myInventory && myController /*&& myNavBidge*/ 
                     && allyMember; }
         }
         #endregion
@@ -264,7 +264,7 @@ namespace RTSPrototype
             //myInventory.SwitchItem(true, false);
         }
 
-        void OnTryUseWeapon()
+        void OnTryUseWeapon(Transform _target)
         {
             if (!AllCompsAreValid) return;
             if (allyMember.bIsCarryingMeleeWeapon == false)
@@ -302,14 +302,14 @@ namespace RTSPrototype
             //itemHandler.TryStopUse(true);
         }
 
-        void OnActiveTimeBarDepletion()
-        {
-            if(allyMember.bIsAttacking && myUseAbility != null && 
-                myUseAbility.IsActive)
-            {
-                myUseAbility.StopAbility();
-            }
-        }
+        //void OnActiveTimeBarDepletion()
+        //{
+        //    if(allyMember.bIsAttacking && myUseAbility != null && 
+        //        myUseAbility.IsActive)
+        //    {
+        //        myUseAbility.StopAbility();
+        //    }
+        //}
 
         void OnTryReload()
         {
@@ -495,9 +495,9 @@ namespace RTSPrototype
             myEventHandler.OnTryReload += OnTryReload;
             myEventHandler.OnTryCrouch += OnTryCrouch;
             myEventHandler.OnWeaponChanged += OnWeaponTypeChanged;
-            myEventHandler.EventStopTargettingEnemy += OnStopTargetingEnemy;
-            myEventHandler.OnActiveTimeBarDepletion += OnActiveTimeBarDepletion;
-            myEventHandler.EventToggleIsUsingAbility += OnToggleSpecialAbility;
+            //myEventHandler.EventStopTargettingEnemy += OnStopTargetingEnemy;
+            //myEventHandler.OnActiveTimeBarDepletion += OnActiveTimeBarDepletion;
+            //myEventHandler.EventToggleIsUsingAbility += OnToggleSpecialAbility;
             myEventHandler.InitializeAllyComponents += InitializeAllyWeaponItems;
         }
 
@@ -510,9 +510,9 @@ namespace RTSPrototype
             myEventHandler.OnTryReload -= OnTryReload;
             myEventHandler.OnTryCrouch -= OnTryCrouch;
             myEventHandler.OnWeaponChanged -= OnWeaponTypeChanged;
-            myEventHandler.EventStopTargettingEnemy -= OnStopTargetingEnemy;
-            myEventHandler.OnActiveTimeBarDepletion -= OnActiveTimeBarDepletion;
-            myEventHandler.EventToggleIsUsingAbility -= OnToggleSpecialAbility;
+            //myEventHandler.EventStopTargettingEnemy -= OnStopTargetingEnemy;
+            //myEventHandler.OnActiveTimeBarDepletion -= OnActiveTimeBarDepletion;
+            //myEventHandler.EventToggleIsUsingAbility -= OnToggleSpecialAbility;
             myEventHandler.InitializeAllyComponents -= InitializeAllyWeaponItems;
         }
         #endregion
