@@ -44,9 +44,9 @@ namespace RTSPrototype
 		#region Overrides
 		public override TaskStatus OnUpdate()
 		{
-			//int _damage = aiController.GetDamageRate();
-			//AllyMemberWrapper _ally = CurrentTargettedEnemy.Value.GetComponent<AllyMemberWrapper>();
-			//_ally.AllyTakeDamage(_damage, allyMember);
+			int _damage = allyMember.GetDamageRate();
+			AllyMemberWrapper _ally = CurrentTargettedEnemy.Value.GetComponent<AllyMemberWrapper>();
+			_ally.AllyTakeDamage(_damage, allyMember);
 			return TaskStatus.Success;
 		}
 		#endregion

@@ -14,6 +14,36 @@ namespace RTSPrototype
 		#endregion
 
 		#region Properties
+		AllyMember CurrentTargettedEnemyAlly
+		{
+			get
+			{
+				//Don't Retrieve AllyMember if TargetTransform Doesn't Exist
+				if (CurrentTargettedEnemy.Value == null) return null;
+				//If TargetAllyComp is NULL or TargetAllyComp is a Reference of another Ally (Switched Target)
+				if (_CurrentTargettedEnemyAlly == null ||
+					_CurrentTargettedEnemyAlly.transform != CurrentTargettedEnemy.Value)
+				{
+					_CurrentTargettedEnemyAlly = CurrentTargettedEnemy.Value.GetComponent<AllyMember>();
+				}
+				return _CurrentTargettedEnemyAlly;
+			}
+		}
+		AllyMember _CurrentTargettedEnemyAlly = null;
+
+		AllyMember allyMember
+		{
+			get
+			{
+				if (_allyMember == null)
+				{
+					_allyMember = GetComponent<AllyMember>();
+				}
+				return _allyMember;
+			}
+		}
+		AllyMember _allyMember = null;
+
 		AllyAIControllerWrapper aiController
 		{
 			get
@@ -31,21 +61,22 @@ namespace RTSPrototype
 		#region Overrides
 		public override TaskStatus OnUpdate()
 		{
-			return TaskStatus.Success;
-			//if (aiController.myRPGWeapon == null)
-			//{
-			//	Debug.LogWarning("myRPGWeapon is NULL, couldn't update target in range task");
-			//	return TaskStatus.Failure;
-			//}
-   //         float distanceToTarget = (CurrentTargettedEnemy.Value.transform.position - transform.position).magnitude;
-			//if(distanceToTarget <= aiController.myRPGWeapon.GetMaxAttackRange())
-			//{
-			//	return TaskStatus.Success;
-			//}
-			//else
-			//{
-			//	return TaskStatus.Failure;
-			//}
+			if (allyMember.bIsCarryingMeleeWeapon)
+			{
+				if (aiController.IsTargetInMeleeRange(CurrentTargettedEnemy.Value.gameObject))
+				{
+					return TaskStatus.Success;
+				}
+			}
+			else
+			{
+				RaycastHit _hit;
+				if (aiController.hasLOSWithinRange(CurrentTargettedEnemyAlly, out _hit))
+				{
+					return TaskStatus.Success;
+				}
+			}
+			return TaskStatus.Failure;
 		}
 		#endregion
 	} 

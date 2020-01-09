@@ -45,7 +45,7 @@ namespace RTSPrototype
         /// </summary>
         private void OnEnable()
         {
-            myEventHandler.OnAllyTakeDamage += TookDamage;
+            //myEventHandler.OnAllyTakeDamage += TookDamage;
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace RTSPrototype
         /// </summary>
         private void OnDisable()
         {
-            myEventHandler.OnAllyTakeDamage -= TookDamage;
+            //myEventHandler.OnAllyTakeDamage -= TookDamage;
         }
         #endregion
 
