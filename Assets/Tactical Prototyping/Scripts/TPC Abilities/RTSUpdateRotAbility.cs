@@ -11,9 +11,6 @@ using uccEventHelper = UtilitiesAndHelpersForUCC.UCCEventsControllerUtility;
 
 namespace RTSPrototype
 {
-    /// <summary>
-    /// TODO: RTSPrototype Start RTSRotate Ability Manually Inside Behavior Tree
-    /// </summary>
     public class RTSUpdateRotAbility : Opsive.UltimateCharacterController.Character.Abilities.Ability
     {
         #region Properties
@@ -51,7 +48,7 @@ namespace RTSPrototype
         private ILookSource m_LookSource;
 
         bool bAllyDied = false;
-        bool bUpdateMyRotation = false;
+        //bool bUpdateMyRotation = true;
 
         //local stored vars
         private Vector3 myLookDirection;
@@ -63,23 +60,22 @@ namespace RTSPrototype
         public override void UpdateRotation()
         {
             //Only Update Character's Rotation If FreeMoving Is Enabled And Aim Ability Isn't Active
-            //if (bAllyDied == false && bUpdateMyRotation && myAimAbility != null && myAimAbility.IsActive == false)
-            //{
-            //    // If the character can look indepdently then the character does not need to rotate to face the look direction.
-            //    if (m_CharacterLocomotion.ActiveMovementType.UseIndependentLook(true))
-            //    {
-            //        return;
-            //    }
-
-            //    // Determine the direction that the character should be facing.
-            //    myLookDirection = m_LookSource.LookDirection(m_LookSource.LookPosition(), true, m_CharacterLayerManager.IgnoreInvisibleCharacterLayers, false);
-            //    myLocalLookDirection = m_Transform.InverseTransformDirection(myLookDirection);
-            //    myLocalLookDirection.y = 0;
-            //    myDeltaRotation = m_CharacterLocomotion.DeltaRotation;
-            //    myDeltaRotation.y = MathUtility.ClampInnerAngle(Quaternion.LookRotation(myLocalLookDirection.normalized, m_CharacterLocomotion.Up).eulerAngles.y);
-            //    m_CharacterLocomotion.DeltaRotation = myDeltaRotation;
-            //}
-            base.UpdateRotation();
+            if (bAllyDied == false /*&& bUpdateMyRotation*/ && myAimAbility != null && myAimAbility.IsActive == false)
+            {
+                // If the character can look indepdently then the character does not need to rotate to face the look direction.
+                if (m_CharacterLocomotion.ActiveMovementType.UseIndependentLook(true))
+                {
+                    return;
+                }
+                // Determine the direction that the character should be facing.
+                myLookDirection = m_LookSource.LookDirection(m_LookSource.LookPosition(), true, m_CharacterLayerManager.IgnoreInvisibleCharacterLayers, false);
+                myLocalLookDirection = m_Transform.InverseTransformDirection(myLookDirection);
+                myLocalLookDirection.y = 0;
+                myDeltaRotation = m_CharacterLocomotion.DeltaRotation;
+                myDeltaRotation.y = MathUtility.ClampInnerAngle(Quaternion.LookRotation(myLocalLookDirection.normalized, m_CharacterLocomotion.Up).eulerAngles.y);
+                m_CharacterLocomotion.DeltaRotation = myDeltaRotation;
+            }
+            //base.UpdateRotation();
         }
 
         public override void Awake()
@@ -132,15 +128,15 @@ namespace RTSPrototype
             m_LookSource = lookSource;
         }
 
-        void OnFreeMoving(bool _isFreeMoving)
-        {
-            bUpdateMyRotation = _isFreeMoving;
-        }
+        //void OnFreeMoving(bool _isFreeMoving)
+        //{
+        //    bUpdateMyRotation = _isFreeMoving;
+        //}
 
         protected virtual void OnAllyDeath(Vector3 position, Vector3 force, GameObject attacker)
         {
             bAllyDied = true;
-            bUpdateMyRotation = false;
+            //bUpdateMyRotation = false;
         }
         #endregion
     }
