@@ -6,11 +6,11 @@ using RTSCoreFramework;
 namespace RTSPrototype
 {
 	[TaskCategory("RPGPrototype/AllyMember")]
-	[TaskDescription("Stop The Ability Animation From Ability To Use.")]
+	[TaskDescription("Stop The Ability Animation From Ability To Use. Will Return Failure If Ability To Use is NULL.")]
 	public class StopSpecialAbilityAnimation : Action
 	{
 		#region Shared
-		public SharedObject AbilityToUse;
+		public SharedObject AbilityToUse;		
 		#endregion
 
 		#region Properties
@@ -43,9 +43,17 @@ namespace RTSPrototype
 		#region Overrides
 		public override TaskStatus OnUpdate()
 		{
-			var _behavior = allymember.GetAbilityBehavior(AbilityToUse.Value.GetType());
-			_behavior.StopAbilityAnimation();
-			return TaskStatus.Success;
+			if(AbilityToUse.Value != null)
+			{
+				var _behavior = allymember.GetAbilityBehavior(AbilityToUse.Value.GetType());
+				if (_behavior != null)
+				{
+					_behavior.StopAbilityAnimation();
+					return TaskStatus.Success;
+				}
+			}
+			//Ability is Null, Return Failure
+			return TaskStatus.Failure;
 		}
 		#endregion
 
