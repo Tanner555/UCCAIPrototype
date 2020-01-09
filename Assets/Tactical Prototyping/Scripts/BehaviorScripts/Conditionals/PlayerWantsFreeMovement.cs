@@ -3,6 +3,7 @@ using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 using RTSCoreFramework;
 using UnityStandardAssets.CrossPlatformInput;
+using Opsive.UltimateCharacterController.Character;
 
 namespace RTSPrototype
 {
@@ -16,6 +17,8 @@ namespace RTSPrototype
 		#endregion
 
 		#region Fields
+		protected string m_HorizontalInputName = "Horizontal";
+		protected string m_ForwardInputName = "Vertical";
 		private float myHorizontalMovement, myForwardMovement = 0.0f;
 		Vector3 myDirection = Vector3.zero;
 		#endregion
@@ -46,6 +49,19 @@ namespace RTSPrototype
 			}
 		}
 		AllyEventHandler _myEventhandler = null;
+
+		UltimateCharacterLocomotion m_Controller
+		{
+			get
+			{
+				if (_m_Controller == null)
+				{
+					_m_Controller = GetComponent<UltimateCharacterLocomotion>();
+				}
+				return _m_Controller;
+			}
+		}
+		private UltimateCharacterLocomotion _m_Controller = null;
 
 		bool bIsAlive => allyMember != null && allyMember.IsAlive;
 
@@ -82,8 +98,10 @@ namespace RTSPrototype
 				return TaskStatus.Failure;
 			}
 
-			myHorizontalMovement = CrossPlatformInputManager.GetAxis("Horizontal");
-            myForwardMovement = CrossPlatformInputManager.GetAxis("Vertical");
+			myHorizontalMovement = RTSPlayerInput.thisInstance.GetAxisRaw(m_HorizontalInputName);
+			myForwardMovement = RTSPlayerInput.thisInstance.GetAxisRaw(m_ForwardInputName);
+			//myHorizontalMovement = CrossPlatformInputManager.GetAxis("Horizontal");
+            //myForwardMovement = CrossPlatformInputManager.GetAxis("Vertical");
 			myDirection = Vector3.zero;
             myDirection.x = myHorizontalMovement;
             myDirection.z = myForwardMovement;
