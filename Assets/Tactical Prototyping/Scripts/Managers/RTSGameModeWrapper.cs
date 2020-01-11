@@ -64,9 +64,9 @@ namespace RTSPrototype
                     _thirdPersonCamera.InitializeAllyCharacter(_target);
                 }  
             }
-            else
+            else if(Camera.main == null)
             {
-                Debug.LogWarning("Can't set camera character because camera controller cannot be found");
+                Debug.LogWarning("No Main Camera In Scene.");
                 return;
             }
         }
