@@ -125,15 +125,15 @@ namespace RTSPrototype
         //}
         //private RTSNavBridge _myRTSNavBridge = null;
 
-        protected override bool AllCompsAreValid
-        {
-            get
-            {
-                return myRigidbodyTPC && myInventory /*&& itemHandler*/
-                    && myNavAgent /*&& myRTSNavBridge*/ && myEventHandler
-                    && allyMember;
-            }
-        }
+        //protected override bool AllCompsAreValid
+        //{
+        //    get
+        //    {
+        //        return myRigidbodyTPC && myInventory /*&& itemHandler*/
+        //            && myNavAgent /*&& myRTSNavBridge*/ && myEventHandler
+        //            && allyMember;
+        //    }
+        //}
 
         //public AllyMemberWrapper currentTargettedEnemyWrapper
         //{

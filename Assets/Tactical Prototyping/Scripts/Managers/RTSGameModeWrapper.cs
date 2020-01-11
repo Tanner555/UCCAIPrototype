@@ -66,7 +66,7 @@ namespace RTSPrototype
             }
             else
             {
-                Debug.LogError("Can't set camera character because camera controller cannot be found");
+                Debug.LogWarning("Can't set camera character because camera controller cannot be found");
                 return;
             }
         }
