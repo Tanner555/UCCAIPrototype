@@ -282,6 +282,22 @@ namespace RTSPrototype
             AllyBehaviorTree.SetVariableValue(BBName_AbilityToUse, _config);
         }
 
+        protected override void HandleOnTogglePause(bool _paused)
+        {
+            base.HandleOnTogglePause(_paused);
+            if (bUsingBehaviorTrees)
+            {
+                if (_paused)
+                {
+                    AllyBehaviorTree.DisableBehavior(true);
+                }
+                else
+                {
+                    AllyBehaviorTree.EnableBehavior();
+                }
+            }
+        }
+
         void OnDeath(Vector3 position, Vector3 force, GameObject attacker)
         {
             //TODO: RTSPrototype Check For Melee HitBox When Character Dies

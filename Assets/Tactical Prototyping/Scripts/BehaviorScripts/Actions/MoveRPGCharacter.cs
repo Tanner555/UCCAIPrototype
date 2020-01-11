@@ -107,6 +107,11 @@ namespace RTSPrototype
 			KinematicObjectManager.SetCharacterMovementInput(m_Controller.KinematicObjectIndex, MyMoveDirection.Value.x, MyMoveDirection.Value.z);
 			return TaskStatus.Success;
 		}
+
+		public override void OnPause(bool paused)
+		{
+			KinematicObjectManager.SetCharacterMovementInput(m_Controller.KinematicObjectIndex, 0, 0);
+		}
 		#endregion
 
 		#region Helpers

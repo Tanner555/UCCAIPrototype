@@ -14,6 +14,20 @@ namespace RTSPrototype
     public class RTSUpdateRotAbility : Opsive.UltimateCharacterController.Character.Abilities.Ability
     {
         #region Properties
+        RTSGameMaster gamemaster => RTSGameMaster.thisInstance;
+
+        Camera myCamera
+        {
+            get
+            {
+                if (_myCamera == null)
+                    _myCamera = Camera.main;
+
+                return _myCamera;
+            }
+        }
+        Camera _myCamera = null;
+
         AllyEventHandlerWrapper myEventHandler
         {
             get
@@ -48,6 +62,7 @@ namespace RTSPrototype
         private ILookSource m_LookSource;
 
         bool bAllyDied = false;
+        bool bIsPaused = false;
         //bool bUpdateMyRotation = true;
 
         //local stored vars
@@ -56,11 +71,11 @@ namespace RTSPrototype
         private Vector3 myDeltaRotation;
         #endregion
 
-        #region Overrides
+        #region Overrides        
         public override void UpdateRotation()
         {
             //Only Update Character's Rotation If FreeMoving Is Enabled And Aim Ability Isn't Active
-            if (bAllyDied == false /*&& bUpdateMyRotation*/ && myAimAbility != null && myAimAbility.IsActive == false)
+            if (bIsPaused == false && bAllyDied == false /*&& bUpdateMyRotation*/ && myAimAbility != null && myAimAbility.IsActive == false)
             {
                 // If the character can look indepdently then the character does not need to rotate to face the look direction.
                 if (m_CharacterLocomotion.ActiveMovementType.UseIndependentLook(true))
@@ -68,7 +83,8 @@ namespace RTSPrototype
                     return;
                 }
                 // Determine the direction that the character should be facing.
-                myLookDirection = m_LookSource.LookDirection(m_LookSource.LookPosition(), true, m_CharacterLayerManager.IgnoreInvisibleCharacterLayers, false);
+                //myLookDirection = m_LookSource.LookDirection(m_LookSource.LookPosition(), true, m_CharacterLayerManager.IgnoreInvisibleCharacterLayers, false);
+                myLookDirection = myCamera.transform.forward;
                 myLocalLookDirection = m_Transform.InverseTransformDirection(myLookDirection);
                 myLocalLookDirection.y = 0;
                 myDeltaRotation = m_CharacterLocomotion.DeltaRotation;
@@ -82,15 +98,14 @@ namespace RTSPrototype
         {
             base.Awake();
             // The look source may have already been assigned if the ability was added to the character after the look source was assigned.
-            m_LookSource = m_CharacterLocomotion.LookSource;
-
+            m_LookSource = m_CharacterLocomotion.LookSource;            
             uccEventHelper.RegisterOnCharacterAttachLookSource(m_GameObject, OnAttachLookSource);
+            m_CharacterLocomotion.StartCoroutine(AbilityStartedDelayCoroutine());
         }
 
         protected override void AbilityStarted()
         {
             base.AbilityStarted();
-            m_CharacterLocomotion.StartCoroutine(AbilityStartedDelayCoroutine());
         }
 
         IEnumerator AbilityStartedDelayCoroutine()
@@ -98,6 +113,9 @@ namespace RTSPrototype
             yield return new WaitForSeconds(0.5f);
             //myEventHandler.EventTogglebIsFreeMoving += OnFreeMoving;
             myEventHandler.EventAllyDied += OnAllyDeath;
+            gamemaster.OnTogglebIsInPauseControlMode += HandleGamePaused;
+            gamemaster.OnToggleIsGamePaused += HandleGamePaused;
+
             if (myAimAbility == null)
             {
                 Debug.LogError("Aim Ability is Not Found On RTSUpdateRotAbility");
@@ -105,8 +123,7 @@ namespace RTSPrototype
         }
 
         protected override void AbilityStopped(bool force)
-        {
-            myEventHandler.EventAllyDied -= OnAllyDeath;
+        {            
             //myEventHandler.EventTogglebIsFreeMoving -= OnFreeMoving;
             base.AbilityStopped(force);
         }
@@ -115,6 +132,9 @@ namespace RTSPrototype
         {
             base.OnDestroy();
             uccEventHelper.UnregisterOnCharacterAttachLookSource(m_GameObject, OnAttachLookSource);
+            myEventHandler.EventAllyDied -= OnAllyDeath;
+            gamemaster.OnTogglebIsInPauseControlMode -= HandleGamePaused;
+            gamemaster.OnToggleIsGamePaused -= HandleGamePaused;
         }
         #endregion
 
@@ -132,6 +152,11 @@ namespace RTSPrototype
         //{
         //    bUpdateMyRotation = _isFreeMoving;
         //}
+
+        void HandleGamePaused(bool _paused)
+        {
+            bIsPaused = _paused;
+        }
 
         protected virtual void OnAllyDeath(Vector3 position, Vector3 force, GameObject attacker)
         {
