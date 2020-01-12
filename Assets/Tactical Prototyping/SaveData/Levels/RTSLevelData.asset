@@ -34,10 +34,3 @@ MonoBehaviour:
     ScenarioSettingsList:
     - ScenarioName: Just Getting Started
       Scenario: 0
-  - LevelName: RTS Adventure
-    Level: 3
-    LevelBuildIndex: 3
-    LevelImage: {fileID: 0}
-    ScenarioSettingsList:
-    - ScenarioName: Just Getting Started
-      Scenario: 0
