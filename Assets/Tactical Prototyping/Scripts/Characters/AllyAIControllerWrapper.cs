@@ -298,6 +298,24 @@ namespace RTSPrototype
             }
         }
 
+        protected override void HandleOnTryScheduleSpecialAbility(System.Type _ability)
+        {
+            base.HandleOnTryScheduleSpecialAbility(_ability);
+            if (bUsingBehaviorTrees)
+            {
+                var _config = allyMember.GetAbilityConfig(_ability);
+                if (_config != null)
+                {
+                    AllyBehaviorTree.SetVariableValue(BBName_bTryUseAbility, true);
+                    AllyBehaviorTree.SetVariableValue(BBName_AbilityToUse, _config);
+                }
+                else
+                {
+                    Debug.LogWarning($"Couldn't Find Config Type {_ability} In Special Abilities.");
+                }
+            }
+        }
+
         void OnDeath(Vector3 position, Vector3 force, GameObject attacker)
         {
             //TODO: RTSPrototype Check For Melee HitBox When Character Dies

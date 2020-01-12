@@ -33,7 +33,7 @@ namespace RTSPrototype
 		public override TaskStatus OnUpdate()
 		{
 			AbilityAnimationTime.Value = ((AbilityConfig)AbilityToUse.Value).GetAbilityAnimationTime();
-			myEventHandler.CallOnTrySpecialAbility(AbilityToUse.Value.GetType());
+			myEventHandler.CallOnTryPerformSpecialAbility(AbilityToUse.Value.GetType());
 			return TaskStatus.Success;
 		}
 		#endregion

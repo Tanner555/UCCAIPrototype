@@ -39,11 +39,11 @@ namespace RTSPrototype
                     _appendedActionDictionary = base.IGBPI_Actions.AddRange(new Dictionary<string, RTSActionItem>
                     {
                         { "Self: Area of Effect", new RTSActionItem((_self, _ai, _target) =>
-                        { _self.allyEventHandler.CallOnTrySpecialAbility(typeof(AreaOfEffectConfigTPC)); },
+                        { _self.allyEventHandler.CallOnTryScheduleSpecialAbility(typeof(AreaOfEffectConfigTPC)); },
                         (_self, _ai, _target) => _self.CanUseAbility(typeof(AreaOfEffectConfigTPC)),
                         ActionFilters.Abilities, (_self, _ai, _target) => { })},
                         { "Self: Heal", new RTSActionItem((_self, _ai, _target) => 
-                        { _self.allyEventHandler.CallOnTrySpecialAbility(typeof(SelfHealConfigTPC)); },
+                        { _self.allyEventHandler.CallOnTryScheduleSpecialAbility(typeof(SelfHealConfigTPC)); },
                         (_self, _ai, _target) => _self.CanUseAbility(typeof(SelfHealConfigTPC)),
                         ActionFilters.Abilities, (_self, _ai, _target) => { })}
                     });
