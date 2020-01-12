@@ -8,10 +8,11 @@ using uccEventHelper = UtilitiesAndHelpersForUCC.UCCEventsControllerUtility;
 namespace RTSPrototype
 {
 	[TaskCategory("RPGPrototype/AllyMember")]
-	[TaskDescription("If Current Player and Not Targetting an Enemy, Attaches Look Source To Camera. Otherwise if Targetting Enemy, Attaches Look Source To Character.")]
+	[TaskDescription("If Current Player and Not Targetting an Enemy, Attaches Look Source To Camera. Otherwise if Targetting Enemy, Attaches Look Source To Character. SetTargetToNULL will set target to NULL, regardless of target value.")]
 	public class AttachAndSetLookTarget : Action
 	{
 		#region Shared
+		public SharedBool SetTargetToNULL;
 		public SharedBool bIsCurrentPlayer;
 		public SharedBool bTargetEnemy;
 		public SharedTransform CurrentTargettedEnemy;
@@ -61,7 +62,14 @@ namespace RTSPrototype
 				//uccEventHelper.CallOnCharacterAttachLookSource(this.gameObject, myLocalLookSource);
 				if (bTargetEnemy.Value)
 				{
-					myLocalLookSource.Target = CurrentTargettedEnemy.Value;
+					if (SetTargetToNULL.Value == false)
+					{
+						myLocalLookSource.Target = CurrentTargettedEnemy.Value;
+					}
+					else
+					{
+						myLocalLookSource.Target = null;
+					}
 				}
 				else
 				{

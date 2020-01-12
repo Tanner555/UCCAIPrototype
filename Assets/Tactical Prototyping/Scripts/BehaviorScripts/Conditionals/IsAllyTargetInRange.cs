@@ -10,6 +10,7 @@ namespace RTSPrototype
 	public class IsAllyTargetInRange : Conditional
 	{
 		#region Shared
+		public SharedBool bIsTargetTooClose;
 		public SharedTransform CurrentTargettedEnemy;
 		#endregion
 
@@ -61,10 +62,14 @@ namespace RTSPrototype
 		#region Overrides
 		public override TaskStatus OnUpdate()
 		{
+			//If Out of Range, You Won't Be Too Close To Target. Unless Ally has LOS with himself (bug).
+			bIsTargetTooClose.Value = false;
+
 			if (allyMember.bIsCarryingMeleeWeapon)
 			{
 				if (aiController.IsTargetInMeleeRange(CurrentTargettedEnemy.Value.gameObject))
 				{
+					CheckIfTargetIsTooClose();
 					return TaskStatus.Success;
 				}
 			}
@@ -73,11 +78,31 @@ namespace RTSPrototype
 				RaycastHit _hit;
 				if (aiController.hasLOSWithinRange(CurrentTargettedEnemyAlly, out _hit))
 				{
+					CheckIfTargetIsTooClose();
 					return TaskStatus.Success;
 				}
 			}
 			return TaskStatus.Failure;
 		}
 		#endregion
-	} 
+
+		#region Helpers
+		void CheckIfTargetIsTooClose()
+		{
+			if(allyMember.MinimumTargetRange >= allyMember.MaxMeleeAttackDistance)
+			{
+				Debug.LogError($"Minimum Target Range {allyMember.MinimumTargetRange} is Greater or Equal To MaxMeleeAttackDistance {allyMember.MaxMeleeAttackDistance}. Cannot Check If Target Is Too Close");
+				bIsTargetTooClose.Value = false;
+			}
+			else
+			{
+				float _distanceToTarget = (CurrentTargettedEnemy.Value.position - transform.position).magnitude;
+				if(_distanceToTarget <= allyMember.MinimumTargetRange)
+				{
+					bIsTargetTooClose.Value = true;
+				}
+			}
+		}
+		#endregion
+	}
 }
