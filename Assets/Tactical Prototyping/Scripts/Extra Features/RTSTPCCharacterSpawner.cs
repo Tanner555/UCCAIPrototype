@@ -202,8 +202,8 @@ namespace RTSPrototype
                     AbilityBuilder.AddAbility(characterLocomotion, typeof(RTSSelfHealAbility), 2);
                 }
                 //AbilityBuilder.SerializeAbilities(_characterLocomotion);
-                characterLocomotion.GetAbility<RTSNavMeshAgentMovement>().StartType = Abilities.Ability.AbilityStartType.Automatic;
-                characterLocomotion.GetAbility<RTSUpdateRotAbility>().StartType = Abilities.Ability.AbilityStartType.Automatic;
+                characterLocomotion.GetAbility<RTSNavMeshAgentMovement>().StartType = Abilities.Ability.AbilityStartType.Manual;
+                characterLocomotion.GetAbility<RTSUpdateRotAbility>().StartType = Abilities.Ability.AbilityStartType.Manual;
                 var _rTSAreaEffectAbility = characterLocomotion.GetAbility<RTSAreaEffectAbility>();
                 var _rTSSelfHealAbility = characterLocomotion.GetAbility<RTSSelfHealAbility>();
                 _rTSAreaEffectAbility.StartType = Abilities.Ability.AbilityStartType.Manual;
