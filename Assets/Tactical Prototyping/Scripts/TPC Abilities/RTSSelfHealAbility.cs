@@ -6,6 +6,9 @@ using Opsive.UltimateCharacterController.Character.Abilities;
 
 namespace RTSPrototype
 {
+    [DefaultStartType(AbilityStartType.Manual)]
+    [DefaultStopType(AbilityStopType.Manual)]
+    [DefaultAbilityIndex(202)]
     public class RTSSelfHealAbility : Ability
     {
         RTSGameMode gamemode

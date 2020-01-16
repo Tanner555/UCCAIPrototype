@@ -6,6 +6,9 @@ using Opsive.UltimateCharacterController.Character.Abilities;
 
 namespace RTSPrototype
 {
+    [DefaultStartType(AbilityStartType.Manual)]
+    [DefaultStopType(AbilityStopType.Manual)]
+    [DefaultAbilityIndex(201)]
     public class RTSAreaEffectAbility : Ability
     {
         RTSGameMode gamemode
