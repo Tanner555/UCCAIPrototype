@@ -8865,7 +8865,7 @@ MonoBehaviour:
   m_UpperBodyLayerIndex: 5
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 268435449
+    m_Bits: 201330177
   m_LookAtOffset: {x: 0, y: 0, z: 0}
   m_LookAtBodyWeight: 0.05
   m_LookAtHeadWeight: 0.425
