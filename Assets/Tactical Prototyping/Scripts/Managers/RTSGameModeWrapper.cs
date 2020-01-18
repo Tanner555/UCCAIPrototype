@@ -36,6 +36,19 @@ namespace RTSPrototype
         }
         #endregion
 
+        #region LayersAndTags
+        [Header("Extra Layer Properties")]
+        [SerializeField]
+        [Tooltip("Solid Object Layers When Including Character Layer")]
+        private LayerMask solidObjectCharIncludedLayers;
+        [SerializeField]
+        [Tooltip("Solid Object Layers When Excluding Character Layer")]
+        private LayerMask solidObjectCharExcludedLayers;
+
+        public LayerMask SolidObjectCharIncludedLayers => solidObjectCharIncludedLayers;
+        public LayerMask SolidObjectCharExcludedLayers => solidObjectCharExcludedLayers;
+        #endregion
+
         #region UIAndCameraProcessing
         /// <summary>
         /// TODO: RTSPrototype Fix SetCameraCharacter Method

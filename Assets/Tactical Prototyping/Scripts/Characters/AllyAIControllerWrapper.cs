@@ -7,6 +7,7 @@ using Opsive.UltimateCharacterController;
 using Opsive.UltimateCharacterController.Inventory;
 using Opsive.UltimateCharacterController.Character;
 using BehaviorDesigner.Runtime;
+using Chronos;
 
 namespace RTSPrototype
 {
@@ -335,6 +336,11 @@ namespace RTSPrototype
             }
             AllyBehaviorTree.enabled = false;
             myNavAgent.enabled = false;
+            var _timeline = GetComponent<Timeline>();
+            if(_timeline != null)
+            {
+                _timeline.enabled = false;                
+            }
             StopAllCoroutines();
             CancelInvoke();
             gameObject.layer = SingleDeadAllyLayer;

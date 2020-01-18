@@ -204,6 +204,13 @@ MonoBehaviour:
     m_Bits: 134219777
   singleAllyLayerName: Ally
   singleCurrentPlayerLayerName: CurrentPlayerAlly
+  singleDeadAllyLayerName: DeadAlly
+  solidObjectCharIncludedLayers:
+    serializedVersion: 2
+    m_Bits: 3355447297
+  solidObjectCharExcludedLayers:
+    serializedVersion: 2
+    m_Bits: 134221825
 --- !u!114 &114941602951163418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,12 +282,11 @@ MonoBehaviour:
   m_EnableGamplayInputEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Opsive.UltimateCharacterController.Events.UnityBoolEvent, Opsive.UltimateCharacterController,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_ForceInput: 0
   m_DisableCursor: 0
   m_EnableCursorWithEscape: 1
   m_PreventLookVectorChanges: 1
+  m_JoystickUpThreshold: 1
 --- !u!114 &114925828901233208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,3 +338,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68f4cd0af3c6401429350684fa4c8c42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bRemoveUpdateActionOnErrno: 1
+  bRemoveFixedUpdateActionOnErrno: 1
