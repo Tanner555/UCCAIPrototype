@@ -16,11 +16,13 @@ using Opsive.UltimateCharacterController.Character;
 using Opsive.UltimateCharacterController.Inventory;
 using Opsive.UltimateCharacterController.Character.Abilities.AI;
 using Opsive.UltimateCharacterController.Objects.CharacterAssist;
+#if UnityEditor
 using Opsive.UltimateCharacterController.Editor.Managers;
+#endif
 
 namespace RTSPrototype
 {
-    #region RTSTPCAnimatorClass
+#region RTSTPCAnimatorClass
     [System.Serializable]
     public class RTSTPCAnimatorProperties
     {
@@ -31,13 +33,13 @@ namespace RTSPrototype
         //public AnimatorItemStateData.AnimatorLayer AnimLayers;
         public bool IgnoreLowerPriority = false;
     }
-    #endregion
+#endregion
     /// <summary>
     /// TODO: RTSPrototype Fix RTSTPCCharacterSpawner Script
     /// </summary>
     public class RTSTPCCharacterSpawner : CharacterSpawner
     {
-        #region CharacterBuilderFields
+#region CharacterBuilderFields
         //CharacterBuilder Fields
         [Header("CharacterBuilder Fields")]
         [Tooltip("The animator controller that the character should use")]
@@ -49,9 +51,9 @@ namespace RTSPrototype
 
         string thirdPersonMovementType = "Opsive.UltimateCharacterController.ThirdPersonController.Character.MovementTypes.Combat";
         private UltimateCharacterLocomotion characterLocomotion;
-        #endregion
+#endregion
 
-        #region CharacterSetupFields
+#region CharacterSetupFields
         //Character Setup Fields
         [Header("Character Setup Fields")]
         [Header("Items To Be Added To Inventory")]
@@ -70,9 +72,9 @@ namespace RTSPrototype
         {
             get { return AllAllyComponentFieldsObject.AllyComponentSetupFields; }
         }
-        #endregion
+#endregion
 
-        #region ItemBuilderFields
+#region ItemBuilderFields
         [Header("Item Builder Fields")]
         [Header("Weapon Positions and Rotations")]
         public RTSTPCWeaponPositionObject WeaponPositionsObject;
@@ -89,9 +91,9 @@ namespace RTSPrototype
         {
             get { return SerializedAddableItem.AddableItems; }
         }
-        #endregion
+#endregion
 
-        #region InventoryClasses
+#region InventoryClasses
         /// <summary>
         /// Used For Quickly Adding Ranged Weapons On Character Setup
         /// </summary>
@@ -119,9 +121,9 @@ namespace RTSPrototype
             [Tooltip("A reference to the ItemType")]
             [SerializeField] public ItemType m_ItemType;
         }
-        #endregion
+#endregion
 
-        #region Properties
+#region Properties
         RTSGameModeWrapper gamemode
         {
             get { return RTSGameModeWrapper.thisInstance; }
@@ -131,9 +133,9 @@ namespace RTSPrototype
         {
             get { return RTSGameMasterWrapper.thisInstance; }
         }
-        #endregion
+#endregion
 
-        #region CharacterBuilder_BuildCharacter
+#region CharacterBuilder_BuildCharacter
         protected override IEnumerator CharacterBuilder_BuildCharacter()
         {
             yield return new WaitForSeconds(0.05f);
@@ -161,9 +163,9 @@ namespace RTSPrototype
                 }
             }
         }
-        #endregion
+#endregion
 
-        #region CharacterSetup_SetupCharacter
+#region CharacterSetup_SetupCharacter
         protected override IEnumerator CharacterSetup_SetupCharacter()
         {
             yield return new WaitForSeconds(0f);
@@ -214,9 +216,9 @@ namespace RTSPrototype
                 _rTSSelfHealAbility.AbilityIndexParameter = 202;
             }
         }
-        #endregion
+#endregion
 
-        #region ItemBuilder_BuildItem
+#region ItemBuilder_BuildItem
         protected override IEnumerator ItemBuilder_BuildItem()
         {
             yield return new WaitForSeconds(0f);
@@ -280,9 +282,9 @@ namespace RTSPrototype
                 }
             }
         }
-        #endregion
+#endregion
 
-        #region CharacterBuilder_UpdateCharacter
+#region CharacterBuilder_UpdateCharacter
         protected override IEnumerator CharacterBuilder_UpdateCharacter()
         {
             yield return new WaitForSeconds(0f);
@@ -307,9 +309,9 @@ namespace RTSPrototype
             //DestroyUnNeededTPCBehaviours();
 
         }
-        #endregion
+#endregion
 
-        #region CharacterSetup_UpdateCharacterSetup
+#region CharacterSetup_UpdateCharacterSetup
         protected override IEnumerator CharacterSetup_UpdateCharacterSetup()
         {
             if (AllySpecificComponentsToSetUp.bBuildCharacterCompletely == false)
@@ -400,9 +402,9 @@ namespace RTSPrototype
                 Debug.Log("Finish Building Character For Now........");
             }
         }
-        #endregion
+#endregion
 
-        #region CharacterBuilderHelpers
+#region CharacterBuilderHelpers
         void DestroyUnNeededTPCBehaviours()
         {
             //var _inventoryHandler = spawnedGameObject.GetComponent<InventoryHandler>();
@@ -426,9 +428,9 @@ namespace RTSPrototype
             //    Destroy(_input);
 
         }
-        #endregion
+#endregion
 
-        #region CharacterSetupHelpers
+#region CharacterSetupHelpers
         /// <summary>
         /// Used To Add All Abilties Needed In Both Event Calls
         /// </summary>
@@ -496,9 +498,9 @@ namespace RTSPrototype
         //    }
         //    return false;
         //}
-        #endregion
+#endregion
 
-        #region ItemBuilderHelpers
+#region ItemBuilderHelpers
         private bool AddableItemHasSpecificPosition(ItemType _itemType, out Vector3 _position, out Vector3 _rotation)
         {
             _position = Vector3.zero;
@@ -527,6 +529,6 @@ namespace RTSPrototype
             child.transform.localEulerAngles = _eulerRotation;
             return child;
         }
-        #endregion
+#endregion
     }
 }
