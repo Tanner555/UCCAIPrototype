@@ -39,7 +39,8 @@ MonoBehaviour:
     EnemyHighlightColor: {r: 1, g: 0, b: 0, a: 1}
     WaypointRendererMaterial: {fileID: 2100000, guid: 6d824634677c23d40b27f91a5aef6ce7,
       type: 2}
-    BloodParticles: {fileID: 100002, guid: 5f838a7bcf706ac4eb5b5cf801119898, type: 2}
+    BloodParticles: {fileID: 1001947409280332, guid: b9795bac62579ec4588f8e2bae635284,
+      type: 3}
     bUseBehaviourTrees: 1
     allAlliesDefaultBehaviourTree: {fileID: 11400000, guid: c6ee4667eac7b1b40b071f21cf5eb693,
       type: 2}

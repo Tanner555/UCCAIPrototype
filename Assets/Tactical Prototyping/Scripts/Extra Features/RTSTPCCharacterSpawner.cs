@@ -389,7 +389,7 @@ namespace RTSPrototype
                 //spawnedGameObject.AddComponent<RTSNavBridge>();
                 spawnedGameObject.AddComponent<RTSItemAndControlHandler>();
                 //spawnedGameObject.AddComponent<AllyTacticsController>();
-                spawnedGameObject.AddComponent<AllyVisuals>();
+                spawnedGameObject.AddComponent<AllyVisualsWrapper>();
 
                 //Call Ally Init Comps Event
                 var _eventHandler = spawnedGameObject.GetComponent<AllyEventHandler>();

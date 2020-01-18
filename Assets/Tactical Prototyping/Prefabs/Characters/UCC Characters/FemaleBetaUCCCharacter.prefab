@@ -9830,7 +9830,7 @@ MonoBehaviour:
   m_AllowAttackCombos: 1
   m_ImpactLayers:
     serializedVersion: 2
-    m_Bits: 3758096345
+    m_Bits: 0
   m_DamageAmount: 10
   m_ImpactForce: 2
   m_ImpactForceFrames: 15

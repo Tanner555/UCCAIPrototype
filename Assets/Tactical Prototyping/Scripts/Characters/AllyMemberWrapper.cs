@@ -208,6 +208,7 @@ namespace RTSPrototype
         public override void AllyTakeDamage(int _amount, Vector3 _position, Vector3 _force, AllyMember _instigator, GameObject _hitGameObject, Collider _hitCollider)
         {
             base.AllyTakeDamage(_amount, _position, _force, _instigator, _hitGameObject, _hitCollider);
+            allyEventHandler.CallOnAllyAfterTakeDamage(_amount, _position, _force, _instigator, _hitCollider);
             if (bIsCurrentPlayer)
             {
                 uccEventHelper.CallOnHealthDamage(gameObject, _amount, _position, _force, _instigator.gameObject, _hitCollider);
@@ -225,6 +226,7 @@ namespace RTSPrototype
             Vector3 _position = ChestTransform.position;
             Vector3 _force = Vector3.zero;
             Collider _hitCollider = gameObject.GetComponentInChildren<Collider>();
+            allyEventHandler.CallOnAllyAfterTakeDamage(amount, _position, _force, _instigator, _hitCollider);
             if (bIsCurrentPlayer)
             {
                 uccEventHelper.CallOnHealthDamage(gameObject, amount, _position, _force, _instigator.gameObject, _hitCollider);
