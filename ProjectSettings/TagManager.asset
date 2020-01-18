@@ -21,7 +21,7 @@ TagManager:
   - CurrentPlayerAlly
   - Cover
   - IgnoreRaycastWithColliders
-  - 
+  - DeadAlly
   - 
   - 
   - 

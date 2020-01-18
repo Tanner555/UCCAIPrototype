@@ -333,8 +333,11 @@ namespace RTSPrototype
             {
                 AllyBehaviorTree.DisableBehavior();
             }
+            AllyBehaviorTree.enabled = false;
+            myNavAgent.enabled = false;
             StopAllCoroutines();
             CancelInvoke();
+            gameObject.layer = SingleDeadAllyLayer;
             this.enabled = false;
         }
 
