@@ -104,13 +104,20 @@ namespace RTSPrototype
 			//SetForwardAndTurn(MyMoveDirection.Value);
 			//ApplyExtraTurnRotation();
 			//UpdateAnimator();
-			KinematicObjectManager.SetCharacterMovementInput(m_Controller.KinematicObjectIndex, MyMoveDirection.Value.x, MyMoveDirection.Value.z);
-			return TaskStatus.Success;
+			if (m_Controller != null)
+			{
+				KinematicObjectManager.SetCharacterMovementInput(m_Controller.KinematicObjectIndex, MyMoveDirection.Value.x, MyMoveDirection.Value.z);
+				return TaskStatus.Success;
+			}
+			return TaskStatus.Failure;
 		}
 
 		public override void OnPause(bool paused)
 		{
-			KinematicObjectManager.SetCharacterMovementInput(m_Controller.KinematicObjectIndex, 0, 0);
+			if (m_Controller != null)
+			{
+				KinematicObjectManager.SetCharacterMovementInput(m_Controller.KinematicObjectIndex, 0, 0);
+			}
 		}
 		#endregion
 
