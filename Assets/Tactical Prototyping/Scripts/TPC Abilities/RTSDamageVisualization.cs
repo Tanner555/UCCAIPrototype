@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using RTSCoreFramework;
 using Opsive.UltimateCharacterController.Character.Abilities;
+using Chronos;
 
 namespace RTSPrototype
 {
-    /// <summary>
-    /// TODO: RTSPrototype Fix RTSDamageVisualization Ability
-    /// </summary>
     [DefaultStartType(AbilityStartType.Manual)]
     [DefaultStopType(AbilityStopType.Manual)]
     [DefaultAbilityIndex(203)]
@@ -27,7 +25,17 @@ namespace RTSPrototype
         }
         AllyEventHandler _myEventHandler = null;
 
-        public override bool IsConcurrent => true;        
+        Timeline myTimeline
+        {
+            get
+            {
+                if (_myTimeline == null)
+                    _myTimeline = GetComponent<Timeline>();
+
+                return _myTimeline;
+            }
+        }
+        Timeline _myTimeline = null;
         #endregion
 
         #region Fields
@@ -35,8 +43,10 @@ namespace RTSPrototype
         string damageReactRight = "DamageReactRight";
         string damageReactGut = "DamageReactGut";
 
+        int m_TakeDamageIndex = -1;
+
         float largeDamageAmount = 80f;
-        float damageTime = 0.8f;
+        float damageTime = 1.5f;
 
         enum RTSDamageType { DamageReactLeft = 0, DamageReactRight = 1, DamageReactGut = 2 }
         RTSDamageType m_DamageType = RTSDamageType.DamageReactLeft;
@@ -72,78 +82,73 @@ namespace RTSPrototype
         #endregion
 
         #region Overrides
+        public override bool IsConcurrent => true;
+        public override int AbilityIntData { get { return m_TakeDamageIndex; } }
+
         public override bool CanStartAbility()
         {
             return base.CanStartAbility() && this.IsActive == false;
         }
-
-        /// <summary>
-        /// Returns the destination state for the given layer.
-        /// </summary>
-        /// <param name="layer">The Animator layer index.</param>
-        /// <returns>The state that the Animator should be in for the given layer. An empty string indicates no change.</returns>
-        //public override string GetDestinationState(int layer)
-        //{
-        //    // Only the additive layer can play a damage animation.
-        //    if (layer != m_AnimatorMonitor.AdditiveLayerIndex)
-        //    {
-        //        return string.Empty;
-        //    }
-
-        //    return GetAbilityStringFromDamageType();
-        //}
-
-        /// <summary>
-        /// Can this ability run at the same time as another ability?
-        /// </summary>
-        /// <returns>True if this ability can run with another ability.</returns>
-        //public override bool IsConcurrentAbility()
-        //{
-        //    return true;
-        //}
-
-        /// <summary>
-        /// Should IK at the specified layer be used?
-        /// </summary>
-        /// <param name="layer">The IK layer in question.</param>
-        /// <returns>True if the IK should be used.</returns>
-        //public override bool CanUseIK(int layer)
-        //{
-        //    return false;
-        //}
         #endregion
 
         #region Handlers
         /// <summary>
         /// The character took some damage at the specified position. Apply the animation in direction of the damage.
         /// </summary>
-        /// <param name="amount">The total amount of damage inflicted on the character.</param>
-        /// <param name="position">The position that the character took the damage.</param>
-        /// <param name="force">The amount of force applied to the object while taking the damage.</param>
-        /// <param name="attacker">The GameObject that did the damage.</param>
         private void TookDamage(int amount, Vector3 position, Vector3 force, AllyMember _instigator, Collider hitCollider)
-        {        
-            //if (amount >= largeDamageAmount)
-            //{
-            //    m_DamageType = RTSDamageType.DamageReactGut;
-            //}
-            
-            //StartAbility();
-            //Invoke("DamageVisualizationComplete", damageTime);
+        {
+            if (CanStartAbility() == false) return;
+
+            if (amount >= largeDamageAmount)
+            {
+                m_DamageType = RTSDamageType.DamageReactGut;
+            }
+            else
+            {
+                m_DamageType = damageIsLeft ? RTSDamageType.DamageReactLeft : RTSDamageType.DamageReactRight;
+            }
+
+            m_TakeDamageIndex = GetDamageIndexFromType(m_DamageType);
+
+            StartAbility();
+            m_CharacterLocomotion.StartCoroutine(DamageVisualizationComplete());            
         }
 
         /// <summary>
         /// Callback when the animation is complete. Stop the ability.
         /// </summary>
-        private void DamageVisualizationComplete()
+        IEnumerator DamageVisualizationComplete()
         {
+            if (myTimeline != null)
+            {
+                yield return myTimeline.WaitForSeconds(damageTime);
+            }
+            else
+            {
+                Debug.LogWarning("Timeline Not Found From RTSDamageVisualization.");
+                yield return new WaitForSeconds(damageTime);
+            }
             ToggleDamageIsLeft();
-            m_DamageType = damageIsLeft ? RTSDamageType.DamageReactLeft : RTSDamageType.DamageReactRight;
             StopAbility();
         }
         #endregion
 
         #region GettersAndToggles
+        int GetDamageIndexFromType(RTSDamageType _type)
+        {
+            switch (_type)
+            {
+                case RTSDamageType.DamageReactLeft:
+                    return 0;
+                case RTSDamageType.DamageReactRight:
+                    return 1;
+                case RTSDamageType.DamageReactGut:
+                    return 2;
+                default:
+                    return -1;
+            }
+        }
+
         string GetAbilityStringFromDamageType()
         {
             switch (m_DamageType)
