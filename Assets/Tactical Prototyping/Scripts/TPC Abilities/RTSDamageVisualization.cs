@@ -4,6 +4,7 @@ using UnityEngine;
 using RTSCoreFramework;
 using Opsive.UltimateCharacterController.Character.Abilities;
 using Chronos;
+using Opsive.UltimateCharacterController.Audio;
 
 namespace RTSPrototype
 {
@@ -39,6 +40,10 @@ namespace RTSPrototype
         #endregion
 
         #region Fields
+        [SerializeField]
+        AudioClipSet damageSounds = new AudioClipSet();
+        AudioSource damageSoundSource;
+
         string damageReactLeft = "DamageReactLeft";
         string damageReactRight = "DamageReactRight";
         string damageReactGut = "DamageReactGut";
@@ -97,6 +102,12 @@ namespace RTSPrototype
         /// </summary>
         private void TookDamage(int amount, Vector3 position, Vector3 force, AllyMember _instigator, Collider hitCollider)
         {
+            if(damageSoundSource != null && damageSoundSource.isPlaying)
+            {
+                damageSoundSource.Stop();
+            }
+            damageSoundSource = damageSounds.PlayAudioClip(m_GameObject);
+
             if (CanStartAbility() == false) return;
 
             if (amount >= largeDamageAmount)
@@ -129,6 +140,10 @@ namespace RTSPrototype
                 yield return new WaitForSeconds(damageTime);
             }
             ToggleDamageIsLeft();
+            if (damageSoundSource != null && damageSoundSource.isPlaying)
+            {
+                damageSoundSource.Stop();
+            }
             StopAbility();
         }
         #endregion
