@@ -9,6 +9,9 @@ namespace RTSPrototype
     /// <summary>
     /// TODO: RTSPrototype Fix RTSDamageVisualization Ability
     /// </summary>
+    [DefaultStartType(AbilityStartType.Manual)]
+    [DefaultStopType(AbilityStopType.Manual)]
+    [DefaultAbilityIndex(203)]
     public class RTSDamageVisualization : Ability
     {
         #region Properties
@@ -23,6 +26,8 @@ namespace RTSPrototype
             }
         }
         AllyEventHandler _myEventHandler = null;
+
+        public override bool IsConcurrent => true;        
         #endregion
 
         #region Fields
@@ -43,21 +48,35 @@ namespace RTSPrototype
         /// <summary>
         /// Register for any events that the ability should be aware of.
         /// </summary>
-        private void OnEnable()
+        public override void Awake()
         {
-            //myEventHandler.OnAllyTakeDamage += TookDamage;
+            m_CharacterLocomotion.StartCoroutine(AbilityStartedDelayCoroutine());
+        }
+
+        IEnumerator AbilityStartedDelayCoroutine()
+        {
+            yield return new WaitForSeconds(0.5f);
+            myEventHandler.OnAllyAfterTakeDamage += TookDamage;
         }
 
         /// <summary>
         /// Unregister for any events that the ability was registered for.
-        /// </summary>
-        private void OnDisable()
+        /// </summary> 
+        public override void OnDestroy()
         {
-            //myEventHandler.OnAllyTakeDamage -= TookDamage;
+            if (myEventHandler != null)
+            {
+                myEventHandler.OnAllyAfterTakeDamage -= TookDamage;
+            }
         }
         #endregion
 
         #region Overrides
+        public override bool CanStartAbility()
+        {
+            return base.CanStartAbility() && this.IsActive == false;
+        }
+
         /// <summary>
         /// Returns the destination state for the given layer.
         /// </summary>
@@ -102,13 +121,13 @@ namespace RTSPrototype
         /// <param name="position">The position that the character took the damage.</param>
         /// <param name="force">The amount of force applied to the object while taking the damage.</param>
         /// <param name="attacker">The GameObject that did the damage.</param>
-        private void TookDamage(int amount, Vector3 position, Vector3 force, AllyMember _instigator, GameObject hitGameObject, Collider hitCollider)
-        {
+        private void TookDamage(int amount, Vector3 position, Vector3 force, AllyMember _instigator, Collider hitCollider)
+        {        
             //if (amount >= largeDamageAmount)
             //{
             //    m_DamageType = RTSDamageType.DamageReactGut;
             //}
-
+            
             //StartAbility();
             //Invoke("DamageVisualizationComplete", damageTime);
         }

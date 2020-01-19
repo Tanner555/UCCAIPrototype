@@ -132,9 +132,12 @@ namespace RTSPrototype
         {
             base.OnDestroy();
             uccEventHelper.UnregisterOnCharacterAttachLookSource(m_GameObject, OnAttachLookSource);
-            if (myEventHandler != null && gamemaster != null)
+            if (myEventHandler != null)
             {
                 myEventHandler.EventAllyDied -= OnAllyDeath;
+            }
+            if(gamemaster != null)
+            {
                 gamemaster.OnTogglebIsInPauseControlMode -= HandleGamePaused;
                 gamemaster.OnToggleIsGamePaused -= HandleGamePaused;
             }

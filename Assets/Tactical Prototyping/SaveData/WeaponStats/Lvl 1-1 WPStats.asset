@@ -20,7 +20,7 @@ MonoBehaviour:
     DamageRate: 20
     Accuracy: 25
     AttackRate: 1
-    MeleeAttackDistance: 4
+    MeleeAttackDistance: 3
   - name: Knife
     WeaponType: 1
     WeaponUsage: 0
@@ -28,7 +28,7 @@ MonoBehaviour:
     DamageRate: 20
     Accuracy: 35
     AttackRate: 1
-    MeleeAttackDistance: 4
+    MeleeAttackDistance: 3
   - name: Pistol
     WeaponType: 2
     WeaponUsage: 1
@@ -68,7 +68,7 @@ MonoBehaviour:
     DamageRate: 20
     Accuracy: 35
     AttackRate: 1
-    MeleeAttackDistance: 4
+    MeleeAttackDistance: 3
   - name: Crossbow
     WeaponType: 7
     WeaponUsage: 1
@@ -84,4 +84,4 @@ MonoBehaviour:
     DamageRate: 20
     Accuracy: 35
     AttackRate: 1
-    MeleeAttackDistance: 4
+    MeleeAttackDistance: 3
