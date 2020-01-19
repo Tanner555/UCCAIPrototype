@@ -195,16 +195,24 @@ MonoBehaviour:
     m_Bits: 3221227008
   sightLayers:
     serializedVersion: 2
-    m_Bits: 3422555649
+    m_Bits: 3422572033
   sightNoCurrentPlayerLayers:
     serializedVersion: 2
     m_Bits: 3422554625
+  sightAndFriendLayers:
+    serializedVersion: 2
+    m_Bits: 16385
+  sightAndEnemyLayers:
+    serializedVersion: 2
+    m_Bits: 67108865
   ignoreInvisibleLayersAndAllies:
     serializedVersion: 2
     m_Bits: 134219777
   singleAllyLayerName: Ally
   singleCurrentPlayerLayerName: CurrentPlayerAlly
   singleDeadAllyLayerName: DeadAlly
+  singleFriendLayerName: Friend
+  singleEnemyLayerName: Enemy
   solidObjectCharIncludedLayers:
     serializedVersion: 2
     m_Bits: 3355447297

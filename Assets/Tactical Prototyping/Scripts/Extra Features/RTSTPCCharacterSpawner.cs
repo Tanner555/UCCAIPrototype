@@ -16,6 +16,7 @@ using Opsive.UltimateCharacterController.Character;
 using Opsive.UltimateCharacterController.Inventory;
 using Opsive.UltimateCharacterController.Character.Abilities.AI;
 using Opsive.UltimateCharacterController.Objects.CharacterAssist;
+using Opsive.UltimateCharacterController.Game;
 #if UnityEditor
 using Opsive.UltimateCharacterController.Editor.Managers;
 #endif
@@ -377,6 +378,33 @@ namespace RTSPrototype
                     _spotlight.transform.localEulerAngles = AllAllyComponentFields.AllyIndicatorSpotlightRotation;
                     AllySpecificComponentsToSetUp.AllyIndicatorSpotlightInstance = _spotlight;
                     _spotlight.GetComponent<Light>().enabled = false;
+                }
+
+                //Build Friend/Enemy HitScan Collider
+                GameObject _EnemyEasyHitColliderGObject = new GameObject("EnemyEasyHitCollider");
+                _EnemyEasyHitColliderGObject.transform.parent = spawnedGameObject.transform;
+                _EnemyEasyHitColliderGObject.transform.localPosition = Vector3.zero;
+                _EnemyEasyHitColliderGObject.transform.localEulerAngles = Vector3.zero;
+                BoxCollider __EnemyEasyHitCollider = _EnemyEasyHitColliderGObject.AddComponent<BoxCollider>();
+                __EnemyEasyHitCollider.isTrigger = true;
+                __EnemyEasyHitCollider.gameObject.layer = gamemode.SingleFriendLayer;
+                bool _hasFoundCapsuleCollider = false;
+                foreach (CapsuleCollider _collider in spawnedGameObject.GetComponentsInChildren<CapsuleCollider>())
+                {
+                    if(_collider.gameObject.layer == LayerManager.Character &&
+                        _collider.gameObject.name == "CapsuleCollider")
+                    {
+                        _hasFoundCapsuleCollider = true;
+                        __EnemyEasyHitCollider.center = _collider.center;
+                        __EnemyEasyHitCollider.size = new Vector3(_collider.radius, _collider.height / 2, _collider.radius);
+                        break;
+                    }
+                }
+                if(_hasFoundCapsuleCollider == false)
+                {
+                    //Set Manually
+                    __EnemyEasyHitCollider.center = new Vector3(0, 1, 0);
+                    __EnemyEasyHitCollider.size = new Vector3(0.4f, 1f, 0.4f);
                 }
 
                 // Wait For 0.05 Seconds

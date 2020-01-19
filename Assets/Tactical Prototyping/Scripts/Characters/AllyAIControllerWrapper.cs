@@ -19,6 +19,54 @@ namespace RTSPrototype
         #endregion
 
         #region Properties
+        LayerMask singleFriendLayer
+        {
+            get
+            {
+                if(_singleFriendLayer == -1)
+                {
+                    _singleFriendLayer = gamemode.SingleFriendLayer;
+                }
+                return _singleFriendLayer;
+            }
+        }
+        LayerMask _singleFriendLayer = -1;
+
+        LayerMask singleEnemyLayer
+        {
+            get
+            {
+                if (_singleEnemyLayer == -1)
+                {
+                    _singleEnemyLayer = gamemode.SingleEnemyLayer;
+                }
+                return _singleEnemyLayer;
+            }
+        }
+        LayerMask _singleEnemyLayer = -1;
+
+
+        BoxCollider EnemyEasyHitCollider
+        {
+            get
+            {
+                if(_EnemyEasyHitCollider == null)
+                {
+                    foreach (BoxCollider _col in GetComponentsInChildren<BoxCollider>())
+                    {
+                        if((_col.gameObject.layer == singleFriendLayer ||
+                            _col.gameObject.layer == singleEnemyLayer))
+                        {
+                            _EnemyEasyHitCollider = _col;
+                            break;
+                        }
+                    }                    
+                }
+                return _EnemyEasyHitCollider;
+            }
+        }
+        BoxCollider _EnemyEasyHitCollider = null;
+
         BehaviorTree AllyBehaviorTree
         {
             get
@@ -223,6 +271,8 @@ namespace RTSPrototype
 
         private void AllySwitchHelper(bool _allyInCommand, bool _isCurrentPlayer, bool _inCommanderParty)
         {
+            EnemyEasyHitCollider.gameObject.layer = _inCommanderParty ?
+                singleFriendLayer : singleEnemyLayer;
             if (bUsingBehaviorTrees && AllyBehaviorTree != null)
             {
                 AllyBehaviorTree.SetVariableValue(BBName_bIsAllyInCommand, _allyInCommand);
@@ -464,7 +514,7 @@ namespace RTSPrototype
             AllyBehaviorTree.SetVariableValue(BBName_MyNavDestination, Vector3.zero);
             myNavAgent.SetDestination(transform.position);
             myNavAgent.velocity = Vector3.zero;
-        }
+        }        
 
         public override void ResetTargetting()
         {
