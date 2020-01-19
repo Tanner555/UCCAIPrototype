@@ -391,6 +391,10 @@ namespace RTSPrototype
             {
                 _timeline.enabled = false;                
             }
+            if(EnemyEasyHitCollider != null)
+            {
+                EnemyEasyHitCollider.enabled = false;
+            }
             StopAllCoroutines();
             CancelInvoke();
             gameObject.layer = SingleDeadAllyLayer;
