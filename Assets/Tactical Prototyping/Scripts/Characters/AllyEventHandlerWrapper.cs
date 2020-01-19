@@ -9,6 +9,7 @@ using Opsive.UltimateCharacterController.Items;
 using Opsive.UltimateCharacterController.Items.Actions;
 using uccEventHelper = UtilitiesAndHelpersForUCC.UCCEventsControllerUtility;
 using BehaviorDesigner.Runtime;
+using Opsive.UltimateCharacterController.Audio;
 
 namespace RTSPrototype
 {
@@ -29,6 +30,11 @@ namespace RTSPrototype
         public ItemType AxeType;
         public ItemType CrossbowType;
         public ItemType KatanaType;
+        [Header("Sounds")]
+        [SerializeField]
+        public AudioClipSet damageSounds = new AudioClipSet();
+        [SerializeField]
+        public AudioClipSet deathSounds = new AudioClipSet();
     }
     #endregion
 

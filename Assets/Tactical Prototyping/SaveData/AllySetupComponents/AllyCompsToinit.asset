@@ -62,3 +62,24 @@ MonoBehaviour:
       type: 2}
     KatanaType: {fileID: 114544757700045432, guid: 5481010ef14c32f4cb7b6661b0c59fb4,
       type: 2}
+    damageSounds:
+      m_Delay: 0
+      m_AudioClips:
+      - {fileID: 8300000, guid: 58f6e0433963f4d4eae7658d1700744a, type: 3}
+      - {fileID: 8300000, guid: 0a6d3ebe55077d145bdf19b575ab7641, type: 3}
+      - {fileID: 8300000, guid: 8856fca3ffec6be42b58b0f4281a2e9f, type: 3}
+      - {fileID: 8300000, guid: b6c41755406a4ec48a0ab2e2c29d1b20, type: 3}
+      - {fileID: 8300000, guid: d1d600442a5b8f2418fa04d27bda6565, type: 3}
+      - {fileID: 8300000, guid: dc0f1ebad6886f946bc3e79240f96110, type: 3}
+      - {fileID: 8300000, guid: 1b5e397deef14c04aac51a1b1e930f7d, type: 3}
+      - {fileID: 8300000, guid: f898501ccf4b45149aedc70b505b7de6, type: 3}
+      - {fileID: 8300000, guid: adea7a02f61633349a092b11c1b72509, type: 3}
+      - {fileID: 8300000, guid: e941e45c37873f84bbb004ae5ceb9a1f, type: 3}
+    deathSounds:
+      m_Delay: 0
+      m_AudioClips:
+      - {fileID: 8300000, guid: d2281ffed63dddb43a08a86ba0779112, type: 3}
+      - {fileID: 8300000, guid: a07deb56d07075b408c7bc5227863062, type: 3}
+      - {fileID: 8300000, guid: 22abbe2a8245f844fbe8ec40f684a32b, type: 3}
+      - {fileID: 8300000, guid: 20ec4e81eb3fcb74799149848b3d0470, type: 3}
+      - {fileID: 8300000, guid: 1bb13271ca2c16e44b5c68cd6d212d53, type: 3}
