@@ -50,10 +50,6 @@ namespace RTSPrototype
         #endregion
 
         #region UIAndCameraProcessing
-        /// <summary>
-        /// TODO: RTSPrototype Fix SetCameraCharacter Method
-        /// </summary>
-        /// <param name="_targetCore"></param>
         protected override void SetCameraCharacter(AllyMember _targetCore)
         {
             AllyMemberWrapper _target = (AllyMemberWrapper)_targetCore;

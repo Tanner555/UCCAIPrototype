@@ -6,9 +6,6 @@ using Opsive.UltimateCharacterController.Character.Abilities;
 
 namespace RTSPrototype
 {
-    /// <summary>
-    /// TODO: RTSPrototype Fix RTSHeightChange Ability
-    /// </summary>
     public class RTSHeightChange : HeightChange
     {
         RTSGameMode gamemode
