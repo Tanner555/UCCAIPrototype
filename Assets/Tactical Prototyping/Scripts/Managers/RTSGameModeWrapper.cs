@@ -56,22 +56,23 @@ namespace RTSPrototype
             base.SetCameraCharacter(_target);
             if (Camera.main && Camera.main.GetComponent<RTSCameraController>())
             {
-                var _thirdPersonCamera = Camera.main.GetComponent<RTSCameraController>();
-                if (_thirdPersonCamera.Character != _target.gameObject)
-                {
-                    _thirdPersonCamera.Character = _target.gameObject;
-                    //if (_target.ChestTransform != null)
-                    //    _thirdPersonCamera.FadeTransform = _target.ChestTransform;
-                    //else
-                    //    _thirdPersonCamera.FadeTransform = null;
-                    //if (_target.HeadTransform != null)
-                    //    _thirdPersonCamera.DeathAnchor = _target.HeadTransform;
-                    //else
-                    //    _thirdPersonCamera.DeathAnchor = null;
+                Debug.Log("Removed RTSCameraController Functionality For Now");
+                //var _thirdPersonCamera = Camera.main.GetComponent<RTSCameraController>();
+                //if (_thirdPersonCamera.Character != _target.gameObject)
+                //{
+                //    _thirdPersonCamera.Character = _target.gameObject;
+                //    //if (_target.ChestTransform != null)
+                //    //    _thirdPersonCamera.FadeTransform = _target.ChestTransform;
+                //    //else
+                //    //    _thirdPersonCamera.FadeTransform = null;
+                //    //if (_target.HeadTransform != null)
+                //    //    _thirdPersonCamera.DeathAnchor = _target.HeadTransform;
+                //    //else
+                //    //    _thirdPersonCamera.DeathAnchor = null;
 
-                    //Initialize Character on Modified Camera Controller
-                    _thirdPersonCamera.InitializeAllyCharacter(_target);
-                }  
+                //    //Initialize Character on Modified Camera Controller
+                //    _thirdPersonCamera.InitializeAllyCharacter(_target);
+                //}  
             }
             else if(Camera.main == null)
             {

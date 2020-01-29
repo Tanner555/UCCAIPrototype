@@ -12,6 +12,7 @@ namespace RTSPrototype
 {
     public class RTSCameraHandler : CameraControllerHandler
     {
+        /*
         #region RTSFieldsAndProps
         RTSGameMaster gamemaster
         {
@@ -109,6 +110,6 @@ namespace RTSPrototype
         #endregion
 
 
-
+        */
     }
 }

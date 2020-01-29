@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using MoonSharp.Interpreter;
+//using MoonSharp.Interpreter;
 
 namespace RTSPrototype
 {
     public class TestLuaScripting : MonoBehaviour
     {
+        /*
         #region Fields
         public Button RunButton;
         public Button CancelButton;
@@ -115,5 +116,6 @@ namespace RTSPrototype
             luaScript.Globals["printmsg"] = (System.Action<string>)PrintMsg;
         }
         #endregion
+        */
     }
 }

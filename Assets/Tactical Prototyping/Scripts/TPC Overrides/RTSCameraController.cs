@@ -10,6 +10,7 @@ namespace RTSPrototype
 {
     public class RTSCameraController : CameraController
     {
+        /*
         #region RTSGameModeCalls
         //Handle when partymanager switches allyInCommand, rather than on awake
         public void InitializeAllyCharacter(AllyMemberWrapper ally)
@@ -97,6 +98,6 @@ namespace RTSPrototype
 
         }
         #endregion
-
+        */
     }
 }
