@@ -20,6 +20,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - FoamTextureRef:
+        m_Texture: {fileID: 2800000, guid: 3c716d4f90124634eb8b922117af262f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - NormalsRef:
         m_Texture: {fileID: 2800000, guid: 946532bc1ce4d344d8a9911749b719aa, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -53,10 +57,18 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - FoamDepthRef: -0.35
+    - FoamDistanceRef: 0.5
+    - FoamStrengthRef: 1
+    - FoamTileRef: 1
     - NormalSpeedRef: 3
     - NormalStrengthRef: 0.35
     - NormalTileRef: 0.35
     - SmoothnessRef: 0.8
+    - WaveScaleRef: 10
+    - WaveSpeedRef: 3
+    - WaveStrengthRef: 1
+    - WaveTileRef: 1
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -79,6 +91,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - FoamDepthColorRef: {r: 0.08321467, g: 0.22769786, b: 0.3207547, a: 0}
     - WaterARef: {r: 0.12156863, g: 0.39607844, b: 0.5764706, a: 0}
     - WaterBRef: {r: 0.20425417, g: 0.5920071, b: 0.8490566, a: 0}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
