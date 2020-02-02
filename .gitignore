@@ -121,6 +121,9 @@ UpgradeLog.htm
 /Assets/Tactical Prototyping/Maps/NewUCCMaps/SandLevel1UCC
 /Assets/Tactical Prototyping/Maps/SampleScene
 
+# Ignore Terrain Data Generated
+/Assets/Tactical Prototyping/Maps/Terrains/TerrainData*
+
 # No Longer Used
 /Assets/Tactical Prototyping/Maps/0 RTSMainMenu
 /Assets/Tactical Prototyping/Maps/1 RTSProtoMap
