@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<Assets>
+  <ModelsAndAssets>
+    <FoldersWSpaces>
+      <Description>In Same Dir As Other Folders (Parent Dir: ModelsAndAssets), But They have Spaces In URL</Description>
+      <Folder>Asset Packs - For Students</Folder>
+      <Folder>Asset Packs - Not For Commercial Use</Folder>
+      <Description>Both Of These Assets Are From The Unity RPG Udemy Course.</Description>
+      <a href="https://github.com/UnityRPG/Part2">Part 2 Github Repository</a>
+    </FoldersWSpaces>
+    <Environment>
+      <FoldersWSpaces>
+        <Folder>Concrete textures pack</Folder>
+      </FoldersWSpaces>
+      <FoldersWSpaces>
+        <Folder>Ground textures pack</Folder>
+      </FoldersWSpaces>
+      <FoldersWSpaces>
+        <Folder>Meshes</Folder>
+        <Description>From Same arthur that made Concrete and Ground Packs</Description>
+      </FoldersWSpaces>
+      <FoldersWSpaces>
+        <Folder>Metal textures pack</Folder>
+      </FoldersWSpaces>
+      <FoldersWSpaces>
+        <Folder>Stylized foliages pack</Folder>
+      </FoldersWSpaces>
+      <FoldersWSpaces>
+        <Folder>Yughues Free Palm Trees</Folder>
+      </FoldersWSpaces>
+      <FoldersWSpaces>
+        <Folder>Yughues Free Sand Materials</Folder>
+      </FoldersWSpaces>
+    </Environment>
+    <Models>
+      <Description>This is where custom and asset store models are stored</Description>
+      <Mixamo>
+        <FoldersWSpaces>
+          <Folder>Magic Pack</Folder>
+        </FoldersWSpaces>
+        <FoldersWSpaces>
+          <Folder>Melee Axe Pack</Folder>
+        </FoldersWSpaces>
+      </Mixamo>
+    </Models>
+    <SoundsAndMusic>
+      <Description>This is where Sound and Music Assets Are Stored.</Description>
+      <FoldersWSpaces>
+        <Folder>Ultimate Game Music Collection</Folder>
+      </FoldersWSpaces>
+      <FoldersWSpaces>
+        <Folder>Universal Sound FX</Folder>
+      </FoldersWSpaces>
+    </SoundsAndMusic>
+  </ModelsAndAssets>
+</Assets>
