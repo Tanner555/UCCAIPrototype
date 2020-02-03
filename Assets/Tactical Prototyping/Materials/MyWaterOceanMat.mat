@@ -65,6 +65,9 @@ Material:
     - NormalStrengthRef: 0.35
     - NormalTileRef: 0.35
     - SmoothnessRef: 0.8
+    - TryUsingReflectionsRef: 0
+    - WaterRefractionIORRef: 1
+    - WaterRefractionPowerRef: 0.05
     - WaveScaleRef: 10
     - WaveSpeedRef: 3
     - WaveStrengthRef: 1
