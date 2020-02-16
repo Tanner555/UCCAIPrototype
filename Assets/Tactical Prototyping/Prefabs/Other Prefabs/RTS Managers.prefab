@@ -256,6 +256,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be05302c9e941cf44847130ecc9e001d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MyInputActions: {fileID: -944628639613478452, guid: 0bf60c2e787771f46a5eada0d587460b,
+    type: 3}
+  GameplayActionMapName: Gameplay
+  PauseGameActionName: PauseGame
   RMHeldThreshold: 0.15
   LMHeldThreshold: 0.15
   scrollStoppedThreshold: 0.15
@@ -281,6 +285,7 @@ MonoBehaviour:
   m_VerticalLookInputName: Mouse Y
   m_LookVectorMode: 0
   m_LookSensitivity: {x: 3, y: 3}
+  m_LookSensitivityMultiplier: 1
   m_SmoothLookSteps: 20
   m_SmoothLookWeight: 0.5
   m_SmoothExponent: 1.05

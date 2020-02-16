@@ -1,0 +1,33 @@
+{
+    "name": "MyRTSInputActions",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "db60a659-2bd8-4b69-8823-bff532b3d6e4",
+            "actions": [
+                {
+                    "name": "PauseGame",
+                    "type": "Button",
+                    "id": "2a34802d-ea03-4ec9-9fa7-01992bb5c325",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2450b551-4ef8-42d2-8828-15aefd456efb",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PauseGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
