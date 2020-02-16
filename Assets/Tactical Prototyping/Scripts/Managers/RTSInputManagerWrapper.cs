@@ -15,6 +15,10 @@ namespace RTSPrototype
             get { return RTSCamRaycaster.thisInstance; }
         }
 
+        //Movement Properties
+        public float HorizontalMovement { get; protected set; }
+        public float ForwardMovement { get; protected set; }
+
         //Mouse Setup - Scrolling
         protected bool bScrollAxisIsPositive
         {
@@ -140,6 +144,34 @@ namespace RTSPrototype
         public void OnIGBPIMenuToggle(InputAction.CallbackContext context)
         {
             if (context.performed) CallIGBPIToggle();
+        }
+
+        public void OnCoverToggle(InputAction.CallbackContext context)
+        {
+            if (context.performed && UiIsEnabled == false)
+                CallCoverToggle();
+        }
+
+        public void OnTryReload(InputAction.CallbackContext context)
+        {
+            if (context.performed && UiIsEnabled == false)
+                CallTryReload();
+        }
+
+        public void OnTogglePauseControlMode(InputAction.CallbackContext context)
+        {
+            if (context.performed && UiIsEnabled == false)
+                CallToggleIsInPauseControl();
+        }
+
+        public void OnHorizontalMovement(InputAction.CallbackContext context)
+        {
+            HorizontalMovement = context.ReadValue<float>();
+        }
+
+        public void OnForwardMovement(InputAction.CallbackContext context)
+        {
+            ForwardMovement = context.ReadValue<float>();
         }
 
         public void OnPossessAllyAdd(InputAction.CallbackContext context)
@@ -406,24 +438,24 @@ namespace RTSPrototype
             //    CallIGBPIToggle();
             //if (Input.GetKeyDown(KeyCode.L))
             //    CallLuaEditorToggle();
-
-            if (UiIsEnabled) return;
+            
+            //if (UiIsEnabled) return;
             //All Input That Shouldn't Happen When 
             //Ui is Enabled
             //if (Input.GetKeyDown(KeyCode.Keypad1))
             //    CallPossessAllyAdd();
             //if (Input.GetKeyDown(KeyCode.Keypad3))
             //    CallPossessAllySubtract();
-            if (Input.GetKeyDown(KeyCode.C))
-                CallCoverToggle();
+            //if (Input.GetKeyDown(KeyCode.C))
+            //    CallCoverToggle();
             //if (Input.GetKeyDown(KeyCode.Alpha2))
             //    CallSelectNextWeapon();
             //if (Input.GetKeyDown(KeyCode.Alpha1))
             //    CallSelectPrevWeapon();
-            if (Input.GetKeyDown(KeyCode.R))
-                CallTryReload();
-            if (Input.GetKeyDown(KeyCode.Space))
-                CallToggleIsInPauseControl();
+            //if (Input.GetKeyDown(KeyCode.R))
+            //    CallTryReload();
+            //if (Input.GetKeyDown(KeyCode.Space))
+            //    CallToggleIsInPauseControl();
             //if (Input.GetKeyDown(KeyCode.LeftShift))
             //    CallSprintToggle();
 

@@ -50,6 +50,8 @@ namespace RTSPrototype
 		}
 		AllyEventHandler _myEventhandler = null;
 
+		RTSInputManagerWrapper myInputManager => RTSInputManagerWrapper.thisInstance;
+
 		UltimateCharacterLocomotion m_Controller
 		{
 			get
@@ -98,10 +100,15 @@ namespace RTSPrototype
 				return TaskStatus.Failure;
 			}
 
-			myHorizontalMovement = RTSPlayerInput.thisInstance.GetAxisRaw(m_HorizontalInputName);
-			myForwardMovement = RTSPlayerInput.thisInstance.GetAxisRaw(m_ForwardInputName);
+			//myHorizontalMovement = RTSPlayerInput.thisInstance.GetAxisRaw(m_HorizontalInputName);
+			//myForwardMovement = RTSPlayerInput.thisInstance.GetAxisRaw(m_ForwardInputName);
+
 			//myHorizontalMovement = CrossPlatformInputManager.GetAxis("Horizontal");
-            //myForwardMovement = CrossPlatformInputManager.GetAxis("Vertical");
+			//myForwardMovement = CrossPlatformInputManager.GetAxis("Vertical");
+
+			myHorizontalMovement = myInputManager.HorizontalMovement;
+			myForwardMovement = myInputManager.ForwardMovement;
+
 			myDirection = Vector3.zero;
             myDirection.x = myHorizontalMovement;
             myDirection.z = myForwardMovement;

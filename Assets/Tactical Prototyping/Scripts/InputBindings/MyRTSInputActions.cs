@@ -59,6 +59,46 @@ namespace RTSPrototype
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""CoverToggle"",
+                    ""type"": ""Button"",
+                    ""id"": ""c7f0489b-5fc3-4789-9601-bbf70c46adf3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""TryReload"",
+                    ""type"": ""Button"",
+                    ""id"": ""ed88d445-cd8e-463d-935a-0a73d5420015"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""TogglePauseControlMode"",
+                    ""type"": ""Button"",
+                    ""id"": ""833ca658-bfce-45a7-925a-1443728474fc"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""HorizontalMovement"",
+                    ""type"": ""Button"",
+                    ""id"": ""00965ca1-9614-43f2-87b0-7f38275368e5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ForwardMovement"",
+                    ""type"": ""Button"",
+                    ""id"": ""047acbd4-7838-4456-889a-7267989378dd"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -215,6 +255,105 @@ namespace RTSPrototype
                     ""action"": ""PossessAllySubtract"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""734cf833-9fc9-4cd2-8180-686cc7e61377"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CoverToggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""163f14cc-c4f4-412a-84e9-58c76293da3a"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TryReload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cbfb0796-ad6d-45b3-a174-e1e4b87902fe"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TogglePauseControlMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Axis"",
+                    ""id"": ""5ced975e-b7d9-406c-bc01-ea3112e985be"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HorizontalMovement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""ce585024-0ca1-4d73-a283-181416654255"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HorizontalMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""6fc323d9-db79-49d2-8573-f2efb2b9dbb1"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HorizontalMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Axis"",
+                    ""id"": ""81e95546-301c-4345-9668-fecfc9eea6f2"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ForwardMovement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""462df493-fb51-48b9-8364-68dc2f5d1b04"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ForwardMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""e1e387a4-c1b4-4fa1-a6c3-5a4891e73f92"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ForwardMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -228,6 +367,11 @@ namespace RTSPrototype
             m_Gameplay_NumberKeys = m_Gameplay.FindAction("NumberKeys", throwIfNotFound: true);
             m_Gameplay_PossessAllyAdd = m_Gameplay.FindAction("PossessAllyAdd", throwIfNotFound: true);
             m_Gameplay_PossessAllySubtract = m_Gameplay.FindAction("PossessAllySubtract", throwIfNotFound: true);
+            m_Gameplay_CoverToggle = m_Gameplay.FindAction("CoverToggle", throwIfNotFound: true);
+            m_Gameplay_TryReload = m_Gameplay.FindAction("TryReload", throwIfNotFound: true);
+            m_Gameplay_TogglePauseControlMode = m_Gameplay.FindAction("TogglePauseControlMode", throwIfNotFound: true);
+            m_Gameplay_HorizontalMovement = m_Gameplay.FindAction("HorizontalMovement", throwIfNotFound: true);
+            m_Gameplay_ForwardMovement = m_Gameplay.FindAction("ForwardMovement", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -282,6 +426,11 @@ namespace RTSPrototype
         private readonly InputAction m_Gameplay_NumberKeys;
         private readonly InputAction m_Gameplay_PossessAllyAdd;
         private readonly InputAction m_Gameplay_PossessAllySubtract;
+        private readonly InputAction m_Gameplay_CoverToggle;
+        private readonly InputAction m_Gameplay_TryReload;
+        private readonly InputAction m_Gameplay_TogglePauseControlMode;
+        private readonly InputAction m_Gameplay_HorizontalMovement;
+        private readonly InputAction m_Gameplay_ForwardMovement;
         public struct GameplayActions
         {
             private @MyRTSInputActions m_Wrapper;
@@ -291,6 +440,11 @@ namespace RTSPrototype
             public InputAction @NumberKeys => m_Wrapper.m_Gameplay_NumberKeys;
             public InputAction @PossessAllyAdd => m_Wrapper.m_Gameplay_PossessAllyAdd;
             public InputAction @PossessAllySubtract => m_Wrapper.m_Gameplay_PossessAllySubtract;
+            public InputAction @CoverToggle => m_Wrapper.m_Gameplay_CoverToggle;
+            public InputAction @TryReload => m_Wrapper.m_Gameplay_TryReload;
+            public InputAction @TogglePauseControlMode => m_Wrapper.m_Gameplay_TogglePauseControlMode;
+            public InputAction @HorizontalMovement => m_Wrapper.m_Gameplay_HorizontalMovement;
+            public InputAction @ForwardMovement => m_Wrapper.m_Gameplay_ForwardMovement;
             public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -315,6 +469,21 @@ namespace RTSPrototype
                     @PossessAllySubtract.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPossessAllySubtract;
                     @PossessAllySubtract.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPossessAllySubtract;
                     @PossessAllySubtract.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPossessAllySubtract;
+                    @CoverToggle.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCoverToggle;
+                    @CoverToggle.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCoverToggle;
+                    @CoverToggle.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCoverToggle;
+                    @TryReload.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTryReload;
+                    @TryReload.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTryReload;
+                    @TryReload.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTryReload;
+                    @TogglePauseControlMode.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTogglePauseControlMode;
+                    @TogglePauseControlMode.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTogglePauseControlMode;
+                    @TogglePauseControlMode.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTogglePauseControlMode;
+                    @HorizontalMovement.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHorizontalMovement;
+                    @HorizontalMovement.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHorizontalMovement;
+                    @HorizontalMovement.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHorizontalMovement;
+                    @ForwardMovement.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnForwardMovement;
+                    @ForwardMovement.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnForwardMovement;
+                    @ForwardMovement.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnForwardMovement;
                 }
                 m_Wrapper.m_GameplayActionsCallbackInterface = instance;
                 if (instance != null)
@@ -334,6 +503,21 @@ namespace RTSPrototype
                     @PossessAllySubtract.started += instance.OnPossessAllySubtract;
                     @PossessAllySubtract.performed += instance.OnPossessAllySubtract;
                     @PossessAllySubtract.canceled += instance.OnPossessAllySubtract;
+                    @CoverToggle.started += instance.OnCoverToggle;
+                    @CoverToggle.performed += instance.OnCoverToggle;
+                    @CoverToggle.canceled += instance.OnCoverToggle;
+                    @TryReload.started += instance.OnTryReload;
+                    @TryReload.performed += instance.OnTryReload;
+                    @TryReload.canceled += instance.OnTryReload;
+                    @TogglePauseControlMode.started += instance.OnTogglePauseControlMode;
+                    @TogglePauseControlMode.performed += instance.OnTogglePauseControlMode;
+                    @TogglePauseControlMode.canceled += instance.OnTogglePauseControlMode;
+                    @HorizontalMovement.started += instance.OnHorizontalMovement;
+                    @HorizontalMovement.performed += instance.OnHorizontalMovement;
+                    @HorizontalMovement.canceled += instance.OnHorizontalMovement;
+                    @ForwardMovement.started += instance.OnForwardMovement;
+                    @ForwardMovement.performed += instance.OnForwardMovement;
+                    @ForwardMovement.canceled += instance.OnForwardMovement;
                 }
             }
         }
@@ -345,6 +529,11 @@ namespace RTSPrototype
             void OnNumberKeys(InputAction.CallbackContext context);
             void OnPossessAllyAdd(InputAction.CallbackContext context);
             void OnPossessAllySubtract(InputAction.CallbackContext context);
+            void OnCoverToggle(InputAction.CallbackContext context);
+            void OnTryReload(InputAction.CallbackContext context);
+            void OnTogglePauseControlMode(InputAction.CallbackContext context);
+            void OnHorizontalMovement(InputAction.CallbackContext context);
+            void OnForwardMovement(InputAction.CallbackContext context);
         }
     }
 }
