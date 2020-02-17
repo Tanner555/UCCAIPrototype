@@ -99,6 +99,14 @@ namespace RTSPrototype
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ScrollCamera"",
+                    ""type"": ""Button"",
+                    ""id"": ""e9626001-86f4-4c25-912b-9de5c9217209"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -354,6 +362,50 @@ namespace RTSPrototype
                     ""action"": ""ForwardMovement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d841ffc6-bcb4-467d-9316-774863092f06"",
+                    ""path"": ""*/{ScrollVertical}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ScrollCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""f66897d0-065d-4210-b385-efeff93a356e"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ScrollCamera"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""7747ea4b-67b0-4351-bc5b-6b0173e8b6f9"",
+                    ""path"": ""<Keyboard>/numpadMinus"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ScrollCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""666594c9-0186-40cf-8367-0ddd37a845b4"",
+                    ""path"": ""<Keyboard>/numpadPlus"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ScrollCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -372,6 +424,7 @@ namespace RTSPrototype
             m_Gameplay_TogglePauseControlMode = m_Gameplay.FindAction("TogglePauseControlMode", throwIfNotFound: true);
             m_Gameplay_HorizontalMovement = m_Gameplay.FindAction("HorizontalMovement", throwIfNotFound: true);
             m_Gameplay_ForwardMovement = m_Gameplay.FindAction("ForwardMovement", throwIfNotFound: true);
+            m_Gameplay_ScrollCamera = m_Gameplay.FindAction("ScrollCamera", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -431,6 +484,7 @@ namespace RTSPrototype
         private readonly InputAction m_Gameplay_TogglePauseControlMode;
         private readonly InputAction m_Gameplay_HorizontalMovement;
         private readonly InputAction m_Gameplay_ForwardMovement;
+        private readonly InputAction m_Gameplay_ScrollCamera;
         public struct GameplayActions
         {
             private @MyRTSInputActions m_Wrapper;
@@ -445,6 +499,7 @@ namespace RTSPrototype
             public InputAction @TogglePauseControlMode => m_Wrapper.m_Gameplay_TogglePauseControlMode;
             public InputAction @HorizontalMovement => m_Wrapper.m_Gameplay_HorizontalMovement;
             public InputAction @ForwardMovement => m_Wrapper.m_Gameplay_ForwardMovement;
+            public InputAction @ScrollCamera => m_Wrapper.m_Gameplay_ScrollCamera;
             public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -484,6 +539,9 @@ namespace RTSPrototype
                     @ForwardMovement.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnForwardMovement;
                     @ForwardMovement.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnForwardMovement;
                     @ForwardMovement.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnForwardMovement;
+                    @ScrollCamera.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnScrollCamera;
+                    @ScrollCamera.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnScrollCamera;
+                    @ScrollCamera.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnScrollCamera;
                 }
                 m_Wrapper.m_GameplayActionsCallbackInterface = instance;
                 if (instance != null)
@@ -518,6 +576,9 @@ namespace RTSPrototype
                     @ForwardMovement.started += instance.OnForwardMovement;
                     @ForwardMovement.performed += instance.OnForwardMovement;
                     @ForwardMovement.canceled += instance.OnForwardMovement;
+                    @ScrollCamera.started += instance.OnScrollCamera;
+                    @ScrollCamera.performed += instance.OnScrollCamera;
+                    @ScrollCamera.canceled += instance.OnScrollCamera;
                 }
             }
         }
@@ -534,6 +595,7 @@ namespace RTSPrototype
             void OnTogglePauseControlMode(InputAction.CallbackContext context);
             void OnHorizontalMovement(InputAction.CallbackContext context);
             void OnForwardMovement(InputAction.CallbackContext context);
+            void OnScrollCamera(InputAction.CallbackContext context);
         }
     }
 }

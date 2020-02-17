@@ -84,6 +84,14 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "ScrollCamera",
+                    "type": "Button",
+                    "id": "e9626001-86f4-4c25-912b-9de5c9217209",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -337,6 +345,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "ForwardMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "d841ffc6-bcb4-467d-9316-774863092f06",
+                    "path": "*/{ScrollVertical}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrollCamera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "f66897d0-065d-4210-b385-efeff93a356e",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrollCamera",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "7747ea4b-67b0-4351-bc5b-6b0173e8b6f9",
+                    "path": "<Keyboard>/numpadMinus",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrollCamera",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "666594c9-0186-40cf-8367-0ddd37a845b4",
+                    "path": "<Keyboard>/numpadPlus",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrollCamera",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }

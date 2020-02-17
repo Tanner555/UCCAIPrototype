@@ -16,8 +16,9 @@ namespace RTSPrototype
         }
 
         //Movement Properties
-        public float HorizontalMovement { get; protected set; }
-        public float ForwardMovement { get; protected set; }
+        public float HorizontalMovement { get; protected set; } = 0;
+        public float ForwardMovement { get; protected set; } = 0;
+        public float ScrollCameraAxis { get; protected set; } = 0;
 
         //Mouse Setup - Scrolling
         protected bool bScrollAxisIsPositive
@@ -174,6 +175,11 @@ namespace RTSPrototype
             ForwardMovement = context.ReadValue<float>();
         }
 
+        public void OnScrollCamera(InputAction.CallbackContext context)
+        {
+            ScrollCameraAxis = Mathf.Clamp(context.ReadValue<float>(), -1, 1);
+        }
+
         public void OnPossessAllyAdd(InputAction.CallbackContext context)
         {
             if (context.performed && UiIsEnabled == false)
@@ -317,19 +323,20 @@ namespace RTSPrototype
         void StopMouseScrollWheelSetup()
         {
             if (UiIsEnabled) return;
-            scrollInputAxisValue = Input.GetAxis(scrollInputName);
-            if (Mathf.Abs(scrollInputAxisValue) < 0.05f)
-            {
-                //Not Using ScrollWheel, See if Holding '+,-' Keys
-                if (Input.GetKey(KeyCode.KeypadPlus))
-                {
-                    scrollInputAxisValue = 1.0f;
-                }
-                else if (Input.GetKey(KeyCode.KeypadMinus))
-                {
-                    scrollInputAxisValue = -1.0f;
-                }
-            }
+            //scrollInputAxisValue = Input.GetAxis(scrollInputName);
+            //if (Mathf.Abs(scrollInputAxisValue) < 0.05f)
+            //{
+            //    //Not Using ScrollWheel, See if Holding '+,-' Keys
+            //    if (Input.GetKey(KeyCode.KeypadPlus))
+            //    {
+            //        scrollInputAxisValue = 1.0f;
+            //    }
+            //    else if (Input.GetKey(KeyCode.KeypadMinus))
+            //    {
+            //        scrollInputAxisValue = -1.0f;
+            //    }
+            //}
+            scrollInputAxisValue = ScrollCameraAxis;
             if (Mathf.Abs(scrollInputAxisValue) > 0.05f)
             {
                 if (isLMHeldDown) return;
