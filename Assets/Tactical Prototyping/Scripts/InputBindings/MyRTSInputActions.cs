@@ -102,10 +102,10 @@ namespace RTSPrototype
                 },
                 {
                     ""name"": ""ScrollCamera"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""e9626001-86f4-4c25-912b-9de5c9217209"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": ""Clamp(min=-1,max=1)"",
                     ""interactions"": """"
                 },
                 {
