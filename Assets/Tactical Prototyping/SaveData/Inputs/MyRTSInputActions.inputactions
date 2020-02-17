@@ -92,6 +92,22 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Left Mouse",
+                    "type": "Button",
+                    "id": "3488e3b8-a3bc-452b-bfac-529fac9e7641",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Right Mouse",
+                    "type": "Button",
+                    "id": "63b5dd6a-6353-4dcd-bb6c-bf889d53408d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -391,6 +407,28 @@
                     "action": "ScrollCamera",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "e5182f94-2cf8-455c-ba7e-8a751845fa80",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left Mouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "deb29105-d8bf-4c4d-b08c-7dc031d4e14d",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right Mouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

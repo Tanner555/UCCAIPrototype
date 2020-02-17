@@ -107,6 +107,22 @@ namespace RTSPrototype
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Left Mouse"",
+                    ""type"": ""Button"",
+                    ""id"": ""3488e3b8-a3bc-452b-bfac-529fac9e7641"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Right Mouse"",
+                    ""type"": ""Button"",
+                    ""id"": ""63b5dd6a-6353-4dcd-bb6c-bf889d53408d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -406,6 +422,28 @@ namespace RTSPrototype
                     ""action"": ""ScrollCamera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e5182f94-2cf8-455c-ba7e-8a751845fa80"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left Mouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""deb29105-d8bf-4c4d-b08c-7dc031d4e14d"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right Mouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -425,6 +463,8 @@ namespace RTSPrototype
             m_Gameplay_HorizontalMovement = m_Gameplay.FindAction("HorizontalMovement", throwIfNotFound: true);
             m_Gameplay_ForwardMovement = m_Gameplay.FindAction("ForwardMovement", throwIfNotFound: true);
             m_Gameplay_ScrollCamera = m_Gameplay.FindAction("ScrollCamera", throwIfNotFound: true);
+            m_Gameplay_LeftMouse = m_Gameplay.FindAction("Left Mouse", throwIfNotFound: true);
+            m_Gameplay_RightMouse = m_Gameplay.FindAction("Right Mouse", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -485,6 +525,8 @@ namespace RTSPrototype
         private readonly InputAction m_Gameplay_HorizontalMovement;
         private readonly InputAction m_Gameplay_ForwardMovement;
         private readonly InputAction m_Gameplay_ScrollCamera;
+        private readonly InputAction m_Gameplay_LeftMouse;
+        private readonly InputAction m_Gameplay_RightMouse;
         public struct GameplayActions
         {
             private @MyRTSInputActions m_Wrapper;
@@ -500,6 +542,8 @@ namespace RTSPrototype
             public InputAction @HorizontalMovement => m_Wrapper.m_Gameplay_HorizontalMovement;
             public InputAction @ForwardMovement => m_Wrapper.m_Gameplay_ForwardMovement;
             public InputAction @ScrollCamera => m_Wrapper.m_Gameplay_ScrollCamera;
+            public InputAction @LeftMouse => m_Wrapper.m_Gameplay_LeftMouse;
+            public InputAction @RightMouse => m_Wrapper.m_Gameplay_RightMouse;
             public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -542,6 +586,12 @@ namespace RTSPrototype
                     @ScrollCamera.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnScrollCamera;
                     @ScrollCamera.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnScrollCamera;
                     @ScrollCamera.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnScrollCamera;
+                    @LeftMouse.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLeftMouse;
+                    @LeftMouse.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLeftMouse;
+                    @LeftMouse.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLeftMouse;
+                    @RightMouse.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRightMouse;
+                    @RightMouse.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRightMouse;
+                    @RightMouse.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRightMouse;
                 }
                 m_Wrapper.m_GameplayActionsCallbackInterface = instance;
                 if (instance != null)
@@ -579,6 +629,12 @@ namespace RTSPrototype
                     @ScrollCamera.started += instance.OnScrollCamera;
                     @ScrollCamera.performed += instance.OnScrollCamera;
                     @ScrollCamera.canceled += instance.OnScrollCamera;
+                    @LeftMouse.started += instance.OnLeftMouse;
+                    @LeftMouse.performed += instance.OnLeftMouse;
+                    @LeftMouse.canceled += instance.OnLeftMouse;
+                    @RightMouse.started += instance.OnRightMouse;
+                    @RightMouse.performed += instance.OnRightMouse;
+                    @RightMouse.canceled += instance.OnRightMouse;
                 }
             }
         }
@@ -596,6 +652,8 @@ namespace RTSPrototype
             void OnHorizontalMovement(InputAction.CallbackContext context);
             void OnForwardMovement(InputAction.CallbackContext context);
             void OnScrollCamera(InputAction.CallbackContext context);
+            void OnLeftMouse(InputAction.CallbackContext context);
+            void OnRightMouse(InputAction.CallbackContext context);
         }
     }
 }

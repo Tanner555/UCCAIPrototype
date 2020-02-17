@@ -20,6 +20,10 @@ namespace RTSPrototype
         public float ForwardMovement { get; protected set; } = 0;
         public float ScrollCameraAxis { get; protected set; } = 0;
 
+        //Mouse Setup - Left/Right Click
+        public bool bGetLeftMouseHeldDown { get; protected set; } = false;
+        public bool bGetRightMouseHeldDown { get; protected set; } = false;
+
         //Mouse Setup - Scrolling
         protected bool bScrollAxisIsPositive
         {
@@ -125,6 +129,18 @@ namespace RTSPrototype
         #endregion
 
         #region InputHandlers
+        public void OnLeftMouse(InputAction.CallbackContext context)
+        {
+            bGetLeftMouseHeldDown = context.canceled == false && 
+                (context.started || context.performed);
+        }
+
+        public void OnRightMouse(InputAction.CallbackContext context)
+        {
+            bGetRightMouseHeldDown = context.canceled == false &&
+                (context.started || context.performed);
+        }
+
         public void OnNumberKeys(InputAction.CallbackContext context)
         {
             if (context.performed)
@@ -234,7 +250,7 @@ namespace RTSPrototype
         void LeftMouseDownSetup()
         {
             if (UiIsEnabled) return;
-            if (Input.GetKey(KeyCode.Mouse0))
+            if (bGetLeftMouseHeldDown)
             {
                 if (isRMHeldDown) return;
                 if (isLMHeldDown == false)
@@ -279,7 +295,7 @@ namespace RTSPrototype
         void RightMouseDownSetup()
         {
             if (UiIsEnabled) return;
-            if (Input.GetKey(KeyCode.Mouse1))
+            if (bGetRightMouseHeldDown)
             {
                 if (isLMHeldDown) return;
                 if (isRMHeldDown == false)
