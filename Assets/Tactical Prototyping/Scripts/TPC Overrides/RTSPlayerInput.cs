@@ -22,6 +22,12 @@ namespace RTSPrototype
         #endregion
 
         #region UnityMessages
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        static void Init()
+        {
+            thisInstance = null;
+        }
+
         protected override void OnEnable()
         {
             base.OnEnable();
