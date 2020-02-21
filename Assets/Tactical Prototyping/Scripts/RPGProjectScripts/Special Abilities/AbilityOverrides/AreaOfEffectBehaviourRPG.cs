@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using RTSCoreFramework;
-using Opsive.UltimateCharacterController.Character;
 
-namespace RTSPrototype
+namespace RPGPrototype
 {
-    public class AreaOfEffectBehaviourTPC : AbilityBehaviourTPC
+    public class AreaOfEffectBehaviourRPG : AbilityBehaviourRPG
     {
         #region Properties
-        //RTSGameMaster gamemaster
-        //{
-        //    get { return RTSGameMaster.thisInstance; }
-        //}
+        RTSGameMaster gamemaster
+        {
+            get { return RTSGameMaster.thisInstance; }
+        }
 
         RTSGameMode gamemode
         {
@@ -41,18 +40,6 @@ namespace RTSPrototype
             }
         }
         AllyMember _allymember = null;
-
-        UltimateCharacterLocomotion myController
-        {
-            get
-            {
-                if (_myController == null)
-                    _myController = GetComponent<UltimateCharacterLocomotion>();
-
-                return _myController;
-            }
-        }
-        UltimateCharacterLocomotion _myController = null;
         #endregion
 
         public override void Use(GameObject target = null)
@@ -68,9 +55,9 @@ namespace RTSPrototype
             // Static sphere cast for targets
             RaycastHit[] hits = Physics.SphereCastAll(
                 transform.position,
-                (config as AreaOfEffectConfigTPC).GetRadius(),
+                (config as AreaOfEffectConfigRPG).GetRadius(),
                 Vector3.up,
-                (config as AreaOfEffectConfigTPC).GetRadius(), 
+                (config as AreaOfEffectConfigRPG).GetRadius(),
                 gamemode.AllyAndCharacterLayers
             );
 
@@ -81,7 +68,7 @@ namespace RTSPrototype
             {
                 Transform _enemyRoot = hit.collider.transform.root;
                 AllyMember _enemyMember = null;
-                if(_enemyRoot.tag == _allyTag &&
+                if (_enemyRoot.tag == _allyTag &&
                     (_enemyMember = _enemyRoot.GetComponent<AllyMember>()) != null)
                 {
                     //Cannot Hurt Self Or Allies in Same Party (Friends)
@@ -95,22 +82,17 @@ namespace RTSPrototype
                     }
                 }
             }
-            
+
             foreach (var _hitEnemy in _hitEnemies)
             {
                 AllyMember damageable = _hitEnemy.Key;
                 RaycastHit hit = _hitEnemy.Value;
-                float damageToDeal = (config as AreaOfEffectConfigTPC).GetDamageToEachTarget();
+                float damageToDeal = (config as AreaOfEffectConfigRPG).GetDamageToEachTarget();
                 damageable.AllyTakeDamage(
                     (int)damageToDeal, hit.point, Vector3.zero,
                     allymember, hit.transform.gameObject, hit.collider
                     );
             }
-        }
-
-        protected override Opsive.UltimateCharacterController.Character.Abilities.Ability GetTPCAbility()
-        {
-            return myController.GetAbility<RTSAreaEffectAbility>();
         }
     }
 }
