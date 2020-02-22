@@ -13,6 +13,19 @@ using Opsive.UltimateCharacterController.Audio;
 
 namespace RTSPrototype
 {
+    #region RTSAllyComponentSpecificFields
+    [System.Serializable]
+    public class RTSAllyComponentSpecificFieldsWrapper : RTSAllyComponentSpecificFields
+    {
+        [Header("SpecificFieldsWrapper")]
+        [Tooltip("Is the prefab used a UCC Character? Can cause errors if not setup properly.")]
+        public bool bUseUCCCharacter = true;
+        [Header("RPG Character Attributes")]
+        [SerializeField]
+        public RPGAllySpecificCharacterAttributesObject RPGCharacterAttributesObject;
+    }
+    #endregion
+
     #region RTSAllyComponentsAllCharacterFields
     [System.Serializable]
     public class RTSAllyComponentsAllCharacterFieldsWrapper : RTSAllyComponentsAllCharacterFields
@@ -72,6 +85,8 @@ namespace RTSPrototype
         {
             get { return myTimeLine.timeScale == 0; }
         }
+
+        public bool bIsUCCCharacter { get; protected set; }
         #endregion
 
         #region UnityMessages
@@ -93,6 +108,13 @@ namespace RTSPrototype
         #endregion
 
         #region Overrides
+        public override void CallInitializeAllyComponents(RTSAllyComponentSpecificFields _specificComps, RTSAllyComponentsAllCharacterFields _allAllyComps)
+        {
+            var _allySpecFieldsWrapper = (RTSAllyComponentSpecificFieldsWrapper)_specificComps;
+            bIsUCCCharacter = _allySpecFieldsWrapper.bUseUCCCharacter;
+            base.CallInitializeAllyComponents(_specificComps, _allAllyComps);
+        }
+
         public override void CallEventSetAsCommander()
         {
             base.CallEventSetAsCommander();
@@ -105,13 +127,19 @@ namespace RTSPrototype
         public override void CallEventAllyDied(Vector3 position, Vector3 force, GameObject attacker)
         {
             base.CallEventAllyDied(position, force, attacker);
-            uccEventHelper.CallOnDeath(this.gameObject, position, force, attacker);
+            if (bIsUCCCharacter)
+            {
+                uccEventHelper.CallOnDeath(this.gameObject, position, force, attacker);
+            }
         }
 
         public override void CallOnTryAim(bool _enable)
         {
             base.CallOnTryAim(_enable);
-            uccEventHelper.CallOnAimAbilityAim(this.gameObject, _enable);
+            if (bIsUCCCharacter)
+            {
+                uccEventHelper.CallOnAimAbilityAim(this.gameObject, _enable);
+            }
         }
 
         protected override void SubToEvents()
@@ -132,9 +160,12 @@ namespace RTSPrototype
             ////OnInventoryConsumableItemCountChange Takes Three Params
             //EventHandler.RegisterEvent<Item, bool, bool>(this.gameObject, "OnInventoryConsumableItemCountChange", OnConsumableItemCountChange);
             //New UCC Events
-            uccEventHelper.RegisterOnItemUseConsumableItemType(this.gameObject, OnItemUseConsumableItemType);
-            uccEventHelper.RegisterOnInventoryEquipItem(this.gameObject, OnInventoryEquipItem);
-            uccEventHelper.RegisterOnInventoryAddItem(this.gameObject, OnInventoryAddItem);
+            if (bIsUCCCharacter)
+            {
+                uccEventHelper.RegisterOnItemUseConsumableItemType(this.gameObject, OnItemUseConsumableItemType);
+                uccEventHelper.RegisterOnInventoryEquipItem(this.gameObject, OnInventoryEquipItem);
+                uccEventHelper.RegisterOnInventoryAddItem(this.gameObject, OnInventoryAddItem);
+            }
         }
 
         protected override void UnsubFromEvents()
@@ -149,9 +180,12 @@ namespace RTSPrototype
             ////OnInventoryConsumableItemCountChange Takes Three Params
             //EventHandler.UnregisterEvent<Item, bool, bool>(this.gameObject, "OnInventoryConsumableItemCountChange", OnConsumableItemCountChange);
             //New UCC Events
-            uccEventHelper.UnregisterOnItemUseConsumableItemType(this.gameObject, OnItemUseConsumableItemType);
-            uccEventHelper.UnregisterOnInventoryEquipItem(this.gameObject, OnInventoryEquipItem);
-            uccEventHelper.UnregisterOnInventoryAddItem(this.gameObject, OnInventoryAddItem);
+            if (bIsUCCCharacter)
+            {
+                uccEventHelper.UnregisterOnItemUseConsumableItemType(this.gameObject, OnItemUseConsumableItemType);
+                uccEventHelper.UnregisterOnInventoryEquipItem(this.gameObject, OnInventoryEquipItem);
+                uccEventHelper.UnregisterOnInventoryAddItem(this.gameObject, OnInventoryAddItem);
+            }
         }
         #endregion
 
@@ -199,25 +233,28 @@ namespace RTSPrototype
         #region HelperMethods
         void RequestCallAmmoChangedEvent()
         {
-            Item _cItem = myInventory.GetItem(0);
-            if (_cItem == null) return;
-            ItemAction _cItemAction = _cItem.GetItemAction(0);
-            if (_cItemAction == null) return;
-
-            int _loadedAmmo = 1;
-            int _unloadedAmmo = 1;
-
-            if (_cItemAction is ShootableWeapon)
+            if (bIsUCCCharacter)
             {
-                ShootableWeapon _cShootable = (ShootableWeapon)_cItemAction;
-                _loadedAmmo = (int)_cShootable.ClipRemaining;
-                _unloadedAmmo = (int)myInventory.GetItemTypeCount(_cShootable.ConsumableItemType);
-            }
+                Item _cItem = myInventory.GetItem(0);
+                if (_cItem == null) return;
+                ItemAction _cItemAction = _cItem.GetItemAction(0);
+                if (_cItemAction == null) return;
 
-            if (_loadedAmmo < int.MaxValue && _loadedAmmo >= 0 &&
-                _unloadedAmmo < int.MaxValue && _unloadedAmmo >= 0)
-            {
-                CallOnAmmoChanged(_loadedAmmo, _unloadedAmmo);
+                int _loadedAmmo = 1;
+                int _unloadedAmmo = 1;
+
+                if (_cItemAction is ShootableWeapon)
+                {
+                    ShootableWeapon _cShootable = (ShootableWeapon)_cItemAction;
+                    _loadedAmmo = (int)_cShootable.ClipRemaining;
+                    _unloadedAmmo = (int)myInventory.GetItemTypeCount(_cShootable.ConsumableItemType);
+                }
+
+                if (_loadedAmmo < int.MaxValue && _loadedAmmo >= 0 &&
+                    _unloadedAmmo < int.MaxValue && _unloadedAmmo >= 0)
+                {
+                    CallOnAmmoChanged(_loadedAmmo, _unloadedAmmo);
+                }
             }
         }
 

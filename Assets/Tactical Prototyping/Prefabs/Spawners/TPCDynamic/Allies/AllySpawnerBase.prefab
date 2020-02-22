@@ -83,6 +83,9 @@ MonoBehaviour:
     EnemyHealthBarImage: {fileID: 0}
     EnemyActiveBarImage: {fileID: 0}
     AllyIndicatorSpotlightInstance: {fileID: 0}
+    bUseUCCCharacter: 1
+    RPGCharacterAttributesObject: {fileID: 11400000, guid: 44629dfc89ba46f4887ea524e5c025c9,
+      type: 2}
   AllAllyComponentFieldsObject: {fileID: 11400000, guid: b2da6d069e6326344bafab09f609b37e,
     type: 2}
   WeaponPositionsObject: {fileID: 11400000, guid: 1a0d46880a649d94992f42dbf75ff4a6,

@@ -1,0 +1,19 @@
+.container {
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+#display {
+    align-self: flex-start;
+    font-size: 60px;
+    color: rgb(68, 138, 255);
+}
+
+#mySlider {
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}

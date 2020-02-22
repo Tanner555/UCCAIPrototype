@@ -8,7 +8,7 @@ namespace RPGPrototype
 {
     public class RTSCharacterStatsEditor : EditorWindow
     {
-        [MenuItem("RPGPrototype/CharacterStatsEditor")]
+        [MenuItem("RTSPrototype/CharacterStatsEditor")]
         public static void ShowCharacterStatsEditor()
         {
             RTSCharacterStatsEditor _window = GetWindow<RTSCharacterStatsEditor>();
@@ -29,7 +29,6 @@ namespace RPGPrototype
 
         }
         #endregion
-
 
         #region Commented Code
         void ReferenceMethod_DontUse()

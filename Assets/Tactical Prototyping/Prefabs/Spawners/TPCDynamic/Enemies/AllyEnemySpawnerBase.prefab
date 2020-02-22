@@ -75,5 +75,11 @@ PrefabInstance:
       propertyPath: AllySpecificComponentsToSetUp.bBuildEnemyHealthBar
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114049519169023850, guid: 5d943119da63ccb4c99011891bcdc8a1,
+        type: 3}
+      propertyPath: AllySpecificComponentsToSetUp.RPGCharacterAttributesObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 9c14c81fa1337cf47af2e067db26d987,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d943119da63ccb4c99011891bcdc8a1, type: 3}

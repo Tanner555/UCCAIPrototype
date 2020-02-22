@@ -4,9 +4,9 @@ using UnityEngine;
 using RTSCoreFramework;
 using Sirenix.OdinInspector;
 using UnityEngine.UI;
-using RPG.Characters;
+//using RPG.Characters;
 
-namespace RPGPrototype 
+namespace RTSPrototype 
 {
     [CreateAssetMenu(menuName = "RTSPrototype/RPGAllySpecificCharacterAttributes")]
     public class RPGAllySpecificCharacterAttributesObject : ScriptableObject
@@ -74,8 +74,8 @@ namespace RPGPrototype
         [Header("WeaponSystemAttributes")]
         [FoldoutGroup("WeaponSystemAttributes")]
         [SerializeField] public float baseDamage = 10f;
-        [FoldoutGroup("WeaponSystemAttributes")]
-        [SerializeField] public WeaponConfig currentWeaponConfig = null;
+        //[FoldoutGroup("WeaponSystemAttributes")]
+        //[SerializeField] public WeaponConfig currentWeaponConfig = null;
         #endregion
     }
 }

@@ -9,7 +9,7 @@ using Pathfinding;
 
 namespace RPGPrototype
 {
-    [SelectionBase]
+    //[SelectionBase]
     public class RPGCharacter : MonoBehaviour
     {
         #region Fields

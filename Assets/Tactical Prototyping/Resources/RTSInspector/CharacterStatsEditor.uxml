@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement class="container">
+        <Style path="Assets/Tactical Prototyping/Resources/RTSStyles/CharacterStatsEditor.uss" />
+        <ui:Label name="display" text="Display" />
+        <ui:Slider name="mySlider" binding-path="height" low-value="0" high-value="100" />
+    </ui:VisualElement>
+</ui:UXML>

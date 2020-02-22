@@ -19,9 +19,9 @@ namespace RPGPrototype
     {
         [Header("RPG Character Attributes")]
         [SerializeField]
-        public RPGAllySpecificCharacterAttributesObject RPGCharacterAttributesObject;
+        public RTSPrototype.RPGAllySpecificCharacterAttributesObject RPGCharacterAttributesObject;
         [SerializeField]
-        public RPGAllySpecificCharacterAttributesObject ASTAR_RPGCharacterAttributesObject;
+        public RTSPrototype.RPGAllySpecificCharacterAttributesObject ASTAR_RPGCharacterAttributesObject;
     }
     #endregion
 

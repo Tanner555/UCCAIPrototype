@@ -19,6 +19,8 @@ namespace RTSPrototype
         #endregion
 
         #region Properties
+        public bool bIsUCCCharacter => ((AllyEventHandlerWrapper)myEventHandler).bIsUCCCharacter;
+
         LayerMask singleFriendLayer
         {
             get

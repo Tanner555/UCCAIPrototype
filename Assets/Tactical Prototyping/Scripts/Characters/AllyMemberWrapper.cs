@@ -15,7 +15,7 @@ namespace RTSPrototype
 {
     public class AllyMemberWrapper : AllyMember
     {
-        #region Components
+        #region Components        
         //Wrappers
         public AllyAIControllerWrapper aiControllerWrapper
         {
@@ -92,6 +92,8 @@ namespace RTSPrototype
         #endregion
 
         #region Properties
+        public bool bIsUCCCharacter => ((AllyEventHandlerWrapper)allyEventHandler).bIsUCCCharacter;
+
         public override int AllyHealth
         {
             get { return allyStatController.Stat_Health; }
@@ -209,14 +211,17 @@ namespace RTSPrototype
         {
             base.AllyTakeDamage(_amount, _position, _force, _instigator, _hitGameObject, _hitCollider);
             allyEventHandler.CallOnAllyAfterTakeDamage(_amount, _position, _force, _instigator, _hitCollider);
-            if (bIsCurrentPlayer)
+            if (bIsUCCCharacter)
             {
-                uccEventHelper.CallOnHealthDamage(gameObject, _amount, _position, _force, _instigator.gameObject, _hitCollider);
-            }
+                if (bIsCurrentPlayer)
+                {
+                    uccEventHelper.CallOnHealthDamage(gameObject, _amount, _position, _force, _instigator.gameObject, _hitCollider);
+                }
 
-            if (IsAlive == false)
-            {
-                uccEventHelper.CallOnDeath(gameObject, _position, _force, _instigator.gameObject);
+                if (IsAlive == false)
+                {
+                    uccEventHelper.CallOnDeath(gameObject, _position, _force, _instigator.gameObject);
+                }
             }
         }
 
@@ -227,14 +232,17 @@ namespace RTSPrototype
             Vector3 _force = Vector3.zero;
             Collider _hitCollider = gameObject.GetComponentInChildren<Collider>();
             allyEventHandler.CallOnAllyAfterTakeDamage(amount, _position, _force, _instigator, _hitCollider);
-            if (bIsCurrentPlayer)
+            if (bIsUCCCharacter)
             {
-                uccEventHelper.CallOnHealthDamage(gameObject, amount, _position, _force, _instigator.gameObject, _hitCollider);
-            }
+                if (bIsCurrentPlayer)
+                {
+                    uccEventHelper.CallOnHealthDamage(gameObject, amount, _position, _force, _instigator.gameObject, _hitCollider);
+                }
 
-            if (IsAlive == false)
-            {
-                uccEventHelper.CallOnDeath(gameObject, _position, _force, _instigator.gameObject);
+                if (IsAlive == false)
+                {
+                    uccEventHelper.CallOnDeath(gameObject, _position, _force, _instigator.gameObject);
+                }
             }
         }
 
@@ -253,14 +261,17 @@ namespace RTSPrototype
             //Don't Calculate Ammo If Using A Melee Weapon
             if (isMelee) return;
 
-            Item _item = myInventory.GetItem(0);
-            ItemAction _cItemAction; ShootableWeapon _shootableWeapon;
-            if ((_cItemAction = _item.GetItemAction(0)) != null &&
-                _cItemAction is ShootableWeapon &&
-                (_shootableWeapon = (ShootableWeapon)_cItemAction) != null)
+            if (bIsUCCCharacter)
             {
-                _loaded = (int)_shootableWeapon.ClipRemaining;
-                _unloaded = (int)myInventory.GetItemTypeCount(_shootableWeapon.ConsumableItemType);
+                Item _item = myInventory.GetItem(0);
+                ItemAction _cItemAction; ShootableWeapon _shootableWeapon;
+                if ((_cItemAction = _item.GetItemAction(0)) != null &&
+                    _cItemAction is ShootableWeapon &&
+                    (_shootableWeapon = (ShootableWeapon)_cItemAction) != null)
+                {
+                    _loaded = (int)_shootableWeapon.ClipRemaining;
+                    _unloaded = (int)myInventory.GetItemTypeCount(_shootableWeapon.ConsumableItemType);
+                }
             }
         }
 

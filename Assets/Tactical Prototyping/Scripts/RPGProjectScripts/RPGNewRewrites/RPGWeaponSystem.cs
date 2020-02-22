@@ -94,10 +94,11 @@ namespace RPGPrototype
                     ((AllyComponentSpecificFieldsRPG)_specificComps).ASTAR_RPGCharacterAttributesObject;
                 
                 this.baseDamage = _rpgCharAttr.baseDamage;
-                if(_rpgCharAttr.currentWeaponConfig != null)
-                {
-                    this.currentWeaponConfig = _rpgCharAttr.currentWeaponConfig;
-                }
+                //This needs to be fixed.
+                //if(_rpgCharAttr.currentWeaponConfig != null)
+                //{
+                //    this.currentWeaponConfig = _rpgCharAttr.currentWeaponConfig;
+                //}
             }
             animator = GetComponent<Animator>();
             character = GetComponent<RPGCharacter>();

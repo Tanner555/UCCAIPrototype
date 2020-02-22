@@ -1,0 +1,13 @@
+.container {
+    padding: 6px;
+}
+
+#display{
+    align-self: flex-start;
+    font-size: 60px;
+    color: rgb(68, 138, 255);
+}
+
+SliderInt{
+    padding: 2px;
+}

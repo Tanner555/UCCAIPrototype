@@ -33,7 +33,7 @@ MonoBehaviour:
       type: 3}
   - name: Silly Girl Medic
     CharacterType: 2
-    CharacterPrefab: {fileID: 1902654371094930, guid: 608aea961e089c1498c8c966ba279794,
+    CharacterPrefab: {fileID: 1902654371094930, guid: 6db8aea98fd2d22498c40b6114402d06,
       type: 3}
     CharacterPortrait: {fileID: 21300000, guid: c1ee90923a530864cb7a6f70a5500b68,
       type: 3}

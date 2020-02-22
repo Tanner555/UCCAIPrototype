@@ -61,7 +61,7 @@ namespace RTSPrototype
 
         [Header("Ally Instance Setup Fields")]
         [SerializeField]
-        protected RTSAllyComponentSpecificFields AllySpecificComponentsToSetUp;
+        protected RTSAllyComponentSpecificFieldsWrapper AllySpecificComponentsToSetUp;
 
         [Header("All Allies Setup Fields")]
         [SerializeField]
@@ -71,6 +71,8 @@ namespace RTSPrototype
         {
             get { return AllAllyComponentFieldsObject.AllyComponentSetupFields; }
         }
+
+        protected bool bUsingUCCCharacter => AllySpecificComponentsToSetUp.bUseUCCCharacter;
         #endregion
 
         #region ItemBuilderFields
@@ -414,9 +416,10 @@ namespace RTSPrototype
                 spawnedGameObject.AddComponent<AllyMemberWrapper>();
                 spawnedGameObject.AddComponent<AllyAIControllerWrapper>();
                 spawnedGameObject.AddComponent<AllySpecialAbilitiesWrapper>();
-                //spawnedGameObject.AddComponent<RTSNavBridge>();
-                spawnedGameObject.AddComponent<RTSItemAndControlHandler>();
-                //spawnedGameObject.AddComponent<AllyTacticsController>();
+                if (bUsingUCCCharacter)
+                {
+                    spawnedGameObject.AddComponent<RTSItemAndControlHandler>();
+                }
                 spawnedGameObject.AddComponent<AllyVisualsWrapper>();
 
                 //Call Ally Init Comps Event
