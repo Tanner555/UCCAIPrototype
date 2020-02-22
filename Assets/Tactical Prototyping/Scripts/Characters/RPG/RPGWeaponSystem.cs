@@ -261,14 +261,12 @@ namespace RTSPrototype
             int numberOfDominantHands = dominantHands.Length;
             if(numberOfDominantHands <= 0)
             {
-                //create dominant hand
+                //retrieve right hand transform
                 var _rightHand = animator.GetBoneTransform(HumanBodyBones.RightHand);                
                 if(_rightHand != null)
                 {
-                    var _createdDominantHand = new GameObject("CreatedDominantHand");
-                    _createdDominantHand.transform.parent = _rightHand;
-                    _createdDominantHand.AddComponent<DominantHand>();
-                    return _createdDominantHand;
+                    _rightHand.gameObject.AddComponent<DominantHand>();
+                    return _rightHand.gameObject;
                 }
             }else if (numberOfDominantHands > 1)
             {
