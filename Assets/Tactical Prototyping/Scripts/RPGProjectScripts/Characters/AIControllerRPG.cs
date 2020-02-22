@@ -13,7 +13,7 @@ namespace RPGPrototype
     public class AIControllerRPG : AllyAIController
     {
         #region Fields
-        public WeaponConfig myRPGWeapon = null;
+        public RTSPrototype.WeaponConfig myRPGWeapon = null;
         //BTs
         private bool bUsingBehaviorTrees = true;
         //Extra
@@ -271,7 +271,7 @@ namespace RPGPrototype
             AllyBehaviorTree.EnableBehavior();
         }
 
-        void PutWeaponInHand(WeaponConfig _config)
+        void PutWeaponInHand(RTSPrototype.WeaponConfig _config)
         {
             myRPGWeapon = _config;
         }
@@ -582,14 +582,14 @@ namespace RPGPrototype
         protected override void SubToEvents()
         {
             base.SubToEvents();
-            myEventHandler.PutRPGWeaponInHand += PutWeaponInHand;
+            //myEventHandler.PutRPGWeaponInHand += PutWeaponInHand;
             gamemaster.OnNumberKeyPress += OnKeyPress;
         }
 
         protected override void UnSubFromEvents()
         {
             base.UnSubFromEvents();
-            myEventHandler.PutRPGWeaponInHand -= PutWeaponInHand;
+            //myEventHandler.PutRPGWeaponInHand -= PutWeaponInHand;
             gamemaster.OnNumberKeyPress -= OnKeyPress;
         }
         #endregion

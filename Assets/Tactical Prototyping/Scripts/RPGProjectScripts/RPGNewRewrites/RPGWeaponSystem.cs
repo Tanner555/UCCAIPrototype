@@ -43,7 +43,7 @@ namespace RPGPrototype
         float checkForAttackRate = 0.05f;
 
         [SerializeField] float baseDamage = 10f;
-        [SerializeField] WeaponConfig currentWeaponConfig = null;
+        [SerializeField] RTSPrototype.WeaponConfig currentWeaponConfig = null;
 
         //GameObject target;
         GameObject weaponObject;
@@ -169,7 +169,7 @@ namespace RPGPrototype
         }
         #endregion
 
-        public void PutWeaponInHand(WeaponConfig weaponToUse)
+        public void PutWeaponInHand(RTSPrototype.WeaponConfig weaponToUse)
         {
             currentWeaponConfig = weaponToUse;
             var weaponPrefab = weaponToUse.GetWeaponPrefab();
@@ -178,7 +178,8 @@ namespace RPGPrototype
             weaponObject = Instantiate(weaponPrefab, dominantHand.transform);
             weaponObject.transform.localPosition = currentWeaponConfig.gripTransform.localPosition;
             weaponObject.transform.localRotation = currentWeaponConfig.gripTransform.localRotation;
-            eventhandler.CallPutRPGWeaponInHand(currentWeaponConfig);
+            //Needs to be fixed
+            //eventhandler.CallPutRPGWeaponInHand(currentWeaponConfig);
         }
 
         //public void AttackTarget(GameObject targetToAttack)
@@ -231,7 +232,7 @@ namespace RPGPrototype
         //    DamageAlly(target.gameObject, (int)CalculateDamage());
         //}
 
-        public WeaponConfig GetCurrentWeapon()
+        public RTSPrototype.WeaponConfig GetCurrentWeapon()
         {
             return currentWeaponConfig;
         }

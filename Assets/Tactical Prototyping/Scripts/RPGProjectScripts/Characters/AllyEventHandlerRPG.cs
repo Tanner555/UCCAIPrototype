@@ -70,7 +70,7 @@ namespace RPGPrototype
         //public event OneGameObjectParamHandler AttackRPGTarget;
         //public event GeneralEventHandler StopAttackingRPGTarget;
 
-        public delegate void WeaponConfigParamHandler(WeaponConfig weaponToUse);
+        public delegate void WeaponConfigParamHandler(RTSPrototype.WeaponConfig weaponToUse);
         public event WeaponConfigParamHandler PutRPGWeaponInHand;
         #endregion
 
@@ -87,7 +87,7 @@ namespace RPGPrototype
         //    if (StopAttackingRPGTarget != null) StopAttackingRPGTarget();
         //}
 
-        public void CallPutRPGWeaponInHand(WeaponConfig _weapon)
+        public void CallPutRPGWeaponInHand(RTSPrototype.WeaponConfig _weapon)
         {
             if (PutRPGWeaponInHand != null) PutRPGWeaponInHand(_weapon);
         }

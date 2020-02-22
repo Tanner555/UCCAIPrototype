@@ -44,4 +44,5 @@ MonoBehaviour:
   energyBar: {fileID: 0}
   outOfEnergy: {fileID: 8300000, guid: 8136ff2516a8e4083a19bfd8fad67741, type: 3}
   baseDamage: 10
-  currentWeaponConfig: {fileID: 0}
+  currentWeaponConfig: {fileID: 11400000, guid: 351d8c05378aa9e4f9663935fca66e2e,
+    type: 2}

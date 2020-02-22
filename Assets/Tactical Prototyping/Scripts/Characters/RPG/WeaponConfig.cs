@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RPG.Characters
+namespace RTSPrototype
 {
-    [CreateAssetMenu(menuName = ("RPG/Weapon"))]
+    [CreateAssetMenu(menuName = ("RTSPrototype/NonUCCWeapon"))]
     public class WeaponConfig : ScriptableObject
     {
         public Transform gripTransform;

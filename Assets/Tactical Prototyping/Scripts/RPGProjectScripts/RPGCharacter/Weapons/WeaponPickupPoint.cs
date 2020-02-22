@@ -6,10 +6,10 @@ using RPG.Characters;
 
 namespace RPG.Characters
 {
-    [ExecuteInEditMode]
+    //[ExecuteInEditMode]
     public class WeaponPickupPoint : MonoBehaviour
     {
-        [SerializeField] WeaponConfig weaponConfig;
+        [SerializeField] RTSPrototype.WeaponConfig weaponConfig;
         [SerializeField] AudioClip pickUpSFX;
 
         AudioSource audioSource;

@@ -74,8 +74,8 @@ namespace RTSPrototype
         [Header("WeaponSystemAttributes")]
         [FoldoutGroup("WeaponSystemAttributes")]
         [SerializeField] public float baseDamage = 10f;
-        //[FoldoutGroup("WeaponSystemAttributes")]
-        //[SerializeField] public WeaponConfig currentWeaponConfig = null;
+        [FoldoutGroup("WeaponSystemAttributes")]
+        [SerializeField] public WeaponConfig currentWeaponConfig = null;
         #endregion
     }
 }
