@@ -103,6 +103,7 @@ namespace RTSPrototype
         public string BBName_AbilityToUse => "AbilityToUse";
         public string BBName_bIsPerformingAbility => "bIsPerformingAbility";
         public string BBName_bEnableTactics => "bEnableTactics";
+        public string BBName_bIsUCCCharacter => "bIsUCCCharacter";
 
         new AllyMemberWrapper allyMember
         {
@@ -239,6 +240,9 @@ namespace RTSPrototype
                     //BehaviorTree Already Exists, Not Need To Manually Set it Up
                     _behaviourtree = AllyBehaviorTree;
                 }
+
+                //Is UCC Character
+                _behaviourtree.SetVariableValue(BBName_bIsUCCCharacter, _RPGspecificAllyFields.bUseUCCCharacter);
                 //RPG Character Moving
                 //_behaviourtree.SetVariableValue(BBName_MyStationaryTurnSpeed, _rpgCharAttr.stationaryTurnSpeed);
                 //_behaviourtree.SetVariableValue(BBName_MyMovingTurnSpeed, _rpgCharAttr.movingTurnSpeed);
