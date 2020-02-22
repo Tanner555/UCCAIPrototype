@@ -243,12 +243,6 @@ namespace RTSPrototype
 
                 //Is UCC Character
                 _behaviourtree.SetVariableValue(BBName_bIsUCCCharacter, _RPGspecificAllyFields.bUseUCCCharacter);
-                //RPG Character Moving
-                //_behaviourtree.SetVariableValue(BBName_MyStationaryTurnSpeed, _rpgCharAttr.stationaryTurnSpeed);
-                //_behaviourtree.SetVariableValue(BBName_MyMovingTurnSpeed, _rpgCharAttr.movingTurnSpeed);
-                //_behaviourtree.SetVariableValue(BBName_MyMoveThreshold, _rpgCharAttr.moveThreshold);
-                //_behaviourtree.SetVariableValue(BBName_MyAnimatorForwardCap, _rpgCharAttr.animatorForwardCap);
-                //_behaviourtree.SetVariableValue(BBName_MyAnimationSpeedMultiplier, _rpgCharAttr.animationSpeedMultiplier);
                 //Active Time Bar
                 _behaviourtree.SetVariableValue(BBName_bUpdateActiveTimeBar, false);
                 _behaviourtree.SetVariableValue(BBName_ActiveTimeBarRefillRate, 5);

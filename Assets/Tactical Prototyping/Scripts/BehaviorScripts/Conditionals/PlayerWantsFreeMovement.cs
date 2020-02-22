@@ -14,6 +14,7 @@ namespace RTSPrototype
 		#region Shared
 		public SharedVector3 MyMoveDirection;
 		public SharedBool bIsFreeMoving;
+		public SharedBool bIsUCCCharacter;
 		#endregion
 
 		#region Fields
@@ -116,13 +117,19 @@ namespace RTSPrototype
 
 			if (myDirection.sqrMagnitude > 0.05f)
             {
-				//Also Calculate Move Direction Used For Movement Task
-				//CalculateFreeMoveDirection();
-				//Don't Calculate Free Move Dir from Camera, Using Rot Update Ability
-				SetFreeMoveDirWOutCalc();
+				if (bIsUCCCharacter.Value)
+				{				
+					//Don't Calculate Free Move Dir from Camera, Using Rot Update Ability
+					SetFreeMoveDirWOutCalc();
+				}
+				else
+				{
+					//Also Calculate Move Direction Used For Movement Task
+					CalculateFreeMoveDirection();
+				}
 				bIsFreeMoving.Value = true;
-                return TaskStatus.Success;
-            }
+				return TaskStatus.Success;
+			}
             else
             {
 				ResetFreeMoveDirection();

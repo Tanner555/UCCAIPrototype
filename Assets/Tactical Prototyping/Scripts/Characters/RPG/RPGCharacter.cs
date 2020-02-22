@@ -56,6 +56,13 @@ namespace RTSPrototype
         #endregion
 
         #region Properties
+        //Non-UCC RPG Accessor Properties
+        public float MyStationaryTurnSpeed { get; protected set; }
+        public float MyMovingTurnSpeed { get; protected set; }
+        public float MyMoveThreshold { get; protected set; }
+        public float MyAnimatorForwardCap { get; protected set; }
+        public float MyAnimationSpeedMultiplier { get; protected set; }
+
         AllyEventHandlerWrapper eventHandler
         {
             get
@@ -187,6 +194,12 @@ namespace RTSPrototype
                 this.colliderHeight = _rpgCharAttr.colliderHeight;
                 this.moveSpeedMultiplier = _rpgCharAttr.moveSpeedMultiplier;
                 this.bChangeAnimAvatar = _RPGspecificAllyComps.bChangeNonUCCCharacterAnimAvatar;
+                //RPG Character Moving
+                this.MyStationaryTurnSpeed = _rpgCharAttr.stationaryTurnSpeed;
+                this.MyMovingTurnSpeed = _rpgCharAttr.movingTurnSpeed;
+                this.MyMoveThreshold = _rpgCharAttr.moveThreshold;
+                this.MyAnimatorForwardCap = _rpgCharAttr.animatorForwardCap;
+                this.MyAnimationSpeedMultiplier = _rpgCharAttr.animationSpeedMultiplier;
             }
 
             AddRequiredComponents();
