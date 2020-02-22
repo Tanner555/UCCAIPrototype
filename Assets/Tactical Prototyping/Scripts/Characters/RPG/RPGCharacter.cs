@@ -76,6 +76,22 @@ namespace RTSPrototype
         }
         AllyEventHandlerWrapper _eventHandler = null;
 
+        GameObject NonUCCCollisionChildObject
+        {
+            get
+            {
+                if(_nonUCCCollisionChildObject == null)
+                {
+                    _nonUCCCollisionChildObject = new GameObject("NonUCCCharCollisions");
+                    _nonUCCCollisionChildObject.transform.parent = this.transform;
+                    _nonUCCCollisionChildObject.transform.localPosition = Vector3.zero;
+                    _nonUCCCollisionChildObject.layer = gamemode.SingleIgnoreRaycastLayer;
+                }
+                return _nonUCCCollisionChildObject;
+            }
+        }
+        GameObject _nonUCCCollisionChildObject = null;
+
         CapsuleCollider capsuleCollider
         {
             get
@@ -86,7 +102,7 @@ namespace RTSPrototype
                 if (_capsuleCollider == null)
                 {
                     //CapsuleCollider hasn't been added yet.
-                    _capsuleCollider = gameObject.AddComponent<CapsuleCollider>();
+                    _capsuleCollider = NonUCCCollisionChildObject.AddComponent<CapsuleCollider>();
                 }
 
                 return _capsuleCollider;
@@ -111,6 +127,8 @@ namespace RTSPrototype
             }
         }
         Rigidbody _ridigBody = null;
+
+        RTSGameModeWrapper gamemode => RTSGameModeWrapper.thisInstance;
         #endregion
 
         #region UnityMessages
