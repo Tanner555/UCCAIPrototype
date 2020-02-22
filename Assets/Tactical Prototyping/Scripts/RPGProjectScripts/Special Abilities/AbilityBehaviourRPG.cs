@@ -27,19 +27,20 @@ namespace RPGPrototype
 
         protected override void PlayAbilityAnimation()
         {
-            if (CanUseAbility())
-            {
-                //TPCAbility.StartAbility();
-                //allyEventHandler.CallEventToggleIsUsingAbility(true);
-                //Invoke("StopAbilityAnimation", config.GetAbilityAnimationTime());
-                //From Old Ability Behaviour Method
-                var _rpgconfig = (AbilityConfigRPG)config;
-                var animatorOverrideController = GetComponent<RPGCharacter>().GetOverrideController();
-                var animator = GetComponent<Animator>();
-                animator.runtimeAnimatorController = animatorOverrideController;
-                animatorOverrideController[DEFAULT_ATTACK_STATE] = _rpgconfig.GetAbilityAnimation();
-                animator.SetTrigger(ATTACK_TRIGGER);
-            }
+            //Needs to be fixed
+            //if (CanUseAbility())
+            //{
+            //    //TPCAbility.StartAbility();
+            //    //allyEventHandler.CallEventToggleIsUsingAbility(true);
+            //    //Invoke("StopAbilityAnimation", config.GetAbilityAnimationTime());
+            //    //From Old Ability Behaviour Method
+            //    var _rpgconfig = (AbilityConfigRPG)config;
+            //    var animatorOverrideController = GetComponent<RPGCharacter>().GetOverrideController();
+            //    var animator = GetComponent<Animator>();
+            //    animator.runtimeAnimatorController = animatorOverrideController;
+            //    animatorOverrideController[DEFAULT_ATTACK_STATE] = _rpgconfig.GetAbilityAnimation();
+            //    animator.SetTrigger(ATTACK_TRIGGER);
+            //}
         }
 
         public override void StopAbilityAnimation()

@@ -10190,6 +10190,10 @@ MonoBehaviour:
     EnemyHealthBarImage: {fileID: 0}
     EnemyActiveBarImage: {fileID: 0}
     AllyIndicatorSpotlightInstance: {fileID: 0}
+    bUseUCCCharacter: 1
+    bBuildNonUCCCharacterCompletely: 1
+    bChangeNonUCCCharacterAnimAvatar: 0
+    RPGCharacterAttributesObject: {fileID: 0}
   AllAllyComponentFieldsObject: {fileID: 11400000, guid: b2da6d069e6326344bafab09f609b37e,
     type: 2}
   WeaponPositionsObject: {fileID: 11400000, guid: 1a0d46880a649d94992f42dbf75ff4a6,
@@ -22563,6 +22567,10 @@ MonoBehaviour:
     EnemyHealthBarImage: {fileID: 0}
     EnemyActiveBarImage: {fileID: 0}
     AllyIndicatorSpotlightInstance: {fileID: 0}
+    bUseUCCCharacter: 1
+    bBuildNonUCCCharacterCompletely: 1
+    bChangeNonUCCCharacterAnimAvatar: 0
+    RPGCharacterAttributesObject: {fileID: 0}
   AllAllyComponentFieldsObject: {fileID: 11400000, guid: b2da6d069e6326344bafab09f609b37e,
     type: 2}
   WeaponPositionsObject: {fileID: 11400000, guid: 1a0d46880a649d94992f42dbf75ff4a6,
@@ -33694,6 +33702,10 @@ MonoBehaviour:
     EnemyHealthBarImage: {fileID: 0}
     EnemyActiveBarImage: {fileID: 0}
     AllyIndicatorSpotlightInstance: {fileID: 0}
+    bUseUCCCharacter: 1
+    bBuildNonUCCCharacterCompletely: 1
+    bChangeNonUCCCharacterAnimAvatar: 0
+    RPGCharacterAttributesObject: {fileID: 0}
   AllAllyComponentFieldsObject: {fileID: 11400000, guid: b2da6d069e6326344bafab09f609b37e,
     type: 2}
   WeaponPositionsObject: {fileID: 11400000, guid: 1a0d46880a649d94992f42dbf75ff4a6,
@@ -40016,6 +40028,10 @@ MonoBehaviour:
     EnemyHealthBarImage: {fileID: 0}
     EnemyActiveBarImage: {fileID: 0}
     AllyIndicatorSpotlightInstance: {fileID: 0}
+    bUseUCCCharacter: 1
+    bBuildNonUCCCharacterCompletely: 1
+    bChangeNonUCCCharacterAnimAvatar: 0
+    RPGCharacterAttributesObject: {fileID: 0}
   AllAllyComponentFieldsObject: {fileID: 11400000, guid: b2da6d069e6326344bafab09f609b37e,
     type: 2}
   WeaponPositionsObject: {fileID: 11400000, guid: 1a0d46880a649d94992f42dbf75ff4a6,
@@ -52908,6 +52924,10 @@ MonoBehaviour:
     EnemyHealthBarImage: {fileID: 0}
     EnemyActiveBarImage: {fileID: 0}
     AllyIndicatorSpotlightInstance: {fileID: 0}
+    bUseUCCCharacter: 1
+    bBuildNonUCCCharacterCompletely: 1
+    bChangeNonUCCCharacterAnimAvatar: 0
+    RPGCharacterAttributesObject: {fileID: 0}
   AllAllyComponentFieldsObject: {fileID: 11400000, guid: b2da6d069e6326344bafab09f609b37e,
     type: 2}
   WeaponPositionsObject: {fileID: 11400000, guid: 1a0d46880a649d94992f42dbf75ff4a6,

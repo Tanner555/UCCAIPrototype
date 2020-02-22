@@ -20,6 +20,10 @@ namespace RTSPrototype
         [Header("SpecificFieldsWrapper")]
         [Tooltip("Is the prefab used a UCC Character? Can cause errors if not setup properly.")]
         public bool bUseUCCCharacter = true;
+        [Tooltip("Different From Typical UCC Boolean. True by default. Allows any ragdoll model to work.")]
+        public bool bBuildNonUCCCharacterCompletely = true;
+        [Tooltip("False by default. Only Enable this option if you set the correct avatar for the specific model in RPG Attributes Object.")]
+        public bool bChangeNonUCCCharacterAnimAvatar = false;
         [Header("RPG Character Attributes")]
         [SerializeField]
         public RPGAllySpecificCharacterAttributesObject RPGCharacterAttributesObject;

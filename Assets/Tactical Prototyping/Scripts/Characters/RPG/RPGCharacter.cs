@@ -7,7 +7,7 @@ using UnityStandardAssets.CrossPlatformInput;
 using Pathfinding;
 #endif
 
-namespace RPGPrototype
+namespace RTSPrototype
 {
     //[SelectionBase]
     public class RPGCharacter : MonoBehaviour
@@ -17,8 +17,8 @@ namespace RPGPrototype
         bool bInitializedAlly = false;
         //Used For Character Death
         [Header("Character Death")]
-        [SerializeField] AudioClip[] damageSounds;
-        [SerializeField] AudioClip[] deathSounds;
+        //[SerializeField] AudioClip[] damageSounds;
+        //[SerializeField] AudioClip[] deathSounds;
         [SerializeField] float deathVanishSeconds = 2.0f;
 
         const string DEATH_TRIGGER = "Death";
@@ -50,21 +50,24 @@ namespace RPGPrototype
         Animator animator;
 
         private Vector3 myAnimMoveVelocity = Vector3.zero;
+
+        //Set by Init Handler, Should Be False by default
+        bool bChangeAnimAvatar = false;
         #endregion
 
         #region Properties
-        AllyEventHandlerRPG eventHandler
+        AllyEventHandlerWrapper eventHandler
         {
             get
             {
                 if (_eventHandler == null)
                 {
-                    _eventHandler = GetComponent<AllyEventHandlerRPG>();
+                    _eventHandler = GetComponent<AllyEventHandlerWrapper>();
                 }
                 return _eventHandler;
             }
         }
-        AllyEventHandlerRPG _eventHandler = null;
+        AllyEventHandlerWrapper _eventHandler = null;
 
         CapsuleCollider capsuleCollider
         {
@@ -140,25 +143,39 @@ namespace RPGPrototype
 
             ridigBody.constraints = RigidbodyConstraints.FreezeRotation;
 
-            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource = gameObject.GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+            }
             audioSource.spatialBlend = audioSourceSpatialBlend;
 
-            animator = gameObject.AddComponent<Animator>();
+            animator = gameObject.GetComponent<Animator>();
+            if (animator == null)
+            {
+                animator = gameObject.AddComponent<Animator>();
+            }
             animator.runtimeAnimatorController = animatorController;
-            animator.avatar = characterAvatar;
+            if (bChangeAnimAvatar)
+            {
+                //most time, don't want to change anim avatar
+                animator.avatar = characterAvatar;
+            }
         }
         #endregion
 
         #region Handlers
         private void OnInitializeAllyComponents(RTSAllyComponentSpecificFields _specificComps, RTSAllyComponentsAllCharacterFields _allAllyComps)
         {
-            var _RPGallAllyComps = (AllyComponentsAllCharacterFieldsRPG)_allAllyComps;
+            var _RPGallAllyComps = (RTSAllyComponentsAllCharacterFieldsWrapper)_allAllyComps;
+            var _RPGspecificAllyComps = (RTSAllyComponentSpecificFieldsWrapper)_specificComps;
 
-            if (_specificComps.bBuildCharacterCompletely)
-            {                
-                var _rpgCharAttr = ((AllyComponentSpecificFieldsRPG)_specificComps).RPGCharacterAttributesObject;
-                this.damageSounds = _rpgCharAttr.damageSounds;
-                this.deathSounds = _rpgCharAttr.deathSounds;
+            if (_RPGspecificAllyComps.bBuildNonUCCCharacterCompletely)
+            {
+                //var _rpgCharAttr = ((AllyComponentSpecificFieldsRPG)_specificComps).RPGCharacterAttributesObject;
+                var _rpgCharAttr = _RPGspecificAllyComps.RPGCharacterAttributesObject;                
+                //this.damageSounds = _RPGallAllyComps.damageSounds.AudioClips;
+                //this.deathSounds = _RPGallAllyComps.deathSounds.AudioClips;
                 this.deathVanishSeconds = _rpgCharAttr.deathVanishSeconds;
                 this.animatorController = _rpgCharAttr.animatorController;
                 this.animatorOverrideController = _rpgCharAttr.animatorOverrideController;
@@ -169,6 +186,7 @@ namespace RPGPrototype
                 this.colliderRadius = _rpgCharAttr.colliderRadius;
                 this.colliderHeight = _rpgCharAttr.colliderHeight;
                 this.moveSpeedMultiplier = _rpgCharAttr.moveSpeedMultiplier;
+                this.bChangeAnimAvatar = _RPGspecificAllyComps.bChangeNonUCCCharacterAnimAvatar;
             }
 
             AddRequiredComponents();
@@ -185,7 +203,7 @@ namespace RPGPrototype
         {
             animator.SetTrigger(DEATH_TRIGGER);
 
-            audioSource.clip = deathSounds[UnityEngine.Random.Range(0, deathSounds.Length)];
+            //audioSource.clip = deathSounds[UnityEngine.Random.Range(0, deathSounds.Length)];
             audioSource.Play(); // overrind any existing sounds
             yield return new WaitForSecondsRealtime(audioSource.clip.length);
 

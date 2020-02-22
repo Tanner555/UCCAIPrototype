@@ -210,8 +210,18 @@ namespace RTSPrototype
         {
             base.OnAllyInitComps(_specific, _allFields);
             var _RPGallAllyComps = (RTSAllyComponentsAllCharacterFieldsWrapper)_allFields;
-            //var _rpgCharAttr = ((RTSAllyComponentSpecificFields)_specific).RPGCharacterAttributesObject;
+            var _RPGspecificAllyFields = ((RTSAllyComponentSpecificFieldsWrapper)_specific);
+            var _rpgCharAttr = _RPGspecificAllyFields.RPGCharacterAttributesObject;
             //this.bUseAStarPath = _RPGallAllyComps.bUseAStarPath;
+            if(_RPGspecificAllyFields.bUseUCCCharacter == false)
+            {
+                //Not a UCC Character, Set Important NavMeshAgent Attributes
+                myNavAgent.speed = _rpgCharAttr.navMeshAgentSteeringSpeed;
+                myNavAgent.stoppingDistance = _rpgCharAttr.navMeshAgentStoppingDistance;
+                myNavAgent.autoBraking = false;
+                myNavAgent.updateRotation = false;
+                myNavAgent.updatePosition = true;
+            }
             bUsingBehaviorTrees = _RPGallAllyComps.bUseBehaviourTrees;
             if (_RPGallAllyComps.bUseBehaviourTrees && _RPGallAllyComps.allAlliesDefaultBehaviourTree != null)
             {

@@ -44,11 +44,12 @@ namespace RPGPrototype.OLDAbilities
 
         protected void PlayAbilityAnimation()
         {
-            var animatorOverrideController = GetComponent<RPGCharacter>().GetOverrideController();
-            var animator = GetComponent<Animator>();
-            animator.runtimeAnimatorController = animatorOverrideController;
-            animatorOverrideController[DEFAULT_ATTACK_STATE] = config.GetAbilityAnimation();
-            animator.SetTrigger(ATTACK_TRIGGER);
+            //Needs to be fixed
+            //var animatorOverrideController = GetComponent<RPGCharacter>().GetOverrideController();
+            //var animator = GetComponent<Animator>();
+            //animator.runtimeAnimatorController = animatorOverrideController;
+            //animatorOverrideController[DEFAULT_ATTACK_STATE] = config.GetAbilityAnimation();
+            //animator.SetTrigger(ATTACK_TRIGGER);
         }
 
         protected void PlayAbilitySound()

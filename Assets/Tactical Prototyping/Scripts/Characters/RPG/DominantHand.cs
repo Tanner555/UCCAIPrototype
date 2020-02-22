@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace RPG.Characters
+namespace RTSPrototype
 {
     public class DominantHand : MonoBehaviour
     {

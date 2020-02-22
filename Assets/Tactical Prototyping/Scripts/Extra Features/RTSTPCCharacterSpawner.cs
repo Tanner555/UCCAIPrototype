@@ -420,6 +420,12 @@ namespace RTSPrototype
                 {
                     spawnedGameObject.AddComponent<RTSItemAndControlHandler>();
                 }
+                else
+                {
+                    //Not a UCC Character, Add RPG Comps Instead.
+                    spawnedGameObject.AddComponent<RPGCharacter>();
+                    spawnedGameObject.AddComponent<RPGWeaponSystem>();
+                }
                 spawnedGameObject.AddComponent<AllyVisualsWrapper>();
 
                 //Call Ally Init Comps Event

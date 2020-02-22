@@ -2,41 +2,41 @@
 using UnityEngine.Assertions;
 using UnityEngine;
 using RTSCoreFramework;
-using RPG.Characters;
+//using RPG.Characters;
 
-namespace RPGPrototype
+namespace RTSPrototype
 {
     public class RPGWeaponSystem : MonoBehaviour
     {
         #region Properties
-        RPGGameMaster gamemaster
+        RTSGameMasterWrapper gamemaster
         {
-            get { return RPGGameMaster.thisInstance; }
+            get { return RTSGameMasterWrapper.thisInstance; }
         }
 
-        AllyEventHandlerRPG eventhandler
+        AllyEventHandlerWrapper eventhandler
         {
             get
             {
                 if (_eventhandler == null)
-                    _eventhandler = GetComponent<AllyEventHandlerRPG>();
+                    _eventhandler = GetComponent<AllyEventHandlerWrapper>();
 
                 return _eventhandler;
             }
         }
-        AllyEventHandlerRPG _eventhandler = null;
+        AllyEventHandlerWrapper _eventhandler = null;
 
-        AllyMemberRPG allymember
+        AllyMemberWrapper allymember
         {
             get
             {
                 if (_allymember == null)
-                    _allymember = GetComponent<AllyMemberRPG>();
+                    _allymember = GetComponent<AllyMemberWrapper>();
 
                 return _allymember;
             }
         }
-        AllyMemberRPG _allymember = null;
+        AllyMemberWrapper _allymember = null;
         #endregion
 
         #region Fields
@@ -86,19 +86,22 @@ namespace RPGPrototype
         #region Handlers
         private void OnInitializeAllyComponents(RTSAllyComponentSpecificFields _specificComps, RTSAllyComponentsAllCharacterFields _allAllyComps)
         {
-            var _RPGallAllyComps = (AllyComponentsAllCharacterFieldsRPG)_allAllyComps;
-            if (_specificComps.bBuildCharacterCompletely)
+            var _RPGallAllyComps = (RTSAllyComponentsAllCharacterFieldsWrapper)_allAllyComps;
+            var _RPGspecificAllyComps = (RTSAllyComponentSpecificFieldsWrapper)_specificComps;
+
+            if (_RPGspecificAllyComps.bBuildNonUCCCharacterCompletely)
             {
-                var _rpgCharAttr = _RPGallAllyComps.bUseAStarPath == false ?
-                    ((AllyComponentSpecificFieldsRPG)_specificComps).RPGCharacterAttributesObject :
-                    ((AllyComponentSpecificFieldsRPG)_specificComps).ASTAR_RPGCharacterAttributesObject;
+                var _rpgCharAttr = _RPGspecificAllyComps.RPGCharacterAttributesObject;
+                //var _rpgCharAttr = _RPGallAllyComps.bUseAStarPath == false ?
+                //    ((AllyComponentSpecificFieldsRPG)_specificComps).RPGCharacterAttributesObject :
+                //    ((AllyComponentSpecificFieldsRPG)_specificComps).ASTAR_RPGCharacterAttributesObject;
                 
                 this.baseDamage = _rpgCharAttr.baseDamage;
-                //This needs to be fixed.
-                //if(_rpgCharAttr.currentWeaponConfig != null)
-                //{
-                //    this.currentWeaponConfig = _rpgCharAttr.currentWeaponConfig;
-                //}
+
+                if (_rpgCharAttr.currentWeaponConfig != null)
+                {
+                    this.currentWeaponConfig = _rpgCharAttr.currentWeaponConfig;
+                }
             }
             animator = GetComponent<Animator>();
             character = GetComponent<RPGCharacter>();
@@ -160,10 +163,10 @@ namespace RPGPrototype
         bool targetIsDead(Transform target)
         {
             if (target == null) return false;
-            var _ally = target.GetComponent<AllyMemberRPG>();
+            var _ally = target.GetComponent<AllyMemberWrapper>();
             if (_ally != null)
             {
-                return target.GetComponent<AllyMemberRPG>().IsAlive == false;
+                return _ally.IsAlive == false;
             }
             return false;
         }
@@ -196,7 +199,7 @@ namespace RPGPrototype
         IEnumerator AttackTargetRepeatedly(Transform target)
         {
             // determine if alive (attacker and defender)
-            var _targetAlly = target.GetComponent<AllyMemberRPG>();
+            var _targetAlly = target.GetComponent<AllyMemberWrapper>();
             while(allymember != null &&
                 allymember.IsAlive && 
                 _targetAlly != null &&
@@ -256,8 +259,23 @@ namespace RPGPrototype
         {
             var dominantHands = GetComponentsInChildren<DominantHand>();
             int numberOfDominantHands = dominantHands.Length;
-            Assert.IsFalse(numberOfDominantHands <= 0, "No DominantHand found on " + gameObject.name + ", please add one");
-            Assert.IsFalse(numberOfDominantHands > 1, "Multiple DominantHand scripts on " + gameObject.name + ", please remove one");
+            if(numberOfDominantHands <= 0)
+            {
+                //create dominant hand
+                var _rightHand = animator.GetBoneTransform(HumanBodyBones.RightHand);                
+                if(_rightHand != null)
+                {
+                    var _createdDominantHand = new GameObject("CreatedDominantHand");
+                    _createdDominantHand.transform.parent = _rightHand;
+                    _createdDominantHand.AddComponent<DominantHand>();
+                    return _createdDominantHand;
+                }
+            }else if (numberOfDominantHands > 1)
+            {
+                Debug.LogWarning("Multiple DominantHand scripts on " + gameObject.name + ", please remove one");
+            }
+            //Assert.IsFalse(numberOfDominantHands <= 0, "No DominantHand found on " + gameObject.name + ", please add one");
+            //Assert.IsFalse(numberOfDominantHands > 1, "Multiple DominantHand scripts on " + gameObject.name + ", please remove one");
             return dominantHands[0].gameObject;
         }
 
@@ -269,14 +287,14 @@ namespace RPGPrototype
         //Custom Methods
         void DamageAlly(GameObject _allyObject, int _damage)
         {
-            AllyMemberRPG _ally = _allyObject.GetComponent<AllyMemberRPG>();
+            AllyMemberWrapper _ally = _allyObject.GetComponent<AllyMemberWrapper>();
             _ally.AllyTakeDamage(_damage, allymember);
         }
 
         float GetAllyHealthAsPercent(GameObject _allyObject)
         {
-            AllyMemberRPG _ally = _allyObject.GetComponent<AllyMemberRPG>();
-            return _ally.healthAsPercentage;
+            AllyMemberWrapper _ally = _allyObject.GetComponent<AllyMemberWrapper>();
+            return _ally.HealthAsPercentage;
         }
     }
 }
