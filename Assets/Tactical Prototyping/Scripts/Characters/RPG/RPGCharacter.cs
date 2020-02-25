@@ -102,7 +102,7 @@ namespace RTSPrototype
                 if (_capsuleCollider == null)
                 {
                     //CapsuleCollider hasn't been added yet.
-                    _capsuleCollider = NonUCCCollisionChildObject.AddComponent<CapsuleCollider>();
+                    _capsuleCollider = gameObject.AddComponent<CapsuleCollider>();
                 }
 
                 return _capsuleCollider;
