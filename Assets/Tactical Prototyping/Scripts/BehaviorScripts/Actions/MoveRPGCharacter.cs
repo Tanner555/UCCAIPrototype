@@ -25,17 +25,30 @@ namespace RTSPrototype
 		#endregion
 
 		#region Fields
-		private float turnAmount, forwardAmount, turnSpeed;
-		private Vector3 localMove;
+		//private float turnAmount, forwardAmount, turnSpeed;
+		//private Vector3 localMove;
 		//Non-UCC RPG Accessor Fields
-		private float MyStationaryTurnSpeed;
-		private float MyMovingTurnSpeed;
-		private float MyMoveThreshold;
-		private float MyAnimatorForwardCap;
-		private float MyAnimationSpeedMultiplier;
+		//private float MyStationaryTurnSpeed;
+		//private float MyMovingTurnSpeed;
+		//private float MyMoveThreshold;
+		//private float MyAnimatorForwardCap;
+		//private float MyAnimationSpeedMultiplier;
 		#endregion
 
 		#region Properties
+		IAllyMovable allyMovable
+		{
+			get
+			{
+				if(_allyMovable == null)
+				{
+					_allyMovable = GetComponent(typeof(IAllyMovable)) as IAllyMovable;
+				}
+				return _allyMovable;
+			}
+		}
+		IAllyMovable _allyMovable = null;
+
 		RPGCharacter myRPGCharacter
 		{
 			get
@@ -115,14 +128,14 @@ namespace RTSPrototype
 		#region Overrides
 		public override void OnStart()
 		{
-			if (bIsUCCCharacter.Value == false)
-			{
-				MyStationaryTurnSpeed = myRPGCharacter.MyStationaryTurnSpeed;
-				MyMovingTurnSpeed = myRPGCharacter.MyMovingTurnSpeed;
-				MyMoveThreshold = myRPGCharacter.MyMoveThreshold;
-				MyAnimatorForwardCap = myRPGCharacter.MyAnimatorForwardCap;
-				MyAnimationSpeedMultiplier = myRPGCharacter.MyAnimationSpeedMultiplier;
-			}
+			//if (bIsUCCCharacter.Value == false)
+			//{
+			//	MyStationaryTurnSpeed = myRPGCharacter.MyStationaryTurnSpeed;
+			//	MyMovingTurnSpeed = myRPGCharacter.MyMovingTurnSpeed;
+			//	MyMoveThreshold = myRPGCharacter.MyMoveThreshold;
+			//	MyAnimatorForwardCap = myRPGCharacter.MyAnimatorForwardCap;
+			//	MyAnimationSpeedMultiplier = myRPGCharacter.MyAnimationSpeedMultiplier;
+			//}
 		}
 
 		public override TaskStatus OnUpdate()
@@ -142,9 +155,10 @@ namespace RTSPrototype
 			else
 			{
 				//Not UCC Character, Don't Use UCC Controller.
-				SetForwardAndTurn(MyMoveDirection.Value);
-				ApplyExtraTurnRotation();
-				UpdateAnimator();
+				//SetForwardAndTurn(MyMoveDirection.Value);
+				//ApplyExtraTurnRotation();
+				//UpdateAnimator();
+				allyMovable.MoveAlly(MyMoveDirection.Value, bIsFreeMoving.Value);
 				return TaskStatus.Success;
 			}
 		}
@@ -159,49 +173,49 @@ namespace RTSPrototype
 
 		public override void OnReset()
 		{
-			MyStationaryTurnSpeed = 0;
-			MyMovingTurnSpeed = 0;
-			MyMoveThreshold = 0;
-			MyAnimatorForwardCap = 0;
-			MyAnimationSpeedMultiplier = 0;
+			//MyStationaryTurnSpeed = 0;
+			//MyMovingTurnSpeed = 0;
+			//MyMoveThreshold = 0;
+			//MyAnimatorForwardCap = 0;
+			//MyAnimationSpeedMultiplier = 0;
 		}
 		#endregion
 
 		#region Helpers
-		float GetDeltaYawRotation(float horizontal, float forward, Quaternion rotation)
-		{
-			var lookVector = RTSPlayerInput.thisInstance.GetLookVector(true);
-			return m_Controller.ActiveMovementType.GetDeltaYawRotation(horizontal, forward, lookVector.x, lookVector.y);
-		}
+		//float GetDeltaYawRotation(float horizontal, float forward, Quaternion rotation)
+		//{
+		//	var lookVector = RTSPlayerInput.thisInstance.GetLookVector(true);
+		//	return m_Controller.ActiveMovementType.GetDeltaYawRotation(horizontal, forward, lookVector.x, lookVector.y);
+		//}
 
-		void SetForwardAndTurn(Vector3 movement)
-		{
-			// convert the world relative moveInput vector into a local-relative
-			// turn amount and forward amount required to head in the desired direction
-			if (movement.magnitude > MyMoveThreshold)
-			{
-				movement.Normalize();
-			}
-			localMove = transform.InverseTransformDirection(movement);
-			//CheckGroundStatus();
-			//localMove = Vector3.ProjectOnPlane(localMove, m_GroundNormal);
-			turnAmount = Mathf.Atan2(localMove.x, localMove.z);
-			forwardAmount = localMove.z;
-		}
+		//void SetForwardAndTurn(Vector3 movement)
+		//{
+		//	// convert the world relative moveInput vector into a local-relative
+		//	// turn amount and forward amount required to head in the desired direction
+		//	if (movement.magnitude > MyMoveThreshold)
+		//	{
+		//		movement.Normalize();
+		//	}
+		//	localMove = transform.InverseTransformDirection(movement);
+		//	//CheckGroundStatus();
+		//	//localMove = Vector3.ProjectOnPlane(localMove, m_GroundNormal);
+		//	turnAmount = Mathf.Atan2(localMove.x, localMove.z);
+		//	forwardAmount = localMove.z;
+		//}
 
-		void ApplyExtraTurnRotation()
-		{
-			// help the character turn faster (this is in addition to root rotation in the animation)
-			turnSpeed = Mathf.Lerp(MyStationaryTurnSpeed, MyMovingTurnSpeed, forwardAmount);
-			transform.Rotate(0, turnAmount * turnSpeed * Time.deltaTime, 0);
-		}
+		//void ApplyExtraTurnRotation()
+		//{
+		//	// help the character turn faster (this is in addition to root rotation in the animation)
+		//	turnSpeed = Mathf.Lerp(MyStationaryTurnSpeed, MyMovingTurnSpeed, forwardAmount);
+		//	transform.Rotate(0, turnAmount * turnSpeed * Time.deltaTime, 0);
+		//}
 
-		void UpdateAnimator()
-		{
-			myAnimator.SetFloat("Forward", forwardAmount * MyAnimatorForwardCap, 0.1f, Time.deltaTime);
-			myAnimator.SetFloat("Turn", turnAmount, 0.1f, Time.deltaTime);
-			myAnimator.speed = MyAnimationSpeedMultiplier * speedMultiplier;
-		}
+		//void UpdateAnimator()
+		//{
+		//	myAnimator.SetFloat("Forward", forwardAmount * MyAnimatorForwardCap, 0.1f, Time.deltaTime);
+		//	myAnimator.SetFloat("Turn", turnAmount, 0.1f, Time.deltaTime);
+		//	myAnimator.speed = MyAnimationSpeedMultiplier * speedMultiplier;
+		//}
 		#endregion
 	}
 }

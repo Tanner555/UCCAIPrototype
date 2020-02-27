@@ -10,7 +10,7 @@ using Pathfinding;
 namespace RTSPrototype
 {
     //[SelectionBase]
-    public class RPGCharacter : MonoBehaviour
+    public class RPGCharacter : MonoBehaviour, IAllyMovable
     {
         #region Fields
         //Init Field
@@ -45,6 +45,11 @@ namespace RTSPrototype
         float turnAmount;
         float forwardAmount;
         bool isAlive = true;
+
+        private float turnSpeed;
+        private Vector3 localMove;
+        float speedMultiplier = 1.0f;
+        float _baseSpeedMultiplier = 1.0f;
 
         // cached references for readability
         Animator animator;
@@ -190,6 +195,16 @@ namespace RTSPrototype
         #endregion
 
         #region Handlers
+        public void MoveAlly(Vector3 Direction, bool isFreeMoving)
+        {
+            speedMultiplier = isFreeMoving ?
+                        1.2f * _baseSpeedMultiplier :
+                        1.0f * _baseSpeedMultiplier;
+            SetForwardAndTurn(Direction);
+            ApplyExtraTurnRotation();
+            UpdateAnimator();
+        }
+
         private void OnInitializeAllyComponents(RTSAllyComponentSpecificFields _specificComps, RTSAllyComponentsAllCharacterFields _allAllyComps)
         {
             var _RPGallAllyComps = (RTSAllyComponentsAllCharacterFieldsWrapper)_allAllyComps;
@@ -239,6 +254,37 @@ namespace RTSPrototype
             yield return new WaitForSecondsRealtime(audioSource.clip.length);
 
             UnityEngine.Object.Destroy(gameObject, deathVanishSeconds);
+        }
+        #endregion
+
+        #region Moving
+        void SetForwardAndTurn(Vector3 movement)
+        {
+            // convert the world relative moveInput vector into a local-relative
+            // turn amount and forward amount required to head in the desired direction
+            if (movement.magnitude > MyMoveThreshold)
+            {
+                movement.Normalize();
+            }
+            localMove = transform.InverseTransformDirection(movement);
+            //CheckGroundStatus();
+            //localMove = Vector3.ProjectOnPlane(localMove, m_GroundNormal);
+            turnAmount = Mathf.Atan2(localMove.x, localMove.z);
+            forwardAmount = localMove.z;
+        }
+
+        void ApplyExtraTurnRotation()
+        {
+            // help the character turn faster (this is in addition to root rotation in the animation)
+            turnSpeed = Mathf.Lerp(MyStationaryTurnSpeed, MyMovingTurnSpeed, forwardAmount);
+            transform.Rotate(0, turnAmount * turnSpeed * Time.deltaTime, 0);
+        }
+
+        void UpdateAnimator()
+        {
+            animator.SetFloat("Forward", forwardAmount * MyAnimatorForwardCap, 0.1f, Time.deltaTime);
+            animator.SetFloat("Turn", turnAmount, 0.1f, Time.deltaTime);
+            animator.speed = MyAnimationSpeedMultiplier * speedMultiplier;
         }
         #endregion
 
