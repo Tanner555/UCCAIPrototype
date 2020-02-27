@@ -205,6 +205,11 @@ namespace RTSPrototype
             UpdateAnimator();
         }
 
+        public void StopAllyMovement()
+        {
+            
+        }
+
         private void OnInitializeAllyComponents(RTSAllyComponentSpecificFields _specificComps, RTSAllyComponentsAllCharacterFields _allAllyComps)
         {
             var _RPGallAllyComps = (RTSAllyComponentsAllCharacterFieldsWrapper)_allAllyComps;

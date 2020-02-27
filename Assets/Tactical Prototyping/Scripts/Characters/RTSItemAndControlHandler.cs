@@ -11,10 +11,11 @@ using Opsive.UltimateCharacterController.Items.Actions;
 using Opsive.UltimateCharacterController.Events;
 using UtilitiesAndHelpersForUCC;
 using uccEventHelper = UtilitiesAndHelpersForUCC.UCCEventsControllerUtility;
+using Opsive.UltimateCharacterController.Game;
 
 namespace RTSPrototype
 {
-    public class RTSItemAndControlHandler : MonoBehaviour
+    public class RTSItemAndControlHandler : MonoBehaviour, IAllyMovable
     {
         #region PropsAndFields
         RTSGameMaster gamemaster
@@ -200,6 +201,16 @@ namespace RTSPrototype
         #endregion
 
         #region Handlers
+        public void MoveAlly(Vector3 Direction, bool isFreeMoving)
+        {
+            KinematicObjectManager.SetCharacterMovementInput(myController.KinematicObjectIndex, Direction.x, Direction.z);
+        }
+
+        public void StopAllyMovement()
+        {
+            KinematicObjectManager.SetCharacterMovementInput(myController.KinematicObjectIndex, 0, 0);
+        }
+
         void InitializeAllyWeaponItems(RTSAllyComponentSpecificFields _specific, RTSAllyComponentsAllCharacterFields _allFields)
         {
             var _tpcAllyCompsToInit = (RTSAllyComponentsAllCharacterFieldsWrapper)_allFields;
