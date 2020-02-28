@@ -81,6 +81,24 @@ namespace RTSPrototype
         }
         AllyEventHandlerWrapper _eventHandler = null;
 
+        protected NavMeshAgent myNavAgent
+        {
+            get
+            {
+                if (_myNavAgent == null)
+                    _myNavAgent = GetComponent<NavMeshAgent>();
+
+                if (_myNavAgent == null)
+                {
+                    //NavMesh hasn't been added yet.
+                    _myNavAgent = gameObject.AddComponent<NavMeshAgent>();
+                }
+
+                return _myNavAgent;
+            }
+        }
+        private NavMeshAgent _myNavAgent = null;
+
         GameObject NonUCCCollisionChildObject
         {
             get
@@ -214,11 +232,10 @@ namespace RTSPrototype
         {
             var _RPGallAllyComps = (RTSAllyComponentsAllCharacterFieldsWrapper)_allAllyComps;
             var _RPGspecificAllyComps = (RTSAllyComponentSpecificFieldsWrapper)_specificComps;
+            var _rpgCharAttr = _RPGspecificAllyComps.RPGCharacterAttributesObject;
 
             if (_RPGspecificAllyComps.bBuildNonUCCCharacterCompletely)
-            {
-                //var _rpgCharAttr = ((AllyComponentSpecificFieldsRPG)_specificComps).RPGCharacterAttributesObject;
-                var _rpgCharAttr = _RPGspecificAllyComps.RPGCharacterAttributesObject;                
+            {              
                 //this.damageSounds = _RPGallAllyComps.damageSounds.AudioClips;
                 //this.deathSounds = _RPGallAllyComps.deathSounds.AudioClips;
                 this.deathVanishSeconds = _rpgCharAttr.deathVanishSeconds;
@@ -238,6 +255,16 @@ namespace RTSPrototype
                 this.MyMoveThreshold = _rpgCharAttr.moveThreshold;
                 this.MyAnimatorForwardCap = _rpgCharAttr.animatorForwardCap;
                 this.MyAnimationSpeedMultiplier = _rpgCharAttr.animationSpeedMultiplier;
+            }
+
+            if (_RPGspecificAllyComps.bUseUCCCharacter == false)
+            {
+                //Set Important NavMeshAgent Attributes For RPG Character
+                myNavAgent.speed = _rpgCharAttr.navMeshAgentSteeringSpeed;
+                myNavAgent.stoppingDistance = _rpgCharAttr.navMeshAgentStoppingDistance;
+                myNavAgent.autoBraking = false;
+                myNavAgent.updateRotation = false;
+                myNavAgent.updatePosition = true;
             }
 
             AddRequiredComponents();
