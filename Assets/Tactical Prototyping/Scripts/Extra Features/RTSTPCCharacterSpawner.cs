@@ -460,16 +460,13 @@ namespace RTSPrototype
                 //Delay Adding These Components
                 spawnedGameObject.AddComponent<AllyMemberWrapper>();
                 spawnedGameObject.AddComponent<AllyAIControllerWrapper>();
-                spawnedGameObject.AddComponent<AllySpecialAbilitiesWrapper>();                
-                if (bUsingUCCCharacter)
+                spawnedGameObject.AddComponent<AllySpecialAbilitiesWrapper>(); 
+                if(CharacterSpawnerSettings != null)
                 {
-                    spawnedGameObject.AddComponent<RTSItemAndControlHandler>();
-                }
-                else
-                {
-                    //Not a UCC Character, Add RPG Comps Instead.
-                    spawnedGameObject.AddComponent<RPGCharacter>();
-                    spawnedGameObject.AddComponent<RPGWeaponSystem>();
+                    foreach (var _type in CharacterSpawnerSettings.GetComponentsToAdd())
+                    {
+                        spawnedGameObject.AddComponent(_type);
+                    }
                 }
                 spawnedGameObject.AddComponent<AllyVisualsWrapper>();
 
