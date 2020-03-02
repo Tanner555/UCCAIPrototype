@@ -80,5 +80,10 @@ PrefabInstance:
       propertyPath: m_AddItems
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114049519169023850, guid: 5d943119da63ccb4c99011891bcdc8a1,
+        type: 3}
+      propertyPath: CharacterSpawnerSettingsType
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d943119da63ccb4c99011891bcdc8a1, type: 3}

@@ -38,9 +38,54 @@ namespace RTSPrototype
 
     public class RTSTPCCharacterSpawner : CharacterSpawner
     {
+        #region CharacterSpawnerSettingsFields
+        [Header("Character Spawner Settings Fields")]
+        public RTSCharacterSpawnerSettingsType CharacterSpawnerSettingsType;
+        
+        public RTSCharacterSpawnerSettingsObject CharacterSpawnerSettingsObject;
+
+        protected RTSCharacterSpawnerSettings CharacterSpawnerSettings
+        {
+            get
+            {
+                if (_CharacterSpawnerSettings == null)
+                {
+                    if(CharacterSpawnerSettingsObject == null)
+                    {
+                        Debug.LogError("No CharacterSpawnerSettingsObject Assigned To Spawner.");
+                        return null;
+                    }
+                    else if(CharacterSpawnerSettingsObject.CharacterSpawnerSettingsList == null ||
+                        CharacterSpawnerSettingsObject.CharacterSpawnerSettingsList.Count <= 0)
+                    {
+                        Debug.LogError("CharacterSpawnerSettingsList is Empty or NULL.");
+                        return null;
+                    }
+                    else
+                    {
+                        foreach (var _spawnSettings in CharacterSpawnerSettingsObject.CharacterSpawnerSettingsList)
+                        {
+                            if(_spawnSettings.CharacterSpawnerSettingsType == CharacterSpawnerSettingsType)
+                            {
+                                _CharacterSpawnerSettings = _spawnSettings;
+                            }
+                        }
+                        if(_CharacterSpawnerSettings == null)
+                        {
+                            Debug.LogError($"SpawnerSettingsType {CharacterSpawnerSettingsType.ToString()} Couldn't Be Found in CharacterSpawnerSettingsList.");
+                            return null;
+                        }
+                    }
+                }
+                return _CharacterSpawnerSettings;
+            }
+        }
+        private RTSCharacterSpawnerSettings _CharacterSpawnerSettings = null;
+        #endregion
+
         #region CharacterBuilderFields
-        //CharacterBuilder Fields
-        [Header("CharacterBuilder Fields")]
+         //CharacterBuilder Fields
+         [Header("CharacterBuilder Fields")]
         [Tooltip("The animator controller that the character should use")]
         [SerializeField] protected RuntimeAnimatorController m_AnimatorController;
         [Tooltip("Can the character hold items?")]
@@ -415,7 +460,7 @@ namespace RTSPrototype
                 //Delay Adding These Components
                 spawnedGameObject.AddComponent<AllyMemberWrapper>();
                 spawnedGameObject.AddComponent<AllyAIControllerWrapper>();
-                spawnedGameObject.AddComponent<AllySpecialAbilitiesWrapper>();
+                spawnedGameObject.AddComponent<AllySpecialAbilitiesWrapper>();                
                 if (bUsingUCCCharacter)
                 {
                     spawnedGameObject.AddComponent<RTSItemAndControlHandler>();
