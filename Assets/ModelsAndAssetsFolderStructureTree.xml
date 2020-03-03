@@ -52,5 +52,11 @@
         <Folder>Universal Sound FX</Folder>
       </FoldersWSpaces>
     </SoundsAndMusic>
+    <SyntyAssets>
+      <Description>This is where my purchased Synty Assets are Stored.</Description>
+      <PolygonAdventure></PolygonAdventure>
+      <PolygonKnights></PolygonKnights>
+      <PolygonVikings></PolygonVikings>
+    </SyntyAssets>
   </ModelsAndAssets>
 </Assets>

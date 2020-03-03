@@ -122,6 +122,11 @@ UpgradeLog.htm
 /Assets/Tactical Prototyping/Maps/NewUCCMaps/SandLevel1UCC
 /Assets/Tactical Prototyping/Maps/SampleScene
 
+# My Low Poly Maps
+/Assets/Tactical Prototyping/Maps/MyLowPolyMaps/MyLowPolyAdventure
+/Assets/Tactical Prototyping/Maps/MyLowPolyMaps/MyLowPolyKnights
+/Assets/Tactical Prototyping/Maps/MyLowPolyMaps/MyLowPolyVikings
+
 # Ignore Terrain Data Generated
 /Assets/Tactical Prototyping/Maps/Terrains/TerrainData*
 

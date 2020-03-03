@@ -10156,6 +10156,8 @@ MonoBehaviour:
   EnemyColor: {r: 1, g: 0, b: 0, a: 1}
   GizmosRadius: 1.5
   spawnedGameObject: {fileID: 0}
+  CharacterSpawnerSettingsType: 0
+  CharacterSpawnerSettingsObject: {fileID: 0}
   m_AnimatorController: {fileID: 9100000, guid: 8755ad7b4e5eacc41ae6a8e27560decb,
     type: 2}
   m_AddItems: 1
@@ -22533,6 +22535,8 @@ MonoBehaviour:
   EnemyColor: {r: 1, g: 0, b: 0, a: 1}
   GizmosRadius: 1.5
   spawnedGameObject: {fileID: 0}
+  CharacterSpawnerSettingsType: 0
+  CharacterSpawnerSettingsObject: {fileID: 0}
   m_AnimatorController: {fileID: 9100000, guid: 8755ad7b4e5eacc41ae6a8e27560decb,
     type: 2}
   m_AddItems: 1
@@ -33668,6 +33672,8 @@ MonoBehaviour:
   EnemyColor: {r: 1, g: 0, b: 0, a: 1}
   GizmosRadius: 1.5
   spawnedGameObject: {fileID: 0}
+  CharacterSpawnerSettingsType: 0
+  CharacterSpawnerSettingsObject: {fileID: 0}
   m_AnimatorController: {fileID: 9100000, guid: 8755ad7b4e5eacc41ae6a8e27560decb,
     type: 2}
   m_AddItems: 1
@@ -39994,6 +40000,8 @@ MonoBehaviour:
   EnemyColor: {r: 1, g: 0, b: 0, a: 1}
   GizmosRadius: 1.5
   spawnedGameObject: {fileID: 0}
+  CharacterSpawnerSettingsType: 0
+  CharacterSpawnerSettingsObject: {fileID: 0}
   m_AnimatorController: {fileID: 9100000, guid: 8755ad7b4e5eacc41ae6a8e27560decb,
     type: 2}
   m_AddItems: 1
@@ -52890,6 +52898,8 @@ MonoBehaviour:
   EnemyColor: {r: 1, g: 0, b: 0, a: 1}
   GizmosRadius: 1.5
   spawnedGameObject: {fileID: 0}
+  CharacterSpawnerSettingsType: 0
+  CharacterSpawnerSettingsObject: {fileID: 0}
   m_AnimatorController: {fileID: 9100000, guid: 8755ad7b4e5eacc41ae6a8e27560decb,
     type: 2}
   m_AddItems: 1
