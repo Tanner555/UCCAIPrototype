@@ -7,6 +7,12 @@
 /.vscode/
 /MemoryCaptures/
 
+# UIERuntime Local Package
+/Packages/UIERuntime
+
+# UI Elements Schema
+/UIElementsSchema
+
 # Plugins Folder
 /Assets/Plugins
 /Assets/Plugins.meta
