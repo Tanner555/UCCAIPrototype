@@ -8,22 +8,55 @@ namespace RTSPrototype
 {
     public class RTSUIEHelper
     {
-        #region TransitionLogic
-        //Screen Transition Logic From Unity Tank Demo
+        #region Getters
+        public static bool IsPanelScreenEnabled(ref PanelRenderer screen)
+        {
+            UIElementsEventSystem _myEventSystem = null;
+            return IsPanelScreenEnabled(ref screen, out _myEventSystem);
+        }
 
-        public static void SetScreenEnableState(PanelRenderer screen, bool state)
+        public static bool IsPanelScreenEnabled(ref PanelRenderer screen, out UIElementsEventSystem myEventSystem)
+        {
+            myEventSystem = null;
+            return screen != null && screen.enabled &&
+                (myEventSystem = screen.gameObject.GetComponent<UIElementsEventSystem>()) != null &&
+                myEventSystem.enabled;
+        }
+        #endregion
+
+        #region TransitionHelpers
+        public static void SetScreenEnableState(ref PanelRenderer screen, bool state)
+        {
+            UIElementsEventSystem _myEventSystem = screen.gameObject.GetComponent<UIElementsEventSystem>();
+            SetScreenEnableState(ref screen, ref _myEventSystem, state);
+        }
+
+        public static void DisablePanelScreenIfEnabled(ref PanelRenderer screen)
+        {
+            UIElementsEventSystem _myEventSystem = null;
+            if (IsPanelScreenEnabled(ref screen, out _myEventSystem))
+            {
+                SetScreenEnableState(ref screen, ref _myEventSystem, false);
+            }
+        }
+        #endregion
+
+        #region TransitionLogic
+        //Screen Transition Logic
+
+        public static void SetScreenEnableState(ref PanelRenderer screen, ref UIElementsEventSystem uieSystem, bool state)
         {
             if (state)
             {
                 screen.visualTree.style.display = DisplayStyle.Flex;
                 screen.enabled = true;
-                screen.gameObject.GetComponent<UIElementsEventSystem>().enabled = true;
+                uieSystem.enabled = true;
             }
             else
             {
                 screen.visualTree.style.display = DisplayStyle.None;
                 screen.enabled = false;
-                screen.gameObject.GetComponent<UIElementsEventSystem>().enabled = false;
+                uieSystem.enabled = false;
             }
         }
 
