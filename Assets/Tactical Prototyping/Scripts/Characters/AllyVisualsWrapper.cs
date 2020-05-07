@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using RTSCoreFramework;
-using Opsive.UltimateCharacterController.Game;
 using Opsive.UltimateCharacterController.Audio;
+using Opsive.Shared.Game;
 
 namespace RTSPrototype
 {

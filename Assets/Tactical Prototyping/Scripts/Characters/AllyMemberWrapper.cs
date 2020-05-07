@@ -258,21 +258,21 @@ namespace RTSPrototype
         {
             _loaded = 1;
             _unloaded = 1;
-            //Don't Calculate Ammo If Using A Melee Weapon
-            if (isMelee) return;
+            ////Don't Calculate Ammo If Using A Melee Weapon
+            //if (isMelee) return;
 
-            if (bIsUCCCharacter)
-            {
-                Item _item = myInventory.GetItem(0);
-                ItemAction _cItemAction; ShootableWeapon _shootableWeapon;
-                if ((_cItemAction = _item.GetItemAction(0)) != null &&
-                    _cItemAction is ShootableWeapon &&
-                    (_shootableWeapon = (ShootableWeapon)_cItemAction) != null)
-                {
-                    _loaded = (int)_shootableWeapon.ClipRemaining;
-                    _unloaded = (int)myInventory.GetItemTypeCount(_shootableWeapon.ConsumableItemType);
-                }
-            }
+            //if (bIsUCCCharacter)
+            //{
+            //    Item _item = myInventory.GetItem(0);
+            //    ItemAction _cItemAction; ShootableWeapon _shootableWeapon;
+            //    if ((_cItemAction = _item.GetItemAction(0)) != null &&
+            //        _cItemAction is ShootableWeapon &&
+            //        (_shootableWeapon = (ShootableWeapon)_cItemAction) != null)
+            //    {
+            //        _loaded = (int)_shootableWeapon.ClipRemaining;
+            //        _unloaded = (int)myInventory.GetItemTypeCount(_shootableWeapon.ConsumableItemType);
+            //    }
+            //}
         }
 
         public override int GetDamageRate()

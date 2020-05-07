@@ -36,7 +36,8 @@ namespace RTSPrototype
             //Complete Disable Crosshairs for now
             //base.AttachCharacter(character);
             //DisableCrosshairs(true);
-            ShowCrosshairs = false;
+            Debug.Log("Won't Disable Crosshairs");
+            //ShowCrosshairs = false;
         }
     }
 }

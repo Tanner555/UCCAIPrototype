@@ -166,9 +166,9 @@ namespace RTSPrototype
             //New UCC Events
             if (bIsUCCCharacter)
             {
-                uccEventHelper.RegisterOnItemUseConsumableItemType(this.gameObject, OnItemUseConsumableItemType);
-                uccEventHelper.RegisterOnInventoryEquipItem(this.gameObject, OnInventoryEquipItem);
-                uccEventHelper.RegisterOnInventoryAddItem(this.gameObject, OnInventoryAddItem);
+                //uccEventHelper.RegisterOnItemUseConsumableItemType(this.gameObject, OnItemUseConsumableItemType);
+                //uccEventHelper.RegisterOnInventoryEquipItem(this.gameObject, OnInventoryEquipItem);
+                //uccEventHelper.RegisterOnInventoryAddItem(this.gameObject, OnInventoryAddItem);
             }
         }
 
@@ -186,32 +186,32 @@ namespace RTSPrototype
             //New UCC Events
             if (bIsUCCCharacter)
             {
-                uccEventHelper.UnregisterOnItemUseConsumableItemType(this.gameObject, OnItemUseConsumableItemType);
-                uccEventHelper.UnregisterOnInventoryEquipItem(this.gameObject, OnInventoryEquipItem);
-                uccEventHelper.UnregisterOnInventoryAddItem(this.gameObject, OnInventoryAddItem);
+                //uccEventHelper.UnregisterOnItemUseConsumableItemType(this.gameObject, OnItemUseConsumableItemType);
+                //uccEventHelper.UnregisterOnInventoryEquipItem(this.gameObject, OnInventoryEquipItem);
+                //uccEventHelper.UnregisterOnInventoryAddItem(this.gameObject, OnInventoryAddItem);
             }
         }
         #endregion
 
         #region Handlers
         //New UCC Handlers
-        void OnInventoryAddItem(Item item)
-        {
-            RequestCallAmmoChangedEvent();
-        }
+        //void OnInventoryAddItem(Item item)
+        //{
+        //    RequestCallAmmoChangedEvent();
+        //}
 
-        void OnInventoryEquipItem(Item item, int slotID)
-        {
-            RequestCallAmmoChangedEvent();
-        }
+        //void OnInventoryEquipItem(Item item, int slotID)
+        //{
+        //    RequestCallAmmoChangedEvent();
+        //}
 
-        void OnItemUseConsumableItemType(Item m_Item, ItemType m_ConsumableItemType, float m_ClipRemaining)
-        {
-            int _loadedAmmo = (int)m_ClipRemaining;
-            int _unloadedAmmo = (int)myInventory.GetItemTypeCount(m_ConsumableItemType);
-            //Debug.Log("OnItemUseConsumableItemType: load = " + _loadedAmmo + " unload = " + _unloadedAmmo);
-            RequestCallAmmoChangedEvent(_loadedAmmo, _unloadedAmmo);
-        }
+        //void OnItemUseConsumableItemType(Item m_Item, ItemType m_ConsumableItemType, float m_ClipRemaining)
+        //{
+        //    int _loadedAmmo = (int)m_ClipRemaining;
+        //    int _unloadedAmmo = (int)myInventory.GetItemTypeCount(m_ConsumableItemType);
+        //    //Debug.Log("OnItemUseConsumableItemType: load = " + _loadedAmmo + " unload = " + _unloadedAmmo);
+        //    RequestCallAmmoChangedEvent(_loadedAmmo, _unloadedAmmo);
+        //}
 
         //Old TPC Handlers
         //void OnPrimaryItemChange(Item item)
@@ -237,39 +237,39 @@ namespace RTSPrototype
         #region HelperMethods
         void RequestCallAmmoChangedEvent()
         {
-            if (bIsUCCCharacter)
-            {
-                Item _cItem = myInventory.GetItem(0);
-                if (_cItem == null) return;
-                ItemAction _cItemAction = _cItem.GetItemAction(0);
-                if (_cItemAction == null) return;
+            //if (bIsUCCCharacter)
+            //{
+            //    Item _cItem = myInventory.GetItem(0);
+            //    if (_cItem == null) return;
+            //    ItemAction _cItemAction = _cItem.GetItemAction(0);
+            //    if (_cItemAction == null) return;
 
-                int _loadedAmmo = 1;
-                int _unloadedAmmo = 1;
+            //    int _loadedAmmo = 1;
+            //    int _unloadedAmmo = 1;
 
-                if (_cItemAction is ShootableWeapon)
-                {
-                    ShootableWeapon _cShootable = (ShootableWeapon)_cItemAction;
-                    _loadedAmmo = (int)_cShootable.ClipRemaining;
-                    _unloadedAmmo = (int)myInventory.GetItemTypeCount(_cShootable.ConsumableItemType);
-                }
+            //    if (_cItemAction is ShootableWeapon)
+            //    {
+            //        ShootableWeapon _cShootable = (ShootableWeapon)_cItemAction;
+            //        _loadedAmmo = (int)_cShootable.ClipRemaining;
+            //        _unloadedAmmo = (int)myInventory.GetItemTypeCount(_cShootable.ConsumableItemType);
+            //    }
 
-                if (_loadedAmmo < int.MaxValue && _loadedAmmo >= 0 &&
-                    _unloadedAmmo < int.MaxValue && _unloadedAmmo >= 0)
-                {
-                    CallOnAmmoChanged(_loadedAmmo, _unloadedAmmo);
-                }
-            }
+            //    if (_loadedAmmo < int.MaxValue && _loadedAmmo >= 0 &&
+            //        _unloadedAmmo < int.MaxValue && _unloadedAmmo >= 0)
+            //    {
+            //        CallOnAmmoChanged(_loadedAmmo, _unloadedAmmo);
+            //    }
+            //}
         }
 
-        void RequestCallAmmoChangedEvent(int loadedAmmo, int unloadedAmmo)
-        {
-            if (loadedAmmo < int.MaxValue && loadedAmmo >= 0 &&
-                unloadedAmmo < int.MaxValue && unloadedAmmo >= 0)
-            {
-                CallOnAmmoChanged(loadedAmmo, unloadedAmmo);
-            }
-        }
+        //void RequestCallAmmoChangedEvent(int loadedAmmo, int unloadedAmmo)
+        //{
+        //    if (loadedAmmo < int.MaxValue && loadedAmmo >= 0 &&
+        //        unloadedAmmo < int.MaxValue && unloadedAmmo >= 0)
+        //    {
+        //        CallOnAmmoChanged(loadedAmmo, unloadedAmmo);
+        //    }
+        //}
         #endregion
     }
 }

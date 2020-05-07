@@ -326,25 +326,25 @@ namespace RTSPrototype
         {
             if (!AllCompsAreValid) return;
 
-            Item _cItem = myInventory.GetItem(0);
-            if (_cItem == null) return;
-            ItemAction _cItemAction = _cItem.GetItemAction(0);
-            if (_cItemAction == null) return;
+            //Item _cItem = myInventory.GetItem(0);
+            //if (_cItem == null) return;
+            //ItemAction _cItemAction = _cItem.GetItemAction(0);
+            //if (_cItemAction == null) return;
 
-            if(_cItemAction is ShootableWeapon)
-            {
-                ShootableWeapon _cShootable = (ShootableWeapon)_cItemAction;
-                bIsReloading = true;
-                Invoke("ResetIsReloading", reloadTimeLimit);
-                if (_cShootable.CanReloadItem(true))
-                {
-                    uccEventHelper.CallOnItemTryReload(this.gameObject, _cItem.SlotID, _cShootable.ConsumableItemType, false, false);
-                }
-                else
-                {
-                    Debug.Log("Couldn't reload primary weapon");
-                }
-            }
+            //if(_cItemAction is ShootableWeapon)
+            //{
+            //    ShootableWeapon _cShootable = (ShootableWeapon)_cItemAction;
+            //    bIsReloading = true;
+            //    Invoke("ResetIsReloading", reloadTimeLimit);
+            //    if (_cShootable.CanReloadItem(true))
+            //    {
+            //        uccEventHelper.CallOnItemTryReload(this.gameObject, _cItem.SlotID, _cShootable.ConsumableItemType, false, false);
+            //    }
+            //    else
+            //    {
+            //        Debug.Log("Couldn't reload primary weapon");
+            //    }
+            //}
         }
 
         void ResetIsReloading()
@@ -394,24 +394,24 @@ namespace RTSPrototype
         {
             _loaded = 1;
             _unloaded = 1;
-            Item _item = myInventory.GetItem(0, _itemType);
-            if (_item != null)
-            {
-                var _cItemAction = _item.GetItemAction(0);
-                if (_cItemAction != null)
-                {
-                    if (_cItemAction is ShootableWeapon)
-                    {
-                        var _shootableWeapon = (ShootableWeapon)_cItemAction;
-                        _loaded = (int)_shootableWeapon.ClipRemaining;
-                        _unloaded = (int)myInventory.GetItemTypeCount(_shootableWeapon.ConsumableItemType);
-                    }
-                }
-            }
-            else
-            {
-                Debug.Log("Item is null");
-            }
+            //Item _item = myInventory.GetItem(0, _itemType);
+            //if (_item != null)
+            //{
+            //    var _cItemAction = _item.GetItemAction(0);
+            //    if (_cItemAction != null)
+            //    {
+            //        if (_cItemAction is ShootableWeapon)
+            //        {
+            //            var _shootableWeapon = (ShootableWeapon)_cItemAction;
+            //            _loaded = (int)_shootableWeapon.ClipRemaining;
+            //            _unloaded = (int)myInventory.GetItemTypeCount(_shootableWeapon.ConsumableItemType);
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    Debug.Log("Item is null");
+            //}
         }
 
         ItemType GetTPSItemFromWeaponType(EWeaponType _weaponType)
@@ -463,9 +463,10 @@ namespace RTSPrototype
         void SetEquippedItem(ItemType _type)
         {
             Item _itemToEquip = myInventory.GetItem(0, _type);
-            var _currentEquippedItem = myInventory.GetItem(0);
+            var _currentEquippedItem = myInventory.GetActiveItem(0);
 
-            if (_currentEquippedItem == null || (_currentEquippedItem != null && _currentEquippedItem.ItemType != _type))
+            if (_currentEquippedItem == null || (_currentEquippedItem != null && 
+                _currentEquippedItem.ItemIdentifier != (Opsive.Shared.Inventory.IItemIdentifier)_type))
             {
                 if (_itemToEquip != null)
                 {
