@@ -43,7 +43,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 11
+  serializedVersion: 12
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -99,7 +99,8 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000002, guid: daede291c8429ca41a25f6c15d87895e,
     type: 2}
-  m_UseShadowmask: 1
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 59fba0402b3479c448dcbc72cb53fe31,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -119,9 +120,87 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    maxJobWorkers: 0
+    preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &8197529
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8197530}
+  - component: {fileID: 8197531}
+  m_Layer: 0
+  m_Name: 77360
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8197530
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8197529}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4101523251755212616}
+  m_Father: {fileID: 675568854}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8197531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8197529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df7e0bb9f440424790b8353e6a14018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8917849176671770737, guid: d5041847add08214e823409fa2b4a0ae, type: 3}
+--- !u!1 &86207703
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 86207704}
+  m_Layer: 0
+  m_Name: Root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &86207704
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86207703}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 805608435}
+  m_Father: {fileID: 3460449237857456306}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &109149437
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,6 +325,51 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!1 &230292284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 230292285}
+  - component: {fileID: 230292286}
+  m_Layer: 0
+  m_Name: 27310
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &230292285
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230292284}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1257050361309669923}
+  m_Father: {fileID: 675568854}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &230292286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230292284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df7e0bb9f440424790b8353e6a14018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8917849176671770737, guid: d5041847add08214e823409fa2b4a0ae, type: 3}
 --- !u!1 &246533323
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,6 +488,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -382,6 +508,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 258608631}
   m_CullTransparentMesh: 0
+--- !u!1 &333411570
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 333411571}
+  m_Layer: 0
+  m_Name: Root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &333411571
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333411570}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1291169585}
+  m_Father: {fileID: 4101523251755212616}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &675568853
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 675568854}
+  m_Layer: 0
+  m_Name: '[uNode_Temp_GraphManager]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &675568854
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675568853}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8197530}
+  - {fileID: 230292285}
+  - {fileID: 2144096249}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &751200068
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,6 +655,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1518882899}
+        m_TargetAssemblyTypeName: 
         m_MethodName: Btn_PlayGame
         m_Mode: 1
         m_Arguments:
@@ -490,6 +681,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -511,6 +704,97 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 751200068}
   m_CullTransparentMesh: 0
+--- !u!1 &805608434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 805608435}
+  - component: {fileID: 805608436}
+  m_Layer: 0
+  m_Name: Start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &805608435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805608434}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1269411675}
+  - {fileID: 1153615718}
+  m_Father: {fileID: 86207704}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &805608436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805608434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 827d96c3676c048489c7db611d9fc36c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Start
+  startNode: {fileID: 1269411674}
+  owner: {fileID: 4326506614578999634}
+  _guid: 
+  parameters: []
+  localVariable: []
+  returnType:
+    targetType: 256
+    _instanceData: 
+    odinInstanceData:
+      data: 
+      references: []
+      serializedType: 
+    odinTargetData:
+      data: 
+      references: []
+      serializedType: 
+    _name: void
+    isStatic: 1
+    startTypeName: System.Void
+    targetTypeName: 
+    autoConvertValue: 0
+    items: []
+    serializedItems: []
+    targetReference: []
+    instanceReference: []
+    typeReference: []
+    controlPoints: []
+  modifiers:
+    Public: 1
+    Private: 0
+    Protected: 0
+    Internal: 0
+    Static: 0
+    Unsafe: 0
+    Virtual: 0
+    Abstract: 0
+    Extern: 0
+    New: 0
+    Override: 0
+    Partial: 0
+    Sealed: 0
+    Async: 0
+  summary: 
+  attributes: []
+  genericParameters: []
 --- !u!1 &877964124
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,6 +847,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -588,6 +874,158 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 877964124}
   m_CullTransparentMesh: 0
+--- !u!1 &1153615717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1153615718}
+  - component: {fileID: 1153615719}
+  m_Layer: 0
+  m_Name: Node 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1153615718
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153615717}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 805608435}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1153615719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153615717}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860033a98c6660c49b6eb31d2bde9cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comment: 
+  owner: {fileID: 4326506614578999634}
+  editorRect:
+    serializedVersion: 2
+    x: 42
+    y: 29
+    width: 142
+    height: 73
+  nodeExpanded: 1
+  onFinished:
+    targetType: 0
+    _instanceData: 
+    odinInstanceData:
+      data: 
+      references: []
+      serializedType: 
+    odinTargetData:
+      data: 
+      references: []
+      serializedType: 
+    _name: 
+    isStatic: 0
+    startTypeName: 
+    targetTypeName: 
+    autoConvertValue: 0
+    items: []
+    serializedItems: []
+    targetReference: []
+    instanceReference: []
+    typeReference: []
+    controlPoints: []
+  target:
+    target:
+      targetType: 32
+      _instanceData: 
+      odinInstanceData:
+        data: 
+        references: []
+        serializedType: 
+      odinTargetData:
+        data: 
+        references: []
+        serializedType: 
+      _name: Debug.Log
+      isStatic: 1
+      startTypeName: UnityEngine.Debug
+      targetTypeName: System.Void
+      autoConvertValue: 0
+      items: []
+      serializedItems:
+      - data: 
+        references: []
+        serializedType: 
+      - data: 022f0000000001290000004d00610078007900470061006d00650073002e004d0065006d0062006500720044006100740061002b004900740065006d0044006100740061002c00200075004e006f00640065002e0043006f00720065000000000001010a00000070006100720061006d00650074006500720073002f0100000001260000004d00610078007900470061006d00650073002e0075004e006f00640065002e00540079007000650044006100740061005b005d002c00200075004e006f00640065002e0043006f007200650001000000060100000000000000022f0200000001240000004d00610078007900470061006d00650073002e0075004e006f00640065002e00540079007000650044006100740061002c00200075004e006f00640065002e0043006f0072006500020000002701040000006e0061006d006500010d000000530079007300740065006d002e004f0062006a006500630074002d010a0000007200650066006500720065006e006300650073002d010a00000070006100720061006d00650074006500720073000507052d0110000000670065006e00650072006900630041007200670075006d0065006e007400730005
+        references: []
+        serializedType: 
+      targetReference: []
+      instanceReference: []
+      typeReference: []
+      controlPoints: []
+    parameters:
+    - targetType: 2
+      _instanceData: 
+      odinInstanceData:
+        data: 
+        references: []
+        serializedType: 
+      odinTargetData:
+        data: 022f000000000117000000530079007300740065006d002e0053007400720069006e0067002c0020006d00730063006f0072006c00690062000000000028010000000005
+        references: []
+        serializedType: 
+      _name: 
+      isStatic: 0
+      startTypeName: System.String
+      targetTypeName: 
+      autoConvertValue: 0
+      items: []
+      serializedItems: []
+      targetReference: []
+      instanceReference: []
+      typeReference: []
+      controlPoints: []
+    initializer:
+      serializedType:
+        targetType: 0
+        _instanceData: 
+        odinInstanceData:
+          data: 
+          references: []
+          serializedType: 
+        odinTargetData:
+          data: 
+          references: []
+          serializedType: 
+        _name: 
+        isStatic: 0
+        startTypeName: 
+        targetTypeName: 
+        autoConvertValue: 0
+        items: []
+        serializedItems: []
+        targetReference: []
+        instanceReference: []
+        typeReference: []
+        controlPoints: []
+      Type: 
+      _odinSerializedData: 
+      listReference: []
+      _serializedData: 
 --- !u!1 &1218350300
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,6 +1118,326 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1262789038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1262789039}
+  - component: {fileID: 1262789040}
+  m_Layer: 0
+  m_Name: Node 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1262789039
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262789038}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1291169585}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1262789040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262789038}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860033a98c6660c49b6eb31d2bde9cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comment: 
+  owner: {fileID: 1687639917172885527}
+  editorRect:
+    serializedVersion: 2
+    x: 514
+    y: 202
+    width: 170
+    height: 100
+  nodeExpanded: 1
+  onFinished:
+    targetType: 0
+    _instanceData: 
+    odinInstanceData:
+      data: 
+      references: []
+      serializedType: 
+    odinTargetData:
+      data: 
+      references: []
+      serializedType: 
+    _name: 
+    isStatic: 0
+    startTypeName: 
+    targetTypeName: 
+    autoConvertValue: 0
+    items: []
+    serializedItems: []
+    targetReference: []
+    instanceReference: []
+    typeReference: []
+    controlPoints: []
+  target:
+    target:
+      targetType: 32
+      _instanceData: 
+      odinInstanceData:
+        data: 
+        references: []
+        serializedType: 
+      odinTargetData:
+        data: 
+        references: []
+        serializedType: 
+      _name: Debug.Log
+      isStatic: 1
+      startTypeName: UnityEngine.Debug
+      targetTypeName: System.Void
+      autoConvertValue: 0
+      items: []
+      serializedItems:
+      - data: 
+        references: []
+        serializedType: 
+      - data: 022f0000000001290000004d00610078007900470061006d00650073002e004d0065006d0062006500720044006100740061002b004900740065006d0044006100740061002c00200075004e006f00640065002e0043006f00720065000000000001010a00000070006100720061006d00650074006500720073002f0100000001260000004d00610078007900470061006d00650073002e0075004e006f00640065002e00540079007000650044006100740061005b005d002c00200075004e006f00640065002e0043006f007200650001000000060100000000000000022f0200000001240000004d00610078007900470061006d00650073002e0075004e006f00640065002e00540079007000650044006100740061002c00200075004e006f00640065002e0043006f0072006500020000002701040000006e0061006d006500010d000000530079007300740065006d002e004f0062006a006500630074002d010a0000007200650066006500720065006e006300650073002d010a00000070006100720061006d00650074006500720073000507052d0110000000670065006e00650072006900630041007200670075006d0065006e007400730005
+        references: []
+        serializedType: 
+      targetReference: []
+      instanceReference: []
+      typeReference: []
+      controlPoints: []
+    parameters:
+    - targetType: 2
+      _instanceData: 
+      odinInstanceData:
+        data: 
+        references: []
+        serializedType: 
+      odinTargetData:
+        data: 022f000000000117000000530079007300740065006d002e0053007400720069006e0067002c0020006d00730063006f0072006c00690062000000000028010000000005
+        references: []
+        serializedType: 
+      _name: 
+      isStatic: 0
+      startTypeName: System.String
+      targetTypeName: 
+      autoConvertValue: 0
+      items: []
+      serializedItems: []
+      targetReference: []
+      instanceReference: []
+      typeReference: []
+      controlPoints: []
+    initializer:
+      serializedType:
+        targetType: 0
+        _instanceData: 
+        odinInstanceData:
+          data: 
+          references: []
+          serializedType: 
+        odinTargetData:
+          data: 
+          references: []
+          serializedType: 
+        _name: 
+        isStatic: 0
+        startTypeName: 
+        targetTypeName: 
+        autoConvertValue: 0
+        items: []
+        serializedItems: []
+        targetReference: []
+        instanceReference: []
+        typeReference: []
+        controlPoints: []
+      Type: 
+      _odinSerializedData: 
+      listReference: []
+      _serializedData: 
+--- !u!1 &1269411673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1269411675}
+  - component: {fileID: 1269411674}
+  m_Layer: 0
+  m_Name: Start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1269411674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269411673}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d045fee2acd3dbe47ac23d39c86fd454, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comment: 
+  owner: {fileID: 4326506614578999634}
+  editorRect:
+    serializedVersion: 2
+    x: 34
+    y: -86
+    width: 149
+    height: 82
+  nodeExpanded: 1
+  Action:
+    eventList: []
+    useLevelValidation: 0
+  onFinished:
+    targetType: 524288
+    _instanceData: 
+    odinInstanceData:
+      data: 
+      references:
+      - {fileID: 1153615719}
+      serializedType: 
+    odinTargetData:
+      data: 
+      references: []
+      serializedType: 
+    _name: 2947
+    isStatic: 0
+    startTypeName: 
+    targetTypeName: 
+    autoConvertValue: 0
+    items: []
+    serializedItems: []
+    targetReference: []
+    instanceReference: []
+    typeReference: []
+    controlPoints: []
+--- !u!4 &1269411675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269411673}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 805608435}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1291169584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1291169585}
+  - component: {fileID: 1291169586}
+  m_Layer: 0
+  m_Name: Start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1291169585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291169584}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1262789039}
+  m_Father: {fileID: 333411571}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1291169586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291169584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 827d96c3676c048489c7db611d9fc36c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Start
+  startNode: {fileID: 0}
+  owner: {fileID: 1687639917172885527}
+  _guid: 
+  parameters: []
+  localVariable: []
+  returnType:
+    targetType: 256
+    _instanceData: 
+    odinInstanceData:
+      data: 
+      references: []
+      serializedType: 
+    odinTargetData:
+      data: 
+      references: []
+      serializedType: 
+    _name: void
+    isStatic: 1
+    startTypeName: System.Void
+    targetTypeName: 
+    autoConvertValue: 0
+    items: []
+    serializedItems: []
+    targetReference: []
+    instanceReference: []
+    typeReference: []
+    controlPoints: []
+  modifiers:
+    Public: 1
+    Private: 0
+    Protected: 0
+    Internal: 0
+    Static: 0
+    Unsafe: 0
+    Virtual: 0
+    Abstract: 0
+    Extern: 0
+    New: 0
+    Override: 0
+    Partial: 0
+    Sealed: 0
+    Async: 0
+  summary: 
+  attributes: []
+  genericParameters: []
 --- !u!1 &1518882898
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,6 +1636,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1518882899}
+        m_TargetAssemblyTypeName: 
         m_MethodName: Btn_QuitGame
         m_Mode: 1
         m_Arguments:
@@ -903,6 +1662,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -976,6 +1737,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1080,6 +1843,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.8483891, g: 0.8599223, b: 0.8773585, a: 0.7294118}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1101,6 +1866,203 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1982066264}
   m_CullTransparentMesh: 0
+--- !u!1 &2041611226
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2041611227}
+  - component: {fileID: 2041611228}
+  m_Layer: 0
+  m_Name: Node 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2041611227
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041611226}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2278769914103271112}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2041611228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041611226}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860033a98c6660c49b6eb31d2bde9cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comment: 
+  owner: {fileID: 4535629080692817276}
+  editorRect:
+    serializedVersion: 2
+    x: 13918
+    y: 14090
+    width: 117
+    height: 85
+  nodeExpanded: 1
+  onFinished:
+    targetType: 0
+    _instanceData: 
+    odinInstanceData:
+      data: 
+      references: []
+      serializedType: 
+    odinTargetData:
+      data: 
+      references: []
+      serializedType: 
+    _name: 
+    isStatic: 0
+    startTypeName: 
+    targetTypeName: 
+    autoConvertValue: 0
+    items: []
+    serializedItems: []
+    targetReference: []
+    instanceReference: []
+    typeReference: []
+    controlPoints: []
+  target:
+    target:
+      targetType: 32
+      _instanceData: 
+      odinInstanceData:
+        data: 
+        references: []
+        serializedType: 
+      odinTargetData:
+        data: 
+        references: []
+        serializedType: 
+      _name: Debug.Log
+      isStatic: 1
+      startTypeName: UnityEngine.Debug
+      targetTypeName: System.Void
+      autoConvertValue: 0
+      items: []
+      serializedItems:
+      - data: 
+        references: []
+        serializedType: 
+      - data: 022f0000000001290000004d00610078007900470061006d00650073002e004d0065006d0062006500720044006100740061002b004900740065006d0044006100740061002c00200075004e006f00640065002e0043006f00720065000000000001010a00000070006100720061006d00650074006500720073002f0100000001260000004d00610078007900470061006d00650073002e0075004e006f00640065002e00540079007000650044006100740061005b005d002c00200075004e006f00640065002e0043006f007200650001000000060100000000000000022f0200000001240000004d00610078007900470061006d00650073002e0075004e006f00640065002e00540079007000650044006100740061002c00200075004e006f00640065002e0043006f0072006500020000002701040000006e0061006d006500010d000000530079007300740065006d002e004f0062006a006500630074002d010a0000007200650066006500720065006e006300650073002d010a00000070006100720061006d00650074006500720073000507052d0110000000670065006e00650072006900630041007200670075006d0065006e007400730005
+        references: []
+        serializedType: 
+      targetReference: []
+      instanceReference: []
+      typeReference: []
+      controlPoints: []
+    parameters:
+    - targetType: 2
+      _instanceData: 
+      odinInstanceData:
+        data: 
+        references: []
+        serializedType: 
+      odinTargetData:
+        data: 022f000000000117000000530079007300740065006d002e0053007400720069006e0067002c0020006d00730063006f0072006c0069006200000000002801020000004800690005
+        references: []
+        serializedType: 
+      _name: 
+      isStatic: 0
+      startTypeName: System.String
+      targetTypeName: 
+      autoConvertValue: 0
+      items: []
+      serializedItems: []
+      targetReference: []
+      instanceReference: []
+      typeReference: []
+      controlPoints: []
+    initializer:
+      serializedType:
+        targetType: 0
+        _instanceData: 
+        odinInstanceData:
+          data: 
+          references: []
+          serializedType: 
+        odinTargetData:
+          data: 
+          references: []
+          serializedType: 
+        _name: 
+        isStatic: 0
+        startTypeName: 
+        targetTypeName: 
+        autoConvertValue: 0
+        items: []
+        serializedItems: []
+        targetReference: []
+        instanceReference: []
+        typeReference: []
+        controlPoints: []
+      Type: 
+      _odinSerializedData: 
+      listReference: []
+      _serializedData: 
+--- !u!1 &2144096248
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2144096249}
+  - component: {fileID: 2144096250}
+  m_Layer: 0
+  m_Name: 41800
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2144096249
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144096248}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3460449237857456306}
+  m_Father: {fileID: 675568854}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2144096250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144096248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df7e0bb9f440424790b8353e6a14018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 9207749231145797698, guid: 177f899d795591d40bfd1ad9034d9c69, type: 3}
 --- !u!1 &2144740470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,6 +2116,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1175,6 +2139,363 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2144740470}
   m_CullTransparentMesh: 0
+--- !u!4 &1257050361309669923
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5522999738638256403}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6548892780923804728}
+  m_Father: {fileID: 230292285}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1687639917172885527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7295789675504450680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 033144c4e1126334fb0a51480aea5722, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MyTestVisualScript1
+  summary: 
+  graphData:
+    unityObjects: []
+    typeName: 
+    lastSaved: 0
+    lastCompiled: 0
+    isGeneratedWithDebugMode: 0
+    debug: 0
+    debugValueNode: 1
+  _rootObject: {fileID: 333411570}
+  nodes:
+  - {fileID: 1262789040}
+  nestedTypes: {fileID: 0}
+  variable: []
+  functions:
+  - {fileID: 1291169586}
+  properties: []
+  constructors: []
+  modifier:
+    Public: 1
+    Private: 0
+    Protected: 0
+    Internal: 0
+    Abstract: 0
+    Static: 0
+    Sealed: 0
+  inheritFrom:
+    targetType: 256
+    _instanceData: 
+    odinInstanceData:
+      data: 
+      references: []
+      serializedType: 
+    odinTargetData:
+      data: 
+      references: []
+      serializedType: 
+    _name: MonoBehaviour
+    isStatic: 1
+    startTypeName: UnityEngine.MonoBehaviour
+    targetTypeName: 
+    autoConvertValue: 0
+    items: []
+    serializedItems:
+    - data: 
+      references: []
+      serializedType: 
+    targetReference: []
+    instanceReference: []
+    typeReference: []
+    controlPoints: []
+  interfaces: []
+--- !u!4 &2278769914103271112
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5107255909901470113}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 9122380294294102286}
+  - {fileID: 2041611227}
+  m_Father: {fileID: 6548892780923804728}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2474987622440024299
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3460449237857456306}
+  - component: {fileID: 4326506614578999634}
+  - component: {fileID: 2474987622440024300}
+  m_Layer: 0
+  m_Name: MyTestScript12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &2474987622440024300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2474987622440024299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 783b13a9c11737145b0893ecc32432b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delegates: []
+  enums: []
+  interfaces: []
+  generatorSettings:
+    Namespace: 
+    forceGenerateAllNode: 0
+    usingNamespace:
+    - UnityEngine
+    - System.Collections.Generic
+    resolveUnityObject: 1
+    generateNodeTwice: 1
+    publicCoroutineEvent: 1
+    fullTypeName: 0
+    fullComment: 0
+    debug: 0
+    debugValueNode: 1
+    compileScript: 1
+    convertLineEnding: 1
+--- !u!4 &3460449237857456306
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2474987622440024299}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 86207704}
+  m_Father: {fileID: 2144096249}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3965520827350052467
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6548892780923804728}
+  m_Layer: 0
+  m_Name: Root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4101523251755212616
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7295789675504450680}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 333411571}
+  m_Father: {fileID: 8197530}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4326506614578999634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2474987622440024299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 033144c4e1126334fb0a51480aea5722, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MyTestScript12
+  summary: 
+  graphData:
+    unityObjects: []
+    typeName: MyTestScript12
+    lastSaved: 0
+    lastCompiled: 0
+    isGeneratedWithDebugMode: 0
+    debug: 0
+    debugValueNode: 1
+  _rootObject: {fileID: 86207703}
+  nodes:
+  - {fileID: 1269411674}
+  - {fileID: 1153615719}
+  nestedTypes: {fileID: 0}
+  variable: []
+  functions:
+  - {fileID: 805608436}
+  properties: []
+  constructors: []
+  modifier:
+    Public: 1
+    Private: 0
+    Protected: 0
+    Internal: 0
+    Abstract: 0
+    Static: 0
+    Sealed: 0
+  inheritFrom:
+    targetType: 256
+    _instanceData: 
+    odinInstanceData:
+      data: 
+      references: []
+      serializedType: 
+    odinTargetData:
+      data: 
+      references: []
+      serializedType: 
+    _name: MonoBehaviour
+    isStatic: 1
+    startTypeName: UnityEngine.MonoBehaviour
+    targetTypeName: 
+    autoConvertValue: 0
+    items: []
+    serializedItems:
+    - data: 
+      references: []
+      serializedType: 
+    targetReference: []
+    instanceReference: []
+    typeReference: []
+    controlPoints: []
+  interfaces: []
+--- !u!114 &4535629080692817276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5522999738638256403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 033144c4e1126334fb0a51480aea5722, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MyTestVisualScript1
+  summary: 
+  graphData:
+    unityObjects: []
+    typeName: MyTestVisualScript1
+    lastSaved: 0
+    lastCompiled: 0
+    isGeneratedWithDebugMode: 0
+    debug: 0
+    debugValueNode: 1
+  _rootObject: {fileID: 3965520827350052467}
+  nodes:
+  - {fileID: 6831761619478495970}
+  - {fileID: 2041611228}
+  nestedTypes: {fileID: 0}
+  variable: []
+  functions:
+  - {fileID: 8188795862337332121}
+  properties: []
+  constructors: []
+  modifier:
+    Public: 1
+    Private: 0
+    Protected: 0
+    Internal: 0
+    Abstract: 0
+    Static: 0
+    Sealed: 0
+  inheritFrom:
+    targetType: 256
+    _instanceData: 
+    odinInstanceData:
+      data: 
+      references: []
+      serializedType: 
+    odinTargetData:
+      data: 
+      references: []
+      serializedType: 
+    _name: MonoBehaviour
+    isStatic: 1
+    startTypeName: UnityEngine.MonoBehaviour
+    targetTypeName: 
+    autoConvertValue: 0
+    items: []
+    serializedItems:
+    - data: 
+      references: []
+      serializedType: 
+    targetReference: []
+    instanceReference: []
+    typeReference: []
+    controlPoints: []
+  interfaces: []
+--- !u!1 &5107255909901470113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2278769914103271112}
+  - component: {fileID: 8188795862337332121}
+  m_Layer: 0
+  m_Name: Start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &5522999738638256403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1257050361309669923}
+  - component: {fileID: 4535629080692817276}
+  - component: {fileID: 6253762859838214076}
+  m_Layer: 0
+  m_Name: MyTestVisualScript1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1001 &6173111911225354869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1244,3 +2565,306 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a5ad77c2d3dde642bb680cfc2f070b4, type: 3}
+--- !u!114 &6253762859838214076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5522999738638256403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 783b13a9c11737145b0893ecc32432b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delegates: []
+  enums: []
+  interfaces: []
+  generatorSettings:
+    Namespace: 
+    forceGenerateAllNode: 0
+    usingNamespace:
+    - UnityEngine
+    - System.Collections.Generic
+    resolveUnityObject: 1
+    generateNodeTwice: 1
+    publicCoroutineEvent: 1
+    fullTypeName: 0
+    fullComment: 0
+    debug: 0
+    debugValueNode: 1
+    compileScript: 1
+    convertLineEnding: 1
+--- !u!4 &6548892780923804728
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3965520827350052467}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2278769914103271112}
+  m_Father: {fileID: 1257050361309669923}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6831761619478495970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7091284314097201427}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860033a98c6660c49b6eb31d2bde9cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comment: 
+  owner: {fileID: 4535629080692817276}
+  editorRect:
+    serializedVersion: 2
+    x: 514
+    y: 202
+    width: 170
+    height: 100
+  nodeExpanded: 1
+  onFinished:
+    targetType: 0
+    _instanceData: 
+    odinInstanceData:
+      data: 
+      references: []
+      serializedType: 
+    odinTargetData:
+      data: 
+      references: []
+      serializedType: 
+    _name: 
+    isStatic: 0
+    startTypeName: 
+    targetTypeName: 
+    autoConvertValue: 0
+    items: []
+    serializedItems: []
+    targetReference: []
+    instanceReference: []
+    typeReference: []
+    controlPoints: []
+  target:
+    target:
+      targetType: 32
+      _instanceData: 
+      odinInstanceData:
+        data: 
+        references: []
+        serializedType: 
+      odinTargetData:
+        data: 
+        references: []
+        serializedType: 
+      _name: Debug.Log
+      isStatic: 1
+      startTypeName: UnityEngine.Debug
+      targetTypeName: System.Void
+      autoConvertValue: 0
+      items: []
+      serializedItems:
+      - data: 
+        references: []
+        serializedType: 
+      - data: 022f0000000001290000004d00610078007900470061006d00650073002e004d0065006d0062006500720044006100740061002b004900740065006d0044006100740061002c00200075004e006f00640065002e0043006f00720065000000000001010a00000070006100720061006d00650074006500720073002f0100000001260000004d00610078007900470061006d00650073002e0075004e006f00640065002e00540079007000650044006100740061005b005d002c00200075004e006f00640065002e0043006f007200650001000000060100000000000000022f0200000001240000004d00610078007900470061006d00650073002e0075004e006f00640065002e00540079007000650044006100740061002c00200075004e006f00640065002e0043006f0072006500020000002701040000006e0061006d006500010d000000530079007300740065006d002e004f0062006a006500630074002d010a0000007200650066006500720065006e006300650073002d010a00000070006100720061006d00650074006500720073000507052d0110000000670065006e00650072006900630041007200670075006d0065006e007400730005
+        references: []
+        serializedType: 
+      targetReference: []
+      instanceReference: []
+      typeReference: []
+      controlPoints: []
+    parameters:
+    - targetType: 2
+      _instanceData: 
+      odinInstanceData:
+        data: 
+        references: []
+        serializedType: 
+      odinTargetData:
+        data: 022f000000000117000000530079007300740065006d002e0053007400720069006e0067002c0020006d00730063006f0072006c00690062000000000028010000000005
+        references: []
+        serializedType: 
+      _name: 
+      isStatic: 0
+      startTypeName: System.String
+      targetTypeName: 
+      autoConvertValue: 0
+      items: []
+      serializedItems: []
+      targetReference: []
+      instanceReference: []
+      typeReference: []
+      controlPoints: []
+    initializer:
+      serializedType:
+        targetType: 0
+        _instanceData: 
+        odinInstanceData:
+          data: 
+          references: []
+          serializedType: 
+        odinTargetData:
+          data: 
+          references: []
+          serializedType: 
+        _name: 
+        isStatic: 0
+        startTypeName: 
+        targetTypeName: 
+        autoConvertValue: 0
+        items: []
+        serializedItems: []
+        targetReference: []
+        instanceReference: []
+        typeReference: []
+        controlPoints: []
+      Type: 
+      _odinSerializedData: 
+      listReference: []
+      _serializedData: 
+--- !u!1 &7091284314097201427
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9122380294294102286}
+  - component: {fileID: 6831761619478495970}
+  m_Layer: 0
+  m_Name: Node 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &7295789675504450680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4101523251755212616}
+  - component: {fileID: 1687639917172885527}
+  - component: {fileID: 7295789675504450681}
+  m_Layer: 0
+  m_Name: UCCMainCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &7295789675504450681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7295789675504450680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 783b13a9c11737145b0893ecc32432b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delegates: []
+  enums: []
+  interfaces: []
+  generatorSettings:
+    Namespace: 
+    forceGenerateAllNode: 0
+    usingNamespace:
+    - UnityEngine
+    - System.Collections.Generic
+    resolveUnityObject: 1
+    generateNodeTwice: 1
+    publicCoroutineEvent: 1
+    fullTypeName: 0
+    fullComment: 0
+    debug: 0
+    debugValueNode: 1
+    compileScript: 1
+    convertLineEnding: 1
+--- !u!114 &8188795862337332121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5107255909901470113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 827d96c3676c048489c7db611d9fc36c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Start
+  startNode: {fileID: 2041611228}
+  owner: {fileID: 4535629080692817276}
+  _guid: 
+  parameters: []
+  localVariable: []
+  returnType:
+    targetType: 256
+    _instanceData: 
+    odinInstanceData:
+      data: 
+      references: []
+      serializedType: 
+    odinTargetData:
+      data: 
+      references: []
+      serializedType: 
+    _name: void
+    isStatic: 1
+    startTypeName: System.Void
+    targetTypeName: 
+    autoConvertValue: 0
+    items: []
+    serializedItems: []
+    targetReference: []
+    instanceReference: []
+    typeReference: []
+    controlPoints: []
+  modifiers:
+    Public: 1
+    Private: 0
+    Protected: 0
+    Internal: 0
+    Static: 0
+    Unsafe: 0
+    Virtual: 0
+    Abstract: 0
+    Extern: 0
+    New: 0
+    Override: 0
+    Partial: 0
+    Sealed: 0
+    Async: 0
+  summary: 
+  attributes: []
+  genericParameters: []
+--- !u!4 &9122380294294102286
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7091284314097201427}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2278769914103271112}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

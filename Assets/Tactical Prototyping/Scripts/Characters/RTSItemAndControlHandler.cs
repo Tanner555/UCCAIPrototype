@@ -462,7 +462,7 @@ namespace RTSPrototype
         #region RPGInventoryToTPC
         void SetEquippedItem(ItemType _type)
         {
-            Item _itemToEquip = myInventory.GetItem(0, _type);
+            Item _itemToEquip = myInventory.GetItem(_type, 0);
             var _currentEquippedItem = myInventory.GetActiveItem(0);
 
             if (_currentEquippedItem == null || (_currentEquippedItem != null && 

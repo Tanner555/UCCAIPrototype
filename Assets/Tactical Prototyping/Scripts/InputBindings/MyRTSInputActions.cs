@@ -314,7 +314,7 @@ namespace RTSPrototype
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""Axis"",
+                    ""name"": ""Keyboard Axis"",
                     ""id"": ""5ced975e-b7d9-406c-bc01-ea3112e985be"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",

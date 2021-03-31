@@ -24,6 +24,14 @@
 /Assets/LPPreview.meta
 # Node Canvas
 /Assets/ParadoxNotion
+# UNode
+/Assets/uNode
+/Assets/uNode.meta
+uNodeData
+TempScript
+# UAlive
+/Assets/UAlive
+/Assets/UAlive.meta
 # Behavior Designer
 /Assets/Behavior Designer
 /Assets/Behavior Designer.meta
